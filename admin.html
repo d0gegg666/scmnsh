@@ -237,7 +237,7 @@ table .mini-input:focus{border-color:#C41230;}
 <div class="page" id="page-footer"><div class="card"><div class="card-header"><i class="fa fa-cog"></i> 网站信息与联系方式</div>
 <div class="form-row"><div class="form-group"><label>网站标题</label><input class="form-control" id="ft-title"></div><div class="form-group"><label>关键词</label><input class="form-control" id="ft-keywords"></div></div>
 <div class="form-group"><label>网站描述</label><textarea class="form-control" id="ft-desc" rows="2"></textarea></div>
-<div class="form-row"><div class="form-group"><label>页脚 Logo</label><div style="display:flex;gap:8px;"><input class="form-control" id="ft-logo" style="flex:1;"><button class="btn btn-outline btn-sm" onclick="uploadToField('ft-logo')" style="white-space:nowrap;"><i class="fa fa-upload"></i> 本地上传</button></div></div><div class="form-group"><label>联系标语</label><input class="form-control" id="ft-slogan"></div></div>
+<div class="form-row"><div class="form-group"><label>网站 Logo（顶部导航栏）</label><div style="display:flex;gap:8px;"><input class="form-control" id="ft-header-logo" style="flex:1;"><button class="btn btn-outline btn-sm" onclick="uploadToField('ft-header-logo')" style="white-space:nowrap;"><i class="fa fa-upload"></i> 本地上传</button></div></div><div class="form-group"><label>页脚 Logo</label><div style="display:flex;gap:8px;"><input class="form-control" id="ft-logo" style="flex:1;"><button class="btn btn-outline btn-sm" onclick="uploadToField('ft-logo')" style="white-space:nowrap;"><i class="fa fa-upload"></i> 本地上传</button></div></div><div class="form-group"><label>联系标语</label><input class="form-control" id="ft-slogan"></div></div>
 <div class="form-row"><div class="form-group"><label>邮箱</label><input class="form-control" id="ft-email"></div><div class="form-group"><label>电话</label><input class="form-control" id="ft-phone"></div></div>
 <div class="form-row"><div class="form-group"><label>地址</label><input class="form-control" id="ft-addr"></div><div class="form-group"><label>ICP备案号</label><input class="form-control" id="ft-icp"></div></div>
 <div class="form-group"><label>版权文字</label><input class="form-control" id="ft-copyright"></div>
@@ -264,7 +264,7 @@ honors:[],milestones:[],committees:[],
 party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[]},
 news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
 joinus:{title:'加入我们',req:'',process:'',contact:''},
-footer:{title:'四川省闽南商会',keywords:'',desc:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
+footer:{title:'四川省闽南商会',keywords:'',desc:'',headerLogo:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
 };}
 function L(){try{var r=localStorage.getItem(SK);if(r){var d=JSON.parse(r),df=defData();for(var k in df)if(!(k in d))d[k]=df[k];return d}}catch(e){}return defData();}
 function S(d){localStorage.setItem(SK,JSON.stringify(d));}
@@ -483,8 +483,8 @@ refreshApps();T('导入成功，已合并数据');
 }
 
 // ==================== 联系方式 ====================
-function renderFooter(d){var f=d.footer;document.getElementById('ft-title').value=f.title||'';document.getElementById('ft-keywords').value=f.keywords||'';document.getElementById('ft-desc').value=f.desc||'';document.getElementById('ft-logo').value=f.logo||'';document.getElementById('ft-slogan').value=f.slogan||'';document.getElementById('ft-email').value=f.email||'';document.getElementById('ft-phone').value=f.phone||'';document.getElementById('ft-addr').value=f.addr||'';document.getElementById('ft-icp').value=f.icp||'';document.getElementById('ft-copyright').value=f.copyright||'';}
-function saveFooter(){var d=L();var f=d.footer;f.title=document.getElementById('ft-title').value;f.keywords=document.getElementById('ft-keywords').value;f.desc=document.getElementById('ft-desc').value;f.logo=document.getElementById('ft-logo').value;f.slogan=document.getElementById('ft-slogan').value;f.email=document.getElementById('ft-email').value;f.phone=document.getElementById('ft-phone').value;f.addr=document.getElementById('ft-addr').value;f.icp=document.getElementById('ft-icp').value;f.copyright=document.getElementById('ft-copyright').value;S(d);T('联系方式已保存');}
+function renderFooter(d){var f=d.footer;document.getElementById('ft-title').value=f.title||'';document.getElementById('ft-keywords').value=f.keywords||'';document.getElementById('ft-desc').value=f.desc||'';document.getElementById('ft-header-logo').value=f.headerLogo||'';document.getElementById('ft-logo').value=f.logo||'';document.getElementById('ft-slogan').value=f.slogan||'';document.getElementById('ft-email').value=f.email||'';document.getElementById('ft-phone').value=f.phone||'';document.getElementById('ft-addr').value=f.addr||'';document.getElementById('ft-icp').value=f.icp||'';document.getElementById('ft-copyright').value=f.copyright||'';}
+function saveFooter(){var d=L();var f=d.footer;f.title=document.getElementById('ft-title').value;f.keywords=document.getElementById('ft-keywords').value;f.desc=document.getElementById('ft-desc').value;f.headerLogo=document.getElementById('ft-header-logo').value;f.logo=document.getElementById('ft-logo').value;f.slogan=document.getElementById('ft-slogan').value;f.email=document.getElementById('ft-email').value;f.phone=document.getElementById('ft-phone').value;f.addr=document.getElementById('ft-addr').value;f.icp=document.getElementById('ft-icp').value;f.copyright=document.getElementById('ft-copyright').value;S(d);T('联系方式已保存');}
 
 // ==================== 导入导出与发布 ====================
 // 本地上传到指定表单字段

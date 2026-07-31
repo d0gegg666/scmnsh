@@ -104,7 +104,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <body>
 <header class="header">
 <div class="head-box">
-<div class="head-logo"><a href="index.html">四川省闽南商会<small>SICHUAN MINNAN CHAMBER OF COMMERCE</small></a></div>
+<div class="head-logo"><a href="index.html"><img src="" alt="四川省闽南商会" id="headerLogo" style="height:50px;"></a></div>
 <nav class="top-menu"><ul>
 <span><li><a href="index.html">首页</a></li></span>
 <span><li><a href="about.html">关于商会</a></li>
@@ -228,6 +228,7 @@ if(d&&d.footer){
 var f=d.footer;
 var set=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
 set('ft-slogan',f.slogan);set('ft-email',f.email);set('ft-addr',f.addr);
+if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
 set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
 })();

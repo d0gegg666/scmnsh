@@ -17,7 +17,7 @@ window.__CMS_DATA__ = {
   "joinus": { "title": "加入我们", "req": "", "process": "", "contact": "" },
   "footer": {
     "title": "四川省闽南商会", "keywords": "", "desc": "",
-    "logo": "", "slogan": "如果您有需求，请联系我们；我们将竭诚为您服务！",
+    "headerLogo": "", "logo": "", "slogan": "如果您有需求，请联系我们；我们将竭诚为您服务！",
     "email": "", "addr": "", "phone": "", "icp": "",
     "copyright": "Copyright © 四川省闽南商会 All Rights Reserved"
   }
