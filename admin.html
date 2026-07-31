@@ -1,776 +1,444 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>四川省闽南商会 - 管理后台</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#C41230',
-                        'primary-dark': '#8B1A2B',
-                        gold: '#C9A84C',
-                        'gold-light': '#F5E6C8',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: "Microsoft YaHei","微软雅黑",Arial,sans-serif; background:#f1f2f6; }
-        .sidebar { width:220px; height:100vh; position:fixed; left:0; top:0; background:linear-gradient(180deg, #1A1A1A 0%, #2D2D2D 100%); z-index:100; overflow-y:auto; transition:transform 0.3s; }
-        .sidebar .logo { padding:20px; text-align:center; border-bottom:1px solid #333; }
-        .sidebar .logo h3 { color:#fff; font-size:16px; margin:0; }
-        .sidebar .logo small { color:#C9A84C; font-size:10px; }
-        .sidebar nav { padding:10px 0; }
-        .sidebar nav .nav-group { padding:16px 20px 6px; color:#666; font-size:11px; text-transform:uppercase; letter-spacing:2px; }
-        .sidebar nav a { display:flex; align-items:center; gap:10px; padding:12px 20px; color:#AAA; text-decoration:none; font-size:14px; transition:all 0.2s; border-left:3px solid transparent; }
-        .sidebar nav a:hover, .sidebar nav a.active { color:#fff; background:rgba(196,18,48,0.2); border-left-color:#C41230; }
-        .sidebar nav a i { width:18px; text-align:center; }
-        .main { margin-left:220px; min-height:100vh; }
-        .topbar { background:#fff; padding:0 24px; height:56px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 1px 4px rgba(0,0,0,0.06); position:sticky; top:0; z-index:99; }
-        .topbar .user-info { display:flex; align-items:center; gap:10px; }
-        .topbar .user-info .avatar { width:34px; height:34px; border-radius:50%; background:#C41230; color:#fff; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:600; }
-        .content { padding:24px; }
-        .card { background:#fff; border-radius:10px; padding:24px; margin-bottom:20px; box-shadow:0 1px 6px rgba(0,0,0,0.04); }
-        .card-header { font-size:16px; font-weight:600; color:#333; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid #EEE; display:flex; align-items:center; gap:8px; }
-        .card-header i { color:#C41230; }
-        .btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:6px; font-size:13px; cursor:pointer; border:none; transition:all 0.2s; text-decoration:none; }
-        .btn-primary { background:#C41230; color:#fff; }
-        .btn-primary:hover { background:#8B1A2B; }
-        .btn-gold { background:#C9A84C; color:#fff; }
-        .btn-gold:hover { background:#A68A34; }
-        .btn-outline { background:#fff; color:#C41230; border:1px solid #C41230; }
-        .btn-outline:hover { background:#FEF5F5; }
-        .btn-sm { padding:5px 10px; font-size:12px; }
-        .btn-danger { background:#E74C3C; color:#fff; }
-        .btn-danger:hover { background:#C0392B; }
-        .form-group { margin-bottom:16px; }
-        .form-group label { display:block; font-size:13px; font-weight:600; color:#555; margin-bottom:6px; }
-        .form-control { width:100%; padding:10px 14px; border:2px solid #E8E8E8; border-radius:6px; font-size:14px; outline:none; transition:border-color 0.2s; font-family:inherit; resize:vertical; }
-        .form-control:focus { border-color:#C41230; }
-        textarea.form-control { min-height:100px; }
-        .form-row { display:flex; gap:16px; flex-wrap:wrap; }
-        .form-row > * { flex:1; min-width:200px; }
-        .table-wrap { overflow-x:auto; }
-        table { width:100%; border-collapse:collapse; font-size:13px; }
-        table th { background:#FAFAFA; padding:12px 14px; text-align:left; font-weight:600; color:#555; border-bottom:2px solid #E8E8E8; white-space:nowrap; }
-        table td { padding:12px 14px; border-bottom:1px solid #F0F0F0; }
-        table tbody tr:hover { background:#FEF5F5; }
-        .badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:600; }
-        .badge-success { background:#E8F5E9; color:#2E7D32; }
-        .badge-warning { background:#FFF8E1; color:#F57F17; }
-        .stat-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:16px; margin-bottom:24px; }
-        .stat-card { background:#fff; border-radius:10px; padding:20px; box-shadow:0 1px 6px rgba(0,0,0,0.04); display:flex; align-items:center; gap:16px; }
-        .stat-card .icon { width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; }
-        .stat-card .icon.red { background:#FEF0F0; color:#C41230; }
-        .stat-card .icon.gold { background:#FFF8E1; color:#C9A84C; }
-        .stat-card .icon.blue { background:#E3F2FD; color:#1976D2; }
-        .stat-card .icon.green { background:#E8F5E9; color:#388E3C; }
-        .stat-card .num { font-size:28px; font-weight:800; color:#333; }
-        .stat-card .label { font-size:12px; color:#999; }
-        .image-upload { border:2px dashed #DDD; border-radius:8px; padding:24px; text-align:center; cursor:pointer; transition:all 0.2s; position:relative; min-height:100px; }
-        .image-upload:hover { border-color:#C41230; background:#FEF5F5; }
-        .image-upload img { max-width:100%; max-height:200px; border-radius:6px; }
-        .image-upload .placeholder { color:#AAA; font-size:30px; margin-bottom:8px; }
-        .image-upload .placeholder p { font-size:13px; }
-        .toast { position:fixed; top:20px; right:20px; z-index:9999; padding:14px 20px; border-radius:8px; color:#fff; font-size:14px; opacity:0; transform:translateY(-20px); transition:all 0.3s; pointer-events:none; }
-        .toast.show { opacity:1; transform:translateY(0); }
-        .toast.success { background:#2E7D32; }
-        .toast.error { background:#C62828; }
-        .page { display:none; }
-        .page.active { display:block; }
-        .empty-state { text-align:center; padding:40px; color:#AAA; }
-        .empty-state i { font-size:48px; margin-bottom:12px; display:block; }
-        .mobile-toggle { display:none; }
-        @media (max-width:768px) {
-            .sidebar { transform:translateX(-220px); }
-            .sidebar.open { transform:translateX(0); }
-            .main { margin-left:0; }
-            .mobile-toggle { display:flex; }
-            .form-row > * { min-width:100%; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四川省闽南商会 - 管理后台</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#C41230','primary-dark':'#8B1A2B',gold:'#C9A84C','gold-light':'#F5E6C8'}}}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f1f2f6;}
+.sidebar{width:220px;height:100vh;position:fixed;left:0;top:0;background:linear-gradient(180deg,#1A1A1A 0%,#2D2D2D 100%);z-index:100;overflow-y:auto;transition:transform 0.3s;}
+.sidebar .logo{padding:20px;text-align:center;border-bottom:1px solid #333;}
+.sidebar .logo h3{color:#fff;font-size:15px;margin:0;}
+.sidebar .logo small{color:#C9A84C;font-size:10px;}
+.sidebar nav{padding:10px 0 80px;}
+.sidebar nav .nav-group{padding:16px 20px 6px;color:#555;font-size:11px;text-transform:uppercase;letter-spacing:2px;}
+.sidebar nav a{display:flex;align-items:center;gap:10px;padding:11px 20px;color:#AAA;text-decoration:none;font-size:13px;transition:all 0.2s;border-left:3px solid transparent;}
+.sidebar nav a:hover,.sidebar nav a.active{color:#fff;background:rgba(196,18,48,0.2);border-left-color:#C41230;}
+.sidebar nav a i{width:16px;text-align:center;}
+.main{margin-left:220px;min-height:100vh;}
+.topbar{background:#fff;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,0.06);position:sticky;top:0;z-index:99;}
+.topbar .user-info{display:flex;align-items:center;gap:10px;font-size:13px;color:#666;}
+.topbar .avatar{width:34px;height:34px;border-radius:50%;background:#C41230;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;}
+.content{padding:24px;}
+.card{background:#fff;border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 1px 6px rgba(0,0,0,0.04);}
+.card-header{font-size:16px;font-weight:600;color:#333;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #EEE;display:flex;align-items:center;gap:8px;}
+.card-header i{color:#C41230;}
+.card-header .tip{color:#999;font-size:12px;margin-left:8px;font-weight:400;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;font-size:13px;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;font-family:inherit;}
+.btn-primary{background:#C41230;color:#fff;}.btn-primary:hover{background:#8B1A2B;}
+.btn-gold{background:#C9A84C;color:#fff;}.btn-gold:hover{background:#A68A34;}
+.btn-outline{background:#fff;color:#C41230;border:1px solid #C41230;}.btn-outline:hover{background:#FEF5F5;}
+.btn-sm{padding:5px 10px;font-size:12px;}
+.btn-danger{background:#E74C3C;color:#fff;}.btn-danger:hover{background:#C0392B;}
+.btn-success{background:#27AE60;color:#fff;}.btn-success:hover{background:#1E8449;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:#555;margin-bottom:6px;}
+.form-control{width:100%;padding:10px 14px;border:2px solid #E8E8E8;border-radius:6px;font-size:14px;outline:none;transition:border-color 0.2s;font-family:inherit;resize:vertical;}
+.form-control:focus{border-color:#C41230;}
+textarea.form-control{min-height:90px;}
+.form-row{display:flex;gap:16px;flex-wrap:wrap;}.form-row>*{flex:1;min-width:180px;}
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+table th{background:#FAFAFA;padding:10px 12px;text-align:left;font-weight:600;color:#555;border-bottom:2px solid #E8E8E8;white-space:nowrap;}
+table td{padding:10px 12px;border-bottom:1px solid #F0F0F0;}
+table tbody tr:hover{background:#FEF5F5;}
+table .mini-input{width:100%;padding:6px 8px;border:1px solid #E0E0E0;border-radius:4px;font-size:12px;font-family:inherit;outline:none;}
+table .mini-input:focus{border-color:#C41230;}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
+.badge-success{background:#E8F5E9;color:#2E7D32;}
+.badge-warning{background:#FFF8E1;color:#F57F17;}
+.badge-info{background:#E3F2FD;color:#1976D2;}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:24px;}
+.stat-card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 6px rgba(0,0,0,0.04);display:flex;align-items:center;gap:14px;}
+.stat-card .icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.stat-card .icon.red{background:#FEF0F0;color:#C41230;}.stat-card .icon.gold{background:#FFF8E1;color:#C9A84C;}
+.stat-card .icon.blue{background:#E3F2FD;color:#1976D2;}.stat-card .icon.green{background:#E8F5E9;color:#388E3C;}
+.stat-card .icon.purple{background:#F3E5F5;color:#7B1FA2;}
+.stat-card .num{font-size:24px;font-weight:800;color:#333;}.stat-card .label{font-size:11px;color:#999;}
+.page{display:none;}.page.active{display:block;}
+.empty-state{text-align:center;padding:36px;color:#BBB;}
+.empty-state i{font-size:40px;margin-bottom:8px;display:block;}
+.empty-state p{font-size:13px;}
+.toast{position:fixed;top:20px;right:20px;z-index:9999;padding:14px 20px;border-radius:8px;color:#fff;font-size:14px;opacity:0;transform:translateY(-20px);transition:all 0.3s;pointer-events:none;}
+.toast.show{opacity:1;transform:translateY(0);}
+.toast.success{background:#2E7D32;}.toast.error{background:#C62828;}
+.mobile-toggle{display:none;}
+.preview-img{max-width:120px;max-height:60px;border-radius:4px;border:1px solid #EEE;}
+@media(max-width:768px){
+.sidebar{transform:translateX(-220px);}.sidebar.open{transform:translateX(0);}
+.main{margin-left:0;}.mobile-toggle{display:flex;}.form-row>*{min-width:100%;}
+}
+</style>
 </head>
 <body>
 
-<!-- 侧边栏 -->
 <div class="sidebar" id="sidebar">
-    <div class="logo">
-        <h3>闽南商会后台</h3>
-        <small>SICHUAN MINNAN CMS</small>
-    </div>
-    <nav>
-        <div class="nav-group">主菜单</div>
-        <a href="#" data-page="dashboard" class="active"><i class="fa fa-dashboard"></i> 控制台</a>
-        <a href="#" data-page="banner"><i class="fa fa-image"></i> Banner 管理</a>
-        <a href="#" data-page="about"><i class="fa fa-info-circle"></i> 商会简介</a>
-        <a href="#" data-page="services"><i class="fa fa-cubes"></i> 服务领域</a>
-        <div class="nav-group">内容管理</div>
-        <a href="#" data-page="news"><i class="fa fa-newspaper-o"></i> 商会新闻</a>
-        <a href="#" data-page="biznews"><i class="fa fa-bullhorn"></i> 会企资讯</a>
-        <a href="#" data-page="partners"><i class="fa fa-handshake-o"></i> 商务合作</a>
-        <div class="nav-group">设置</div>
-        <a href="#" data-page="footer"><i class="fa fa-cog"></i> 联系方式</a>
-        <a href="#" onclick="logout()"><i class="fa fa-sign-out"></i> 退出登录</a>
-    </nav>
+<div class="logo"><h3>闽南商会后台</h3><small>SICHUAN MINNAN CMS</small></div>
+<nav>
+<div class="nav-group">主菜单</div>
+<a href="#" data-page="dashboard" class="active"><i class="fa fa-dashboard"></i> 控制台</a>
+<div class="nav-group">商会管理</div>
+<a href="#" data-page="banner"><i class="fa fa-image"></i> Banner 轮播</a>
+<a href="#" data-page="about"><i class="fa fa-info-circle"></i> 商会简介</a>
+<a href="#" data-page="leadership"><i class="fa fa-users"></i> 领导班子</a>
+<a href="#" data-page="president"><i class="fa fa-quote-right"></i> 会长寄语</a>
+<a href="#" data-page="honors"><i class="fa fa-trophy"></i> 荣誉历程</a>
+<a href="#" data-page="milestones"><i class="fa fa-history"></i> 大事记</a>
+<a href="#" data-page="committees"><i class="fa fa-sitemap"></i> 专委会</a>
+<div class="nav-group">党建管理</div>
+<a href="#" data-page="party"><i class="fa fa-flag"></i> 党委党建</a>
+<div class="nav-group">资讯管理</div>
+<a href="#" data-page="news"><i class="fa fa-newspaper-o"></i> 商会新闻</a>
+<a href="#" data-page="biznews"><i class="fa fa-bullhorn"></i> 会企资讯</a>
+<div class="nav-group">合作与服务</div>
+<a href="#" data-page="services"><i class="fa fa-cubes"></i> 服务领域</a>
+<a href="#" data-page="partners"><i class="fa fa-handshake-o"></i> 商务合作</a>
+<a href="#" data-page="strategy"><i class="fa fa-star"></i> 战略伙伴</a>
+<div class="nav-group">页面管理</div>
+<a href="#" data-page="joinus"><i class="fa fa-user-plus"></i> 加入我们</a>
+<a href="#" data-page="footer"><i class="fa fa-cog"></i> 联系方式</a>
+<a href="#" onclick="logout()"><i class="fa fa-sign-out"></i> 退出登录</a>
+</nav>
 </div>
 
-<!-- 主区域 -->
 <div class="main">
-    <div class="topbar">
-        <button class="btn btn-outline btn-sm mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div></div>
-        <div class="user-info">
-            <span style="font-size:13px;color:#666;" id="loginName">管理员</span>
-            <div class="avatar">管</div>
-        </div>
-    </div>
-    <div class="content">
-
-        <!-- ==================== 控制台 ==================== -->
-        <div class="page active" id="page-dashboard">
-            <h2 style="font-size:20px;margin-bottom:20px;">控制台概览</h2>
-            <div class="stat-grid">
-                <div class="stat-card"><div class="icon red"><i class="fa fa-image"></i></div><div><div class="num" id="stat-banner">0</div><div class="label">Banner 图片</div></div></div>
-                <div class="stat-card"><div class="icon gold"><i class="fa fa-cubes"></i></div><div><div class="num" id="stat-services">0</div><div class="label">服务项目</div></div></div>
-                <div class="stat-card"><div class="icon blue"><i class="fa fa-newspaper-o"></i></div><div><div class="num" id="stat-news">0</div><div class="label">商会新闻</div></div></div>
-                <div class="stat-card"><div class="icon green"><i class="fa fa-handshake-o"></i></div><div><div class="num" id="stat-partners">0</div><div class="label">合作伙伴</div></div></div>
-            </div>
-            <div class="card" style="border:2px solid #C41230;">
-                <div class="card-header"><i class="fa fa-info-circle"></i> 使用说明</div>
-                <p style="color:#666;line-height:2;font-size:14px;">
-                    ① 通过左侧菜单编辑各板块内容 → <b>自动保存</b><br>
-                    ② 编辑完成后 → 点击下方 <b style="color:#C41230;">「发布网站」</b> 按钮下载 <code>data.js</code><br>
-                    ③ 将 <code>index.html</code> + <code>data.js</code> 一起上传到任意服务器即可公网访问
-                </p>
-                <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-                    <button class="btn btn-primary" onclick="publishSite()" style="font-size:15px;padding:12px 28px;font-weight:600;">
-                        <i class="fa fa-cloud-upload"></i> 发布网站（生成 data.js）
-                    </button>
-                    <span style="color:#999;font-size:12px;">↑ 上传此文件到服务器</span>
-                </div>
-                <hr style="margin:16px 0;border-color:#EEE;">
-                <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                    <button class="btn btn-outline btn-sm" onclick="exportData()"><i class="fa fa-download"></i> 备份数据 (JSON)</button>
-                    <button class="btn btn-outline btn-sm" onclick="document.getElementById('importFile').click()"><i class="fa fa-upload"></i> 恢复备份</button>
-                    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
-                    <button class="btn btn-danger btn-sm" onclick="if(confirm('确定要清空所有数据吗？此操作不可恢复！')){clearAllData();}"><i class="fa fa-trash"></i> 清空所有数据</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== Banner 管理 ==================== -->
-        <div class="page" id="page-banner">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-image"></i> Banner 轮播图管理 <span style="color:#999;font-size:12px;margin-left:8px;">（建议尺寸：1920×520px）</span></div>
-                <div id="banner-list"></div>
-                <button class="btn btn-primary" onclick="addBanner()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加 Banner</button>
-            </div>
-        </div>
-
-        <!-- ==================== 商会简介 ==================== -->
-        <div class="page" id="page-about">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-info-circle"></i> 商会简介</div>
-                <div class="form-group"><label>英文副标题</label><input class="form-control" id="about-en" placeholder="ABOUT US"></div>
-                <div class="form-group"><label>中文标题</label><input class="form-control" id="about-cn" placeholder="了解商会"></div>
-                <div class="form-group"><label>简介图片 URL</label><input class="form-control" id="about-img" placeholder="图片链接地址"></div>
-                <div class="form-group"><label>简介内容（段落1）</label><textarea class="form-control" id="about-p1" rows="3"></textarea></div>
-                <div class="form-group"><label>简介内容（段落2）</label><textarea class="form-control" id="about-p2" rows="3"></textarea></div>
-                <div class="form-group"><label>"查看更多" 按钮链接</label><input class="form-control" id="about-link" placeholder="#"></div>
-            </div>
-            <div class="card">
-                <div class="card-header"><i class="fa fa-bar-chart"></i> 数据统计</div>
-                <div id="stats-list"></div>
-                <button class="btn btn-primary" onclick="addStat()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加统计项</button>
-            </div>
-            <button class="btn btn-primary" onclick="saveAbout()"><i class="fa fa-save"></i> 保存商会简介</button>
-        </div>
-
-        <!-- ==================== 服务领域 ==================== -->
-        <div class="page" id="page-services">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-cubes"></i> 服务领域</div>
-                <div class="form-group"><label>服务板块描述</label><textarea class="form-control" id="svc-desc" rows="2"></textarea></div>
-                <div id="services-list"></div>
-                <button class="btn btn-primary" onclick="addService()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加服务</button>
-            </div>
-            <button class="btn btn-primary" onclick="saveServices()"><i class="fa fa-save"></i> 保存服务板块</button>
-        </div>
-
-        <!-- ==================== 商会新闻 ==================== -->
-        <div class="page" id="page-news">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-newspaper-o"></i> 商会新闻管理 <span style="color:#999;font-size:12px;margin-left:8px;">（左侧大图+右侧列表布局，第1条为左侧大图）</span></div>
-                <div id="news-list"></div>
-                <button class="btn btn-primary" onclick="addNews('news')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加商会新闻</button>
-            </div>
-            <button class="btn btn-primary" onclick="saveNews('news')"><i class="fa fa-save"></i> 保存商会新闻</button>
-        </div>
-
-        <!-- ==================== 会企资讯 ==================== -->
-        <div class="page" id="page-biznews">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-bullhorn"></i> 会企资讯管理 <span style="color:#999;font-size:12px;margin-left:8px;">（左侧大图+右侧列表布局，第1条为左侧大图）</span></div>
-                <div id="biznews-list"></div>
-                <button class="btn btn-primary" onclick="addNews('biznews')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加会企资讯</button>
-            </div>
-            <button class="btn btn-primary" onclick="saveNews('biznews')"><i class="fa fa-save"></i> 保存会企资讯</button>
-        </div>
-
-        <!-- ==================== 商务合作 ==================== -->
-        <div class="page" id="page-partners">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-handshake-o"></i> 商务合作（合作伙伴 Logo）</div>
-                <div id="partners-list"></div>
-                <button class="btn btn-primary" onclick="addPartner()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加合作伙伴</button>
-            </div>
-            <button class="btn btn-primary" onclick="savePartners()"><i class="fa fa-save"></i> 保存商务合作</button>
-        </div>
-
-        <!-- ==================== 联系方式 ==================== -->
-        <div class="page" id="page-footer">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-cog"></i> 网站信息与联系方式</div>
-                <div class="form-group"><label>网站标题</label><input class="form-control" id="site-title" placeholder="四川省闽南商会"></div>
-                <div class="form-group"><label>网站关键词</label><input class="form-control" id="site-keywords" placeholder="四川省闽南商会,闽南商会,四川闽商"></div>
-                <div class="form-group"><label>网站描述</label><textarea class="form-control" id="site-desc" rows="2"></textarea></div>
-                <div class="form-group"><label>页脚 Logo URL</label><input class="form-control" id="footer-logo" placeholder="Logo 图片链接"></div>
-                <div class="form-group"><label>联系标语</label><input class="form-control" id="footer-slogan" placeholder="如果您有需求，请联系我们；我们将竭诚为您服务！"></div>
-                <div class="form-group"><label>商会邮箱</label><input class="form-control" id="footer-email" placeholder="scmnsh@163.com"></div>
-                <div class="form-group"><label>商会地址</label><input class="form-control" id="footer-addr" placeholder="四川省成都市高新区"></div>
-                <div class="form-group"><label>联系电话</label><input class="form-control" id="footer-phone" placeholder="028-XXXXXXXX"></div>
-                <div class="form-group"><label>ICP 备案号</label><input class="form-control" id="footer-icp" placeholder="蜀ICP备XXXXXXXX号"></div>
-                <div class="form-group"><label>版权文字</label><input class="form-control" id="footer-copyright" placeholder="Copyright © 四川省闽南商会 All Rights Reserved"></div>
-            </div>
-            <button class="btn btn-primary" onclick="saveFooter()"><i class="fa fa-save"></i> 保存联系方式</button>
-        </div>
-
-    </div>
+<div class="topbar">
+<button class="btn btn-outline btn-sm mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fa fa-bars"></i></button>
+<div></div>
+<div class="user-info"><span>管理员</span><div class="avatar">管</div></div>
 </div>
+<div class="content">
+
+<!-- ====== 控制台 ====== -->
+<div class="page active" id="page-dashboard">
+<h2 style="font-size:20px;margin-bottom:20px;">控制台概览</h2>
+<div class="stat-grid" id="dash-stats"></div>
+<div class="card" style="border:2px solid #C41230;">
+<div class="card-header"><i class="fa fa-info-circle"></i> 使用说明</div>
+<p style="color:#666;line-height:2;font-size:14px;">
+① 通过左侧菜单编辑各板块内容 → <b>自动保存到浏览器</b><br>
+② 全部编辑完成后 → 点击 <b style="color:#C41230;">「发布网站」</b> 下载 <code>data.js</code><br>
+③ 将 <code>data.js</code> 上传到 GitHub 仓库替换旧文件 → 网站自动更新
+</p>
+<div style="margin:16px 0;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+<button class="btn btn-primary" onclick="publishSite()" style="font-size:15px;padding:12px 28px;font-weight:600;"><i class="fa fa-cloud-upload"></i> 发布网站（生成 data.js）</button>
+<span style="color:#999;font-size:12px;">↑ 下载后上传到 GitHub 仓库</span>
+</div>
+<hr style="border-color:#EEE;">
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<button class="btn btn-outline btn-sm" onclick="exportData()"><i class="fa fa-download"></i> 备份数据 JSON</button>
+<button class="btn btn-outline btn-sm" onclick="document.getElementById('importFile').click()"><i class="fa fa-upload"></i> 恢复备份</button>
+<input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
+<button class="btn btn-danger btn-sm" onclick="if(confirm('确定清空所有数据？不可恢复！')){clearAllData();}"><i class="fa fa-trash"></i> 清空全部数据</button>
+</div>
+</div>
+</div>
+
+<!-- ====== Banner ====== -->
+<div class="page" id="page-banner"><div class="card"><div class="card-header"><i class="fa fa-image"></i> Banner 轮播图管理 <span class="tip">（建议 1920×520px）</span></div><div id="banner-list"></div><button class="btn btn-primary" onclick="addItem('banner',{img:'',title:'',subtitle:'',btnText:'',btnLink:'#',sort:0})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加 Banner</button></div></div>
+
+<!-- ====== 商会简介 ====== -->
+<div class="page" id="page-about">
+<div class="card"><div class="card-header"><i class="fa fa-info-circle"></i> 商会简介</div>
+<div class="form-row"><div class="form-group"><label>英文标题</label><input class="form-control" id="af-en"></div><div class="form-group"><label>中文标题</label><input class="form-control" id="af-cn"></div></div>
+<div class="form-group"><label>简介图片 URL</label><input class="form-control" id="af-img"></div>
+<div class="form-group"><label>简介内容（段落1）</label><textarea class="form-control" id="af-p1" rows="3"></textarea></div>
+<div class="form-group"><label>简介内容（段落2）</label><textarea class="form-control" id="af-p2" rows="3"></textarea></div>
+<div class="form-group"><label>"查看更多"链接</label><input class="form-control" id="af-link"></div>
+<button class="btn btn-primary" onclick="saveAbout()"><i class="fa fa-save"></i> 保存</button>
+</div>
+<div class="card"><div class="card-header"><i class="fa fa-bar-chart"></i> 数据统计</div><div id="stats-list"></div><button class="btn btn-primary" onclick="addStat()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加统计项</button></div>
+</div>
+
+<!-- ====== 领导班子 ====== -->
+<div class="page" id="page-leadership"><div class="card"><div class="card-header"><i class="fa fa-users"></i> 领导班子 <span class="tip">（会长、执行会长、常务副会长、副会长、秘书长等）</span></div><div id="ld-list"></div><button class="btn btn-primary" onclick="addItem('leadership',{name:'',title:'',img:'',desc:'',sort:0})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加成员</button></div></div>
+
+<!-- ====== 会长寄语 ====== -->
+<div class="page" id="page-president"><div class="card"><div class="card-header"><i class="fa fa-quote-right"></i> 会长寄语</div>
+<div class="form-group"><label>会长照片 URL</label><input class="form-control" id="pm-img"></div>
+<div class="form-group"><label>会长姓名</label><input class="form-control" id="pm-name"></div>
+<div class="form-group"><label>会长职务</label><input class="form-control" id="pm-title"></div>
+<div class="form-group"><label>寄语内容</label><textarea class="form-control" id="pm-content" rows="6"></textarea></div>
+<button class="btn btn-primary" onclick="savePresident()"><i class="fa fa-save"></i> 保存</button>
+</div></div>
+
+<!-- ====== 荣誉历程 ====== -->
+<div class="page" id="page-honors"><div class="card"><div class="card-header"><i class="fa fa-trophy"></i> 荣誉历程 <span class="tip">（商会获得的各种荣誉和资质）</span></div><div id="honors-list"></div><button class="btn btn-primary" onclick="addItem('honors',{year:'',title:'',desc:'',img:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加荣誉</button></div></div>
+
+<!-- ====== 大事记 ====== -->
+<div class="page" id="page-milestones"><div class="card"><div class="card-header"><i class="fa fa-history"></i> 大事记 <span class="tip">（商会发展历程中的重要事件）</span></div><div id="ms-list"></div><button class="btn btn-primary" onclick="addItem('milestones',{year:'',month:'',title:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加事件</button></div></div>
+
+<!-- ====== 专委会 ====== -->
+<div class="page" id="page-committees"><div class="card"><div class="card-header"><i class="fa fa-sitemap"></i> 专委会 <span class="tip">（各专业委员会）</span></div><div id="cm-list"></div><button class="btn btn-primary" onclick="addItem('committees',{name:'',desc:'',members:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加专委会</button></div></div>
+
+<!-- ====== 党委党建 ====== -->
+<div class="page" id="page-party">
+<div class="card"><div class="card-header"><i class="fa fa-flag"></i> 党委介绍</div>
+<div class="form-group"><label>党委名称</label><input class="form-control" id="py-name"></div>
+<div class="form-group"><label>介绍内容</label><textarea class="form-control" id="py-intro" rows="4"></textarea></div>
+<button class="btn btn-primary" onclick="savePartyIntro()"><i class="fa fa-save"></i> 保存党委介绍</button>
+</div>
+<div class="card"><div class="card-header"><i class="fa fa-sitemap"></i> 组织架构</div>
+<div class="form-group"><label>架构图 URL</label><input class="form-control" id="py-struct-img"></div>
+<div class="form-group"><label>架构说明</label><textarea class="form-control" id="py-struct-desc" rows="3"></textarea></div>
+<button class="btn btn-primary" onclick="savePartyStruct()"><i class="fa fa-save"></i> 保存组织架构</button>
+</div>
+<div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 党建新闻</div><div id="py-news-list"></div><button class="btn btn-primary" onclick="addItem('partyNews',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加党建新闻</button></div>
+</div>
+
+<!-- ====== 商会新闻 ====== -->
+<div class="page" id="page-news"><div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 商会新闻 <span class="tip">（第1条为左侧大图展示）</span></div><div id="news-list"></div><button class="btn btn-primary" onclick="addItem('news',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加新闻</button></div></div>
+
+<!-- ====== 会企资讯 ====== -->
+<div class="page" id="page-biznews"><div class="card"><div class="card-header"><i class="fa fa-bullhorn"></i> 会企资讯 <span class="tip">（第1条为左侧大图展示）</span></div><div id="biznews-list"></div><button class="btn btn-primary" onclick="addItem('biznews',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加资讯</button></div></div>
+
+<!-- ====== 服务领域 ====== -->
+<div class="page" id="page-services"><div class="card"><div class="card-header"><i class="fa fa-cubes"></i> 服务领域</div>
+<div class="form-group"><label>服务板块描述</label><textarea class="form-control" id="sv-desc" rows="2"></textarea></div>
+<div id="sv-list"></div><button class="btn btn-primary" onclick="addItem('services',{icon:'fa-handshake-o',name:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加服务</button></div></div>
+
+<!-- ====== 商务合作 ====== -->
+<div class="page" id="page-partners"><div class="card"><div class="card-header"><i class="fa fa-handshake-o"></i> 商务合作 <span class="tip">（合作伙伴 Logo 展示）</span></div><div id="pt-list"></div><button class="btn btn-primary" onclick="addItem('partners',{name:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加合作伙伴</button></div></div>
+
+<!-- ====== 战略伙伴 ====== -->
+<div class="page" id="page-strategy"><div class="card"><div class="card-header"><i class="fa fa-star"></i> 战略伙伴</div><div id="sg-list"></div><button class="btn btn-primary" onclick="addItem('strategy',{name:'',img:'',link:'#',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加战略伙伴</button></div></div>
+
+<!-- ====== 加入我们 ====== -->
+<div class="page" id="page-joinus"><div class="card"><div class="card-header"><i class="fa fa-user-plus"></i> 加入我们</div>
+<div class="form-group"><label>页面标题</label><input class="form-control" id="ju-title"></div>
+<div class="form-group"><label>入会条件</label><textarea class="form-control" id="ju-req" rows="4"></textarea></div>
+<div class="form-group"><label>入会流程</label><textarea class="form-control" id="ju-process" rows="4"></textarea></div>
+<div class="form-group"><label>联系方式</label><textarea class="form-control" id="ju-contact" rows="2"></textarea></div>
+<button class="btn btn-primary" onclick="saveJoinUs()"><i class="fa fa-save"></i> 保存</button>
+</div></div>
+
+<!-- ====== 联系方式 ====== -->
+<div class="page" id="page-footer"><div class="card"><div class="card-header"><i class="fa fa-cog"></i> 网站信息与联系方式</div>
+<div class="form-row"><div class="form-group"><label>网站标题</label><input class="form-control" id="ft-title"></div><div class="form-group"><label>关键词</label><input class="form-control" id="ft-keywords"></div></div>
+<div class="form-group"><label>网站描述</label><textarea class="form-control" id="ft-desc" rows="2"></textarea></div>
+<div class="form-row"><div class="form-group"><label>页脚 Logo URL</label><input class="form-control" id="ft-logo"></div><div class="form-group"><label>联系标语</label><input class="form-control" id="ft-slogan"></div></div>
+<div class="form-row"><div class="form-group"><label>邮箱</label><input class="form-control" id="ft-email"></div><div class="form-group"><label>电话</label><input class="form-control" id="ft-phone"></div></div>
+<div class="form-row"><div class="form-group"><label>地址</label><input class="form-control" id="ft-addr"></div><div class="form-group"><label>ICP备案号</label><input class="form-control" id="ft-icp"></div></div>
+<div class="form-group"><label>版权文字</label><input class="form-control" id="ft-copyright"></div>
+<button class="btn btn-primary" onclick="saveFooter()"><i class="fa fa-save"></i> 保存联系方式</button>
+</div></div>
+
+</div></div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// ==================== 登录验证 ====================
-const ADMIN_USER = 'admin';
-const ADMIN_PASS = 'admin888';
-
-function checkLogin() {
-    return sessionStorage.getItem('cms_logged_in') === 'true';
+// ==================== 登录 ====================
+if(sessionStorage.getItem('cms_logged_in')!=='true'){
+document.write('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>管理后台 - 登录</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="https://cdn.tailwindcss.com"><\/script><script>tailwind.config={theme:{extend:{colors:{primary:"#C41230","primary-dark":"#8B1A2B",gold:"#C9A84C"}}}}<\/script><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:linear-gradient(135deg,#1a0a0a 0%,#4a1525 40%,#8B1A2B 70%,#5A1020 100%);min-height:100vh;display:flex;align-items:center;justify-content:center}.box{background:#fff;border-radius:14px;padding:40px;width:400px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3)}.box h2{text-align:center;color:#C41230;margin-bottom:4px;font-size:22px;letter-spacing:2px}.box .sub{text-align:center;color:#C9A84C;font-size:12px;margin-bottom:28px;letter-spacing:1px}.fg{margin-bottom:18px}.fg label{display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600}.fg .iw{display:flex;align-items:center;border:2px solid #E8E8E8;border-radius:8px;overflow:hidden;transition:border-color .2s}.fg .iw:focus-within{border-color:#C41230}.fg .iw i{width:40px;text-align:center;color:#999;font-size:16px}.fg input{flex:1;padding:12px 12px 12px 0;border:none;outline:none;font-size:14px;font-family:inherit}.btn-login{width:100%;padding:12px;background:linear-gradient(135deg,#C41230,#E8394A);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;letter-spacing:4px;transition:.3s}.btn-login:hover{background:linear-gradient(135deg,#8B1A2B,#C41230);box-shadow:0 6px 20px rgba(196,18,48,.4)}.err{color:#C41230;font-size:13px;text-align:center;margin-top:12px;display:none}</style></head><body><div class="box"><h2>四川省闽南商会</h2><div class="sub">管理后台</div><div class="fg"><label>账号</label><div class="iw"><i class="fa fa-user-circle-o"></i><input id="u" type="text" placeholder="请输入账号" value="admin"></div></div><div class="fg"><label>密码</label><div class="iw"><i class="fa fa-key"></i><input id="p" type="password" placeholder="请输入密码" value="admin888"></div></div><button class="btn-login" onclick="dL()">登 录</button><div class="err" id="err"></div></div><script>function dL(){var u=document.getElementById("u").value.trim(),p=document.getElementById("p").value.trim();if(u==="admin"&&p==="admin888"){sessionStorage.setItem("cms_logged_in","true");location.reload()}else{document.getElementById("err").style.display="block";document.getElementById("err").textContent="账号或密码错误"}}document.getElementById("p").addEventListener("keydown",function(e){if(e.key==="Enter")dL()});<\/script></body></html>');
+throw new Error('login');
 }
 
-if (!checkLogin()) {
-    document.write(`
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>管理后台 - 登录</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<script src="https://cdn.tailwindcss.com"><\/script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#C41230','primary-dark':'#8B1A2B',gold:'#C9A84C'}}}}<\/script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:linear-gradient(135deg,#1a0a0a 0%,#4a1525 40%,#8B1A2B 70%,#5A1020 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;}
-.login-box{background:#fff;border-radius:14px;padding:40px;width:400px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
-.login-box h2{text-align:center;color:#C41230;margin-bottom:4px;font-size:22px;letter-spacing:2px;}
-.login-box .sub{text-align:center;color:#C9A84C;font-size:12px;margin-bottom:28px;letter-spacing:1px;}
-.form-group{margin-bottom:18px;}
-.form-group label{display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600;}
-.form-group .input-wrap{display:flex;align-items:center;border:2px solid #E8E8E8;border-radius:8px;overflow:hidden;transition:border-color 0.2s;}
-.form-group .input-wrap:focus-within{border-color:#C41230;}
-.form-group .input-wrap i{width:40px;text-align:center;color:#999;font-size:16px;}
-.form-group input{flex:1;padding:12px 12px 12px 0;border:none;outline:none;font-size:14px;font-family:inherit;}
-.btn-login{width:100%;padding:12px;background:linear-gradient(135deg,#C41230,#E8394A);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;letter-spacing:4px;transition:all 0.3s;}
-.btn-login:hover{background:linear-gradient(135deg,#8B1A2B,#C41230);box-shadow:0 6px 20px rgba(196,18,48,0.4);}
-.error-msg{color:#C41230;font-size:13px;text-align:center;margin-top:12px;display:none;}
-</style></head><body>
-<div class="login-box">
-<h2>四川省闽南商会</h2><div class="sub">管理后台</div>
-<div class="form-group"><label>账号</label><div class="input-wrap"><i class="fa fa-user-circle-o"></i><input id="u" type="text" placeholder="请输入账号" value="admin"></div></div>
-<div class="form-group"><label>密码</label><div class="input-wrap"><i class="fa fa-key"></i><input id="p" type="password" placeholder="请输入密码" value="admin888"></div></div>
-<button class="btn-login" onclick="doLogin()">登 录</button>
-<div class="error-msg" id="err"></div>
-</div>
-<script>
-function doLogin(){
-var u=document.getElementById('u').value.trim();
-var p=document.getElementById('p').value.trim();
-if(u==='${ADMIN_USER}'&&p==='${ADMIN_PASS}'){sessionStorage.setItem('cms_logged_in','true');location.reload();}
-else{document.getElementById('err').style.display='block';document.getElementById('err').textContent='账号或密码错误';}
-}
-document.getElementById('p').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
-document.getElementById('u').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
-<\/script></body></html>`);
-    throw new Error('Not logged in');
-}
-
-// ==================== 数据存储 ====================
-const STORAGE_KEY = 'scmn_cms_data';
-
-function getDefaultData() {
-    return {
-        banner: [],
-        about: { en: 'ABOUT US', cn: '了解商会', img: '', p1: '', p2: '', link: '#', stats: [] },
-        services: { desc: '', items: [] },
-        news: [],
-        biznews: [],
-        partners: [],
-        footer: {
-            title: '四川省闽南商会', keywords: '', desc: '', logo: '',
-            slogan: '如果您有需求，请联系我们；我们将竭诚为您服务！',
-            email: '', addr: '', phone: '', icp: '',
-            copyright: 'Copyright © 四川省闽南商会 All Rights Reserved'
-        }
-    };
-}
-
-function loadData() {
-    try {
-        var raw = localStorage.getItem(STORAGE_KEY);
-        if (raw) {
-            var d = JSON.parse(raw);
-            var def = getDefaultData();
-            for (var k in def) { if (!(k in d)) d[k] = def[k]; }
-            return d;
-        }
-    } catch (e) {}
-    return getDefaultData();
-}
-
-function saveAllData(data) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    showToast('数据已保存', 'success');
-}
-
-// ==================== Toast ====================
-function showToast(msg, type) {
-    var t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = 'toast ' + (type || 'success') + ' show';
-    clearTimeout(t._timer);
-    t._timer = setTimeout(function () { t.classList.remove('show'); }, 2000);
-}
+// ==================== 数据层 ====================
+var SK='scmn_cms_data_v2';
+function defData(){return{
+banner:[],about:{en:'ABOUT US',cn:'了解商会',img:'',p1:'',p2:'',link:'#',stats:[]},
+leadership:[],president:{name:'',title:'',img:'',content:''},
+honors:[],milestones:[],committees:[],
+party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[]},
+news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
+joinus:{title:'加入我们',req:'',process:'',contact:''},
+footer:{title:'四川省闽南商会',keywords:'',desc:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
+};}
+function L(){try{var r=localStorage.getItem(SK);if(r){var d=JSON.parse(r),df=defData();for(var k in df)if(!(k in d))d[k]=df[k];return d}}catch(e){}return defData();}
+function S(d){localStorage.setItem(SK,JSON.stringify(d));}
+function T(m,t){var e=document.getElementById('toast');e.textContent=m;e.className='toast '+(t||'success')+' show';clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('show')},2000);}
+function esc(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 
 // ==================== 页面切换 ====================
-var currentPage = 'dashboard';
-document.querySelectorAll('.sidebar nav a[data-page]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var page = this.getAttribute('data-page');
-        switchPage(page);
-    });
-});
-
-function switchPage(page) {
-    currentPage = page;
-    document.querySelectorAll('.sidebar nav a[data-page]').forEach(function (a) { a.classList.remove('active'); });
-    var target = document.querySelector('.sidebar nav a[data-page="' + page + '"]');
-    if (target) target.classList.add('active');
-    document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
-    var pg = document.getElementById('page-' + page);
-    if (pg) pg.classList.add('active');
-    renderPage(page);
-    // 移动端关闭侧边栏
-    document.getElementById('sidebar').classList.remove('open');
+document.querySelectorAll('.sidebar nav a[data-page]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();switchPage(this.getAttribute('data-page'));});});
+function switchPage(pg){
+document.querySelectorAll('.sidebar nav a[data-page]').forEach(function(a){a.classList.remove('active');});
+var t=document.querySelector('.sidebar nav a[data-page="'+pg+'"]');if(t)t.classList.add('active');
+document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+var el=document.getElementById('page-'+pg);if(el)el.classList.add('active');
+renderPage(pg);document.getElementById('sidebar').classList.remove('open');
 }
-
-function renderPage(page) {
-    var data = loadData();
-    switch (page) {
-        case 'dashboard': renderDashboard(data); break;
-        case 'banner': renderBanner(data); break;
-        case 'about': renderAbout(data); break;
-        case 'services': renderServices(data); break;
-        case 'news': renderNews(data, 'news'); break;
-        case 'biznews': renderNews(data, 'biznews'); break;
-        case 'partners': renderPartners(data); break;
-        case 'footer': renderFooter(data); break;
-    }
+function renderPage(pg){
+var d=L();
+switch(pg){
+case'dashboard':renderDash(d);break;
+case'banner':renderTable('banner-list','banner',d.banner,['img','title','subtitle','btnText','btnLink'],{img:'图片URL',title:'标题',subtitle:'副标题',btnText:'按钮文字',btnLink:'按钮链接'},{sort:'排序'});break;
+case'about':renderAbout(d);break;
+case'leadership':renderTable('ld-list','leadership',d.leadership,['name','title','img','desc'],{name:'姓名',title:'职务',img:'照片URL',desc:'简介'},{sort:'排序'});break;
+case'president':renderPresident(d);break;
+case'honors':renderTable('honors-list','honors',d.honors,['year','title','desc','img'],{year:'年份',title:'荣誉名称',desc:'描述',img:'图片URL'});break;
+case'milestones':renderTable('ms-list','milestones',d.milestones,['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
+case'committees':renderTable('cm-list','committees',d.committees,['name','desc','members'],{name:'专委会名称',desc:'简介',members:'成员'});break;
+case'party':renderParty(d);break;
+case'news':renderTable('news-list','news',d.news,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});break;
+case'biznews':renderTable('biznews-list','biznews',d.biznews,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});break;
+case'services':renderServices(d);break;
+case'partners':renderTable('pt-list','partners',d.partners,['name','img','link'],{name:'名称',img:'Logo URL',link:'链接'});break;
+case'strategy':renderTable('sg-list','strategy',d.strategy,['name','img','link','desc'],{name:'名称',img:'Logo URL',link:'链接',desc:'简介'});break;
+case'joinus':renderJoinUs(d);break;
+case'footer':renderFooter(d);break;
+}
 }
 
 // ==================== 控制台 ====================
-function renderDashboard(data) {
-    document.getElementById('stat-banner').textContent = data.banner.length;
-    document.getElementById('stat-services').textContent = data.services.items.length;
-    document.getElementById('stat-news').textContent = data.news.length;
-    document.getElementById('stat-partners').textContent = data.partners.length;
+function renderDash(d){
+var items=[
+{icon:'red',fa:'fa-image',num:d.banner.length,label:'Banner'},
+{icon:'gold',fa:'fa-users',num:d.leadership.length,label:'领导班子'},
+{icon:'blue',fa:'fa-trophy',num:d.honors.length,label:'荣誉历程'},
+{icon:'green',fa:'fa-history',num:d.milestones.length,label:'大事记'},
+{icon:'purple',fa:'fa-sitemap',num:d.committees.length,label:'专委会'},
+{icon:'red',fa:'fa-flag',num:d.party.news.length,label:'党建新闻'},
+{icon:'gold',fa:'fa-newspaper-o',num:d.news.length,label:'商会新闻'},
+{icon:'blue',fa:'fa-bullhorn',num:d.biznews.length,label:'会企资讯'},
+{icon:'green',fa:'fa-cubes',num:d.services.items.length,label:'服务项目'},
+{icon:'purple',fa:'fa-handshake-o',num:d.partners.length,label:'合作伙伴'},
+{icon:'gold',fa:'fa-star',num:d.strategy.length,label:'战略伙伴'}
+];
+document.getElementById('dash-stats').innerHTML=items.map(function(i){return'<div class="stat-card"><div class="icon '+i.icon+'"><i class="fa '+i.fa+'"></i></div><div><div class="num">'+i.num+'</div><div class="label">'+i.label+'</div></div></div>';}).join('');
 }
 
-// ==================== Banner ====================
-function renderBanner(data) {
-    var container = document.getElementById('banner-list');
-    if (data.banner.length === 0) {
-        container.innerHTML = '<div class="empty-state"><i class="fa fa-image"></i><p>暂无 Banner，点击下方按钮添加</p></div>';
-        return;
-    }
-    var html = '<div class="table-wrap"><table><thead><tr><th>序号</th><th>预览</th><th>图片 URL</th><th>标题</th><th>副标题</th><th>按钮文字</th><th>按钮链接</th><th>排序</th><th>操作</th></tr></thead><tbody>';
-    data.banner.forEach(function (item, i) {
-        html += '<tr>';
-        html += '<td>' + (i + 1) + '</td>';
-        html += '<td>' + (item.img ? '<img src="' + esc(item.img) + '" style="max-width:120px;max-height:60px;border-radius:4px;">' : '无图片') + '</td>';
-        html += '<td><input class="form-control" style="min-width:200px;" value="' + esc(item.img || '') + '" onchange="updateBannerField(' + i + ',\'img\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:120px;" value="' + esc(item.title || '') + '" onchange="updateBannerField(' + i + ',\'title\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:150px;" value="' + esc(item.subtitle || '') + '" onchange="updateBannerField(' + i + ',\'subtitle\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:80px;" value="' + esc(item.btnText || '') + '" onchange="updateBannerField(' + i + ',\'btnText\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:100px;" value="' + esc(item.btnLink || '#') + '" onchange="updateBannerField(' + i + ',\'btnLink\',this.value)"></td>';
-        html += '<td><input class="form-control" style="width:60px;" type="number" value="' + (item.sort || i) + '" onchange="updateBannerField(' + i + ',\'sort\',parseInt(this.value))"></td>';
-        html += '<td><button class="btn btn-sm btn-danger" onclick="deleteBanner(' + i + ')"><i class="fa fa-trash"></i></button></td>';
-        html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    container.innerHTML = html;
+// ==================== 通用表格渲染 ====================
+function renderTable(listId,key,items,fields,labels,extra){
+extra=extra||{};
+var c=document.getElementById(listId);
+if(!items||items.length===0){c.innerHTML='<div class="empty-state"><i class="fa fa-inbox"></i><p>暂无内容，点击下方按钮添加</p></div>';return;}
+var fKeys=Object.keys(labels);
+var allKeys=fKeys.concat(Object.keys(extra));
+var h='<div class="table-wrap"><table><thead><tr><th>#</th>';
+allKeys.forEach(function(k){h+='<th>'+(labels[k]||extra[k]||k)+'</th>';});
+h+='<th>操作</th></tr></thead><tbody>';
+items.forEach(function(item,i){
+h+='<tr><td>'+(i+1)+'</td>';
+allKeys.forEach(function(k){
+var v=item[k]!==undefined?item[k]:'';
+if(k==='img'||k==='structImg'){
+h+='<td>'+(v?'<img src="'+esc(v)+'" class="preview-img">':'')+'<input class="mini-input" value="'+esc(v)+'" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)" style="margin-top:4px;"></td>';
+}else{
+h+='<td><input class="mini-input" value="'+esc(v)+'" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)"></td>';
+}
+});
+h+='<td><button class="btn btn-sm btn-danger" onclick="dI(\''+key+'\','+i+')"><i class="fa fa-trash"></i></button></td></tr>';
+});
+h+='</tbody></table></div>';
+c.innerHTML=h;
 }
 
-function addBanner() {
-    var data = loadData();
-    data.banner.push({ img: '', title: '', subtitle: '', btnText: '', btnLink: '#', sort: data.banner.length });
-    saveAllData(data);
-    renderBanner(data);
-    showToast('Banner 已添加');
+function addItem(key,defaults){
+var d=L();
+if(!d[key]){if(Array.isArray(d[key]))d[key]=[];else return;}
+if(typeof d[key]==='object'&&!Array.isArray(d[key])){
+if(key==='services'){if(!d[key].items)d[key].items=[];d[key].items.push(defaults);}
+return;
 }
-
-function deleteBanner(i) {
-    if (!confirm('确定删除此 Banner？')) return;
-    var data = loadData();
-    data.banner.splice(i, 1);
-    saveAllData(data);
-    renderBanner(data);
+d[key].push(defaults);
+S(d);renderPage(getCurrentPage());
 }
-
-function updateBannerField(i, field, value) {
-    var data = loadData();
-    data.banner[i][field] = value;
-    saveAllData(data);
+function dI(key,i){
+if(!confirm('确定删除？'))return;
+var d=L();
+if(typeof d[key]==='object'&&!Array.isArray(d[key])){if(key==='services'&&d[key].items)d[key].items.splice(i,1);}
+else d[key].splice(i,1);
+S(d);renderPage(getCurrentPage());
+}
+function uF(key,i,field,value){
+var d=L();
+if(typeof d[key]==='object'&&!Array.isArray(d[key])){
+if(key==='services'&&d[key].items)d[key].items[i][field]=value;
+else if(key==='party'){if(field.startsWith('struct'))d.party[field]=value;else if(d.party.news)d.party.news[i][field]=value;}
+else d[key][field]=value;
+}else d[key][i][field]=value;
+S(d);
+}
+function getCurrentPage(){
+var a=document.querySelector('.sidebar nav a.active');
+return a?a.getAttribute('data-page'):'dashboard';
 }
 
 // ==================== 商会简介 ====================
-function renderAbout(data) {
-    var a = data.about;
-    document.getElementById('about-en').value = a.en || '';
-    document.getElementById('about-cn').value = a.cn || '';
-    document.getElementById('about-img').value = a.img || '';
-    document.getElementById('about-p1').value = a.p1 || '';
-    document.getElementById('about-p2').value = a.p2 || '';
-    document.getElementById('about-link').value = a.link || '#';
-    renderStats(data);
+function renderAbout(d){
+var a=d.about;
+document.getElementById('af-en').value=a.en||'';document.getElementById('af-cn').value=a.cn||'';
+document.getElementById('af-img').value=a.img||'';document.getElementById('af-p1').value=a.p1||'';
+document.getElementById('af-p2').value=a.p2||'';document.getElementById('af-link').value=a.link||'#';
+var sc=document.getElementById('stats-list');
+var st=a.stats||[];
+if(st.length===0){sc.innerHTML='<div class="empty-state"><i class="fa fa-bar-chart"></i><p>暂无统计数据</p></div>';return;}
+var h='<div class="table-wrap"><table><thead><tr><th>数字</th><th>单位</th><th>标签</th><th>操作</th></tr></thead><tbody>';
+st.forEach(function(s,i){h+='<tr><td><input class="mini-input" value="'+esc(s.num||'0')+'" onchange="uSA('+i+',\'num\',this.value)"></td><td><input class="mini-input" value="'+esc(s.unit||'个')+'" onchange="uSA('+i+',\'unit\',this.value)"></td><td><input class="mini-input" value="'+esc(s.label||'')+'" onchange="uSA('+i+',\'label\',this.value)"></td><td><button class="btn btn-sm btn-danger" onclick="dSA('+i+')"><i class="fa fa-trash"></i></button></td></tr>';});
+h+='</tbody></table></div>';sc.innerHTML=h;
 }
+function addStat(){var d=L();if(!d.about.stats)d.about.stats=[];d.about.stats.push({num:'0',unit:'个',label:'新统计项'});S(d);renderPage('about');}
+function dSA(i){var d=L();d.about.stats.splice(i,1);S(d);renderPage('about');}
+function uSA(i,f,v){var d=L();d.about.stats[i][f]=v;S(d);}
+function saveAbout(){var d=L();d.about.en=document.getElementById('af-en').value;d.about.cn=document.getElementById('af-cn').value;d.about.img=document.getElementById('af-img').value;d.about.p1=document.getElementById('af-p1').value;d.about.p2=document.getElementById('af-p2').value;d.about.link=document.getElementById('af-link').value;S(d);T('商会简介已保存');}
 
-function renderStats(data) {
-    var container = document.getElementById('stats-list');
-    var stats = data.about.stats || [];
-    if (stats.length === 0) {
-        container.innerHTML = '<div class="empty-state"><i class="fa fa-bar-chart"></i><p>暂无统计数据</p></div>';
-        return;
-    }
-    var html = '<div class="table-wrap"><table><thead><tr><th>数字</th><th>单位</th><th>标签</th><th>操作</th></tr></thead><tbody>';
-    stats.forEach(function (s, i) {
-        html += '<tr>';
-        html += '<td><input class="form-control" style="width:120px;" value="' + esc(s.num || '0') + '" onchange="updateStat(' + i + ',\'num\',this.value)"></td>';
-        html += '<td><input class="form-control" style="width:80px;" value="' + esc(s.unit || '个') + '" onchange="updateStat(' + i + ',\'unit\',this.value)"></td>';
-        html += '<td><input class="form-control" style="width:200px;" value="' + esc(s.label || '') + '" onchange="updateStat(' + i + ',\'label\',this.value)"></td>';
-        html += '<td><button class="btn btn-sm btn-danger" onclick="deleteStat(' + i + ')"><i class="fa fa-trash"></i></button></td>';
-        html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    container.innerHTML = html;
-}
+// ==================== 会长寄语 ====================
+function renderPresident(d){var p=d.president;document.getElementById('pm-name').value=p.name||'';document.getElementById('pm-title').value=p.title||'';document.getElementById('pm-img').value=p.img||'';document.getElementById('pm-content').value=p.content||'';}
+function savePresident(){var d=L();d.president.name=document.getElementById('pm-name').value;d.president.title=document.getElementById('pm-title').value;d.president.img=document.getElementById('pm-img').value;d.president.content=document.getElementById('pm-content').value;S(d);T('会长寄语已保存');}
 
-function addStat() {
-    var data = loadData();
-    if (!data.about.stats) data.about.stats = [];
-    data.about.stats.push({ num: '0', unit: '个', label: '新统计项' });
-    saveAllData(data);
-    renderStats(data);
-}
-
-function deleteStat(i) {
-    var data = loadData();
-    data.about.stats.splice(i, 1);
-    saveAllData(data);
-    renderStats(data);
-}
-
-function updateStat(i, field, value) {
-    var data = loadData();
-    data.about.stats[i][field] = value;
-    saveAllData(data);
-}
-
-function saveAbout() {
-    var data = loadData();
-    data.about.en = document.getElementById('about-en').value;
-    data.about.cn = document.getElementById('about-cn').value;
-    data.about.img = document.getElementById('about-img').value;
-    data.about.p1 = document.getElementById('about-p1').value;
-    data.about.p2 = document.getElementById('about-p2').value;
-    data.about.link = document.getElementById('about-link').value;
-    saveAllData(data);
-    showToast('商会简介已保存');
-}
+// ==================== 党委党建 ====================
+function renderParty(d){var p=d.party;document.getElementById('py-name').value=p.name||'';document.getElementById('py-intro').value=p.intro||'';document.getElementById('py-struct-img').value=p.structImg||'';document.getElementById('py-struct-desc').value=p.structDesc||'';renderTable('py-news-list','partyNews',p.news||[],['date','title','img','link'],{date:'日期',title:'标题',img:'图片URL',link:'链接'});}
+function savePartyIntro(){var d=L();d.party.name=document.getElementById('py-name').value;d.party.intro=document.getElementById('py-intro').value;S(d);T('党委介绍已保存');}
+function savePartyStruct(){var d=L();d.party.structImg=document.getElementById('py-struct-img').value;d.party.structDesc=document.getElementById('py-struct-desc').value;S(d);T('组织架构已保存');}
 
 // ==================== 服务领域 ====================
-function renderServices(data) {
-    document.getElementById('svc-desc').value = data.services.desc || '';
-    var container = document.getElementById('services-list');
-    var items = data.services.items || [];
-    if (items.length === 0) {
-        container.innerHTML = '<div class="empty-state"><i class="fa fa-cubes"></i><p>暂无服务项目</p></div>';
-        return;
-    }
-    var html = '<div class="table-wrap"><table><thead><tr><th>图标</th><th>图标类名</th><th>服务名称</th><th>描述</th><th>操作</th></tr></thead><tbody>';
-    var icons = ['fa-handshake-o','fa-balance-scale','fa-line-chart','fa-plane','fa-bullhorn','fa-users','fa-file-text-o','fa-globe','fa-graduation-cap','fa-heart','fa-building-o','fa-shield'];
-    items.forEach(function (s, i) {
-        var iconHtml = '';
-        icons.forEach(function(ic) {
-            var sel = s.icon === ic ? ' checked' : '';
-            iconHtml += '<label style="display:inline-block;margin:2px;cursor:pointer;"><input type="radio" name="svc-icon-' + i + '" value="' + ic + '"' + sel + ' onchange="updateService(' + i + ',\'icon\',this.value)"> <i class="fa ' + ic + '" style="font-size:18px;color:#C41230;"></i></label>';
-        });
-        html += '<tr>';
-        html += '<td style="min-width:280px;">' + iconHtml + '</td>';
-        html += '<td><input class="form-control" style="width:120px;" value="' + esc(s.icon || '') + '" onchange="updateService(' + i + ',\'icon\',this.value)"></td>';
-        html += '<td><input class="form-control" style="width:120px;" value="' + esc(s.name || '') + '" onchange="updateService(' + i + ',\'name\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:200px;" value="' + esc(s.desc || '') + '" onchange="updateService(' + i + ',\'desc\',this.value)"></td>';
-        html += '<td><button class="btn btn-sm btn-danger" onclick="deleteService(' + i + ')"><i class="fa fa-trash"></i></button></td>';
-        html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    container.innerHTML = html;
+function renderServices(d){
+document.getElementById('sv-desc').value=d.services.desc||'';
+var items=d.services.items||[];
+var c=document.getElementById('sv-list');
+if(items.length===0){c.innerHTML='<div class="empty-state"><i class="fa fa-cubes"></i><p>暂无服务</p></div>';return;}
+var icons=['fa-handshake-o','fa-balance-scale','fa-line-chart','fa-plane','fa-bullhorn','fa-users','fa-file-text-o','fa-globe','fa-graduation-cap','fa-heart','fa-building-o','fa-shield','fa-star','fa-cogs','fa-lightbulb-o','fa-comments-o'];
+var h='<div class="table-wrap"><table><thead><tr><th>图标</th><th>图标类名</th><th>名称</th><th>描述</th><th>操作</th></tr></thead><tbody>';
+items.forEach(function(s,i){
+var ih='';icons.forEach(function(ic){ih+='<label style="display:inline-block;margin:2px;cursor:pointer;"><input type="radio" name="svi'+i+'" value="'+ic+'"'+(s.icon===ic?' checked':'')+' onchange="uF(\'services\','+i+',\'icon\',this.value)"><i class="fa '+ic+'" style="font-size:16px;color:#C41230"></i></label>';});
+h+='<tr><td style="min-width:260px">'+ih+'</td><td><input class="mini-input" value="'+esc(s.icon||'')+'" onchange="uF(\'services\','+i+',\'icon\',this.value)"></td><td><input class="mini-input" value="'+esc(s.name||'')+'" onchange="uF(\'services\','+i+',\'name\',this.value)"></td><td><input class="mini-input" value="'+esc(s.desc||'')+'" onchange="uF(\'services\','+i+',\'desc\',this.value)"></td><td><button class="btn btn-sm btn-danger" onclick="dI(\'services\','+i+')"><i class="fa fa-trash"></i></button></td></tr>';
+});
+h+='</tbody></table></div>';c.innerHTML=h;
 }
 
-function addService() {
-    var data = loadData();
-    if (!data.services.items) data.services.items = [];
-    data.services.items.push({ icon: 'fa-handshake-o', name: '新服务', desc: '服务描述' });
-    saveAllData(data);
-    renderServices(data);
-}
-
-function deleteService(i) {
-    var data = loadData();
-    data.services.items.splice(i, 1);
-    saveAllData(data);
-    renderServices(data);
-}
-
-function updateService(i, field, value) {
-    var data = loadData();
-    data.services.items[i][field] = value;
-    saveAllData(data);
-}
-
-function saveServices() {
-    var data = loadData();
-    data.services.desc = document.getElementById('svc-desc').value;
-    saveAllData(data);
-    showToast('服务板块已保存');
-}
-
-// ==================== 新闻管理（通用） ====================
-function renderNews(data, type) {
-    var listId = type === 'news' ? 'news-list' : 'biznews-list';
-    var container = document.getElementById(listId);
-    var items = data[type] || [];
-    if (items.length === 0) {
-        container.innerHTML = '<div class="empty-state"><i class="fa fa-newspaper-o"></i><p>暂无内容</p></div>';
-        return;
-    }
-    var html = '<div class="table-wrap"><table><thead><tr><th>#</th><th>日期</th><th>图片 URL</th><th>标题</th><th>链接</th><th>操作</th></tr></thead><tbody>';
-    items.forEach(function (n, i) {
-        html += '<tr>';
-        html += '<td>' + (i === 0 ? '<span class="badge badge-warning">大图</span>' : (i + 1)) + '</td>';
-        html += '<td><input class="form-control" style="width:130px;" value="' + esc(n.date || '') + '" onchange="updateNewsItem(\'' + type + '\',' + i + ',\'date\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:200px;" value="' + esc(n.img || '') + '" onchange="updateNewsItem(\'' + type + '\',' + i + ',\'img\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:250px;" value="' + esc(n.title || '') + '" onchange="updateNewsItem(\'' + type + '\',' + i + ',\'title\',this.value)"></td>';
-        html += '<td><input class="form-control" style="min-width:150px;" value="' + esc(n.link || '#') + '" onchange="updateNewsItem(\'' + type + '\',' + i + ',\'link\',this.value)"></td>';
-        html += '<td><button class="btn btn-sm btn-danger" onclick="deleteNewsItem(\'' + type + '\',' + i + ')"><i class="fa fa-trash"></i></button></td>';
-        html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    container.innerHTML = html;
-}
-
-function addNews(type) {
-    var data = loadData();
-    if (!data[type]) data[type] = [];
-    data[type].push({ date: new Date().toISOString().slice(0, 10), img: '', title: '新内容标题', link: '#' });
-    saveAllData(data);
-    renderNews(data, type);
-}
-
-function deleteNewsItem(type, i) {
-    if (!confirm('确定删除？')) return;
-    var data = loadData();
-    data[type].splice(i, 1);
-    saveAllData(data);
-    renderNews(data, type);
-}
-
-function updateNewsItem(type, i, field, value) {
-    var data = loadData();
-    data[type][i][field] = value;
-    saveAllData(data);
-}
-
-function saveNews(type) {
-    showToast('已保存');
-}
-
-// ==================== 商务合作 ====================
-function renderPartners(data) {
-    var container = document.getElementById('partners-list');
-    if (data.partners.length === 0) {
-        container.innerHTML = '<div class="empty-state"><i class="fa fa-handshake-o"></i><p>暂无合作伙伴</p></div>';
-        return;
-    }
-    var html = '<div class="table-wrap"><table><thead><tr><th>Logo 预览</th><th>Logo URL</th><th>名称</th><th>链接</th><th>操作</th></tr></thead><tbody>';
-    data.partners.forEach(function (p, i) {
-        html += '<tr>';
-        html += '<td>' + (p.img ? '<img src="' + esc(p.img) + '" style="max-width:80px;max-height:50px;">' : '无') + '</td>';
-        html += '<td><input class="form-control" style="min-width:200px;" value="' + esc(p.img || '') + '" onchange="updatePartner(' + i + ',\'img\',this.value)"></td>';
-        html += '<td><input class="form-control" style="width:140px;" value="' + esc(p.name || '') + '" onchange="updatePartner(' + i + ',\'name\',this.value)"></td>';
-        html += '<td><input class="form-control" style="width:150px;" value="' + esc(p.link || '#') + '" onchange="updatePartner(' + i + ',\'link\',this.value)"></td>';
-        html += '<td><button class="btn btn-sm btn-danger" onclick="deletePartner(' + i + ')"><i class="fa fa-trash"></i></button></td>';
-        html += '</tr>';
-    });
-    html += '</tbody></table></div>';
-    container.innerHTML = html;
-}
-
-function addPartner() {
-    var data = loadData();
-    data.partners.push({ img: '', name: '新合作伙伴', link: '#' });
-    saveAllData(data);
-    renderPartners(data);
-}
-
-function deletePartner(i) {
-    var data = loadData();
-    data.partners.splice(i, 1);
-    saveAllData(data);
-    renderPartners(data);
-}
-
-function updatePartner(i, field, value) {
-    var data = loadData();
-    data.partners[i][field] = value;
-    saveAllData(data);
-}
-
-function savePartners() { showToast('已保存'); }
+// ==================== 加入我们 ====================
+function renderJoinUs(d){var j=d.joinus;document.getElementById('ju-title').value=j.title||'';document.getElementById('ju-req').value=j.req||'';document.getElementById('ju-process').value=j.process||'';document.getElementById('ju-contact').value=j.contact||'';}
+function saveJoinUs(){var d=L();d.joinus.title=document.getElementById('ju-title').value;d.joinus.req=document.getElementById('ju-req').value;d.joinus.process=document.getElementById('ju-process').value;d.joinus.contact=document.getElementById('ju-contact').value;S(d);T('加入我们已保存');}
 
 // ==================== 联系方式 ====================
-function renderFooter(data) {
-    var f = data.footer;
-    document.getElementById('site-title').value = f.title || '';
-    document.getElementById('site-keywords').value = f.keywords || '';
-    document.getElementById('site-desc').value = f.desc || '';
-    document.getElementById('footer-logo').value = f.logo || '';
-    document.getElementById('footer-slogan').value = f.slogan || '';
-    document.getElementById('footer-email').value = f.email || '';
-    document.getElementById('footer-addr').value = f.addr || '';
-    document.getElementById('footer-phone').value = f.phone || '';
-    document.getElementById('footer-icp').value = f.icp || '';
-    document.getElementById('footer-copyright').value = f.copyright || '';
-}
-
-function saveFooter() {
-    var data = loadData();
-    data.footer.title = document.getElementById('site-title').value;
-    data.footer.keywords = document.getElementById('site-keywords').value;
-    data.footer.desc = document.getElementById('site-desc').value;
-    data.footer.logo = document.getElementById('footer-logo').value;
-    data.footer.slogan = document.getElementById('footer-slogan').value;
-    data.footer.email = document.getElementById('footer-email').value;
-    data.footer.addr = document.getElementById('footer-addr').value;
-    data.footer.phone = document.getElementById('footer-phone').value;
-    data.footer.icp = document.getElementById('footer-icp').value;
-    data.footer.copyright = document.getElementById('footer-copyright').value;
-    saveAllData(data);
-    showToast('联系方式已保存');
-}
+function renderFooter(d){var f=d.footer;document.getElementById('ft-title').value=f.title||'';document.getElementById('ft-keywords').value=f.keywords||'';document.getElementById('ft-desc').value=f.desc||'';document.getElementById('ft-logo').value=f.logo||'';document.getElementById('ft-slogan').value=f.slogan||'';document.getElementById('ft-email').value=f.email||'';document.getElementById('ft-phone').value=f.phone||'';document.getElementById('ft-addr').value=f.addr||'';document.getElementById('ft-icp').value=f.icp||'';document.getElementById('ft-copyright').value=f.copyright||'';}
+function saveFooter(){var d=L();var f=d.footer;f.title=document.getElementById('ft-title').value;f.keywords=document.getElementById('ft-keywords').value;f.desc=document.getElementById('ft-desc').value;f.logo=document.getElementById('ft-logo').value;f.slogan=document.getElementById('ft-slogan').value;f.email=document.getElementById('ft-email').value;f.phone=document.getElementById('ft-phone').value;f.addr=document.getElementById('ft-addr').value;f.icp=document.getElementById('ft-icp').value;f.copyright=document.getElementById('ft-copyright').value;S(d);T('联系方式已保存');}
 
 // ==================== 导入导出与发布 ====================
-function exportData() {
-    var data = loadData();
-    var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'scmn_data_backup.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('备份文件已导出');
+function publishSite(){
+var d=L();
+var js='// 四川省闽南商会 - 网站数据文件（由管理后台自动生成）\n// 上传此文件到服务器即可更新网站内容\nwindow.__CMS_DATA__ = '+JSON.stringify(d,null,2)+';\n';
+var b=new Blob([js],{type:'application/javascript'});
+var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='data.js';a.click();URL.revokeObjectURL(u);
+T('data.js 已生成，请上传到 GitHub 仓库替换旧文件');
 }
-
-// ★ 发布网站：生成 data.js，上传到服务器后网站即可公网访问
-function publishSite() {
-    var data = loadData();
-    var js = '// 四川省闽南商会 - 网站数据文件（由管理后台自动生成）\n';
-    js += '// 将此文件与 index.html 放到同一目录下即可\n';
-    js += 'window.__CMS_DATA__ = ' + JSON.stringify(data, null, 2) + ';\n';
-    var blob = new Blob([js], { type: 'application/javascript' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'data.js';
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('data.js 已生成，请将其与 index.html 一起上传到服务器');
+function exportData(){
+var b=new Blob([JSON.stringify(L(),null,2)],{type:'application/json'});
+var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='scmn_backup.json';a.click();URL.revokeObjectURL(u);
+T('备份已导出');
 }
-
-function importData(input) {
-    var file = input.files[0];
-    if (!file) return;
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        try {
-            var data = JSON.parse(e.target.result);
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-            showToast('数据导入成功，页面将刷新');
-            setTimeout(function () { location.reload(); }, 1000);
-        } catch (err) {
-            showToast('文件格式错误', 'error');
-        }
-    };
-    reader.readAsText(file);
+function importData(inp){
+var f=inp.files[0];if(!f)return;
+var r=new FileReader();r.onload=function(e){try{var d=JSON.parse(e.target.result);localStorage.setItem(SK,JSON.stringify(d));T('导入成功，页面将刷新');setTimeout(function(){location.reload()},1000);}catch(err){T('文件格式错误','error');}};r.readAsText(f);
 }
-
-function clearAllData() {
-    localStorage.removeItem(STORAGE_KEY);
-    showToast('数据已清空，页面将刷新');
-    setTimeout(function () { location.reload(); }, 1000);
-}
+function clearAllData(){localStorage.removeItem(SK);T('数据已清空，页面将刷新');setTimeout(function(){location.reload()},1000);}
 
 // ==================== 退出 ====================
-function logout() {
-    if (confirm('确定退出登录？')) {
-        sessionStorage.removeItem('cms_logged_in');
-        location.reload();
-    }
-}
-
-// ==================== 工具函数 ====================
-function esc(str) {
-    if (!str) return '';
-    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-}
+function logout(){if(confirm('确定退出登录？')){sessionStorage.removeItem('cms_logged_in');location.reload();}}
 
 // ==================== 初始化 ====================
-function init() {
-    var data = loadData();
-    renderDashboard(data);
-    document.getElementById('loginName').textContent = '管理员';
-}
-
-init();
+(function(){
+var d=L();
+// 兼容添加 partyNews
+if(!d.party.news)d.party.news=[];
+renderDash(d);
+})();
 </script>
-
 </body>
 </html>
