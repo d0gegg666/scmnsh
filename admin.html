@@ -199,6 +199,7 @@ table .mini-input:focus{border-color:#C41230;}
 <!-- ====== 服务领域 ====== -->
 <div class="page" id="page-services"><div class="card"><div class="card-header"><i class="fa fa-cubes"></i> 服务领域</div>
 <div class="form-group"><label>服务板块描述</label><textarea class="form-control" id="sv-desc" rows="2"></textarea></div>
+<button class="btn btn-outline btn-sm" onclick="saveSvcDesc()" style="margin-bottom:16px;"><i class="fa fa-save"></i> 保存描述</button>
 <div id="sv-list"></div><button class="btn btn-primary" onclick="addItem('services',{icon:'fa-handshake-o',name:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加服务</button></div></div>
 
 <!-- ====== 商务合作 ====== -->
@@ -329,32 +330,34 @@ h+='</tbody></table></div>';
 c.innerHTML=h;
 }
 
-function addItem(key,defaults){
-var d=L();
-if(!d[key]){if(Array.isArray(d[key]))d[key]=[];else return;}
-if(typeof d[key]==='object'&&!Array.isArray(d[key])){
-if(key==='services'){if(!d[key].items)d[key].items=[];d[key].items.push(defaults);}
-return;
-}
-d[key].push(defaults);
-S(d);renderPage(getCurrentPage());
-}
-function dI(key,i){
-if(!confirm('确定删除？'))return;
-var d=L();
-if(typeof d[key]==='object'&&!Array.isArray(d[key])){if(key==='services'&&d[key].items)d[key].items.splice(i,1);}
-else d[key].splice(i,1);
-S(d);renderPage(getCurrentPage());
-}
-function uF(key,i,field,value){
-var d=L();
-if(typeof d[key]==='object'&&!Array.isArray(d[key])){
-if(key==='services'&&d[key].items)d[key].items[i][field]=value;
-else if(key==='party'){if(field.startsWith('struct'))d.party[field]=value;else if(d.party.news)d.party.news[i][field]=value;}
-else d[key][field]=value;
-}else d[key][i][field]=value;
-S(d);
-}
+	// 通用：添加列表项（自动识别普通数组、services.items、party.news）
+	function addItem(key,defaults){
+	var d=L();
+	if(key==='partyNews'){if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}
+	if(key==='services'){if(!d.services.items)d.services.items=[];d.services.items.push(defaults);S(d);renderPage(getCurrentPage());return;}
+	if(!d[key])return;
+	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());}
+	}
+	// 通用：删除列表项
+	function dI(key,i){
+	if(!confirm('确定删除？'))return;
+	var d=L();
+	if(key==='partyNews'){if(d.party.news)d.party.news.splice(i,1);S(d);renderPage(getCurrentPage());return;}
+	if(key==='services'){if(d.services.items)d.services.items.splice(i,1);S(d);renderPage(getCurrentPage());return;}
+	if(Array.isArray(d[key])){d[key].splice(i,1);S(d);renderPage(getCurrentPage());}
+	}
+	// 通用：更新列表项字段（行内编辑自动保存）
+	function uF(key,i,field,value){
+	var d=L();
+	if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}
+	if(key==='services'){if(d.services.items)d.services.items[i][field]=value;S(d);return;}
+	if(key==='party'){
+	if(field.startsWith('struct'))d.party[field]=value;
+	else if(d.party.news)d.party.news[i][field]=value;
+	S(d);return;
+	}
+	if(Array.isArray(d[key])){d[key][i][field]=value;S(d);}
+	}
 function getCurrentPage(){
 var a=document.querySelector('.sidebar nav a.active');
 return a?a.getAttribute('data-page'):'dashboard';
@@ -401,6 +404,7 @@ h+='<tr><td style="min-width:260px">'+ih+'</td><td><input class="mini-input" val
 });
 h+='</tbody></table></div>';c.innerHTML=h;
 }
+	function saveSvcDesc(){var d=L();d.services.desc=document.getElementById("sv-desc").value;S(d);T("服务描述已保存");}
 
 // ==================== 加入我们 ====================
 function renderJoinUs(d){var j=d.joinus;document.getElementById('ju-title').value=j.title||'';document.getElementById('ju-req').value=j.req||'';document.getElementById('ju-process').value=j.process||'';document.getElementById('ju-contact').value=j.contact||'';}
