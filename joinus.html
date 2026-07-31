@@ -201,7 +201,11 @@ set('ju-addr',f.addr);set('ju-email',f.email);set('ju-phone',f.phone);
 <!-- ====== 在线申请表单 ====== -->
 <div class="join-section" id="apply-form">
 <h3><i class="fa fa-pencil-square-o" style="color:#C9A84C;margin-right:8px;"></i>在线入会申请</h3>
-<form id="applicationForm" onsubmit="submitApplication(event)" style="margin-top:16px;">
+<form id="applicationForm" action="https://formsubmit.co/scmnsh@163.com" method="POST" onsubmit="submitApplication(event)" style="margin-top:16px;">
+<input type="hidden" name="_subject" value="【闽南商会】新入会申请">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
 <div class="fg"><label>企业名称 <span style="color:#C41230;">*</span></label><input class="fc" name="company" required placeholder="请输入企业全称"></div>
 <div class="fg"><label>联系人姓名 <span style="color:#C41230;">*</span></label><input class="fc" name="name" required placeholder="请输入联系人姓名"></div>
@@ -267,33 +271,38 @@ set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 function submitApplication(e) {
     e.preventDefault();
     var form = document.getElementById('applicationForm');
+    var formData = new FormData(form);
     var data = {};
-    new FormData(form).forEach(function(v, k) { data[k] = v; });
+    formData.forEach(function(v, k) { data[k] = v; });
     data.time = new Date().toLocaleString('zh-CN');
     data.id = Date.now();
     data.status = '待审核';
 
-    // 保存到 localStorage（管理员可在后台查看）
+    // 1. 异步发送到 formsubmit.co → 邮件通知管理员
+    fetch('https://formsubmit.co/ajax/scmnsh@163.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    }).catch(function() {}); // 静默处理，不影响用户体验
+
+    // 2. 保存到 localStorage（备份）
     var apps = [];
     try { apps = JSON.parse(localStorage.getItem('scmn_applications') || '[]'); } catch(e) {}
     apps.unshift(data);
     localStorage.setItem('scmn_applications', JSON.stringify(apps));
 
-    // 显示成功信息
+    // 3. 显示成功信息
     var msg = document.getElementById('formMsg');
     msg.style.display = 'block';
     msg.style.color = '#2E7D32';
-    msg.innerHTML = '<i class="fa fa-check-circle"></i> 申请已提交成功！我们将在1-3个工作日内与您联系。<br><small>如有疑问请致电：<span id="msg-phone"></span></small>';
-    form.reset();
+    msg.innerHTML = '<i class="fa fa-check-circle"></i> 申请已提交成功！<br>我们将在1-3个工作日内与您联系。<br><small>如有疑问请致电：<span id="msg-phone"></span></small>';
 
-    // 填上电话
     var d = window.__CMS_DATA__;
     if (d && d.footer && d.footer.phone) {
         document.getElementById('msg-phone').textContent = d.footer.phone;
     }
-
-    // 滚动到提示信息
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    form.reset();
 }
 </script>
 

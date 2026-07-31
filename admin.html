@@ -220,10 +220,16 @@ table .mini-input:focus{border-color:#C41230;}
 
 <!-- ====== 入会申请管理 ====== -->
 <div class="page" id="page-applications"><div class="card"><div class="card-header"><i class="fa fa-envelope"></i> 入会申请管理 <span class="tip">（来自官网 joinus.html 的在线申请）</span></div>
+<div style="background:#FFF8E1;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;color:#8D6E00;">
+<i class="fa fa-info-circle"></i> 申请提交后会<b>同时</b>：① 发送邮件到 <b>scmnsh@163.com</b> ② 保存在此列表。双重保障不丢失。
+</div>
 <div id="app-list"></div>
-<div style="margin-top:16px;display:flex;gap:10px;">
+<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
 <button class="btn btn-outline btn-sm" onclick="refreshApps()"><i class="fa fa-refresh"></i> 刷新</button>
-<button class="btn btn-danger btn-sm" onclick="if(confirm('确定清空所有申请记录？')){localStorage.removeItem('scmn_applications');refreshApps();}"><i class="fa fa-trash"></i> 清空申请记录</button>
+<button class="btn btn-outline btn-sm" onclick="exportApps()"><i class="fa fa-download"></i> 导出申请 JSON</button>
+<button class="btn btn-outline btn-sm" onclick="document.getElementById('importAppsFile').click()"><i class="fa fa-upload"></i> 导入申请数据</button>
+<input type="file" id="importAppsFile" accept=".json" style="display:none" onchange="importApps(this)">
+<button class="btn btn-danger btn-sm" onclick="if(confirm('确定清空所有申请记录？')){localStorage.removeItem('scmn_applications');refreshApps();}"><i class="fa fa-trash"></i> 清空</button>
 </div>
 </div></div>
 
@@ -458,6 +464,22 @@ var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');
 apps=apps.filter(function(a){return a.id!==id;});
 localStorage.setItem('scmn_applications',JSON.stringify(apps));
 refreshApps();T('申请已删除');
+}
+function exportApps(){
+var apps=localStorage.getItem('scmn_applications')||'[]';
+var b=new Blob([apps],{type:'application/json'});
+var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='scmn_applications_backup.json';a.click();URL.revokeObjectURL(u);
+T('申请数据已导出');
+}
+function importApps(inp){
+var f=inp.files[0];if(!f)return;
+var r=new FileReader();r.onload=function(e){try{
+var data=JSON.parse(e.target.result);
+var existing=JSON.parse(localStorage.getItem('scmn_applications')||'[]');
+var merged=data.concat(existing);
+localStorage.setItem('scmn_applications',JSON.stringify(merged));
+refreshApps();T('导入成功，已合并数据');
+}catch(err){T('文件格式错误','error');}};r.readAsText(f);
 }
 
 // ==================== 联系方式 ====================
