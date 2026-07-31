@@ -333,20 +333,20 @@
         <!-- ===== PC端导航菜单：修改 href 为实际链接地址 ===== -->
         <nav class="top-menu">
             <ul>
-                <span><li><a href="/" class="active">首页</a></li></span>
+                <span><li><a href="#top" class="active">首页</a></li></span>
                 <span>
-                    <li><a href="#">关于商会<b></b></a></li>
+                    <li><a href="#about">关于商会<b></b></a></li>
                     <div class="er-menu"><ul>
-                        <li><a href="#">商会简介</a></li>
+                        <li><a href="#about">商会简介</a></li>
                         <li><a href="#">荣誉历程</a></li>
                         <li><a href="#">会长寄语</a></li>
-                        <li><a href="#">领导班子</a></li>
+                        <li><a href="#leadership">领导班子</a></li>
                         <li><a href="#">大事记</a></li>
                         <li><a href="#">专委会</a></li>
                     </ul></div>
                 </span>
                 <span>
-                    <li><a href="#">党委党建<b></b></a></li>
+                    <li><a href="#news">党委党建<b></b></a></li>
                     <div class="er-menu"><ul>
                         <li><a href="#">组织介绍</a></li>
                         <li><a href="#">组织架构</a></li>
@@ -355,14 +355,14 @@
                     </ul></div>
                 </span>
                 <span>
-                    <li><a href="#">商会新闻<b></b></a></li>
+                    <li><a href="#news">商会新闻<b></b></a></li>
                     <div class="er-menu"><ul>
                         <li><a href="#">商会资讯</a></li>
                         <li><a href="#">会企资讯</a></li>
                     </ul></div>
                 </span>
-                <span><li><a href="#">战略伙伴</a></li></span>
-                <span><li><a href="#">加入我们</a></li></span>
+                <span><li><a href="#strategy">战略伙伴</a></li></span>
+                <span><li><a href="#footer">加入我们</a></li></span>
             </ul>
         </nav>
 
@@ -389,7 +389,7 @@
         <img src="" alt="logo">
     </div>
     <ul class="mobile-menu-list">
-        <li><a href="/" class="active">首页</a></li>
+        <li><a href="#top" class="active">首页</a></li>
         <li>
             <a href="javascript:void(0)" class="has-sub">关于商会 <i class="fa fa-angle-down"></i></a>
             <ul class="mobile-submenu">
@@ -417,14 +417,14 @@
                 <li><a href="#">会企资讯</a></li>
             </ul>
         </li>
-        <li><a href="#">战略伙伴</a></li>
-        <li><a href="#">加入我们</a></li>
+        <li><a href="#strategy">战略伙伴</a></li>
+        <li><a href="#footer">加入我们</a></li>
     </ul>
 </div>
 
 <!-- ==================== Banner 轮播图 ==================== -->
 <!-- 替换每个 .swiper-slide 的 background-image 为你的 banner 图片 -->
-<section class="banner-section">
+<section class="banner-section" id="top">
     <div class="swiper swiper-banner" id="bannerSwiper">
         <div class="swiper-wrapper" id="bannerSlides">
             <!-- 由 CMS 数据动态填充 -->
@@ -434,7 +434,7 @@
 </section>
 
 <!-- ==================== 商会简介 ==================== -->
-<section class="about-section">
+<section class="about-section" id="about">
     <div class="section-title">
         <i></i>
         <!-- 替换英文副标题 -->
@@ -463,7 +463,7 @@
 </section>
 
 <!-- ==================== 服务领域 ==================== -->
-<section class="services-section">
+<section class="services-section" id="services">
     <div class="services-wrapper">
         <div class="services-left">
             <div class="section-title" style="padding-bottom:0;">
@@ -488,7 +488,7 @@
 </section>
 
 <!-- ==================== 领导班子 ==================== -->
-<section class="leader-section" style="padding:0 0 70px;background:#fff;">
+<section class="leader-section" id="leadership" style="padding:0 0 70px;background:#fff;">
     <div class="section-title">
         <i></i>
         <p class="en">LEADERSHIP</p>
@@ -502,7 +502,7 @@
 </section>
 
 <!-- ==================== 新闻资讯 ==================== -->
-<section class="news-section">
+<section class="news-section" id="news">
     <div class="section-title">
         <i></i>
         <p class="en">NEWS CENTER</p>
@@ -535,7 +535,7 @@
 </section>
 
 <!-- ==================== 商务合作 ==================== -->
-<section class="partners-section">
+<section class="partners-section" id="partners">
     <div class="section-title">
         <i></i>
         <p class="en">BUSINESS COOPERATION</p>
@@ -549,7 +549,7 @@
 </section>
 
 <!-- ==================== 战略伙伴 ==================== -->
-<section class="strategy-section" style="padding:0 0 70px;background:#fff;">
+<section class="strategy-section" id="strategy" style="padding:0 0 70px;background:#fff;">
     <div class="section-title">
         <i></i>
         <p class="en">STRATEGIC PARTNERS</p>
@@ -563,7 +563,7 @@
 </section>
 
 <!-- ==================== 页脚 ==================== -->
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer-container">
         <!-- 页脚 Logo -->
         <div class="footer-left">
@@ -732,6 +732,53 @@
     window.addEventListener('load', animateCounters);
     animateCounters();
 })();
+
+
+    // ==================== 导航平滑滚动 ====================
+    (function() {
+        // 拦截所有 #hash 链接实现平滑滚动
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a[href^="#"]');
+            if (!link) return;
+            var href = link.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            var target = document.querySelector(href);
+            if (target) {
+                var header = document.getElementById('header');
+                var offset = header ? header.offsetHeight + 20 : 100;
+                var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+                // 更新 active 状态
+                document.querySelectorAll('.top-menu a, .mobile-menu-list a').forEach(function(a) { a.classList.remove('active'); });
+                link.classList.add('active');
+                // 关闭移动端菜单
+                if (window.closeMobileMenu) window.closeMobileMenu();
+            }
+        });
+
+        // 页面加载时处理 hash
+        if (window.location.hash) {
+            setTimeout(function() {
+                var target = document.querySelector(window.location.hash);
+                if (target) {
+                    var header = document.getElementById('header');
+                    var offset = header ? header.offsetHeight + 20 : 100;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+            }, 300);
+        }
+
+        // 导出关闭移动端菜单函数
+        window.closeMobileMenu = function() {
+            var panel = document.getElementById('mobile-panel');
+            var overlay = document.getElementById('mobile-overlay');
+            if (panel) panel.classList.remove('open');
+            if (overlay) overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+    })();
 
 // ==================== CMS 数据绑定 ====================
 // 优先读取 data.js（部署模式），其次读取 localStorage（本地调试模式）
