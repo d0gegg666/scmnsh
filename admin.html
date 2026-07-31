@@ -100,6 +100,7 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="strategy"><i class="fa fa-star"></i> 战略伙伴</a>
 <div class="nav-group">页面管理</div>
 <a href="#" data-page="joinus"><i class="fa fa-user-plus"></i> 加入我们</a>
+<a href="#" data-page="applications"><i class="fa fa-envelope"></i> 入会申请</a>
 <a href="#" data-page="footer"><i class="fa fa-cog"></i> 联系方式</a>
 <a href="#" onclick="logout()"><i class="fa fa-sign-out"></i> 退出登录</a>
 </nav>
@@ -217,6 +218,15 @@ table .mini-input:focus{border-color:#C41230;}
 <button class="btn btn-primary" onclick="saveJoinUs()"><i class="fa fa-save"></i> 保存</button>
 </div></div>
 
+<!-- ====== 入会申请管理 ====== -->
+<div class="page" id="page-applications"><div class="card"><div class="card-header"><i class="fa fa-envelope"></i> 入会申请管理 <span class="tip">（来自官网 joinus.html 的在线申请）</span></div>
+<div id="app-list"></div>
+<div style="margin-top:16px;display:flex;gap:10px;">
+<button class="btn btn-outline btn-sm" onclick="refreshApps()"><i class="fa fa-refresh"></i> 刷新</button>
+<button class="btn btn-danger btn-sm" onclick="if(confirm('确定清空所有申请记录？')){localStorage.removeItem('scmn_applications');refreshApps();}"><i class="fa fa-trash"></i> 清空申请记录</button>
+</div>
+</div></div>
+
 <!-- ====== 联系方式 ====== -->
 <div class="page" id="page-footer"><div class="card"><div class="card-header"><i class="fa fa-cog"></i> 网站信息与联系方式</div>
 <div class="form-row"><div class="form-group"><label>网站标题</label><input class="form-control" id="ft-title"></div><div class="form-group"><label>关键词</label><input class="form-control" id="ft-keywords"></div></div>
@@ -282,6 +292,7 @@ case'services':renderServices(d);break;
 case'partners':renderTable('pt-list','partners',d.partners,['name','img','link'],{name:'名称',img:'Logo URL',link:'链接'});break;
 case'strategy':renderTable('sg-list','strategy',d.strategy,['name','img','link','desc'],{name:'名称',img:'Logo URL',link:'链接',desc:'简介'});break;
 case'joinus':renderJoinUs(d);break;
+case'applications':renderApps();break;
 case'footer':renderFooter(d);break;
 }
 }
@@ -411,6 +422,43 @@ h+='</tbody></table></div>';c.innerHTML=h;
 // ==================== 加入我们 ====================
 function renderJoinUs(d){var j=d.joinus;document.getElementById('ju-title').value=j.title||'';document.getElementById('ju-req').value=j.req||'';document.getElementById('ju-process').value=j.process||'';document.getElementById('ju-contact').value=j.contact||'';}
 function saveJoinUs(){var d=L();d.joinus.title=document.getElementById('ju-title').value;d.joinus.req=document.getElementById('ju-req').value;d.joinus.process=document.getElementById('ju-process').value;d.joinus.contact=document.getElementById('ju-contact').value;S(d);T('加入我们已保存');}
+
+// ==================== 入会申请管理 ====================
+function renderApps(){refreshApps();}
+function refreshApps(){
+var c=document.getElementById('app-list');
+var apps=[];
+try{apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');}catch(e){}
+if(apps.length===0){c.innerHTML='<div class="empty-state"><i class="fa fa-envelope-o"></i><p>暂无入会申请</p></div>';return;}
+var h='<div class="table-wrap"><table><thead><tr><th>提交时间</th><th>企业名称</th><th>联系人</th><th>手机</th><th>邮箱</th><th>行业</th><th>备注</th><th>状态</th><th>操作</th></tr></thead><tbody>';
+apps.forEach(function(a,i){
+h+='<tr>';
+h+='<td>'+(a.time||'')+'</td>';
+h+='<td>'+(a.company||'')+'</td>';
+h+='<td>'+(a.name||'')+'</td>';
+h+='<td>'+(a.phone||'')+'</td>';
+h+='<td>'+(a.email||'')+'</td>';
+h+='<td>'+(a.industry||'')+'</td>';
+h+='<td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+(a.remark||'')+'</td>';
+h+='<td><select class="mini-input" onchange="updateAppStatus('+a.id+',this.value)" style="width:80px;"><option value="待审核"'+(a.status==='待审核'?' selected':'')+'>待审核</option><option value="已通过"'+(a.status==='已通过'?' selected':'')+'>已通过</option><option value="已拒绝"'+(a.status==='已拒绝'?' selected':'')+'>已拒绝</option></select></td>';
+h+='<td><button class="btn btn-sm btn-danger" onclick="deleteApp('+a.id+')"><i class="fa fa-trash"></i></button></td>';
+h+='</tr>';
+});
+h+='</tbody></table></div>';
+c.innerHTML=h;
+}
+function updateAppStatus(id,status){
+var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');
+var found=apps.find(function(a){return a.id===id;});
+if(found){found.status=status;localStorage.setItem('scmn_applications',JSON.stringify(apps));T('状态已更新');}
+}
+function deleteApp(id){
+if(!confirm('确定删除此申请？'))return;
+var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');
+apps=apps.filter(function(a){return a.id!==id;});
+localStorage.setItem('scmn_applications',JSON.stringify(apps));
+refreshApps();T('申请已删除');
+}
 
 // ==================== 联系方式 ====================
 function renderFooter(d){var f=d.footer;document.getElementById('ft-title').value=f.title||'';document.getElementById('ft-keywords').value=f.keywords||'';document.getElementById('ft-desc').value=f.desc||'';document.getElementById('ft-logo').value=f.logo||'';document.getElementById('ft-slogan').value=f.slogan||'';document.getElementById('ft-email').value=f.email||'';document.getElementById('ft-phone').value=f.phone||'';document.getElementById('ft-addr').value=f.addr||'';document.getElementById('ft-icp').value=f.icp||'';document.getElementById('ft-copyright').value=f.copyright||'';}

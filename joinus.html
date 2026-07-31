@@ -196,7 +196,42 @@ if(j.contact)document.getElementById('ju-contact-content').innerHTML=j.contact;
 var set=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
 set('ju-addr',f.addr);set('ju-email',f.email);set('ju-phone',f.phone);
 })();
-</script></div>
+</script>
+
+<!-- ====== 在线申请表单 ====== -->
+<div class="join-section" id="apply-form">
+<h3><i class="fa fa-pencil-square-o" style="color:#C9A84C;margin-right:8px;"></i>在线入会申请</h3>
+<form id="applicationForm" onsubmit="submitApplication(event)" style="margin-top:16px;">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+<div class="fg"><label>企业名称 <span style="color:#C41230;">*</span></label><input class="fc" name="company" required placeholder="请输入企业全称"></div>
+<div class="fg"><label>联系人姓名 <span style="color:#C41230;">*</span></label><input class="fc" name="name" required placeholder="请输入联系人姓名"></div>
+<div class="fg"><label>手机号码 <span style="color:#C41230;">*</span></label><input class="fc" name="phone" required placeholder="请输入手机号码" type="tel"></div>
+<div class="fg"><label>电子邮箱</label><input class="fc" name="email" placeholder="请输入电子邮箱" type="email"></div>
+<div class="fg"><label>企业地址</label><input class="fc" name="address" placeholder="请输入企业地址"></div>
+<div class="fg"><label>所属行业</label><select class="fc" name="industry"><option value="">请选择</option><option>制造业</option><option>建筑业</option><option>批发零售</option><option>住宿餐饮</option><option>信息技术</option><option>金融保险</option><option>房地产</option><option>交通运输</option><option>文化教育</option><option>其他</option></select></div>
+</div>
+<div class="fg"><label>申请备注</label><textarea class="fc" name="remark" rows="3" placeholder="如有其他需要说明的情况请在此填写（选填）"></textarea></div>
+<div style="display:flex;align-items:center;gap:10px;margin:16px 0;">
+<input type="checkbox" id="agree" required style="width:18px;height:18px;accent-color:#C41230;">
+<label for="agree" style="font-size:13px;color:#555;margin:0;">我已阅读并同意商会章程，承诺所填信息真实有效</label>
+</div>
+<button type="submit" class="btn-red" style="font-size:16px;padding:14px 48px;border:none;cursor:pointer;width:100%;">
+<i class="fa fa-paper-plane"></i> 提交申请
+</button>
+<div id="formMsg" style="text-align:center;margin-top:12px;font-size:14px;display:none;"></div>
+</form>
+</div>
+</div>
+
+<style>
+.fg{margin-bottom:4px;}
+.fg label{display:block;font-size:13px;font-weight:600;color:#555;margin-bottom:6px;}
+.fc{width:100%;padding:10px 14px;border:2px solid #E8E8E8;border-radius:6px;font-size:14px;outline:none;font-family:inherit;transition:border-color 0.2s;background:#fff;}
+.fc:focus{border-color:#C41230;}
+@media(max-width:640px){
+#applicationForm div[style*="grid-template"]{grid-template-columns:1fr!important;}
+}
+</style>
 <footer class="footer">
 <div class="container">
 <div class="footer-left"><div style="font-size:16px;font-weight:700;color:#fff;">四川省闽南商会</div><small style="color:#C9A84C;">SICHUAN MINNAN</small></div>
@@ -226,4 +261,40 @@ set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
 })();
 </script>
+
+<script>
+// ====== 入会申请表单提交 ======
+function submitApplication(e) {
+    e.preventDefault();
+    var form = document.getElementById('applicationForm');
+    var data = {};
+    new FormData(form).forEach(function(v, k) { data[k] = v; });
+    data.time = new Date().toLocaleString('zh-CN');
+    data.id = Date.now();
+    data.status = '待审核';
+
+    // 保存到 localStorage（管理员可在后台查看）
+    var apps = [];
+    try { apps = JSON.parse(localStorage.getItem('scmn_applications') || '[]'); } catch(e) {}
+    apps.unshift(data);
+    localStorage.setItem('scmn_applications', JSON.stringify(apps));
+
+    // 显示成功信息
+    var msg = document.getElementById('formMsg');
+    msg.style.display = 'block';
+    msg.style.color = '#2E7D32';
+    msg.innerHTML = '<i class="fa fa-check-circle"></i> 申请已提交成功！我们将在1-3个工作日内与您联系。<br><small>如有疑问请致电：<span id="msg-phone"></span></small>';
+    form.reset();
+
+    // 填上电话
+    var d = window.__CMS_DATA__;
+    if (d && d.footer && d.footer.phone) {
+        document.getElementById('msg-phone').textContent = d.footer.phone;
+    }
+
+    // 滚动到提示信息
+    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
 </body></html>
