@@ -145,56 +145,23 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <script>function toggleMenu(){var m=document.getElementById('mobileMenu');m.style.display=m.style.display==='block'?'none':'block';}</script>
 <div class="page-banner"><h1>加入我们</h1><p>JOIN US</p></div><div class="container section">
 <div class="section-title"><h2>加入我们</h2></div>
-<div class="join-section">
-<h3><i class="fa fa-check-circle" style="color:#C9A84C;margin-right:8px;"></i>入会条件</h3>
-<div id="ju-req-content">
-<p>凡在四川省境内从事工商活动的闽南籍（泉州、厦门、漳州）企业、个体工商户及个人，承认本会章程，自愿申请加入，经审查批准后，即可成为本会会员。</p>
-<ul>
-<li>拥护本会章程；</li><li>有加入本会的意愿；</li>
-<li>在四川省境内合法经营的闽南籍企业或个体工商户；</li>
-<li>具有良好的商业信誉和社会形象；</li>
-<li>按时缴纳会费，积极参加本会活动。</li>
-</ul>
-</div>
-</div>
-<div class="join-section">
-<h3><i class="fa fa-list-ol" style="color:#C9A84C;margin-right:8px;"></i>入会流程</h3>
-<div id="ju-process-content">
-<ol style="padding-left:20px;line-height:2.5;">
-<li><b>提交申请：</b>填写《入会申请表》，提交企业营业执照复印件、法人身份证复印件等材料；</li>
-<li><b>资格审查：</b>由商会秘书处对申请材料进行初审，报会长办公会议审议；</li>
-<li><b>缴纳会费：</b>审议通过后，按规定标准缴纳会费；</li>
-<li><b>颁发证书：</b>颁发会员证书，正式成为本会会员；</li>
-<li><b>参与活动：</b>加入会员群，享受会员服务，参与商会各项活动。</li>
-</ol>
-</div>
-</div>
-<div class="join-section">
-<h3><i class="fa fa-gavel" style="color:#C9A84C;margin-right:8px;"></i>会员权利与义务</h3>
-<div style="display:flex;gap:20px;flex-wrap:wrap;">
-<div style="flex:1;min-width:240px;"><h4 style="color:#C41230;margin-bottom:10px;">会员权利</h4><ul><li>本会的选举权、被选举权和表决权</li><li>参加本会组织的各项活动</li><li>获得本会服务的优先权</li><li>对本会工作的批评建议和监督权</li><li>入会自愿、退会自由</li></ul></div>
-<div style="flex:1;min-width:240px;"><h4 style="color:#C41230;margin-bottom:10px;">会员义务</h4><ul><li>遵守本会章程，执行本会决议</li><li>维护本会的合法权益和声誉</li><li>完成本会交办的工作</li><li>按规定及时缴纳会费</li><li>向本会反映情况，提供有关资料</li></ul></div>
-</div>
-</div>
-<div class="join-section">
-<h3><i class="fa fa-phone" style="color:#C9A84C;margin-right:8px;"></i>联系我们</h3>
-<div id="ju-contact-content">
-<p>欢迎闽南籍企业家加入四川省闽南商会！如有疑问请联系秘书处：</p>
-<p style="margin-top:10px;"><i class="fa fa-map-marker" style="color:#C9A84C;width:20px;"></i> <span id="ju-addr"></span></p>
-<p><i class="fa fa-envelope" style="color:#C9A84C;width:20px;"></i> <span id="ju-email"></span></p>
-<p><i class="fa fa-phone" style="color:#C9A84C;width:20px;"></i> <span id="ju-phone"></span></p>
-</div>
+<div class="card" style="max-width:800px;margin:0 auto 30px;text-align:center;">
+<p style="font-size:16px;color:#555;line-height:2;">
+四川省闽南商会诚挚邀请在川闽南籍企业家加入，共谋发展、共创未来。
+</p>
+<p style="font-size:14px;color:#888;line-height:2;margin-top:8px;">
+凡在四川省境内从事工商活动的闽南籍企业及个体工商户，<br>承认本会章程、自愿申请加入，经审核批准后即可成为本会会员。
+</p>
+<p style="font-size:14px;color:#C41230;margin-top:12px;font-weight:600;">
+<i class="fa fa-phone"></i> 咨询电话：<span id="ju-phone"></span>
+</p>
 </div>
 <script>
 (function(){
 var d=window.__CMS_DATA__;if(!d)return;
-var j=d.joinus||{};
 var f=d.footer||{};
-if(j.req)document.getElementById('ju-req-content').innerHTML=j.req;
-if(j.process)document.getElementById('ju-process-content').innerHTML=j.process;
-if(j.contact)document.getElementById('ju-contact-content').innerHTML=j.contact;
-var set=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
-set('ju-addr',f.addr);set('ju-email',f.email);set('ju-phone',f.phone);
+var el=document.getElementById('ju-phone');
+if(el&&f.phone)el.textContent=f.phone;
 })();
 </script>
 
