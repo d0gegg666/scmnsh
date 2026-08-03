@@ -78,7 +78,7 @@
         .er-menu ul li a:hover { color: #C41230; padding-left: 30px; background: #FEF5F5; }
         .er-menu ul li a:hover::before { width: 10px; }
 
-        .right-icon a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px;
+        .right-icon a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;
             border-radius: 50%; background: #F5F5F5; color: #666; font-size: 16px; cursor: pointer; text-decoration: none;
             transition: all 0.3s; }
         .right-icon a:hover { background: #C41230; color: #fff; }
@@ -121,6 +121,17 @@
             background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.45) 100%); }
         .swiper-banner .swiper-pagination-bullet { width: 12px; height: 12px; background: #fff; opacity: 0.6; }
         .swiper-banner .swiper-pagination-bullet-active { background: #C41230; opacity: 1; }
+        .banner-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; color: #fff; z-index: 2; width: 90%; max-width: 800px; }
+        .banner-content h2 { font-size: 42px; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+        .banner-content p { font-size: 18px; letter-spacing: 3px; opacity: 0.9;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.3); margin-bottom: 20px; }
+        .banner-btn { display: inline-block; padding: 12px 36px; background: #C41230; color: #fff;
+            border-radius: 50px; text-decoration: none; font-size: 14px; letter-spacing: 3px;
+            transition: all 0.3s; border: 1px solid rgba(255,255,255,0.3); }
+        .banner-btn:hover { background: #8B1A2B; transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196,18,48,0.5); }
 
         /* ========== 通用标题 ========== */
         .section-title { text-align: center; padding: 60px 0 40px; }
@@ -142,7 +153,7 @@
             border-radius: 50px; text-decoration: none; font-size: 14px; transition: all 0.3s; letter-spacing: 2px; }
         .about-text .read-more:hover { background: #8B1A2B; transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(196,18,48,0.3); }
-        .about-image { flex: 0 0 450px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        .about-image { flex: 0 0 450px; max-width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);
             position: relative; min-height: 350px; background: #F0EBE3; display: flex; align-items: center; justify-content: center; }
         .about-image::before { content: ''; position: absolute; top: -8px; left: -8px; right: 8px; bottom: 8px;
             border: 2px solid #C9A84C; border-radius: 14px; z-index: 0; }
@@ -167,7 +178,7 @@
         .services-section { padding: 0 0 70px; background: #FAFAFA; }
         .services-wrapper { max-width: 1300px; margin: 0 auto; padding: 0 40px; display: flex; gap: 40px;
             align-items: flex-start; }
-        .services-left { flex: 0 0 280px; }
+        .services-left { flex: 0 0 280px; max-width: 100%; }
         .services-left .section-title { text-align: left; padding-top: 0; }
         .services-left .section-title i { margin-left: 0; }
         .services-left .desc { font-size: 14px; color: #888; line-height: 2; margin-top: 16px; }
@@ -207,7 +218,7 @@
         .news-more { font-size: 13px; color: #999; text-decoration: none; padding: 12px 0; transition: color 0.3s; }
         .news-more:hover { color: #C41230; }
         .news-grid { display: flex; gap: 30px; flex-wrap: wrap; }
-        .news-featured { flex: 0 0 420px; border-radius: 12px; overflow: hidden; position: relative;
+        .news-featured { flex: 0 0 420px; max-width: 100%; border-radius: 12px; overflow: hidden; position: relative;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.4s; text-decoration: none;
             background: #F0EBE3; min-height: 320px; }
         .news-featured:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.14); }
@@ -290,7 +301,7 @@
             .head-logo img { height: 42px; }
             .top-menu, .right-icon { display: none !important; }
             .mobile-nav { display: flex; align-items: center; gap: 12px; }
-            .mobile-nav-btn { width: 36px; height: 36px; background: #F5F5F5; border-radius: 8px; display: flex;
+            .mobile-nav-btn { width: 44px; height: 44px; background: #F5F5F5; border-radius: 8px; display: flex;
                 align-items: center; justify-content: center; font-size: 20px; color: #333; cursor: pointer; border: none; }
             .banner-section { margin-top: 64px; }
             .swiper-banner { height: 320px; }
@@ -308,6 +319,9 @@
         }
         @media (max-width: 640px) {
             .swiper-banner { height: 240px; }
+            .banner-content h2 { font-size: 22px; letter-spacing: 2px; }
+            .banner-content p { font-size: 13px; letter-spacing: 1px; }
+            .banner-btn { padding: 8px 22px; font-size: 12px; }
             .section-title h2 { font-size: 24px; }
             .stat-item { min-width: 90px; }
             .stat-item .num { font-size: 24px; }
@@ -317,7 +331,7 @@
         }
 
         /* 空状态占位 */
-        .empty-placeholder { color: #CCC; font-size: 14px; text-align: center; padding: 40px; }
+        .empty-placeholder { color: #888; font-size: 14px; text-align: center; padding: 40px; }
     </style>
 </head>
 <body>
@@ -328,10 +342,10 @@
         <!-- ===== Logo：替换 src 为你的 logo 图片路径 ===== -->
         <div class="head-logo">
             <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-            <img src="" alt="" id="headerLogo" style="height:50px;display:none;">
+            <img src="" alt="四川省闽南商会" id="headerLogo" style="height:50px;display:none;">
             <div>
                 <div style="font-size:30px;font-weight:700;color:#C41230;letter-spacing:3px;line-height:1.2;">四川省闽南商会</div>
-                <small style="color:#C9A84C;font-size:10px;letter-spacing:1px;">Minnan Chamber of Commerce in Sichuan Province</small>
+                <small style="color:#C9A84C;font-size:12px;letter-spacing:1px;">Minnan Chamber of Commerce in Sichuan Province</small>
             </div>
         </a>
         </div>
@@ -458,7 +472,7 @@
             </div>
             <!-- 右侧图片：替换 src -->
             <div class="about-image">
-                <img src="" alt="" id="aboutImg">
+                <img src="" alt="商会简介" id="aboutImg">
             </div>
         </div>
         <!-- 数据统计：修改数字和文字 -->
@@ -669,29 +683,6 @@
         });
     });
 
-    // Banner 轮播
-    new Swiper('#bannerSwiper', {
-        loop: true,
-        autoplay: { delay: 4500, disableOnInteraction: false },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        effect: 'fade',
-        fadeEffect: { crossFade: true },
-        speed: 800
-    });
-
-    // 服务轮播
-    new Swiper('#serviceSwiper', {
-        slidesPerView: 'auto',
-        spaceBetween: 20,
-        navigation: { nextEl: '#serviceNext', prevEl: '#servicePrev' },
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        breakpoints: {
-            320:  { slidesPerView: 1.2, spaceBetween: 12 },
-            640:  { slidesPerView: 2.5, spaceBetween: 16 },
-            1024: { slidesPerView: 3.5, spaceBetween: 20 },
-            1300: { slidesPerView: 4.5, spaceBetween: 24 }
-        }
-    });
 
     // 新闻选项卡切换
     document.querySelectorAll('.news-tab').forEach(function(btn) {
@@ -709,6 +700,7 @@
     // 头部滚动阴影
     window.addEventListener('scroll', function() {
         var header = document.getElementById('header');
+        if (!header) return;
         header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
@@ -791,6 +783,12 @@
 (function() {
     var STORAGE_KEY = 'scmn_cms_data';
 
+    // HTML 转义，防止 XSS
+    function esc(str) {
+        if (!str && str !== 0) return '';
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
     function getCMSData() {
         // 1. 优先读取 data.js 中定义的数据（部署到服务器后使用）
         if (window.__CMS_DATA__) return window.__CMS_DATA__;
@@ -813,21 +811,11 @@
                 var bg = item.img ? 'background-image:url(' + item.img + ')' : 'background-color:#C41230';
                 return '<div class="swiper-slide" style="' + bg + ';background-size:cover;background-position:center;">' +
                     (item.title || item.subtitle || item.btnText ?
-                        '<div class="banner-content"><h2>' + (item.title || '') + '</h2><p>' + (item.subtitle || '') + '</p>' +
-                        (item.btnText ? '<a href="' + (item.btnLink || '#') + '" class="banner-btn">' + item.btnText + '</a>' : '') +
+                        '<div class="banner-content"><h2>' + escesc(item.title || '') + '</h2><p>' + esc(item.subtitle || '') + '</p>' +
+                        esc(item.btnText||'') ? '<a href="' + (item.btnLink || '#') + '" class="banner-btn">' + esc(item.btnText||'') + '</a>' : '') +
                         '</div>' : '') +
                     '</div>';
             }).join('');
-            // 重建 Swiper
-            if (typeof Swiper !== 'undefined') {
-                var oldInstance = document.getElementById('bannerSwiper').swiper;
-                if (oldInstance) oldInstance.destroy(true, true);
-                new Swiper('#bannerSwiper', {
-                    loop: true, autoplay: { delay: 4500, disableOnInteraction: false },
-                    pagination: { el: '.swiper-pagination', clickable: true },
-                    effect: 'fade', fadeEffect: { crossFade: true }, speed: 800
-                });
-            }
         }
     }
 
@@ -860,8 +848,8 @@
             if (statsRow) {
                 statsRow.innerHTML = a.stats.map(function(s) {
                     return '<div class="stat-item">' +
-                        '<span class="num">' + (s.num || '0') + '</span><span class="plus">+</span><span class="unit">' + (s.unit || '') + '</span>' +
-                        '<p class="label">' + (s.label || '') + '</p></div>';
+                        '<span class="num">' + esc(s.num || '0') + '</span><span class="plus">+</span><span class="unit">' + esc(s.unit || '') + '</span>' +
+                        '<p class="label">' + esc(s.label || '') + '</p></div>';
                 }).join('');
             }
         }
@@ -876,24 +864,8 @@
                 svcSlides.innerHTML = data.services.items.map(function(s) {
                     return '<div class="swiper-slide" style="width:200px;">' +
                         '<div class="service-card"><div class="service-icon"><i class="fa ' + (s.icon || 'fa-star') + '"></i></div>' +
-                        '<h4>' + (s.name || '') + '</h4><p class="s-desc">' + (s.desc || '') + '</p></div></div>';
+                        '<h4>' + esc(s.name || '') + '</h4><p class="s-desc">' + esc(s.desc || '') + '</p></div></div>';
                 }).join('');
-                // 重建服务 Swiper
-                if (typeof Swiper !== 'undefined') {
-                    var oldSvc = document.getElementById('serviceSwiper').swiper;
-                    if (oldSvc) oldSvc.destroy(true, true);
-                    new Swiper('#serviceSwiper', {
-                        slidesPerView: 'auto', spaceBetween: 20,
-                        navigation: { nextEl: '#serviceNext', prevEl: '#servicePrev' },
-                        autoplay: { delay: 3000, disableOnInteraction: false },
-                        breakpoints: {
-                            320: { slidesPerView: 1.2, spaceBetween: 12 },
-                            640: { slidesPerView: 2.5, spaceBetween: 16 },
-                            1024: { slidesPerView: 3.5, spaceBetween: 20 },
-                            1300: { slidesPerView: 4.5, spaceBetween: 24 }
-                        }
-                    });
-                }
             }
         }
     }
@@ -920,15 +892,15 @@
 
         var fd = formatDate(featured.date);
         var html = '<a href="' + (featured.link || '#') + '" class="news-featured">' +
-            (featured.img ? '<img src="' + featured.img + '" alt="">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
-            '<div class="news-featured-info"><div class="date">' + (featured.date || '') + '</div><h3>' + (featured.title || '') + '</h3></div></a>';
+            (featured.img ? '<img src="' + featured.img + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
+            '<div class="news-featured-info"><div class="date">' + (featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
 
         html += '<div class="news-list">';
         rest.forEach(function(item) {
             var d = formatDate(item.date);
             html += '<a href="' + (item.link || '#') + '" class="news-item">' +
                 '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
-                '<div class="n-title">' + (item.title || '') + '</div></a>';
+                '<div class="n-title">' + escesc(item.title || '') + '</div></a>';
         });
         html += '</div>';
         grid.innerHTML = html;
@@ -951,10 +923,10 @@
             var sorted = data.leadership.slice().sort(function(a, b) { return (a.sort || 0) - (b.sort || 0); });
             lg.innerHTML = sorted.map(function(m) {
                 return '<div class="leader-card">' +
-                    (m.img ? '<img class="ld-img" src="' + m.img + '" alt="' + (m.name || '') + '">' : '<div class="ld-img" style="background:#F0EBE3;"></div>') +
-                    '<div class="ld-info"><div class="ld-name">' + (m.name || '') + '</div>' +
-                    '<div class="ld-title">' + (m.title || '') + '</div>' +
-                    (m.desc ? '<div class="ld-desc">' + m.desc + '</div>' : '') +
+                    (m.img ? '<img class="ld-img" src="' + m.img + '" alt="' + esc(m.name || '') + '">' : '<div class="ld-img" style="background:#F0EBE3;"></div>') +
+                    '<div class="ld-info"><div class="ld-name">' + esc(m.name || '') + '</div>' +
+                    '<div class="ld-title">' + esc(m.title || '') + '</div>' +
+                    (m.desc ? '<div class="ld-desc">' + esc(m.desc) + '</div>' : '') +
                     '</div></div>';
             }).join('');
         }
@@ -965,9 +937,9 @@
         if (!pg || items.length === 0) return;
         pg.innerHTML = items.map(function(p) {
             if (p.img) {
-                return '<a href="' + (p.link || '#') + '" class="partner-item" target="_blank"><img src="' + p.img + '" alt="' + (p.name || '') + '"></a>';
+                return '<a href="' + (p.link || '#') + '" class="partner-item" target="_blank"><img src="' + p.img + '" alt="' + esc(p.name || '') + '"></a>';
             }
-            return '<a href="' + (p.link || '#') + '" class="partner-item" target="_blank"><span style="color:#BBB;font-size:13px;">' + (p.name || '') + '</span></a>';
+            return '<a href="' + (p.link || '#') + '" class="partner-item" target="_blank"><span style="color:#BBB;font-size:13px;">' + esc(p.name || '') + '</span></a>';
         }).join('');
     }
 
@@ -977,7 +949,8 @@
         // 头部 Logo
         if (f.headerLogo) {
             setAttr('headerLogo', 'src', f.headerLogo);
-            document.getElementById('headerLogo').style.display = 'block';
+            var hl = document.getElementById('headerLogo');
+            if (hl) hl.style.display = 'block';
         }
         setAttr('footerLogo', 'src', f.logo);
         setText('footerSlogan', f.slogan);
@@ -996,6 +969,49 @@
     function setAttr(id, attr, val) {
         var el = document.getElementById(id);
         if (el && val) el.setAttribute(attr, val);
+    }
+})();
+
+// ==================== 统一初始化轮播（CMS 数据已在之前绑定完毕） ====================
+(function() {
+    function initSwipers() {
+        if (typeof Swiper === "undefined") return;
+        // Banner 轮播
+        var bannerEl = document.getElementById("bannerSwiper");
+        if (bannerEl && bannerEl.querySelector(".swiper-slide")) {
+            if (bannerEl.swiper) bannerEl.swiper.destroy(true, true);
+            new Swiper("#bannerSwiper", {
+                loop: true,
+                autoplay: { delay: 4500 },
+                pagination: { el: ".swiper-pagination", clickable: true },
+                effect: "fade",
+                fadeEffect: { crossFade: true },
+                speed: 800
+            });
+        }
+        // 服务轮播
+        var svcEl = document.getElementById("serviceSwiper");
+        if (svcEl && svcEl.querySelector(".swiper-slide")) {
+            if (svcEl.swiper) svcEl.swiper.destroy(true, true);
+            new Swiper("#serviceSwiper", {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+                navigation: { nextEl: "#serviceNext", prevEl: "#servicePrev" },
+                autoplay: { delay: 3000 },
+                breakpoints: {
+                    320:  { slidesPerView: 1.2, spaceBetween: 12 },
+                    640:  { slidesPerView: 2.5, spaceBetween: 16 },
+                    1024: { slidesPerView: 3.5, spaceBetween: 20 },
+                    1300: { slidesPerView: 4.5, spaceBetween: 24 }
+                }
+            });
+        }
+    }
+    // 延迟初始化确保 DOM 已完全处理
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initSwipers);
+    } else {
+        initSwipers();
     }
 })();
 </script>
