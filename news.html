@@ -19,13 +19,13 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 .head-logo a{font-size:18px;font-weight:700;color:#C41230;text-decoration:none;letter-spacing:1px}
 .head-logo small{display:block;font-size:12px;color:#C9A84C;letter-spacing:1px;margin-top:-2px}
 .top-menu>ul{display:flex;list-style:none;gap:0;margin:0;padding:0}
-.top-menu>ul>span{position:relative;display:block}
-.top-menu>ul>span>li>a{display:flex;align-items:center;height:88px;padding:0 16px;font-size:14px;color:#333;text-decoration:none;font-weight:500;white-space:nowrap;transition:all 0.3s;position:relative}
-.top-menu>ul>span>li>a::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:3px;background:linear-gradient(90deg,#C41230,#C9A84C);transition:width 0.3s;border-radius:2px 2px 0 0}
-.top-menu>ul>span:hover>li>a,.top-menu>ul>span>li>a.active{color:#C41230}
-.top-menu>ul>span:hover>li>a::after,.top-menu>ul>span>li>a.active::after{width:70%}
+.top-menu>ul>li{position:relative;display:block}
+.top-menu>ul>li>a{display:flex;align-items:center;height:88px;padding:0 16px;font-size:14px;color:#333;text-decoration:none;font-weight:500;white-space:nowrap;transition:all 0.3s;position:relative}
+.top-menu>ul>li>a::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:3px;background:linear-gradient(90deg,#C41230,#C9A84C);transition:width 0.3s;border-radius:2px 2px 0 0}
+.top-menu>ul>li:hover>a,.top-menu>ul>li>a.active{color:#C41230}
+.top-menu>ul>li:hover>a::after,.top-menu>ul>li>a.active::after{width:70%}
 .er-menu{position:absolute;top:88px;left:50%;transform:translateX(-50%);background:#fff;min-width:150px;border-radius:0 0 8px 8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transition:all 0.3s;z-index:999}
-.top-menu>ul>span:hover .er-menu{opacity:1;visibility:visible}
+.top-menu>ul>li.has-sub:hover .er-menu{opacity:1;visibility:visible}
 .er-menu ul{list-style:none;padding:8px 0;margin:0}
 .er-menu ul li a{display:block;padding:10px 22px;font-size:13px;color:#555;text-decoration:none;transition:all 0.25s}
 .er-menu ul li a:hover{color:#C41230;background:#FEF5F5;padding-left:28px}
@@ -109,32 +109,29 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <div class="head-box">
 <div class="head-logo"><a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;"><img src="" alt="四川省闽南商会" id="headerLogo" style="height:50px;display:none;"><div><div style="font-size:30px;font-weight:700;color:#C41230;letter-spacing:3px;line-height:1.2;">四川省闽南商会</div><small style="color:#C9A84C;font-size:12px;letter-spacing:1px;">Minnan Chamber of Commerce in Sichuan Province</small></div></a></div>
 <nav class="top-menu"><ul>
-<span><li><a href="index.html">首页</a></li></span>
-<span><li><a href="about.html">关于商会</a></li>
-<div class="er-menu"><ul>
+<li><a href="index.html">首页</a></li>
+<li class="has-sub"><a href="about.html">关于商会</a><div class="er-menu"><ul>
 <li><a href="about.html#intro">商会简介</a></li>
 <li><a href="about.html#honors">荣誉历程</a></li>
 <li><a href="about.html#president">会长寄语</a></li>
 <li><a href="about.html#leadership">领导班子</a></li>
 <li><a href="about.html#milestones">大事记</a></li>
 <li><a href="about.html#committees">专委会</a></li>
-</ul></div></span>
-<span><li><a href="party.html">党委党建</a></li>
-<div class="er-menu"><ul>
+</ul></div></li>
+<li class="has-sub"><a href="party.html">党委党建</a><div class="er-menu"><ul>
 <li><a href="party.html#intro">组织介绍</a></li>
 <li><a href="party.html#structure">组织架构</a></li>
 <li><a href="party.html#history">发展历程</a></li>
 <li><a href="party.html#news">党建新闻</a></li>
-</ul></div></span>
-<span><li><a href="news.html" class="active">商会新闻</a></li>
-<div class="er-menu"><ul>
-<li><a href="news.html?tab=news">商会资讯</a></li>
-<li><a href="news.html?tab=biz">会企资讯</a></li>
-</ul></div></span>
-<span><li><a href="strategy.html">战略伙伴</a></li></span>
-<span><li><a href="joinus.html">加入我们</a></li></span>
+</ul></div></li>
+<li class="has-sub"><a href="news.html" class="active">商会新闻</a><div class="er-menu"><ul>
+<li><a href="news.html">商会资讯</a></li>
+<li><a href="news.html">会企资讯</a></li>
+</ul></div></li>
+<li><a href="strategy.html">战略伙伴</a></li>
+<li><a href="joinus.html">加入我们</a></li>
 </ul></nav>
-<div class="mobile-nav"><button class="mobile-nav-btn" onclick="toggleMenu()"><i class="fa fa-bars"></i></button></div>
+<div class="mobile-nav"><button class="mobile-nav-btn" onclick="toggleMenu()" aria-label="打开菜单" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i></button></div>
 </div>
 </header>
 <div id="mobileOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:998;" onclick="closeMobileMenu()"></div>
@@ -150,28 +147,15 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 function closeMobileMenu(){document.getElementById('mobileMenu').style.display='none';document.getElementById('mobileOverlay').style.display='none';document.body.style.overflow='';}
 document.getElementById('mobileMenu').addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>新闻资讯</h1><p>NEWS CENTER</p></div><div class="container section">
-<div style="display:flex;gap:10px;margin-bottom:30px;border-bottom:2px solid #EEE;">
-<button class="news-tab active" onclick="switchTab('news')" style="padding:12px 24px;font-size:15px;font-weight:600;cursor:pointer;border:none;background:none;color:#C41230;position:relative;">商会新闻</button>
-<button class="news-tab" onclick="switchTab('biz')" style="padding:12px 24px;font-size:15px;font-weight:600;cursor:pointer;border:none;background:none;color:#888;position:relative;">会企资讯</button>
-</div>
-<div id="tab-news"><div id="newsList"></div></div>
-<div id="tab-biz" style="display:none;"><div id="bizList"></div></div>
+<div id="newsList"></div>
 <script>
-function switchTab(t){
-document.querySelectorAll('.news-tab').forEach(function(b,i){b.style.color=i===0&&t==='news'||i===1&&t==='biz'?'#C41230':'#888';});
-document.getElementById('tab-news').style.display=t==='news'?'block':'none';
-document.getElementById('tab-biz').style.display=t==='biz'?'block':'none';
-}
 (function(){
 var d=window.__CMS_DATA__;if(!d)return;
-function render(id,items){
-var el=document.getElementById(id);if(!el)return;
-if(!items||items.length===0){el.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>暂无内容</p></div>';return;}
-el.innerHTML=items.map(function(n){return '<a href="'+(n.link||'#')+'" class="news-list-item"><span class="date">'+(n.date||'')+'</span><span class="title">'+(n.title||'')+'</span></a>';}).join('');
-}
-render('newsList',d.news);render('bizList',d.biznews);
-var p=new URLSearchParams(window.location.search);
-if(p.get('tab')==='biz')switchTab('biz');
+var allNews = (d.news || []).concat(d.biznews || []);
+allNews.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+var el=document.getElementById('newsList');if(!el)return;
+if(allNews.length===0){el.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>暂无内容</p></div>';return;}
+el.innerHTML=allNews.map(function(n){return '<a href="'+(n.link||'#')+'" class="news-list-item"><span class="date">'+(n.date||'')+'</span><span class="title">'+(n.title||'')+'</span></a>';}).join('');
 })();
 </script></div>
 <footer class="footer">
@@ -186,7 +170,7 @@ if(p.get('tab')==='biz')switchTab('biz');
 <div class="footer-menu">
 <div class="footer-menu-col"><h4>关于商会</h4><ul><li><a href="about.html#intro">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></div>
 <div class="footer-menu-col"><h4>党委党建</h4><ul><li><a href="party.html#intro">组织介绍</a></li><li><a href="party.html#structure">组织架构</a></li><li><a href="party.html#history">发展历程</a></li><li><a href="party.html#news">党建新闻</a></li></ul></div>
-<div class="footer-menu-col"><h4>商会新闻</h4><ul><li><a href="news.html?tab=news">商会资讯</a></li><li><a href="news.html?tab=biz">会企资讯</a></li></ul></div>
+<div class="footer-menu-col"><h4>商会新闻</h4><ul><li><a href="news.html">商会资讯</a></li><li><a href="news.html">会企资讯</a></li></ul></div>
 <div class="footer-menu-col"><h4>加入我们</h4><ul><li><a href="joinus.html">入会指南</a></li><li><a href="strategy.html">战略伙伴</a></li></ul></div>
 </div>
 </div>
