@@ -42,7 +42,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 .card{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:24px;border:1px solid #EEE}
 .footer{background:#1A1A1A;color:#AAA;padding:50px 0 0}
 .footer .container{display:flex;gap:50px;flex-wrap:wrap}
-.footer-left{flex:0 0 180px}
+.footer-left{flex:0 0 200px;text-align:center}.footer-left img{height:70px;margin-bottom:8px}.footer-left .ft-title{color:#fff;font-size:16px;font-weight:700;letter-spacing:2px}.footer-left .ft-sub{color:#C9A84C;font-size:10px;letter-spacing:1px}
 .footer-contact{flex:1;min-width:260px}
 .footer-contact h5{color:#fff;font-size:14px;margin-bottom:12px}
 .footer-contact p{font-size:13px;line-height:2}
@@ -100,14 +100,14 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 .page-banner{padding:100px 20px 40px}
 .page-banner h1{font-size:26px}
 .container{padding:0 20px}
-.footer .container{flex-direction:column;gap:30px}
+.footer .container{flex-direction:column;gap:30px}.footer-left{flex:0 0 auto;text-align:center}.footer-left img{height:56px}
 }
 </style>
 </head>
 <body>
 <header class="header">
 <div class="head-box">
-<div class="head-logo"><a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;"><img src="" alt="四川省闽南商会" id="headerLogo" style="height:50px;display:none;"><div><div style="font-size:30px;font-weight:700;color:#C41230;letter-spacing:3px;line-height:1.2;">四川省闽南商会</div><small style="color:#C9A84C;font-size:12px;letter-spacing:1px;">Minnan Chamber of Commerce in Sichuan Province</small></div></a></div>
+<div class="head-logo"><a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo" style="height:58px;"><div><div style="font-size:30px;font-weight:700;color:#C41230;letter-spacing:3px;line-height:1.2;">四川省闽南商会</div><small style="color:#C9A84C;font-size:12px;letter-spacing:1px;">Minnan Chamber of Commerce in Sichuan Province</small></div></a></div>
 <nav class="top-menu"><ul>
 <li><a href="index.html">首页</a></li>
 <li class="has-sub"><a href="about.html">关于商会<b></b></a><div class="er-menu"><ul>
@@ -161,7 +161,7 @@ el.innerHTML=allNews.map(function(n){return '<a href="'+esc(n.link||'#')+'" clas
 </script></div>
 <footer class="footer">
 <div class="container">
-<div class="footer-left"><div style="font-size:16px;font-weight:700;color:#fff;">四川省闽南商会</div><small style="color:#C9A84C;">SICHUAN MINNAN</small></div>
+<div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE</div></div>
 <div class="footer-contact">
 <h5 id="ft-slogan"></h5>
 <p><i class="fa fa-envelope" style="color:#C9A84C;margin-right:6px"></i><span id="ft-email"></span></p>
@@ -184,7 +184,7 @@ if(d&&d.footer){
 var f=d.footer;
 var set=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
 set('ft-slogan',f.slogan);set('ft-email',f.email);set('ft-addr',f.addr);
-if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl){hl.src=f.headerLogo;hl.style.display='block';}}
+if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
 set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
 })();
