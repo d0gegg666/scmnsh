@@ -496,8 +496,8 @@ function saveFooter(){var d=L();var f=d.footer;f.title=document.getElementById('
 function uploadToField(fieldId){var inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){document.getElementById(fieldId).value=e.target.result;};r.readAsDataURL(f);};inp.click();}
 function getGitHubToken(){
 var t=localStorage.getItem('scmn_gh_token');
-if(!t){t=prompt('请输入 GitHub Personal Access Token（需要 repo 权限）：\n\n创建地址：https://github.com/settings/tokens','');if(t){localStorage.setItem('scmn_gh_token',t);}}
-return t;
+if(!t){t=prompt('首次使用需要 GitHub Token（仅需一次）：\n\n1. 新窗口打开 https://github.com/settings/tokens\n2. Generate new token (classic)\n3. 勾选 repo，点 Generate\n4. 复制 token 粘贴到下方：\n','');if(t){localStorage.setItem('scmn_gh_token',t);T('Token 已保存，再次点击发布即可','success');return null;}}
+return t||null;
 }
 async function publishSite(){
 var token=getGitHubToken();
