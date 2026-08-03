@@ -78,10 +78,10 @@
         .er-menu ul li a:hover { color: #C41230; padding-left: 30px; background: #FEF5F5; }
         .er-menu ul li a:hover::before { width: 10px; }
 
-        .right-icon a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+        .right-icon a, .right-icon button { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;
             border-radius: 50%; background: #F5F5F5; color: #666; font-size: 16px; cursor: pointer; text-decoration: none;
-            transition: all 0.3s; }
-        .right-icon a:hover { background: #C41230; color: #fff; }
+            transition: all 0.3s; border: none; }
+        .right-icon a:hover, .right-icon button:hover { background: #C41230; color: #fff; }
         .search-box { display: none; position: absolute; right: 40px; top: 100px; background: #fff; padding: 15px 20px;
             border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
         .search-box.show { display: block; }
@@ -344,7 +344,7 @@
             <ul>
                 <li><a href="index.html" class="active">首页</a></li>
                 <li class="has-sub"><a href="about.html">关于商会<b></b></a><div class="er-menu"><ul>
-                        <li><a href="about.html">商会简介</a></li>
+                        <li><a href="about.html#intro">商会简介</a></li>
                         <li><a href="about.html#honors">荣誉历程</a></li>
                         <li><a href="about.html#president">会长寄语</a></li>
                         <li><a href="about.html#leadership">领导班子</a></li>
@@ -760,8 +760,8 @@
                 var bg = item.img ? 'background-image:url(' + item.img + ')' : 'background-color:#C41230';
                 return '<div class="swiper-slide" style="' + bg + ';background-size:cover;background-position:center;">' +
                     (item.title || item.subtitle || item.btnText ?
-                        '<div class="banner-content"><h2>' + escesc(item.title || '') + '</h2><p>' + esc(item.subtitle || '') + '</p>' +
-                        esc(item.btnText||'') ? '<a href="' + (item.btnLink || '#') + '" class="banner-btn">' + esc(item.btnText||'') + '</a>' : '') +
+                        '<div class="banner-content"><h2>' + esc(item.title || '') + '</h2><p>' + esc(item.subtitle || '') + '</p>' +
+                        (esc(item.btnText||'') ? '<a href="' + (item.btnLink || '#') + '" class="banner-btn">' + esc(item.btnText||'') + '</a>' : '') +
                         '</div>' : '') +
                     '</div>';
             }).join('');
@@ -842,14 +842,14 @@
         var fd = formatDate(featured.date);
         var html = '<a href="' + (featured.link || '#') + '" class="news-featured">' +
             (featured.img ? '<img src="' + featured.img + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
-            '<div class="news-featured-info"><div class="date">' + (featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
+            '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
 
         html += '<div class="news-list">';
         rest.forEach(function(item) {
             var d = formatDate(item.date);
             html += '<a href="' + (item.link || '#') + '" class="news-item">' +
                 '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
-                '<div class="n-title">' + escesc(item.title || '') + '</div></a>';
+                '<div class="n-title">' + esc(item.title || '') + '</div></a>';
         });
         html += '</div>';
         grid.innerHTML = html;
