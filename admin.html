@@ -197,8 +197,10 @@ table .mini-input:focus{border-color:#C41230;}
 <div class="page" id="page-news"><div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 商会新闻 <span class="tip">（第1条为左侧大图展示）</span></div><div id="news-list"></div><button class="btn btn-primary" onclick="addItem('news',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加新闻</button></div></div>
 
 <!-- ====== 服务领域 ====== -->
-<button class="btn btn-outline btn-sm" onclick="saveSvcDesc()" style="margin-bottom:16px;"><i class="fa fa-save"></i> 保存描述</button>
-<div id="sv-list"></div><button class="btn btn-primary" onclick="addItem('services',{icon:'fa-handshake-o',name:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加服务</button></div></div>
+	<div class="page" id="page-services"><div class="card"><div class="card-header"><i class="fa fa-cubes"></i> 服务领域</div>
+	<div class="form-group"><label>服务板块描述</label><textarea class="form-control" id="sv-desc" rows="2"></textarea></div>
+	<button class="btn btn-outline btn-sm" onclick="saveSvcDesc()" style="margin-bottom:16px;"><i class="fa fa-save"></i> 保存描述</button>
+	<div id="sv-list"></div><button class="btn btn-primary" onclick="addItem('services',{icon:'fa-handshake-o',name:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加服务</button></div></div>
 
 <!-- ====== 商务合作 ====== -->
 <div class="page" id="page-partners"><div class="card"><div class="card-header"><i class="fa fa-handshake-o"></i> 商务合作 <span class="tip">（合作伙伴 Logo 展示）</span></div><div id="pt-list"></div><button class="btn btn-primary" onclick="addItem('partners',{name:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加合作伙伴</button></div></div>
