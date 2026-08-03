@@ -91,7 +91,7 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="milestones"><i class="fa fa-history"></i> 大事记</a>
 <a href="#" data-page="committees"><i class="fa fa-sitemap"></i> 专委会</a>
 <div class="nav-group">党建管理</div>
-<a href="#" data-page="party"><i class="fa fa-flag"></i> 党委党建</a>
+<a href="#" data-page="party"><i class="fa fa-flag"></i> 商会党建</a>
 	<a href="#" data-page="party-history"><i class="fa fa-history"></i> 发展历程</a>
 <div class="nav-group">资讯管理</div>
 <a href="#" data-page="news"><i class="fa fa-newspaper-o"></i> 新闻资讯</a>
@@ -177,7 +177,7 @@ table .mini-input:focus{border-color:#C41230;}
 <!-- ====== 专委会 ====== -->
 <div class="page" id="page-committees"><div class="card"><div class="card-header"><i class="fa fa-sitemap"></i> 专委会 <span class="tip">（各专业委员会）</span></div><div id="cm-list"></div><button class="btn btn-primary" onclick="addItem('committees',{name:'',desc:'',members:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加专委会</button></div></div>
 
-<!-- ====== 党委党建 ====== -->
+<!-- ====== 商会党建 ====== -->
 <div class="page" id="page-party">
 <div class="card"><div class="card-header"><i class="fa fa-flag"></i> 党委介绍</div>
 <div class="form-group"><label>党委名称</label><input class="form-control" id="py-name"></div>
@@ -410,7 +410,7 @@ function saveAbout(){var d=L();d.about.en=document.getElementById('af-en').value
 function renderPresident(d){var p=d.president;document.getElementById('pm-name').value=p.name||'';document.getElementById('pm-title').value=p.title||'';document.getElementById('pm-img').value=p.img||'';document.getElementById('pm-content').value=p.content||'';}
 function savePresident(){var d=L();d.president.name=document.getElementById('pm-name').value;d.president.title=document.getElementById('pm-title').value;d.president.img=document.getElementById('pm-img').value;d.president.content=document.getElementById('pm-content').value;S(d);T('会长寄语已保存');}
 
-// ==================== 党委党建 ====================
+// ==================== 商会党建 ====================
 function renderParty(d){var p=d.party;document.getElementById('py-name').value=p.name||'';document.getElementById('py-intro').value=p.intro||'';document.getElementById('py-struct-img').value=p.structImg||'';document.getElementById('py-struct-desc').value=p.structDesc||'';renderTable('py-news-list','partyNews',p.news||[],['date','title','img','link'],{date:'日期',title:'标题',img:'图片URL',link:'链接'});}
 function savePartyIntro(){var d=L();d.party.name=document.getElementById('py-name').value;d.party.intro=document.getElementById('py-intro').value;S(d);T('党委介绍已保存');}
 function savePartyStruct(){var d=L();d.party.structImg=document.getElementById('py-struct-img').value;d.party.structDesc=document.getElementById('py-struct-desc').value;S(d);T('组织架构已保存');}
