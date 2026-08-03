@@ -518,6 +518,7 @@
         <h2>领导班子</h2>
     </div>
     <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
+        <div style="text-align:right;margin-bottom:12px;"><a href="about.html#leadership" class="read-more" style="font-size:13px;padding:6px 18px;">查看更多 →</a></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;" id="leaderGrid">
             <!-- 由 CMS 数据动态填充 -->
         </div>
@@ -532,6 +533,7 @@
         <h2>新闻资讯</h2>
     </div>
     <div class="news-container">
+        <div style="text-align:right;margin-bottom:12px;"><a href="news.html" class="read-more" style="font-size:13px;padding:6px 18px;">查看更多 →</a></div>
         <div class="news-grid" id="newsGrid">
             <div class="empty-placeholder" style="width:100%;"><i class="fa fa-newspaper-o" style="font-size:36px;display:block;margin-bottom:8px;"></i>新闻资讯内容待添加</div>
         </div>
@@ -546,6 +548,7 @@
         <h2>商务合作</h2>
     </div>
     <div class="partners-container">
+        <div style="text-align:right;margin-bottom:12px;"><a href="strategy.html" class="read-more" style="font-size:13px;padding:6px 18px;">查看更多 →</a></div>
         <div class="partner-grid" id="partnerGrid">
             <!-- 由 CMS 数据动态填充 -->
         </div>
@@ -560,6 +563,7 @@
         <h2>战略伙伴</h2>
     </div>
     <div style="max-width:1300px;margin:0 auto;padding:0 40px;">
+        <div style="text-align:right;margin-bottom:12px;"><a href="strategy.html" class="read-more" style="font-size:13px;padding:6px 18px;">查看更多 →</a></div>
         <div class="partner-grid" id="strategyGrid">
             <!-- 由 CMS 数据动态填充 -->
         </div>
@@ -871,7 +875,7 @@
     // 按日期倒序排列
     allNews.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });
     if (allNews.length > 0) {
-        renderNewsGrid('newsGrid', allNews);
+        renderNewsGrid('newsGrid', allNews.slice(0, 5));
     }
 
     function renderNewsGrid(gridId, items) {
@@ -916,8 +920,9 @@
     // ---- 领导班子 ----
     if (data.leadership && data.leadership.length > 0) {
         var lg = document.getElementById('leaderGrid');
+        var leaders = data.leadership.slice(0, 6);
         if (lg) {
-            var sorted = data.leadership.slice().sort(function(a, b) { return (a.sort || 0) - (b.sort || 0); });
+            var sorted = leaders.slice().sort(function(a, b) { return (a.sort || 0) - (b.sort || 0); });
             lg.innerHTML = sorted.map(function(m) {
                 return '<div class="leader-card">' +
                     (m.img ? '<img class="ld-img" src="' + esc(m.img) + '" alt="' + esc(m.name || '') + '">' : '<div class="ld-img" style="background:#F0EBE3;"></div>') +
