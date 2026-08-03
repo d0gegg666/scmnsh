@@ -500,12 +500,15 @@ var t=localStorage.getItem('scmn_gh_token');
 if(!t){t=prompt('首次使用需要 GitHub Token（仅需一次）：\n\n1. 新窗口打开 https://github.com/settings/tokens\n2. Generate new token (classic)\n3. 勾选 repo，点 Generate\n4. 复制 token 粘贴到下方：\n','');if(t){localStorage.setItem('scmn_gh_token',t);T('Token 已保存，再次点击发布即可','success');return null;}}
 return t||null;
 }
+function compressBase64Async(b64){return new Promise(function(resolve){if(!b64||b64.length<1000){resolve(b64);return;}var img=new Image();img.onload=function(){var c=document.createElement('canvas');var maxW=800;var w=img.width,h=img.height;if(w>maxW){h=Math.round(h*maxW/w);w=maxW;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);resolve(c.toDataURL('image/jpeg',0.7));};img.onerror=function(){resolve(b64);};img.src=b64;});}
+async function compressAllImages(d){var isB64=/^data:image/;var tasks=[];function walk(obj){if(!obj||typeof obj!=='object')return;for(var k in obj){var v=obj[k];if(typeof v==='string'&&isB64.test(v)&&v.length>5000){tasks.push(compressBase64Async(v).then(function(r){obj[k]=r;}));}else if(typeof v==='object'){walk(v);}}}walk(d);await Promise.all(tasks);}
 async function publishSite(){
 var token=getGitHubToken();
 if(!token){T('需要 GitHub Token 才能自动发布','error');return;}
-T('正在发布到 GitHub...','warning');
+T('正在压缩图片并发布...','warning');
 try{
 var d=L();
+await compressAllImages(d);
 var js='// 四川省闽南商会 - 网站数据文件（由管理后台自动生成）\n// 上传此文件到服务器即可更新网站内容\nwindow.__CMS_DATA__ = '+JSON.stringify(d,null,2)+';\n';
 var base64=btoa(unescape(encodeURIComponent(js)));
 var owner='d0gegg666',repo='scmnsh',path='data.js';
@@ -516,7 +519,7 @@ var sha=info.sha||'';
 // 2. 提交新文件
 var body=JSON.stringify({message:'CMS 后台自动更新 data.js',content:base64,sha:sha});
 resp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path,{method:'PUT',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:body});
-if(resp.ok){T('发布成功！1-2分钟后网站自动更新','success');}
+if(resp.ok){S(d);T('发布成功！图片已压缩，1-2分钟后网站自动更新','success');}
 else{var err=await resp.json();T('发布失败：'+err.message,'error');}
 // 3. 同时下载备份
 var b=new Blob([js],{type:'application/javascript'});
