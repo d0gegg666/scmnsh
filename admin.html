@@ -94,8 +94,7 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="party"><i class="fa fa-flag"></i> 党委党建</a>
 	<a href="#" data-page="party-history"><i class="fa fa-history"></i> 发展历程</a>
 <div class="nav-group">资讯管理</div>
-<a href="#" data-page="news"><i class="fa fa-newspaper-o"></i> 商会新闻</a>
-<a href="#" data-page="biznews"><i class="fa fa-bullhorn"></i> 会企资讯</a>
+<a href="#" data-page="news"><i class="fa fa-newspaper-o"></i> 新闻资讯</a>
 <div class="nav-group">合作与服务</div>
 <a href="#" data-page="services"><i class="fa fa-cubes"></i> 服务领域</a>
 <a href="#" data-page="partners"><i class="fa fa-handshake-o"></i> 商务合作</a>
@@ -198,11 +197,6 @@ table .mini-input:focus{border-color:#C41230;}
 <div class="page" id="page-news"><div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 商会新闻 <span class="tip">（第1条为左侧大图展示）</span></div><div id="news-list"></div><button class="btn btn-primary" onclick="addItem('news',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加新闻</button></div></div>
 
 <!-- ====== 会企资讯 ====== -->
-<div class="page" id="page-biznews"><div class="card"><div class="card-header"><i class="fa fa-bullhorn"></i> 会企资讯 <span class="tip">（第1条为左侧大图展示）</span></div><div id="biznews-list"></div><button class="btn btn-primary" onclick="addItem('biznews',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加资讯</button></div></div>
-
-<!-- ====== 服务领域 ====== -->
-<div class="page" id="page-services"><div class="card"><div class="card-header"><i class="fa fa-cubes"></i> 服务领域</div>
-<div class="form-group"><label>服务板块描述</label><textarea class="form-control" id="sv-desc" rows="2"></textarea></div>
 <button class="btn btn-outline btn-sm" onclick="saveSvcDesc()" style="margin-bottom:16px;"><i class="fa fa-save"></i> 保存描述</button>
 <div id="sv-list"></div><button class="btn btn-primary" onclick="addItem('services',{icon:'fa-handshake-o',name:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加服务</button></div></div>
 
@@ -299,8 +293,7 @@ case'milestones':renderTable('ms-list','milestones',d.milestones,['year','month'
 case'committees':renderTable('cm-list','committees',d.committees,['name','desc','members'],{name:'专委会名称',desc:'简介',members:'成员'});break;
 case'party':renderParty(d);break;
 	case'party-history':renderTable('py-history-list','partyHistory',d.party.history||[],['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
-case'news':renderTable('news-list','news',d.news,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});break;
-case'biznews':renderTable('biznews-list','biznews',d.biznews,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});break;
+case'news':renderCombinedNews(d);break;
 case'services':renderServices(d);break;
 case'partners':renderTable('pt-list','partners',d.partners,['name','img','link'],{name:'名称',img:'Logo URL',link:'链接'});break;
 case'strategy':renderTable('sg-list','strategy',d.strategy,['name','img','link','desc'],{name:'名称',img:'Logo URL',link:'链接',desc:'简介'});break;
@@ -311,7 +304,13 @@ case'footer':renderFooter(d);break;
 }
 
 // ==================== 控制台 ====================
+function renderCombinedNews(d){
+var all=(d.news||[]).concat(d.biznews||[]);
+all.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+renderTable('news-list','combinedNews',all,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});
+}
 function renderDash(d){
+function renderCombinedNews(d){var all=(d.news||[]).concat(d.biznews||[]);all.sort(function(a,b){return(b.date||"").localeCompare(a.date||"");});renderTable("news-list","combinedNews",all,["date","title","img","link"],{date:"日期(YYYY-MM-DD)",title:"标题",img:"图片URL",link:"链接"});}
 var items=[
 {icon:'red',fa:'fa-image',num:d.banner.length,label:'Banner'},
 {icon:'gold',fa:'fa-users',num:d.leadership.length,label:'领导班子'},
@@ -357,7 +356,7 @@ c.innerHTML=h;
 	// 通用：添加列表项（自动识别普通数组、services.items、party.news）
 	function addItem(key,defaults){
 	var d=L();
-	if(key==='partyNews'){if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(!d.party.history)d.party.history=[];d.party.history.push(defaults);S(d);renderPage(getCurrentPage());return;}
+	if(key==='combinedNews'){if(!d.news)d.news=[];d.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='combinedNews'){if(!d.news)d.news=[];d.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyNews'){if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(!d.party.history)d.party.history=[];d.party.history.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(!d.services.items)d.services.items=[];d.services.items.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(!d[key])return;
 	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());}
@@ -366,14 +365,14 @@ c.innerHTML=h;
 	function dI(key,i){
 	if(!confirm('确定删除？'))return;
 	var d=L();
-	if(key==='partyNews'){if(d.party.news)d.party.news.splice(i,1);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(d.party.history)d.party.history.splice(i,1);S(d);renderPage(getCurrentPage());return;}
+	if(key==='combinedNews'){if(!d.news)d.news=[];d.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='combinedNews'){var ci=i,cn=d.news.length;if(ci<cn){d.news.splice(ci,1)}else{d.biznews.splice(ci-cn,1)}S(d);renderPage(getCurrentPage());return;}if(key==='combinedNews'){var ci=i,cn=(d.news||[]).length;if(ci<cn){d.news.splice(ci,1)}else if(d.biznews){d.biznews.splice(ci-cn,1)}S(d);renderPage(getCurrentPage());return;}if(key==='partyNews'){if(d.party.news)d.party.news.splice(i,1);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(d.party.history)d.party.history.splice(i,1);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(d.services.items)d.services.items.splice(i,1);S(d);renderPage(getCurrentPage());return;}
 	if(Array.isArray(d[key])){d[key].splice(i,1);S(d);renderPage(getCurrentPage());}
 	}
 	// 通用：更新列表项字段（行内编辑自动保存）
 	function uF(key,i,field,value){
 	var d=L();
-	if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}if(key==='partyHistory'){if(d.party.history)d.party.history[i][field]=value;S(d);return;}
+	if(key==='combinedNews'){if(!d.news)d.news=[];d.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='combinedNews'){var ci=i,cn=d.news.length;if(ci<cn){d.news[ci][field]=value}else{d.biznews[ci-cn][field]=value}S(d);return;}if(key==='combinedNews'){var ci=i,cn=(d.news||[]).length;if(ci<cn){d.news[ci][field]=value}else if(d.biznews){d.biznews[ci-cn][field]=value}S(d);return;}if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}if(key==='partyHistory'){if(d.party.history)d.party.history[i][field]=value;S(d);return;}
 	if(key==='services'){if(d.services.items)d.services.items[i][field]=value;S(d);return;}
 	if(key==='party'){
 	if(field.startsWith('struct'))d.party[field]=value;
