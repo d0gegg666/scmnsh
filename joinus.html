@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#C41230','primary-dark':'#8B1A2B',gold:'#C9A84C','gold-light':'#F5E6C8'}}}}</script>
-<script src="data.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#fafafa;color:#333}
@@ -107,7 +107,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <body>
 <header class="header">
 <div class="head-box">
-<div class="head-logo"><a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo" style="height:56px;width:auto;"><div><div style="font-size:26px;font-weight:700;color:#C41230;letter-spacing:4px;line-height:1.2;">四川省闽南商会</div><small style="color:#C9A84C;font-size:11px;letter-spacing:2px;">MINNAN CHAMBER OF COMMERCE</small></div></a></div>
+<div class="head-logo"><a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo" style="height:56px;width:auto;"><div><div style="font-size:26px;font-weight:700;color:#C41230;letter-spacing:4px;line-height:1.2;">四川省闽南商会</div><small style="color:#C9A84C;font-size:11px;letter-spacing:2px;">MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</small></div></a></div>
 <nav class="top-menu"><ul>
 <li><a href="index.html">首页</a></li>
 <li class="has-sub"><a href="about.html">关于商会<b></b></a><div class="er-menu"><ul>
@@ -228,7 +228,7 @@ if(ct)ct.innerHTML='<div class="join-section"><h3><i class="fa fa-phone" style="
 .back-to-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:#C41230;color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;z-index:999;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(196,18,48,0.3);display:flex;align-items:center;justify-content:center}.back-to-top.show{opacity:1;visibility:visible}.back-to-top:hover{background:#8B1A2B;transform:translateY(-3px)}</style>
 <footer class="footer">
 <div class="container">
-<div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE</div></div>
+<div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</div></div>
 <div class="footer-contact"><h5 id="ft-slogan">如果您有需求，请联系我们；我们将竭诚为您服务！</h5><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-map-marker" style="color:#C9A84C;margin-right:6px"></i> 地址：<span id="ft-addr">成都市金牛区育仁西路8号茗园尚筑2栋29楼</span></p><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-phone" style="color:#C9A84C;margin-right:6px"></i> 电话：<span id="ft-phone">028-83392693</span></p><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-envelope" style="color:#C9A84C;margin-right:6px"></i> 邮箱：<span id="ft-email">smcc0924@163.com</span></p></div><div class="footer-menu">
 <div class="footer-menu-col"><h4>关于商会</h4><ul><li><a href="about.html#intro">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></div>
 <div class="footer-menu-col"><h4>商会党建</h4><ul><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></div>
@@ -333,4 +333,5 @@ function submitApplication(e) {
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
 <script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
+<script src="data.js"></script>
 </body></html>
