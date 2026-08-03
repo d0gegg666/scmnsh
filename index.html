@@ -777,7 +777,7 @@
 
 // ==================== CMS 数据绑定 ====================
 // 优先读取 data.js（部署模式），其次读取 localStorage（本地调试模式）
-(function() {
+function bindCMS(_data) {
     var STORAGE_KEY = 'scmn_cms_data';
 
     // HTML 转义，防止 XSS
@@ -786,17 +786,10 @@
         return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
-    function getCMSData() {
-        // 1. 优先读取 data.js 中定义的数据（部署到服务器后使用）
-        if (window.__CMS_DATA__) return window.__CMS_DATA__;
-        // 2. 回退到 localStorage（本地浏览器编辑时使用）
-        try {
-            var raw = localStorage.getItem(STORAGE_KEY);
-            return raw ? JSON.parse(raw) : null;
-        } catch (e) { return null; }
-    }
-
-    var data = getCMSData();
+    var data = _data || (function(){
+        try { var r = localStorage.getItem(STORAGE_KEY); return r ? JSON.parse(r) : null; }
+        catch(e) { return null; }
+    })();
     if (!data) return; // 无后台数据，使用默认空框架
 
     // ---- Banner ----
@@ -967,7 +960,7 @@
         var el = document.getElementById(id);
         if (el && val) el.setAttribute(attr, val);
     }
-})();
+}
 
 // ==================== 统一初始化轮播（CMS 数据已在之前绑定完毕） ====================
 (function() {
@@ -1013,6 +1006,16 @@
 })();
 </script>
 
-<script src="data.js"></script>
+<script>
+// 异步加载data.js，不阻塞页面渲染
+(function(){
+if(window.__CMS_DATA__){bindCMS(window.__CMS_DATA__);return;}
+var s=document.createElement('script');
+s.src='data.js';
+s.onload=function(){if(window.__CMS_DATA__)bindCMS(window.__CMS_DATA__);};
+s.onerror=function(){bindCMS(null);};
+document.body.appendChild(s);
+})();
+</script>
 </body>
 </html>
