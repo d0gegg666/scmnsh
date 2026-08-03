@@ -124,10 +124,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <li><a href="party.html#history">发展历程</a></li>
 <li><a href="party.html#news">党建新闻</a></li>
 </ul></div></li>
-<li class="has-sub"><a href="news.html">商会新闻<b></b></a><div class="er-menu"><ul>
-<li><a href="news.html">商会资讯</a></li>
-<li><a href="news.html">会企资讯</a></li>
-</ul></div></li>
+<li><a href="news.html">商会新闻</a></li>
 <li><a href="strategy.html">战略伙伴</a></li>
 <li><a href="joinus.html">加入我们</a></li>
 </ul></nav>
@@ -139,7 +136,47 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="index.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">首页</a>
 <a href="about.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">关于商会</a>
 <a href="party.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">党委党建</a>
-<a href="news.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">商会新闻</a><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></div>
+<a href="news.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">商会新闻</a>
+<a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
+<a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
+</div>
+<script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
+function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
+var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
+<div class="page-banner"><h1>党委党建</h1><p>PARTY BUILDING</p></div><div class="container section">
+<div class="section-title" id="intro"><h2>组织介绍</h2></div>
+<div class="card"><h3 id="py-name" style="color:#C41230;margin-bottom:12px;"></h3><p id="py-intro" style="font-size:14px;color:#555;line-height:2;"></p></div>
+<div id="party-struct-section"><div class="section-title" id="structure"><h2>组织架构</h2></div>
+<div class="card" style="text-align:center;"><img id="py-struct-img" src="" style="max-width:100%;border-radius:8px;"><p id="py-struct-desc" style="font-size:13px;color:#888;margin-top:16px;"></p></div></div>
+<div id="party-history-section"><div class="section-title" id="history"><h2>发展历程</h2></div>
+<div class="timeline" id="py-history-timeline"><div class="empty-tip"><i class="fa fa-history"></i><p>发展历程内容待添加</p></div></div></div>
+<div id="party-news-section"><div class="section-title" id="news"><h2>党建新闻</h2></div>
+<div id="pyNewsList"></div></div>
+<script>
+(function(){
+var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
+var d=window.__CMS_DATA__;if(!d)return;
+var p=d.party||{};
+var setT=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
+setT('py-name',p.name);setT('py-intro',p.intro);
+var si=document.getElementById('py-struct-img');if(si&&p.structImg)si.src=p.structImg;
+setT('py-struct-desc',p.structDesc);
+var ht=document.getElementById('py-history-timeline');
+if(ht&&p.history&&p.history.length>0){
+ht.innerHTML=p.history.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(h){
+return '<div class="timeline-item"><div class="year">'+esc(h.year||'')+(h.month?'-'+esc(h.month||''):'')+'</div><h4>'+esc(h.title||'')+'</h4><p>'+esc(h.desc||'')+'</p></div>';
+}).join('');
+}
+var nl=document.getElementById('pyNewsList');
+if(nl&&p.news&&p.news.length>0){nl.innerHTML=p.news.map(function(n){return '<a href="'+esc(n.link||'#')+'" class="news-list-item"><span class="date">'+esc(n.date||'')+'</span><span class="title">'+esc(n.title||'')+'</span></a>';}).join('');}
+else{nl.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>党建新闻待添加</p></div>';}
+})();
+</script></div>
+<footer class="footer">
+<div class="container">
+<div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE</div></div>
+<div class="footer-contact"><h5 id="ft-slogan">如果您有需求，请联系我们；我们将竭诚为您服务！</h5><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-map-marker" style="color:#C9A84C;margin-right:6px"></i> 地址：<span id="ft-addr">成都市金牛区育仁西路8号茗园尚筑2栋29楼</span></p><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-phone" style="color:#C9A84C;margin-right:6px"></i> 电话：<span id="ft-phone">028-83392693</span></p></div><div class="footer-menu">
+<div class="footer-menu-col"><h4>关于商会</h4><ul><li><a href="about.html#intro">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></div>
 <div class="footer-menu-col"><h4>党委党建</h4><ul><li><a href="party.html#intro">组织介绍</a></li><li><a href="party.html#structure">组织架构</a></li><li><a href="party.html#history">发展历程</a></li><li><a href="party.html#news">党建新闻</a></li></ul></div>
 <div class="footer-menu-col"><h4>商会新闻</h4><ul><li><a href="news.html">新闻资讯</a></li></ul></div>
 <div class="footer-menu-col"><h4>加入我们</h4><ul><li><a href="joinus.html">入会指南</a></li><li><a href="strategy.html">战略伙伴</a></li><li><a href="joinus.html">联系我们</a></li></ul></div>
@@ -160,5 +197,5 @@ set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 })();
 </script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
-<script>var bt=document.getElementById("'backToTop'");window.addEventListener("'scroll'",function(){if(bt)bt.classList.toggle("'show'",window.scrollY>300)});</script>
+<script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
 </body></html>

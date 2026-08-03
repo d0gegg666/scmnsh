@@ -124,10 +124,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <li><a href="party.html#history">发展历程</a></li>
 <li><a href="party.html#news">党建新闻</a></li>
 </ul></div></li>
-<li class="has-sub"><a href="news.html">商会新闻<b></b></a><div class="er-menu"><ul>
-<li><a href="news.html">商会资讯</a></li>
-<li><a href="news.html">会企资讯</a></li>
-</ul></div></li>
+<li><a href="news.html">商会新闻</a></li>
 <li><a href="strategy.html">战略伙伴</a></li>
 <li><a href="joinus.html">加入我们</a></li>
 </ul></nav>
@@ -139,7 +136,59 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="index.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">首页</a>
 <a href="about.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">关于商会</a>
 <a href="party.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">党委党建</a>
-<a href="news.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">商会新闻</a><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></div>
+<a href="news.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">商会新闻</a>
+<a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
+<a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
+</div>
+<script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
+function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
+var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
+<div class="page-banner"><h1>关于商会</h1><p>ABOUT US</p></div><div class="container section">
+<div class="section-title" id="intro"><h2>商会简介</h2></div>
+<div class="card" id="about-card">
+<p id="ab-p1" style="font-size:15px;line-height:2;color:#555;text-indent:2em;margin-bottom:16px;"></p>
+<p id="ab-p2" style="font-size:15px;line-height:2;color:#555;text-indent:2em;"></p>
+</div>
+<div id="about-honors-section"><div class="section-title" id="honors"><h2>荣誉历程</h2></div><div class="honor-grid" id="honorGrid"></div></div>
+<div id="about-president-section"><div class="section-title" id="president"><h2>会长寄语</h2></div><div class="card" style="display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap;">
+<div style="flex:0 0 200px;text-align:center;"><img id="pm-img" src="" alt="会长" style="width:100%;border-radius:10px;background:#F0EBE3;min-height:200px;"><div id="pm-name" style="font-size:18px;font-weight:700;margin-top:12px;color:#333;"></div><div id="pm-title" style="font-size:13px;color:#C41230;"></div></div>
+<div style="flex:1;min-width:260px;"><blockquote id="pm-content" style="font-size:15px;color:#555;line-height:2.2;font-style:italic;border-left:3px solid #C9A84C;padding-left:20px;"></blockquote></div>
+</div></div>
+<div id="about-leader-section"><div class="section-title" id="leadership"><h2>领导班子</h2></div><div class="leader-grid" id="leaderGrid"></div></div>
+<div id="about-ms-section"><div class="section-title" id="milestones"><h2>大事记</h2></div><div class="timeline" id="msTimeline"></div></div>
+<div id="about-cm-section"><div class="section-title" id="committees"><h2>专委会</h2></div><div class="honor-grid" id="cmGrid"></div></div>
+<script>
+(function(){
+var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
+var d=window.__CMS_DATA__;if(!d)return;
+var a=d.about||{};
+var setT=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
+var setI=function(id,v){var el=document.getElementById(id);if(el&&v)el.src=v;};
+setT('ab-p1',a.p1);setT('ab-p2',a.p2);
+// Honors
+var hg=document.getElementById('honorGrid');if(hg){if(d.honors&&d.honors.length>0){hg.innerHTML=d.honors.map(function(h){return '<div class="honor-card"><div class="icon"><i class="fa fa-trophy"></i></div><div><h4>'+esc(h.title||'')+'</h4><div class="year">'+esc(h.year||'')+'</div><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(h.desc||'')+'</div></div></div>';}).join('');}else{hg.innerHTML='<div class="empty-tip"><i class="fa fa-trophy"></i><p>荣誉历程内容待添加</p></div>';}}
+// President
+var p=d.president||{};
+setI('pm-img',p.img);setT('pm-name',p.name);setT('pm-title',p.title);setT('pm-content',p.content);
+// Leadership
+var lg=document.getElementById('leaderGrid');if(!lg)return;
+if(d.leadership&&d.leadership.length>0){lg.innerHTML=d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return '<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+esc(m.name||'')+'">':'<div style="height:240px;background:#F0EBE3;"></div>')+'<div class="info"><div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div></div>';}).join('');}
+else{lg.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
+// Milestones
+var mt=document.getElementById('msTimeline');if(!mt)return;
+if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return '<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+esc(m.month||''):'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+esc(m.desc||'')+'</p></div>';}).join('');}
+else{mt.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
+// Committees
+var cg=document.getElementById('cmGrid');if(!cg)return;
+if(d.committees&&d.committees.length>0){cg.innerHTML=d.committees.map(function(c){return '<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+esc(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(c.desc||'')+'</div><div style="font-size:11px;color:#AAA;margin-top:2px;">成员：'+esc(c.members||'')+'</div></div></div>';}).join('');}
+else{cg.innerHTML='<div class="empty-tip"><i class="fa fa-sitemap"></i><p>专委会信息待添加</p></div>';}
+})();
+</script></div>
+<footer class="footer">
+<div class="container">
+<div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE</div></div>
+<div class="footer-contact"><h5 id="ft-slogan">如果您有需求，请联系我们；我们将竭诚为您服务！</h5><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-map-marker" style="color:#C9A84C;margin-right:6px"></i> 地址：<span id="ft-addr">成都市金牛区育仁西路8号茗园尚筑2栋29楼</span></p><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-phone" style="color:#C9A84C;margin-right:6px"></i> 电话：<span id="ft-phone">028-83392693</span></p></div><div class="footer-menu">
+<div class="footer-menu-col"><h4>关于商会</h4><ul><li><a href="about.html#intro">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></div>
 <div class="footer-menu-col"><h4>党委党建</h4><ul><li><a href="party.html#intro">组织介绍</a></li><li><a href="party.html#structure">组织架构</a></li><li><a href="party.html#history">发展历程</a></li><li><a href="party.html#news">党建新闻</a></li></ul></div>
 <div class="footer-menu-col"><h4>商会新闻</h4><ul><li><a href="news.html">新闻资讯</a></li></ul></div>
 <div class="footer-menu-col"><h4>加入我们</h4><ul><li><a href="joinus.html">入会指南</a></li><li><a href="strategy.html">战略伙伴</a></li><li><a href="joinus.html">联系我们</a></li></ul></div>
@@ -160,5 +209,5 @@ set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 })();
 </script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
-<script>var bt=document.getElementById("'backToTop'");window.addEventListener("'scroll'",function(){if(bt)bt.classList.toggle("'show'",window.scrollY>300)});</script>
+<script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
 </body></html>
