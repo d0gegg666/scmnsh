@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
 
     <!-- CMS 数据文件（部署时由此文件提供网站内容） -->
     <script src="data.js"></script>
@@ -455,7 +454,7 @@
 <section class="banner-section" id="top">
     <div class="swiper swiper-banner" id="bannerSwiper">
         <div class="swiper-wrapper" id="bannerSlides">
-            <!-- 由 CMS 数据动态填充 -->
+            <div class="swiper-slide" style="background:linear-gradient(135deg,#1a0a0a,#8B1A2B,#C41230);display:flex;align-items:center;justify-content:center;"><div style="text-align:center;color:#fff;"><h2 style="font-size:42px;font-weight:700;letter-spacing:6px;">四川省闽南商会</h2><p style="font-size:18px;color:#C9A84C;letter-spacing:4px;margin-top:12px;">MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -480,7 +479,7 @@
             </div>
             <!-- 右侧图片：替换 src -->
             <div class="about-image">
-                <img src="" alt="商会简介" id="aboutImg">
+                <img src="" alt="商会简介" id="aboutImg" loading="lazy">
             </div>
         </div>
         <!-- 数据统计：修改数字和文字 -->
@@ -538,7 +537,7 @@
     </div>
     <div class="news-container">
         <div class="news-grid" id="newsGrid">
-            <!-- 由 CMS 数据动态填充 -->
+            <div class="empty-placeholder" style="width:100%;"><i class="fa fa-newspaper-o" style="font-size:36px;display:block;margin-bottom:8px;"></i>新闻资讯内容待添加</div>
         </div>
     </div>
 </section>
@@ -809,7 +808,7 @@
         if (bannerSlides) {
             var sorted = data.banner.slice().sort(function(a, b) { return (a.sort || 0) - (b.sort || 0); });
             bannerSlides.innerHTML = sorted.map(function(item) {
-                var bg = item.img ? 'background-image:url(' + esc(item.img) + ')' : 'background-color:#C41230';
+                var bg = item.img ? 'background-image:url(' + item.img + ')' : 'background-color:#C41230';
                 return '<div class="swiper-slide" style="' + bg + ';background-size:cover;background-position:center;">' +
                     (item.title || item.subtitle || item.btnText ?
                         '<div class="banner-content"><h2>' + esc(item.title || '') + '</h2><p>' + esc(item.subtitle || '') + '</p>' +
@@ -893,7 +892,7 @@
 
         var fd = formatDate(featured.date);
         var html = '<a href="' + esc(featured.link || '#') + '" class="news-featured">' +
-            (featured.img ? '<img src="' + featured.img + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
+            (featured.img ? '<img src="' + esc(featured.img) + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
             '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
 
         html += '<div class="news-list">';
