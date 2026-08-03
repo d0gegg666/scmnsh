@@ -591,9 +591,9 @@
             <div class="footer-menu-col">
                 <h4>加入我们</h4>
                 <ul>
-                    <li><a href="#">入会指南</a></li>
-                    <li><a href="#">战略伙伴</a></li>
-                    <li><a href="#">联系我们</a></li>
+                    <li><a href="joinus.html">入会指南</a></li>
+                    <li><a href="strategy.html">战略伙伴</a></li>
+                    <li><a href="joinus.html">联系我们</a></li>
                 </ul>
             </div>
         </div>
@@ -630,7 +630,7 @@
     if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
 
     // 移动端子菜单
-    document.querySelectorAll('.has-sub').forEach(function(item) {
+    document.querySelectorAll('.mobile-menu-list .has-sub').forEach(function(item) {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             var sub = this.nextElementSibling;
@@ -757,11 +757,11 @@
         if (bannerSlides) {
             var sorted = data.banner.slice().sort(function(a, b) { return (a.sort || 0) - (b.sort || 0); });
             bannerSlides.innerHTML = sorted.map(function(item) {
-                var bg = item.img ? 'background-image:url(' + item.img + ')' : 'background-color:#C41230';
+                var bg = item.img ? 'background-image:url(' + esc(item.img) + ')' : 'background-color:#C41230';
                 return '<div class="swiper-slide" style="' + bg + ';background-size:cover;background-position:center;">' +
                     (item.title || item.subtitle || item.btnText ?
                         '<div class="banner-content"><h2>' + esc(item.title || '') + '</h2><p>' + esc(item.subtitle || '') + '</p>' +
-                        (esc(item.btnText||'') ? '<a href="' + (item.btnLink || '#') + '" class="banner-btn">' + esc(item.btnText||'') + '</a>' : '') +
+                        (esc(item.btnText||'') ? '<a href="' + esc(item.btnLink || '#') + '" class="banner-btn">' + esc(item.btnText||'') + '</a>' : '') +
                         '</div>' : '') +
                     '</div>';
             }).join('');
@@ -840,14 +840,14 @@
         }
 
         var fd = formatDate(featured.date);
-        var html = '<a href="' + (featured.link || '#') + '" class="news-featured">' +
+        var html = '<a href="' + esc(featured.link || '#') + '" class="news-featured">' +
             (featured.img ? '<img src="' + featured.img + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
             '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
 
         html += '<div class="news-list">';
         rest.forEach(function(item) {
             var d = formatDate(item.date);
-            html += '<a href="' + (item.link || '#') + '" class="news-item">' +
+            html += '<a href="' + esc(item.link || '#') + '" class="news-item">' +
                 '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
                 '<div class="n-title">' + esc(item.title || '') + '</div></a>';
         });
@@ -872,7 +872,7 @@
             var sorted = data.leadership.slice().sort(function(a, b) { return (a.sort || 0) - (b.sort || 0); });
             lg.innerHTML = sorted.map(function(m) {
                 return '<div class="leader-card">' +
-                    (m.img ? '<img class="ld-img" src="' + m.img + '" alt="' + esc(m.name || '') + '">' : '<div class="ld-img" style="background:#F0EBE3;"></div>') +
+                    (m.img ? '<img class="ld-img" src="' + esc(m.img) + '" alt="' + esc(m.name || '') + '">' : '<div class="ld-img" style="background:#F0EBE3;"></div>') +
                     '<div class="ld-info"><div class="ld-name">' + esc(m.name || '') + '</div>' +
                     '<div class="ld-title">' + esc(m.title || '') + '</div>' +
                     (m.desc ? '<div class="ld-desc">' + esc(m.desc) + '</div>' : '') +
@@ -888,7 +888,7 @@
             if (p.img) {
                 return '<a href="' + (p.link || '#') + '" class="partner-item" target="_blank"><img src="' + p.img + '" alt="' + esc(p.name || '') + '"></a>';
             }
-            return '<a href="' + (p.link || '#') + '" class="partner-item" target="_blank"><span style="color:#BBB;font-size:13px;">' + esc(p.name || '') + '</span></a>';
+            return '<a href="' + esc(p.link || '#') + '" class="partner-item" target="_blank"><span style="color:#BBB;font-size:13px;">' + esc(p.name || '') + '</span></a>';
         }).join('');
     }
 

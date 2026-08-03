@@ -164,8 +164,14 @@ var setT=function(id,v){var el=document.getElementById(id);if(el&&v)el.textConte
 setT('py-name',p.name);setT('py-intro',p.intro);
 var si=document.getElementById('py-struct-img');if(si&&p.structImg)si.src=p.structImg;
 setT('py-struct-desc',p.structDesc);
+var ht=document.getElementById('py-history-timeline');
+if(ht&&p.history&&p.history.length>0){
+ht.innerHTML=p.history.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(h){
+return '<div class="timeline-item"><div class="year">'+esc(h.year||'')+(h.month?'-'+esc(h.month||''):'')+'</div><h4>'+esc(h.title||'')+'</h4><p>'+esc(h.desc||'')+'</p></div>';
+}).join('');
+}
 var nl=document.getElementById('pyNewsList');
-if(p.news&&p.news.length>0){nl.innerHTML=p.news.map(function(n){return '<a href="'+esc(n.link||'#')+'" class="news-list-item"><span class="date">'+esc(n.date||'')+'</span><span class="title">'+esc(n.title||'')+'</span></a>';}).join('');}
+if(nl&&p.news&&p.news.length>0){nl.innerHTML=p.news.map(function(n){return '<a href="'+esc(n.link||'#')+'" class="news-list-item"><span class="date">'+esc(n.date||'')+'</span><span class="title">'+esc(n.title||'')+'</span></a>';}).join('');}
 else{nl.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>党建新闻待添加</p></div>';}
 })();
 </script></div>

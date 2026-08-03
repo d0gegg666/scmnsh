@@ -174,15 +174,15 @@ var hg=document.getElementById('honorGrid');if(hg){if(d.honors&&d.honors.length>
 var p=d.president||{};
 setI('pm-img',p.img);setT('pm-name',p.name);setT('pm-title',p.title);setT('pm-content',p.content);
 // Leadership
-var lg=document.getElementById('leaderGrid');
+var lg=document.getElementById('leaderGrid');if(!lg)return;
 if(d.leadership&&d.leadership.length>0){lg.innerHTML=d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return '<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+esc(m.name||'')+'">':'<div style="height:240px;background:#F0EBE3;"></div>')+'<div class="info"><div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div></div>';}).join('');}
 else{lg.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
 // Milestones
-var mt=document.getElementById('msTimeline');
-if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return '<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+m.month:'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+(m.desc||'')+'</p></div>';}).join('');}
+var mt=document.getElementById('msTimeline');if(!mt)return;
+if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return '<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+esc(m.month||''):'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+esc(m.desc||'')+'</p></div>';}).join('');}
 else{mt.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
 // Committees
-var cg=document.getElementById('cmGrid');
+var cg=document.getElementById('cmGrid');if(!cg)return;
 if(d.committees&&d.committees.length>0){cg.innerHTML=d.committees.map(function(c){return '<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+esc(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(c.desc||'')+'</div><div style="font-size:11px;color:#AAA;margin-top:2px;">成员：'+esc(c.members||'')+'</div></div></div>';}).join('');}
 else{cg.innerHTML='<div class="empty-tip"><i class="fa fa-sitemap"></i><p>专委会信息待添加</p></div>';}
 })();
