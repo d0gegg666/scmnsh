@@ -144,8 +144,8 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
 <script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;document.body.style.overflow=v==='block'?'hidden':'';}
-function closeMobileMenu(){document.getElementById('mobileMenu').style.display='none';document.getElementById('mobileOverlay').style.display='none';document.body.style.overflow='';}
-document.getElementById('mobileMenu').addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
+function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
+var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>加入我们</h1><p>JOIN US</p></div><div class="container section">
 <div class="section-title"><h2>加入我们</h2></div>
 <div class="card" style="max-width:800px;margin:0 auto 30px;text-align:center;">

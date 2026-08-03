@@ -144,8 +144,8 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
 <script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;document.body.style.overflow=v==='block'?'hidden':'';}
-function closeMobileMenu(){document.getElementById('mobileMenu').style.display='none';document.getElementById('mobileOverlay').style.display='none';document.body.style.overflow='';}
-document.getElementById('mobileMenu').addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
+function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
+var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>关于商会</h1><p>ABOUT US</p></div><div class="container section">
 <div class="section-title" id="intro"><h2>商会简介</h2></div>
 <div class="card" id="about-card">
@@ -162,27 +162,28 @@ document.getElementById('mobileMenu').addEventListener('click',function(e){if(e.
 <div id="about-cm-section"><div class="section-title" id="committees"><h2>专委会</h2></div><div class="honor-grid" id="cmGrid"></div></div>
 <script>
 (function(){
+var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
 var d=window.__CMS_DATA__;if(!d)return;
 var a=d.about||{};
 var setT=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
 var setI=function(id,v){var el=document.getElementById(id);if(el&&v)el.src=v;};
 setT('ab-p1',a.p1);setT('ab-p2',a.p2);
 // Honors
-var hg=document.getElementById('honorGrid');if(hg){if(d.honors&&d.honors.length>0){hg.innerHTML=d.honors.map(function(h){return '<div class="honor-card"><div class="icon"><i class="fa fa-trophy"></i></div><div><h4>'+(h.title||'')+'</h4><div class="year">'+(h.year||'')+'</div><div style="font-size:12px;color:#888;margin-top:4px;">'+(h.desc||'')+'</div></div></div>';}).join('');}else{hg.innerHTML='<div class="empty-tip"><i class="fa fa-trophy"></i><p>荣誉历程内容待添加</p></div>';}}
+var hg=document.getElementById('honorGrid');if(hg){if(d.honors&&d.honors.length>0){hg.innerHTML=d.honors.map(function(h){return '<div class="honor-card"><div class="icon"><i class="fa fa-trophy"></i></div><div><h4>'+esc(h.title||'')+'</h4><div class="year">'+esc(h.year||'')+'</div><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(h.desc||'')+'</div></div></div>';}).join('');}else{hg.innerHTML='<div class="empty-tip"><i class="fa fa-trophy"></i><p>荣誉历程内容待添加</p></div>';}}
 // President
 var p=d.president||{};
 setI('pm-img',p.img);setT('pm-name',p.name);setT('pm-title',p.title);setT('pm-content',p.content);
 // Leadership
 var lg=document.getElementById('leaderGrid');
-if(d.leadership&&d.leadership.length>0){lg.innerHTML=d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return '<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+(m.name||'')+'">':'<div style="height:240px;background:#F0EBE3;"></div>')+'<div class="info"><div class="name">'+(m.name||'')+'</div><div class="title">'+(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+m.desc+'</div>':'')+'</div></div>';}).join('');}
+if(d.leadership&&d.leadership.length>0){lg.innerHTML=d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return '<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+esc(m.name||'')+'">':'<div style="height:240px;background:#F0EBE3;"></div>')+'<div class="info"><div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div></div>';}).join('');}
 else{lg.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
 // Milestones
 var mt=document.getElementById('msTimeline');
-if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return '<div class="timeline-item"><div class="year">'+(m.year||'')+(m.month?'-'+m.month:'')+'</div><h4>'+(m.title||'')+'</h4><p>'+(m.desc||'')+'</p></div>';}).join('');}
+if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return '<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+m.month:'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+(m.desc||'')+'</p></div>';}).join('');}
 else{mt.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
 // Committees
 var cg=document.getElementById('cmGrid');
-if(d.committees&&d.committees.length>0){cg.innerHTML=d.committees.map(function(c){return '<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px;">'+(c.desc||'')+'</div><div style="font-size:11px;color:#AAA;margin-top:2px;">成员：'+(c.members||'')+'</div></div></div>';}).join('');}
+if(d.committees&&d.committees.length>0){cg.innerHTML=d.committees.map(function(c){return '<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+esc(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(c.desc||'')+'</div><div style="font-size:11px;color:#AAA;margin-top:2px;">成员：'+esc(c.members||'')+'</div></div></div>';}).join('');}
 else{cg.innerHTML='<div class="empty-tip"><i class="fa fa-sitemap"></i><p>专委会信息待添加</p></div>';}
 })();
 </script></div>

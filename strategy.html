@@ -144,18 +144,19 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
 <script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;document.body.style.overflow=v==='block'?'hidden':'';}
-function closeMobileMenu(){document.getElementById('mobileMenu').style.display='none';document.getElementById('mobileOverlay').style.display='none';document.body.style.overflow='';}
-document.getElementById('mobileMenu').addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
+function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
+var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>战略伙伴</h1><p>STRATEGIC PARTNERS</p></div><div class="container section">
 <div class="section-title"><h2>战略伙伴</h2></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;" id="strategyGrid"></div>
 <script>
 (function(){
+var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
 var d=window.__CMS_DATA__;if(!d)return;
-var g=document.getElementById('strategyGrid');
+var g=document.getElementById('strategyGrid');if(!g)return;
 var items=d.strategy||[];
 if(items.length===0){g.innerHTML='<div class="empty-tip"><i class="fa fa-star"></i><p>战略伙伴信息待添加</p></div>';return;}
-g.innerHTML=items.map(function(s){return '<div class="card" style="text-align:center;padding:24px;">'+(s.img?'<img src="'+s.img+'" style="max-width:100%;max-height:80px;margin-bottom:12px;">':'')+'<div style="font-weight:600;color:#333;">'+(s.name||'')+'</div>'+(s.desc?'<div style="font-size:12px;color:#888;margin-top:6px;">'+s.desc+'</div>':'')+'</div>';}).join('');
+g.innerHTML=items.map(function(s){return '<div class="card" style="text-align:center;padding:24px;">'+(s.img?'<img src="'+s.img+'" style="max-width:100%;max-height:80px;margin-bottom:12px;">':'')+'<div style="font-weight:600;color:#333;">'+esc(s.name||'')+'</div>'+(s.desc?'<div style="font-size:12px;color:#888;margin-top:6px;">'+s.desc+'</div>':'')+'</div>';}).join('');
 })();
 </script></div>
 <footer class="footer">
