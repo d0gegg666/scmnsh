@@ -43,7 +43,7 @@
         body { font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif; background: #fafafa; color: #333; }
 
         /* ========== 导航栏 ========== */
-        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: all 0.3s; }
+        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: #fff; transition: transform 0.3s; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: all 0.3s; }
         .header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
         .head-box { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 88px; }
         .head-logo img { height: 58px; }
@@ -395,6 +395,7 @@
     </div>
     <div class="search-box" id="search-box">
         <form class="search_input" onsubmit="return false;">
+            <label for="search-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">搜索</label>
             <label for="search-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">搜索</label>
             <input type="text" placeholder="请输入关键字" id="search-input" oninput="doSearch()">
             <button type="button" class="search-icon-btn" onclick="doSearch()"><i class="fa fa-search"></i> 搜索</button>
@@ -862,7 +863,7 @@
         }
     }
 
-    // ---- 新闻资讯（合并商会新闻 + 会企资讯） ----
+    // ---- 新闻资讯 ----
     var allNews = (data.news || []).concat(data.biznews || []);
     // 按日期倒序排列
     allNews.sort(function(a, b) { return (b.date || '').localeCompare(a.date || ''); });

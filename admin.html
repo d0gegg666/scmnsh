@@ -196,7 +196,7 @@ table .mini-input:focus{border-color:#C41230;}
 <!-- ====== 商会新闻 ====== -->
 <div class="page" id="page-news"><div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 商会新闻 <span class="tip">（第1条为左侧大图展示）</span></div><div id="news-list"></div><button class="btn btn-primary" onclick="addItem('news',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加新闻</button></div></div>
 
-<!-- ====== 会企资讯 ====== -->
+<!-- ====== 服务领域 ====== -->
 <button class="btn btn-outline btn-sm" onclick="saveSvcDesc()" style="margin-bottom:16px;"><i class="fa fa-save"></i> 保存描述</button>
 <div id="sv-list"></div><button class="btn btn-primary" onclick="addItem('services',{icon:'fa-handshake-o',name:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加服务</button></div></div>
 
@@ -319,7 +319,6 @@ var items=[
 {icon:'purple',fa:'fa-sitemap',num:d.committees.length,label:'专委会'},
 {icon:'red',fa:'fa-flag',num:d.party.news.length,label:'党建新闻'},{icon:'gold',fa:'fa-history',num:(d.party.history||[]).length,label:'发展历程'},
 {icon:'gold',fa:'fa-newspaper-o',num:d.news.length,label:'商会新闻'},
-{icon:'blue',fa:'fa-bullhorn',num:d.biznews.length,label:'会企资讯'},
 {icon:'green',fa:'fa-cubes',num:d.services.items.length,label:'服务项目'},{icon:'purple',fa:'fa-envelope',num:(function(){try{return JSON.parse(localStorage.getItem('scmn_applications')||'[]').length}catch(e){return 0}})(),label:'入会申请'},
 {icon:'purple',fa:'fa-handshake-o',num:d.partners.length,label:'合作伙伴'},
 {icon:'gold',fa:'fa-star',num:d.strategy.length,label:'战略伙伴'}
