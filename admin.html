@@ -312,7 +312,6 @@ all.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
 renderTable('news-list','combinedNews',all,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});
 }
 function renderDash(d){
-function renderCombinedNews(d){var all=(d.news||[]).concat(d.biznews||[]);all.sort(function(a,b){return(b.date||"").localeCompare(a.date||"");});renderTable("news-list","combinedNews",all,["date","title","img","link"],{date:"日期(YYYY-MM-DD)",title:"标题",img:"图片URL",link:"链接"});}
 var items=[
 {icon:'red',fa:'fa-image',num:d.banner.length,label:'Banner'},
 {icon:'gold',fa:'fa-users',num:d.leadership.length,label:'领导班子'},
