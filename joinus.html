@@ -147,7 +147,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
 var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>加入我们</h1><p>JOIN US</p></div><div class="container section">
-<div class="section-title"><h2>加入我们</h2></div>
+<div class="section-title"><h2 id="ju-page-title">加入我们</h2></div>
 <div class="card" style="max-width:800px;margin:0 auto 30px;text-align:center;">
 <p style="font-size:16px;color:#555;line-height:2;">
 四川省闽南商会诚挚邀请在川闽南籍企业家加入，共谋发展、共创未来。
@@ -165,6 +165,29 @@ var d=window.__CMS_DATA__;if(!d)return;
 var f=d.footer||{};
 var el=document.getElementById('ju-phone');
 if(el&&f.phone)el.textContent=f.phone;
+// 读取后台"加入我们"板块数据
+var ju=d.joinus;
+if(ju){
+var jt=document.getElementById('ju-page-title');
+if(jt&&ju.title)jt.textContent=ju.title;
+var intro=document.getElementById('ju-intro');
+if(intro&&ju.req)intro.textContent=ju.req;
+// 入会流程
+if(ju.process){
+var ps=document.getElementById('ju-process-section');
+if(ps)ps.innerHTML='<div class="join-section"><h3><i class="fa fa-sitemap" style="color:#C9A84C;margin-right:8px;"></i>入会流程</h3><p style="font-size:14px;color:#555;line-height:2;white-space:pre-line;">'+ju.process+'</p></div>';
+}
+// 联系方式
+if(ju.contact){
+var ct=document.getElementById('ju-contact-section');
+if(!ct){
+ct=document.createElement('div');ct.id='ju-contact-section';
+var card=document.querySelector('.card');
+if(card)card.parentNode.insertBefore(ct,card.nextSibling);
+}
+if(ct)ct.innerHTML='<div class="join-section"><h3><i class="fa fa-phone" style="color:#C9A84C;margin-right:8px;"></i>联系方式</h3><p style="font-size:14px;color:#555;line-height:2;white-space:pre-line;">'+ju.contact+'</p></div>';
+}
+}
 })();
 </script>
 

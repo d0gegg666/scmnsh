@@ -66,7 +66,7 @@ table .mini-input:focus{border-color:#C41230;}
 .empty-state p{font-size:13px;}
 .toast{position:fixed;top:20px;right:20px;z-index:9999;padding:14px 20px;border-radius:8px;color:#fff;font-size:14px;opacity:0;transform:translateY(-20px);transition:all 0.3s;pointer-events:none;}
 .toast.show{opacity:1;transform:translateY(0);}
-.toast.success{background:#2E7D32;}.toast.error{background:#C62828;}
+.toast.success{background:#2E7D32;}.toast.error{background:#C62828;}.toast.warning{background:#E67E22;}
 .mobile-toggle{display:none;}
 .preview-img{max-width:120px;max-height:60px;border-radius:4px;border:1px solid #EEE;}
 @media(max-width:768px){
@@ -92,6 +92,7 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="committees"><i class="fa fa-sitemap"></i> 专委会</a>
 <div class="nav-group">党建管理</div>
 <a href="#" data-page="party"><i class="fa fa-flag"></i> 党委党建</a>
+	<a href="#" data-page="party-history"><i class="fa fa-history"></i> 发展历程</a>
 <div class="nav-group">资讯管理</div>
 <a href="#" data-page="news"><i class="fa fa-newspaper-o"></i> 商会新闻</a>
 <a href="#" data-page="biznews"><i class="fa fa-bullhorn"></i> 会企资讯</a>
@@ -190,6 +191,7 @@ table .mini-input:focus{border-color:#C41230;}
 <button class="btn btn-primary" onclick="savePartyStruct()"><i class="fa fa-save"></i> 保存组织架构</button>
 </div>
 <div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 党建新闻</div><div id="py-news-list"></div><button class="btn btn-primary" onclick="addItem('partyNews',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加党建新闻</button></div>
+	<div class="card"><div class="card-header"><i class="fa fa-history"></i> 发展历程 <span class="tip">（党组织发展历程中的重要事件）</span></div><div id="py-history-list"></div><button class="btn btn-primary" onclick="addItem('partyHistory',{year:'',month:'',title:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加历程事件</button></div>
 </div>
 
 <!-- ====== 商会新闻 ====== -->
@@ -251,9 +253,11 @@ table .mini-input:focus{border-color:#C41230;}
 
 <script>
 // ==================== 登录 ====================
-if(sessionStorage.getItem('cms_logged_in')!=='true'){
+var loginExpire=localStorage.getItem('cms_login_expire');
+	if(loginExpire&&parseInt(loginExpire)>Date.now()&&localStorage.getItem('cms_logged_in')==='true'){}
+	else if(sessionStorage.getItem('cms_logged_in')!=='true'){
 document.write('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>管理后台 - 登录</title>
-<link rel="icon" type="image/jpeg" href="logo.jpg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="https://cdn.tailwindcss.com"><\/script><script>tailwind.config={theme:{extend:{colors:{primary:"#C41230","primary-dark":"#8B1A2B",gold:"#C9A84C"}}}}<\/script><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:linear-gradient(135deg,#1a0a0a 0%,#4a1525 40%,#8B1A2B 70%,#5A1020 100%);min-height:100vh;display:flex;align-items:center;justify-content:center}.box{background:#fff;border-radius:14px;padding:40px;width:400px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3)}.box h2{text-align:center;color:#C41230;margin-bottom:4px;font-size:22px;letter-spacing:2px}.box .sub{text-align:center;color:#C9A84C;font-size:12px;margin-bottom:28px;letter-spacing:1px}.fg{margin-bottom:18px}.fg label{display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600}.fg .iw{display:flex;align-items:center;border:2px solid #E8E8E8;border-radius:8px;overflow:hidden;transition:border-color .2s}.fg .iw:focus-within{border-color:#C41230}.fg .iw i{width:40px;text-align:center;color:#999;font-size:16px}.fg input{flex:1;padding:12px 12px 12px 0;border:none;outline:none;font-size:14px;font-family:inherit}.btn-login{width:100%;padding:12px;background:linear-gradient(135deg,#C41230,#E8394A);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;letter-spacing:4px;transition:.3s}.btn-login:hover{background:linear-gradient(135deg,#8B1A2B,#C41230);box-shadow:0 6px 20px rgba(196,18,48,.4)}.err{color:#C41230;font-size:13px;text-align:center;margin-top:12px;display:none}</style></head><body><div class="box"><h2>四川省闽南商会</h2><div class="sub">管理后台</div><div class="fg"><label>账号</label><div class="iw"><i class="fa fa-user-circle-o"></i><input id="u" type="text" placeholder="请输入账号" value="admin"></div></div><div class="fg"><label>密码</label><div class="iw"><i class="fa fa-key"></i><input id="p" type="password" placeholder="请输入密码" value="admin888"></div></div><button class="btn-login" onclick="dL()">登 录</button><div class="err" id="err"></div></div><script>function dL(){var u=document.getElementById("u").value.trim(),p=document.getElementById("p").value.trim();if(u==="admin"&&p==="admin888"){sessionStorage.setItem("cms_logged_in","true");location.reload()}else{document.getElementById("err").style.display="block";document.getElementById("err").textContent="账号或密码错误"}}document.getElementById("p").addEventListener("keydown",function(e){if(e.key==="Enter")dL()});<\/script></body></html>');
+<link rel="icon" type="image/jpeg" href="logo.jpg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="https://cdn.tailwindcss.com"><\/script><script>tailwind.config={theme:{extend:{colors:{primary:"#C41230","primary-dark":"#8B1A2B",gold:"#C9A84C"}}}}<\/script><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:linear-gradient(135deg,#1a0a0a 0%,#4a1525 40%,#8B1A2B 70%,#5A1020 100%);min-height:100vh;display:flex;align-items:center;justify-content:center}.box{background:#fff;border-radius:14px;padding:40px;width:400px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3)}.box h2{text-align:center;color:#C41230;margin-bottom:4px;font-size:22px;letter-spacing:2px}.box .sub{text-align:center;color:#C9A84C;font-size:12px;margin-bottom:28px;letter-spacing:1px}.fg{margin-bottom:18px}.fg label{display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600}.fg .iw{display:flex;align-items:center;border:2px solid #E8E8E8;border-radius:8px;overflow:hidden;transition:border-color .2s}.fg .iw:focus-within{border-color:#C41230}.fg .iw i{width:40px;text-align:center;color:#999;font-size:16px}.fg input{flex:1;padding:12px 12px 12px 0;border:none;outline:none;font-size:14px;font-family:inherit}.btn-login{width:100%;padding:12px;background:linear-gradient(135deg,#C41230,#E8394A);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;letter-spacing:4px;transition:.3s}.btn-login:hover{background:linear-gradient(135deg,#8B1A2B,#C41230);box-shadow:0 6px 20px rgba(196,18,48,.4)}.err{color:#C41230;font-size:13px;text-align:center;margin-top:12px;display:none}</style></head><body><div class="box"><h2>四川省闽南商会</h2><div class="sub">管理后台</div><div class="fg"><label>账号</label><div class="iw"><i class="fa fa-user-circle-o"></i><input id="u" type="text" placeholder="请输入账号" value="admin"></div></div><div class="fg"><label>密码</label><div class="iw"><i class="fa fa-key"></i><input id="p" type="password" placeholder="请输入密码" value="" placeholder="请输入密码"></div></div><button class="btn-login" onclick="dL()">登 录</button><div class="err" id="err"></div></div><script>function dL(){var u=document.getElementById("u").value.trim(),p=document.getElementById("p").value.trim();if(u==="admin"if(u==="admin"&&p==="admin888")if(u==="admin"&&p==="admin888")p==="admin888"){/*pass*/}{sessionStorage.setItem("cms_logged_in","true");localStorage.setItem("cms_logged_in","true");localStorage.setItem("cms_login_expire",Date.now()+7*24*3600*1000);location.reload()}else{document.getElementById("err").style.display="block";document.getElementById("err").textContent="账号或密码错误"}}document.getElementById("p").addEventListener("keydown",function(e){if(e.key==="Enter")dL()});<\/script></body></html>');
 throw new Error('login');
 }
 
@@ -263,7 +267,7 @@ function defData(){return{
 banner:[],about:{en:'ABOUT US',cn:'了解商会',img:'',p1:'',p2:'',link:'#',stats:[]},
 leadership:[],president:{name:'',title:'',img:'',content:''},
 honors:[],milestones:[],committees:[],
-party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[]},
+party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[],history:[]},
 news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
 joinus:{title:'加入我们',req:'',process:'',contact:''},
 footer:{title:'四川省闽南商会',keywords:'',desc:'',headerLogo:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
@@ -294,6 +298,7 @@ case'honors':renderTable('honors-list','honors',d.honors,['year','title','desc',
 case'milestones':renderTable('ms-list','milestones',d.milestones,['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
 case'committees':renderTable('cm-list','committees',d.committees,['name','desc','members'],{name:'专委会名称',desc:'简介',members:'成员'});break;
 case'party':renderParty(d);break;
+	case'party-history':renderTable('py-history-list','partyHistory',d.party.history||[],['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
 case'news':renderTable('news-list','news',d.news,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});break;
 case'biznews':renderTable('biznews-list','biznews',d.biznews,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});break;
 case'services':renderServices(d);break;
@@ -313,10 +318,10 @@ var items=[
 {icon:'blue',fa:'fa-trophy',num:d.honors.length,label:'荣誉历程'},
 {icon:'green',fa:'fa-history',num:d.milestones.length,label:'大事记'},
 {icon:'purple',fa:'fa-sitemap',num:d.committees.length,label:'专委会'},
-{icon:'red',fa:'fa-flag',num:d.party.news.length,label:'党建新闻'},
+{icon:'red',fa:'fa-flag',num:d.party.news.length,label:'党建新闻'},{icon:'gold',fa:'fa-history',num:(d.party.history||[]).length,label:'发展历程'},
 {icon:'gold',fa:'fa-newspaper-o',num:d.news.length,label:'商会新闻'},
 {icon:'blue',fa:'fa-bullhorn',num:d.biznews.length,label:'会企资讯'},
-{icon:'green',fa:'fa-cubes',num:d.services.items.length,label:'服务项目'},
+{icon:'green',fa:'fa-cubes',num:d.services.items.length,label:'服务项目'},{icon:'purple',fa:'fa-envelope',num:(function(){try{return JSON.parse(localStorage.getItem('scmn_applications')||'[]').length}catch(e){return 0}})(),label:'入会申请'},
 {icon:'purple',fa:'fa-handshake-o',num:d.partners.length,label:'合作伙伴'},
 {icon:'gold',fa:'fa-star',num:d.strategy.length,label:'战略伙伴'}
 ];
@@ -352,7 +357,7 @@ c.innerHTML=h;
 	// 通用：添加列表项（自动识别普通数组、services.items、party.news）
 	function addItem(key,defaults){
 	var d=L();
-	if(key==='partyNews'){if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}
+	if(key==='partyNews'){if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(!d.party.history)d.party.history=[];d.party.history.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(!d.services.items)d.services.items=[];d.services.items.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(!d[key])return;
 	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());}
@@ -361,14 +366,14 @@ c.innerHTML=h;
 	function dI(key,i){
 	if(!confirm('确定删除？'))return;
 	var d=L();
-	if(key==='partyNews'){if(d.party.news)d.party.news.splice(i,1);S(d);renderPage(getCurrentPage());return;}
+	if(key==='partyNews'){if(d.party.news)d.party.news.splice(i,1);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(d.party.history)d.party.history.splice(i,1);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(d.services.items)d.services.items.splice(i,1);S(d);renderPage(getCurrentPage());return;}
 	if(Array.isArray(d[key])){d[key].splice(i,1);S(d);renderPage(getCurrentPage());}
 	}
 	// 通用：更新列表项字段（行内编辑自动保存）
 	function uF(key,i,field,value){
 	var d=L();
-	if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}
+	if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}if(key==='partyHistory'){if(d.party.history)d.party.history[i][field]=value;S(d);return;}
 	if(key==='services'){if(d.services.items)d.services.items[i][field]=value;S(d);return;}
 	if(key==='party'){
 	if(field.startsWith('struct'))d.party[field]=value;
@@ -510,7 +515,7 @@ var r=new FileReader();r.onload=function(e){try{var d=JSON.parse(e.target.result
 function clearAllData(){localStorage.removeItem(SK);T('数据已清空，页面将刷新');setTimeout(function(){location.reload()},1000);}
 
 // ==================== 退出 ====================
-function logout(){if(confirm('确定退出登录？')){sessionStorage.removeItem('cms_logged_in');location.reload();}}
+function logout(){if(confirm('确定退出登录？')){sessionStorage.removeItem('cms_logged_in');localStorage.removeItem('cms_logged_in');localStorage.removeItem('cms_login_expire');location.reload();}}
 
 // ==================== 初始化 ====================
 (function(){
