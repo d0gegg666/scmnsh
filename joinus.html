@@ -102,7 +102,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 .container{padding:0 20px}
 .footer .container{flex-direction:column;gap:30px}.footer-left{flex:0 0 100%;align-items:center}.footer-left img{height:56px}
 }
-</style>
+.back-to-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:#C41230;color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;z-index:999;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(196,18,48,0.3);display:flex;align-items:center;justify-content:center}.back-to-top.show{opacity:1;visibility:visible}.back-to-top:hover{background:#8B1A2B;transform:translateY(-3px)}</style>
 </head>
 <body>
 <header class="header">
@@ -228,7 +228,7 @@ if(ct)ct.innerHTML='<div class="join-section"><h3><i class="fa fa-phone" style="
 @media(max-width:640px){
 #applicationForm div[style*="grid-template"]{grid-template-columns:1fr!important;}
 }
-</style>
+.back-to-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:#C41230;color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;z-index:999;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(196,18,48,0.3);display:flex;align-items:center;justify-content:center}.back-to-top.show{opacity:1;visibility:visible}.back-to-top:hover{background:#8B1A2B;transform:translateY(-3px)}</style>
 <footer class="footer">
 <div class="container">
 <div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE</div></div>
@@ -334,4 +334,6 @@ function submitApplication(e) {
 }
 </script>
 
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
+<script>var bt=document.getElementById("'backToTop'");window.addEventListener("'scroll'",function(){if(bt)bt.classList.toggle("'show'",window.scrollY>300)});</script>
 </body></html>

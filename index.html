@@ -325,6 +325,25 @@
 
         /* 空状态占位 */
         .empty-placeholder { color: #888; font-size: 14px; text-align: center; padding: 40px; }
+
+        /* 返回顶部 */
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px;
+            background: #C41230; color: #fff; border: none; border-radius: 50%; cursor: pointer;
+            font-size: 20px; z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(196,18,48,0.3); display: flex; align-items: center; justify-content: center; }
+        .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: #8B1A2B; transform: translateY(-3px); }
+
+        /* 搜索结果 */
+        .search-results { display: none; position: absolute; right: 40px; top: 160px; background: #fff;
+            width: 360px; max-height: 400px; overflow-y: auto; border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15); z-index: 1001; }
+        .search-results.show { display: block; }
+        .search-results .sr-item { display: block; padding: 12px 16px; border-bottom: 1px solid #F0F0F0;
+            text-decoration: none; color: #333; font-size: 14px; transition: background 0.2s; }
+        .search-results .sr-item:hover { background: #FEF5F5; }
+        .search-results .sr-item .sr-date { font-size: 11px; color: #999; }
+        .search-results .sr-empty { padding: 20px; text-align: center; color: #999; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -381,11 +400,15 @@
     <div class="search-box" id="search-box">
         <form class="search_input" onsubmit="return false;">
             <label for="search-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">搜索</label>
-            <input type="text" placeholder="请输入关键字" id="search-input">
-            <button type="button" class="search-icon-btn"><i class="fa fa-search"></i> 搜索</button>
+            <input type="text" placeholder="请输入关键字" id="search-input" oninput="doSearch()">
+            <button type="button" class="search-icon-btn" onclick="doSearch()"><i class="fa fa-search"></i> 搜索</button>
         </form>
     </div>
+    <div class="search-results" id="search-results"></div>
 </header>
+
+<!-- 返回顶部 -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
 
 <!-- 移动端菜单 -->
 <div class="mobile-menu-overlay" id="mobile-overlay"></div>
@@ -650,11 +673,12 @@
     });
 
 
-    // 头部滚动阴影
+    // 头部滚动阴影 + 返回顶部
+    var backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', function() {
         var header = document.getElementById('header');
-        if (!header) return;
-        header.classList.toggle('scrolled', window.scrollY > 50);
+        if (header) header.classList.toggle('scrolled', window.scrollY > 50);
+        if (backToTop) backToTop.classList.toggle('show', window.scrollY > 300);
     });
 
     // 数字滚动动画
@@ -684,6 +708,30 @@
     animateCounters();
 })();
 
+
+
+    // 搜索功能
+    function doSearch() {
+        var kw = (document.getElementById('search-input').value || '').trim().toLowerCase();
+        var box = document.getElementById('search-results');
+        if (!kw) { box.classList.remove('show'); box.innerHTML = ''; return; }
+        var data = window.__CMS_DATA__;
+        var all = [].concat((data&&data.news)||[], (data&&data.biznews)||[], (data&&data.party&&data.party.news)||[]);
+        var results = all.filter(function(n) { return (n.title||'').toLowerCase().indexOf(kw) >= 0; });
+        if (results.length === 0) {
+            box.innerHTML = '<div class="sr-empty">未找到相关内容</div>';
+        } else {
+            box.innerHTML = results.slice(0, 15).map(function(n) {
+                return '<a href="' + (n.link||'#') + '" class="sr-item"><div>' + (n.title||'') + '</div><div class="sr-date">' + (n.date||'') + '</div></a>';
+            }).join('');
+        }
+        box.classList.add('show');
+    }
+    document.addEventListener('click', function(e) {
+        var box = document.getElementById('search-results');
+        var input = document.getElementById('search-input');
+        if (box && !box.contains(e.target) && e.target !== input) box.classList.remove('show');
+    });
 
     // ==================== 导航平滑滚动 ====================
     (function() {
