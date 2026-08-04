@@ -90,7 +90,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .about-preview .text p{font-size:14px;color:#555;line-height:2;text-indent:2em;max-height:120px;overflow:hidden}
 .about-preview .text a{display:inline-block;margin-top:10px;color:#CC0000;font-size:13px}
 /* 快速入口 */
-.quick-links{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.quick-links{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
 .quick-link{background:#fff;padding:25px 15px;text-align:center;transition:all 0.3s;border-radius:4px;display:flex;flex-direction:column;align-items:center;gap:8px}
 .quick-link:hover{background:#CC0000;color:#fff;transform:translateY(-3px);box-shadow:0 6px 20px rgba(204,0,0,0.2)}
 .quick-link i{font-size:30px;color:#CC0000}
@@ -137,13 +137,13 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 
 <!-- 顶部栏 -->
 <div class="topbar"><div class="topbar-inner">
-<div class="topbar-welcome">欢迎访问 <span><a href="/" style="color:#999">四川省闽南商会官方网站</a></span> 今天是<input type="text" id="topDate" readonly></div>
+<div class="topbar-welcome">欢迎访问 <span><a href="index.html" style="color:#999">四川省闽南商会官方网站</a></span> 今天是<input type="text" id="topDate" readonly></div>
 <div class="topbar-welcome"><i class="fa fa-phone"></i> <span id="topPhone">028-83392693</span> &nbsp; <i class="fa fa-envelope"></i> <span id="topEmail">smcc0924@163.com</span></div>
 </div></div>
 
 <!-- 头部 -->
 <div class="header"><div class="header-inner">
-<div class="header-logo"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo"><div><h1>四川省闽南商会</h1><p>MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></div>
+<div class="header-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo"></a><div><h1>四川省闽南商会</h1><p>MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></div>
 <div class="header-slogan">凝聚闽商力量<span style="color:#C9A84C;font-size:22px;"> · </span>服务川闽发展</div>
 </div></div>
 
@@ -151,7 +151,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="navbar"><div class="navbar-inner">
 <ul class="navbar-menu">
 <li><a href="index.html" class="active">网站首页</a></li>
-<li><a href="about.html">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></li>
+<li><a href="about.html">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html?page=honors">荣誉历程</a></li><li><a href="about.html?page=president">会长寄语</a></li><li><a href="about.html?page=leadership">领导班子</a></li><li><a href="about.html?page=milestones">大事记</a></li><li><a href="about.html?page=committees">专委会</a></li></ul></li>
 <li><a href="news.html">商会动态</a></li>
 <li><a href="party.html">商会党建<b></b></a><ul class="submenu"><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></li>
 <li><a href="joinus.html">加入我们</a></li>
@@ -192,8 +192,9 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="row">
 <div class="quick-links" style="width:100%">
 <a href="about.html" class="quick-link"><i class="fa fa-building-o"></i><span>商会简介</span></a>
-<a href="about.html#leadership" class="quick-link"><i class="fa fa-user-circle-o"></i><span>领导班子</span></a>
-<a href="about.html#honors" class="quick-link"><i class="fa fa-trophy"></i><span>荣誉历程</span></a>
+<a href="about.html?page=leadership" class="quick-link"><i class="fa fa-user-circle-o"></i><span>领导班子</span></a>
+<a href="about.html?page=honors" class="quick-link"><i class="fa fa-trophy"></i><span>荣誉历程</span></a>
+<a href="about.html?page=milestones" class="quick-link"><i class="fa fa-history"></i><span>大事记</span></a>
 <a href="party.html" class="quick-link"><i class="fa fa-flag"></i><span>商会党建</span></a>
 <a href="joinus.html" class="quick-link join"><i class="fa fa-pencil-square-o"></i><span>在线入会</span></a>
 </div>
