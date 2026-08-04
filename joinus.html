@@ -98,8 +98,8 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 </div></div>
 
 <script>
-function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
-function setText(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;}
+function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}function escJs(s){return String(s||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
+function setText(id,v){var el=document.getElementById(id);if(el&&v!=null&&v!==undefined)el.textContent=v;}
 (function u(){var d=new Date();var days=['日','一','二','三','四','五','六'];var el=document.getElementById('topDate');if(el)el.value=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 星期'+days[d.getDay()];setTimeout(u,60000);})();
 
 function renderJoin(){
@@ -110,7 +110,7 @@ setText('joinProcess',j.process||'入会流程待补充');
 if(j.contact){setText('joinContact',j.contact);}
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
-function submitJoin(e){e.preventDefault();var f=e.target;var data={};for(var i=0;i<f.elements.length;i++){var el=f.elements[i];if(el.name)data[el.name]=el.value;}data.time=new Date().toISOString();data.id=Date.now();var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');apps.push(data);localStorage.setItem('scmn_applications',JSON.stringify(apps));document.getElementById('joinMsg').innerHTML='<span style="color:#4CAF50"><i class="fa fa-check-circle"></i> 申请已提交成功！我们会尽快与您联系。</span>';f.reset();setTimeout(function(){document.getElementById('joinMsg').innerHTML='';},5000);}
+function submitJoin(e){e.preventDefault();var f=e.target;var data={};for(var i=0;i<f.elements.length;i++){var el=f.elements[i];if(el.name)data[el.name]=el.value;}data.time=new Date().toISOString();data.id=Date.now();var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');apps.push(data);try{localStorage.setItem('scmn_applications',JSON.stringify(apps));}catch(e){document.getElementById('joinMsg').innerHTML='<span style="color:#f00">存储空间不足，请联系管理员。</span>';return;}document.getElementById('joinMsg').innerHTML='<span style="color:#4CAF50"><i class="fa fa-check-circle"></i> 申请已提交成功！我们会尽快与您联系。</span>';f.reset();setTimeout(function(){document.getElementById('joinMsg').innerHTML='';},5000);}
 (function(){if(window.__CMS_DATA__){renderJoin();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderJoin();};s.onerror=function(){renderJoin();};document.body.appendChild(s);})();
 </script>
 </body>

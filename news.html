@@ -80,17 +80,17 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 
 <div class="footer"><div class="footer-inner">
 <div class="footer-logo"><img src="logo.jpg" alt="四川省闽南商会"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></div>
-<div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="strategy.html">战略伙伴</a><a href="joinus.html">加入我们</a></div>
+<div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="joinus.html">加入我们</a></div>
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
 <div class="footer-qr"><img src="logo.jpg" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo.jpg" alt="手机网站"><p>手机网站</p></div>
 </div></div>
 <div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
 
 <script>
-function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
-function setText(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;}
-function viewNewsImg(t,s){document.getElementById('imgLightboxImg').src=s;document.getElementById('imgLightbox').style.display='flex';document.body.style.overflow='hidden';}
-function closeImgLightbox(){document.getElementById('imgLightbox').style.display='none';document.body.style.overflow='';}
+function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}function escJs(s){return String(s||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
+function setText(id,v){var el=document.getElementById(id);if(el&&v!=null&&v!==undefined)el.textContent=v;}
+function viewNewsImg(t,s){var i=document.getElementById("imgLightboxImg");var l=document.getElementById("imgLightbox");if(i&&l){i.src=s;l.style.display="flex";document.body.style.overflow="hidden";}}
+function closeImgLightbox(){var l=document.getElementById("imgLightbox");if(l){l.style.display="none";}document.body.style.overflow="";}
 (function u(){var d=new Date();var days=['日','一','二','三','四','五','六'];var el=document.getElementById('topDate');if(el)el.value=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 星期'+days[d.getDay()];setTimeout(u,60000);})();
 
 function renderNews(){

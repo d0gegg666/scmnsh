@@ -110,18 +110,18 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 
 <div class="footer"><div class="footer-inner">
 <div class="footer-logo"><img src="logo.jpg" alt="四川省闽南商会"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></div>
-<div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="strategy.html">战略伙伴</a><a href="joinus.html">加入我们</a></div>
+<div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="joinus.html">加入我们</a></div>
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
 <div class="footer-qr"><img src="logo.jpg" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo.jpg" alt="手机网站"><p>手机网站</p></div>
 </div></div>
 <div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
 
 <script>
-function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
-function setText(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;}
-function setAttr(id,a,v){var el=document.getElementById(id);if(el&&v)el.setAttribute(a,v);}
-function viewNewsImg(t,s){document.getElementById('imgLightboxImg').src=s;document.getElementById('imgLightbox').style.display='flex';document.body.style.overflow='hidden';}
-function closeImgLightbox(){document.getElementById('imgLightbox').style.display='none';document.body.style.overflow='';}
+function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}function escJs(s){return String(s||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
+function setText(id,v){var el=document.getElementById(id);if(el&&v!=null&&v!==undefined)el.textContent=v;}
+function setAttr(id,a,v){var el=document.getElementById(id);if(el&&v!=null&&v!==undefined)el.setAttribute(a,v);}
+function viewNewsImg(t,s){var i=document.getElementById("imgLightboxImg");var l=document.getElementById("imgLightbox");if(i&&l){i.src=s;l.style.display="flex";document.body.style.overflow="hidden";}}
+function closeImgLightbox(){var l=document.getElementById("imgLightbox");if(l){l.style.display="none";}document.body.style.overflow="";}
 (function u(){var d=new Date();var days=['日','一','二','三','四','五','六'];var el=document.getElementById('topDate');if(el)el.value=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 星期'+days[d.getDay()];setTimeout(u,60000);})();
 
 function renderAbout(){
@@ -142,7 +142,7 @@ if(d.honors&&d.honors.length>0){c.innerHTML='<div class="honor-grid">'+d.honors.
 var pd=d.president||{};
 c.innerHTML='<div class="card" style="display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap"><div style="width:200px;text-align:center;flex-shrink:0"><img src="'+(pd.img||'logo.jpg')+'" style="width:180px;height:220px;object-fit:cover;border-radius:4px;background:#f0ebe3"><div style="font-size:16px;font-weight:700;margin-top:8px">'+esc(pd.name||'会长')+'</div><div style="font-size:13px;color:#CC0000">'+esc(pd.title||'')+'</div></div><div style="flex:1;min-width:400px"><p style="font-size:14px;color:#555;line-height:2;white-space:pre-line">'+esc(pd.content||'会长寄语内容待添加')+'</p></div></div>';
 }else if(page==='leadership'){
-if(d.leadership&&d.leadership.length>0){c.innerHTML='<div class="leader-grid">'+d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
+if(d.leadership&&d.leadership.length>0){c.innerHTML='<div class="leader-grid">'+d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+esc(m.img)+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
 }else if(page==='milestones'){
 if(d.milestones&&d.milestones.length>0){c.innerHTML='<div class="timeline">'+d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return'<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+esc(m.month||''):'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+esc(m.desc||'')+'</p></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
 }else if(page==='committees'){
