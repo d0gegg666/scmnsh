@@ -565,5 +565,55 @@ window.__CMS_DATA__ = {
     "phone": "028-83392693",
     "icp": "【待补充ICP备案号】",
     "copyright": "Copyright © 四川省闽南商会 All Rights Reserved"
-  }
+  },
+  "members": [
+    {
+      "name": "【会长姓名】",
+      "title": "会长",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【执行会长】",
+      "title": "执行会长",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【常务副会长】",
+      "title": "常务副会长",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【副会长】",
+      "title": "副会长",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【副会长】",
+      "title": "副会长",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【副会长】",
+      "title": "副会长",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【秘书长】",
+      "title": "秘书长",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【副秘书长】",
+      "title": "副秘书长",
+      "img": "",
+      "link": "#"
+    }
+  ]
 };

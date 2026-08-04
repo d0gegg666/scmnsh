@@ -3,215 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>关于商会 - 四川省闽南商会</title>
-<meta name="keywords" content="四川省闽南商会,商会简介,商会荣誉,领导班子,闽南商会大事记">
-<meta name="description" content="四川省闽南商会成立于X年，汇聚在川闽南籍企业家，致力于促进川闽经贸合作与交流。了解商会简介、荣誉历程、领导班子及发展大事记。">
+<title>商会概况 - 四川省闽南商会</title>
+<meta name="keywords" content="四川省闽南商会,商会简介,领导班子,荣誉历程">
+<meta name="description" content="四川省闽南商会概况">
 <link rel="icon" type="image/jpeg" href="logo.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#C41230','primary-dark':'#8B1A2B',gold:'#C9A84C','gold-light':'#F5E6C8'}}}}</script>
-
+<script>tailwind.config={theme:{extend:{colors:{primary:'#CC0000',gold:'#C9A84C'}}}}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#fafafa;color:#333}
-.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:#fff;transition:transform 0.3s;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-.head-box{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:88px}
-.head-logo a{font-size:18px;font-weight:700;color:#C41230;text-decoration:none;letter-spacing:1px}
-.head-logo small{display:block;font-size:12px;color:#C9A84C;letter-spacing:1px;margin-top:-2px}
-.top-menu>ul{display:flex;list-style:none;gap:0;margin:0;padding:0}
-.top-menu>ul>li{position:relative;display:block}
-.top-menu>ul>li>a{display:flex;align-items:center;height:88px;padding:0 16px;font-size:14px;color:#333;text-decoration:none;font-weight:500;white-space:nowrap;transition:all 0.3s;position:relative}
-.top-menu>ul>li>a::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:3px;background:linear-gradient(90deg,#C41230,#C9A84C);transition:width 0.3s;border-radius:2px 2px 0 0}
-.top-menu>ul>li:hover>a,.top-menu>ul>li>a.active{color:#C41230}
-.top-menu>ul>li:hover>a::after,.top-menu>ul>li>a.active::after{width:70%}
-.top-menu>ul>li>a b{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #999;margin-left:6px;transition:transform 0.3s}.top-menu>ul>li:hover>a b{border-top-color:#C41230;transform:rotate(180deg)}.er-menu{position:absolute;top:88px;left:50%;transform:translateX(-50%);background:#fff;min-width:150px;border-radius:0 0 8px 8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transition:all 0.3s;z-index:999}
-.top-menu>ul>li.has-sub:hover .er-menu{opacity:1;visibility:visible}
-.er-menu ul{list-style:none;padding:8px 0;margin:0}
-.er-menu ul li a{display:block;padding:10px 22px;font-size:13px;color:#555;text-decoration:none;transition:all 0.25s}
-.er-menu ul li a:hover{color:#C41230;background:#FEF5F5;padding-left:28px}
-.mobile-nav{display:none}
-.mobile-nav-btn{width:44px;height:44px;background:#F5F5F5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#333;cursor:pointer;border:none}
-.page-banner{background:linear-gradient(135deg,#1a0a0a 0%,#4a1525 40%,#8B1A2B 70%,#C41230 100%);padding:140px 40px 60px;text-align:center;color:#fff}
-.page-banner h1{font-size:36px;font-weight:700;letter-spacing:4px;margin-bottom:8px}
-.page-banner p{font-size:14px;color:#C9A84C;letter-spacing:3px;text-transform:uppercase}
-.container{max-width:1200px;margin:0 auto;padding:0 40px}
-.section{padding:60px 0}
-.section-title{text-align:center;margin-bottom:40px}
-.section-title h2{font-size:28px;color:#C41230;font-weight:700;position:relative;display:inline-block;padding-bottom:12px}
-.section-title h2::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40px;height:3px;background:#C9A84C;border-radius:2px}
-.card{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:24px;border:1px solid #EEE}
-.footer{background:#1A1A1A;color:#AAA;padding:50px 0 0}
-.footer .container{display:flex;gap:50px;flex-wrap:wrap}
-.footer-left{flex:0 0 220px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}.footer-left img{height:70px;width:auto;margin-bottom:12px}.footer-left .ft-title{color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;text-align:center}.footer-left .ft-sub{color:#C9A84C;font-size:10px;letter-spacing:1px;text-align:center;margin-top:2px}
-.footer-contact{flex:1;min-width:260px}
-.footer-contact h5{color:#fff;font-size:14px;margin-bottom:12px}
-.footer-contact p{font-size:13px;line-height:2}
-.footer-contact .phone{font-size:20px;color:#C9A84C;font-weight:700;margin-top:6px}
-.footer-menu{display:flex;gap:30px;flex-wrap:wrap}
-.footer-menu-col h4{color:#fff;font-size:14px;margin-bottom:12px;position:relative;padding-bottom:8px}
-.footer-menu-col h4::after{content:'';position:absolute;bottom:0;left:0;width:24px;height:2px;background:#C41230}
-.footer-menu-col ul{list-style:none;padding:0}
-.footer-menu-col ul li{margin-bottom:6px}
-.footer-menu-col ul li a{color:#888;text-decoration:none;font-size:12px;transition:all 0.3s}
-.footer-menu-col ul li a:hover{color:#C9A84C;padding-left:4px}
-.footer-bottom{border-top:1px solid #2A2A2A;margin-top:40px;padding:20px 0;text-align:center;font-size:12px;color:#666}
-.footer-bottom a{color:#888;text-decoration:none}
-.footer-bottom a:hover{color:#C9A84C}
-.btn-red{display:inline-block;padding:10px 28px;background:#C41230;color:#fff;border-radius:50px;text-decoration:none;font-size:14px;transition:all 0.3s}
-.btn-red:hover{background:#8B1A2B;transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,18,48,0.3)}
-.leader-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
-.leader-card{background:#fff;border-radius:10px;overflow:hidden;text-align:center;border:1px solid #EEE;transition:all 0.3s}
-.leader-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1);border-color:#C9A84C}
-.leader-card img{width:100%;height:240px;object-fit:cover;background:#F0EBE3}
-.leader-card .info{padding:16px}
-.leader-card .name{font-size:16px;font-weight:700;color:#333}
-.leader-card .title{font-size:12px;color:#C41230;margin-top:2px}
-.leader-card .desc{font-size:12px;color:#999;margin-top:6px;line-height:1.5}
+body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f5f5f5;color:#333;min-width:1200px}
+a{text-decoration:none;color:inherit}ul,ol{list-style:none}
+.topbar{width:100%;height:40px;line-height:40px;background:#f9f9f9;border-bottom:1px solid #eee;font-size:12px;color:#999}
+.topbar-inner{width:1200px;margin:0 auto}
+.topbar-welcome span{font-weight:bold;color:#999}
+.header{width:100%;height:130px;background:linear-gradient(135deg,#1a0000,#4d0000,#800000)}
+.header-inner{width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:130px}
+.header-logo{display:flex;align-items:center;gap:20px}
+.header-logo img{height:80px;width:auto}
+.header-logo-text h1{font-size:28px;font-weight:700;color:#fff;letter-spacing:6px}
+.header-logo-text p{font-size:11px;color:#C9A84C;letter-spacing:3px;margin-top:4px}
+.header-slogan{color:#fff;font-size:16px;letter-spacing:2px}
+.navbar{width:100%;height:52px;background:#CC0000;position:sticky;top:0;z-index:999}
+.navbar-inner{width:1200px;margin:0 auto;display:flex;align-items:center;height:52px}
+.navbar-menu{display:flex;height:52px}
+.navbar-menu>li{position:relative;height:52px}
+.navbar-menu>li>a{display:flex;align-items:center;height:52px;padding:0 18px;color:#fff;font-size:15px;white-space:nowrap;transition:all 0.2s}
+.navbar-menu>li:hover>a,.navbar-menu>li>a.active{background:#fff;color:#CC0000}
+.navbar-menu>li>a b{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:5px;transition:transform 0.3s}
+.navbar-menu>li:hover>a b{border-top-color:#CC0000;transform:rotate(180deg)}
+.submenu{display:none;position:absolute;top:52px;left:0;background:#CC0000;min-width:140px;z-index:99;padding:5px 0}
+.navbar-menu>li:hover>.submenu{display:block}
+.submenu li a{display:block;padding:8px 20px;color:#fff;font-size:13px;text-align:center}
+.submenu li a:hover{background:#fff;color:#CC0000}
+.main{width:1200px;margin:30px auto}
+.sec-title{font-size:22px;color:#333;padding:10px 0 10px 15px;border-left:4px solid #CC0000;margin-bottom:20px}
+.card{background:#fff;padding:30px;margin-bottom:20px;border-radius:4px}
+.card p{font-size:14px;color:#555;line-height:2;text-indent:2em}
+.leader-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.leader-card{background:#fff;text-align:center;padding:20px;transition:all 0.3s;border-radius:4px}
+.leader-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.leader-card img{width:150px;height:180px;object-fit:cover;border-radius:4px;background:#f0ebe3;margin-bottom:10px}
+.leader-card .name{font-size:15px;font-weight:700}
+.leader-card .title{font-size:12px;color:#CC0000;margin-top:4px}
+.leader-card .desc{font-size:12px;color:#999;margin-top:4px}
 .timeline{position:relative;padding-left:30px}
-.timeline::before{content:'';position:absolute;left:8px;top:0;width:2px;height:100%;background:linear-gradient(180deg,#C41230,#C9A84C)}
-.timeline-item{position:relative;margin-bottom:24px;padding-left:20px}
-.timeline-item::before{content:'';position:absolute;left:-26px;top:4px;width:12px;height:12px;border-radius:50%;background:#C41230;border:2px solid #C9A84C}
+.timeline::before{content:'';position:absolute;left:8px;top:0;width:2px;height:100%;background:linear-gradient(180deg,#CC0000,#C9A84C)}
+.timeline-item{position:relative;margin-bottom:20px;padding-left:20px}
+.timeline-item::before{content:'';position:absolute;left:-26px;top:4px;width:12px;height:12px;border-radius:50%;background:#CC0000;border:2px solid #C9A84C}
 .timeline-item .year{font-size:13px;color:#C9A84C;font-weight:600}
-.timeline-item h4{font-size:16px;color:#333;margin:4px 0}
-.timeline-item p{font-size:13px;color:#888;line-height:1.8}
-.honor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.honor-card{background:#fff;border-radius:10px;padding:20px;border:1px solid #EEE;display:flex;align-items:center;gap:14px;transition:all 0.3s}
+.timeline-item h4{font-size:15px;color:#333;margin:4px 0}
+.timeline-item p{font-size:13px;color:#888}
+.honor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.honor-card{background:#fff;padding:20px;display:flex;align-items:center;gap:14px;transition:all 0.3s;border-radius:4px}
 .honor-card:hover{border-color:#C9A84C;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
 .honor-card .icon{font-size:28px;color:#C9A84C}
 .honor-card h4{font-size:15px;color:#333;margin-bottom:2px}
-.honor-card .year{font-size:12px;color:#C41230}
-.news-list-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px dashed #E8E8E8;text-decoration:none;color:inherit;transition:all 0.3s}
-.news-list-item:hover{padding-left:8px;border-bottom-color:#C9A84C}
-.news-list-item .date{flex:0 0 100px;font-size:12px;color:#999}
-.news-list-item .title{flex:1;font-size:15px;color:#333;font-weight:500}
-.news-list-item:hover .title{color:#C41230}
-.join-section{background:#fff;border-radius:12px;padding:30px;margin-bottom:20px;border:1px solid #EEE}
-.join-section h3{font-size:18px;color:#C41230;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #F5E6C8}
-.join-section p,.join-section li{font-size:14px;color:#555;line-height:2}
-.join-section ul{padding-left:20px}
-.join-section ul li{margin-bottom:4px}
-.join-section ul li::marker{color:#C9A84C}
+.honor-card .year{font-size:12px;color:#CC0000}
 .empty-tip{text-align:center;padding:60px;color:#888}
 .empty-tip i{font-size:48px;display:block;margin-bottom:12px}
-@media(max-width:1024px){
-.head-box{padding:0 20px;height:64px}
-.top-menu{display:none!important}
-.mobile-nav{display:flex;align-items:center;gap:12px}
-.page-banner{padding:100px 20px 40px}
-.page-banner h1{font-size:26px}
-.container{padding:0 20px}
-.footer .container{flex-direction:column;gap:30px}.footer-left{flex:0 0 100%;align-items:center}.footer-left img{height:56px}
-}
-.back-to-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:#C41230;color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:20px;z-index:999;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 12px rgba(196,18,48,0.3);display:flex;align-items:center;justify-content:center}.back-to-top.show{opacity:1;visibility:visible}.back-to-top:hover{background:#8B1A2B;transform:translateY(-3px)}</style>
+.footer{background:#1a1a1a;color:#aaa;padding:30px 0}
+.footer-inner{width:1200px;margin:0 auto;display:flex;gap:40px}
+.footer-logo{text-align:center;flex-shrink:0}
+.footer-logo img{height:60px}
+.footer-links{flex:1}
+.footer-links .fl-row{display:flex;margin-bottom:12px;font-size:13px}
+.footer-links .fl-row a{color:#ccc;padding:0 12px;border-right:1px solid #444}
+.footer-links .fl-row a:first-child{padding-left:0}
+.footer-links .fl-row a:last-child{border-right:0}
+.footer-links .fl-row a:hover{color:#CC0000}
+.footer-links .copyright{font-size:12px;color:#777;line-height:2}
+.footer-links .copyright a{color:#aaa}
+.footer-qr{text-align:center;flex-shrink:0}
+.footer-qr img{width:90px;height:90px;margin-bottom:6px}
+.footer-qr p{font-size:12px}
+#imgLightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;align-items:center;justify-content:center}
+#imgLightbox>span{position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer}
+#imgLightbox img{max-width:90%;max-height:90%;object-fit:contain}
+</style>
 </head>
 <body>
-<header class="header">
-<div class="head-box">
-<div class="head-logo"><a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo" style="height:56px;width:auto;"><div><div style="font-size:26px;font-weight:700;color:#C41230;letter-spacing:4px;line-height:1.2;">四川省闽南商会</div><small style="color:#C9A84C;font-size:11px;letter-spacing:2px;">MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</small></div></a></div>
-<nav class="top-menu"><ul>
-<li><a href="index.html">首页</a></li>
-<li class="has-sub"><a href="about.html" class="active">关于商会<b></b></a><div class="er-menu"><ul>
-<li><a href="about.html#intro">商会简介</a></li>
-<li><a href="about.html#honors">荣誉历程</a></li>
-<li><a href="about.html#president">会长寄语</a></li>
-<li><a href="about.html#leadership">领导班子</a></li>
-<li><a href="about.html#milestones">大事记</a></li>
-<li><a href="about.html#committees">专委会</a></li>
-</ul></div></li>
-<li class="has-sub"><a href="party.html">商会党建<b></b></a><div class="er-menu"><ul>
-<li><a href="party.html?p=intro">组织介绍</a></li>
-<li><a href="party.html?p=structure">组织架构</a></li>
-<li><a href="party.html?p=history">发展历程</a></li>
-<li><a href="party.html?p=news">党建新闻</a></li>
-</ul></div></li>
-<li><a href="news.html">商会新闻</a></li>
+<div class="topbar"><div class="topbar-inner"><div class="topbar-welcome">欢迎访问 <span><a href="/" style="color:#999">四川省闽南商会官方网站</a></span> 今天是<input type="text" id="topDate" readonly style="border:0;background:none;color:#999;font-size:12px;width:160px"></div></div></div>
+<div class="header"><div class="header-inner"><div class="header-logo"><img src="logo.jpg" alt="四川省闽南商会"><div class="header-logo-text"><h1>四川省闽南商会</h1><p>MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></div><div class="header-slogan">凝聚闽商力量<span style="color:#C9A84C;font-size:22px;"> · </span>服务川闽发展</div></div></div>
+<div class="navbar"><div class="navbar-inner"><ul class="navbar-menu">
+<li><a href="index.html">网站首页</a></li>
+<li><a href="about.html" class="active">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></li>
+<li><a href="news.html">商会动态<b></b></a><ul class="submenu"><li><a href="news.html">商会新闻</a></li><li><a href="strategy.html">战略伙伴</a></li></ul></li>
+<li><a href="party.html">商会党建<b></b></a><ul class="submenu"><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></li>
 <li><a href="strategy.html">战略伙伴</a></li>
 <li><a href="joinus.html">加入我们</a></li>
-</ul></nav>
-<div class="mobile-nav"><button class="mobile-nav-btn" onclick="toggleMenu()" aria-label="打开菜单" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i></button></div>
+</ul></div></div>
+
+<div class="main">
+<div class="sec-title">商会简介</div>
+<div class="card"><div style="display:flex;gap:30px;flex-wrap:wrap"><div style="width:300px;flex-shrink:0"><img src="logo.jpg" id="aboutImg" style="width:100%;height:250px;object-fit:cover;border-radius:4px"></div><div style="flex:1;min-width:400px"><p style="margin-bottom:15px" id="aboutP1">商会简介内容加载中...</p><p id="aboutP2"></p></div></div></div>
+
+<div class="sec-title" id="honors">荣誉历程</div>
+<div class="honor-grid" id="honorGrid"></div><div class="empty-tip" id="honorEmpty" style="display:none"><i class="fa fa-trophy"></i><p>荣誉历程内容待添加</p></div>
+
+<div class="sec-title" id="president">会长寄语</div>
+<div class="card" style="display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap"><div style="width:200px;text-align:center;flex-shrink:0"><img src="logo.jpg" id="pmImg" style="width:180px;height:220px;object-fit:cover;border-radius:4px;background:#f0ebe3"><div style="font-size:16px;font-weight:700;margin-top:8px" id="pmName">会长姓名</div><div style="font-size:13px;color:#CC0000" id="pmTitle">会长</div></div><div style="flex:1;min-width:400px"><p style="font-size:14px;color:#555;line-height:2;white-space:pre-line" id="pmContent">会长寄语加载中...</p></div></div>
+
+<div class="sec-title" id="leadership">领导班子</div>
+<div class="leader-grid" id="leaderGrid"></div><div class="empty-tip" id="leaderEmpty" style="display:none"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>
+
+<div class="sec-title" id="milestones">大事记</div>
+<div class="timeline" id="msTimeline"></div><div class="empty-tip" id="msEmpty" style="display:none"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>
+
+<div class="sec-title" id="committees">专委会</div>
+<div class="honor-grid" id="cmGrid"></div><div class="empty-tip" id="cmEmpty" style="display:none"><i class="fa fa-sitemap"></i><p>专委会信息待添加</p></div>
 </div>
-</header>
-<div id="mobileOverlay" style="display:none;pointer-events:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:998;" onclick="closeMobileMenu()"></div>
-<div id="mobileMenu" style="display:none;position:fixed;top:64px;left:0;width:100%;background:#fff;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:10px 0;">
-<a href="index.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">首页</a>
-<a href="about.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">关于商会</a>
-<a href="party.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">商会党建</a>
-<a href="news.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">商会新闻</a>
-<a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
-<a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
-</div>
-<script>function toggleMenu(){var m=document.getElementById("mobileMenu");var o=document.getElementById("mobileOverlay");if(!m||!o)return;var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
-function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
-var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
-<div class="page-banner"><h1>关于商会</h1><p>ABOUT US</p></div><div class="container section">
-<div class="section-title" id="intro"><h2>商会简介</h2></div>
-<div class="card" id="about-card">
-<p id="ab-p1" style="font-size:15px;line-height:2;color:#555;text-indent:2em;margin-bottom:16px;"></p>
-<p id="ab-p2" style="font-size:15px;line-height:2;color:#555;text-indent:2em;"></p>
-</div>
-<div id="about-honors-section"><div class="section-title" id="honors"><h2>荣誉历程</h2></div><div class="honor-grid" id="honorGrid"></div></div>
-<div id="about-president-section"><div class="section-title" id="president"><h2>会长寄语</h2></div><div class="card" style="display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap;">
-<div style="flex:0 0 200px;text-align:center;"><img id="pm-img" src="" alt="会长" style="width:100%;border-radius:10px;background:#F0EBE3;min-height:200px;"><div id="pm-name" style="font-size:18px;font-weight:700;margin-top:12px;color:#333;"></div><div id="pm-title" style="font-size:13px;color:#C41230;"></div></div>
-<div style="flex:1;min-width:260px;"><blockquote id="pm-content" style="font-size:15px;color:#555;line-height:2.2;font-style:italic;border-left:3px solid #C9A84C;padding-left:20px;"></blockquote></div>
+
+<div class="footer"><div class="footer-inner">
+<div class="footer-logo"><img src="logo.jpg" alt="四川省闽南商会"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></div>
+<div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="strategy.html">战略伙伴</a><a href="joinus.html">加入我们</a></div>
+<div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
+<div class="footer-qr"><img src="logo.jpg" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo.jpg" alt="手机网站"><p>手机网站</p></div>
 </div></div>
-<div id="about-leader-section"><div class="section-title" id="leadership"><h2>领导班子</h2></div><div class="leader-grid" id="leaderGrid"></div></div>
-<div id="about-ms-section"><div class="section-title" id="milestones"><h2>大事记</h2></div><div class="timeline" id="msTimeline"></div></div>
-<div id="about-cm-section"><div class="section-title" id="committees"><h2>专委会</h2></div><div class="honor-grid" id="cmGrid"></div></div>
+<div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
+
 <script>
-function renderAboutContent(){
-var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
+function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function setText(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;}
+function setAttr(id,a,v){var el=document.getElementById(id);if(el&&v)el.setAttribute(a,v);}
+function viewNewsImg(t,s){document.getElementById('imgLightboxImg').src=s;document.getElementById('imgLightbox').style.display='flex';document.body.style.overflow='hidden';}
+function closeImgLightbox(){document.getElementById('imgLightbox').style.display='none';document.body.style.overflow='';}
+(function u(){var d=new Date();var days=['日','一','二','三','四','五','六'];var el=document.getElementById('topDate');if(el)el.value=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 星期'+days[d.getDay()];setTimeout(u,60000);})();
+
+function renderAbout(){
 var d=window.__CMS_DATA__;if(!d)return;
 var a=d.about||{};
-var setT=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
-var setI=function(id,v){var el=document.getElementById(id);if(el&&v)el.src=v;};
-setT('ab-p1',a.p1);setT('ab-p2',a.p2);
-// Honors
-var hg=document.getElementById('honorGrid');if(hg){if(d.honors&&d.honors.length>0){hg.innerHTML=d.honors.map(function(h){return '<div class="honor-card"><div class="icon"><i class="fa fa-trophy"></i></div><div><h4>'+esc(h.title||'')+'</h4><div class="year">'+esc(h.year||'')+'</div><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(h.desc||'')+'</div></div></div>';}).join('');}else{hg.innerHTML='<div class="empty-tip"><i class="fa fa-trophy"></i><p>荣誉历程内容待添加</p></div>';}}
-// President
-var p=d.president||{};
-setI('pm-img',p.img);setT('pm-name',p.name);setT('pm-title',p.title);setT('pm-content',p.content);
-// Leadership
-var lg=document.getElementById('leaderGrid');if(lg){
-if(d.leadership&&d.leadership.length>0){lg.innerHTML=d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return '<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+esc(m.name||'')+'">':'<div style="height:240px;background:#F0EBE3;"></div>')+'<div class="info"><div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div></div>';}).join('');}
-else{lg.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
+setAttr('aboutImg','src',a.img||'logo.jpg');setText('aboutP1',a.p1||'商会简介内容待添加');setText('aboutP2',a.p2||'');
+var lg=document.getElementById('leaderGrid'),le=document.getElementById('leaderEmpty');
+if(d.leadership&&d.leadership.length>0){lg.innerHTML=d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('');le.style.display='none';}else{lg.innerHTML='';le.style.display='block';}
+var hg=document.getElementById('honorGrid'),he=document.getElementById('honorEmpty');
+if(d.honors&&d.honors.length>0){hg.innerHTML=d.honors.map(function(h){return'<div class="honor-card"><div class="icon"><i class="fa fa-trophy"></i></div><div><h4>'+esc(h.title||'')+'</h4><div class="year">'+esc(h.year||'')+'</div><div style="font-size:12px;color:#888;margin-top:4px">'+esc(h.desc||'')+'</div></div></div>';}).join('');he.style.display='none';}else{hg.innerHTML='';he.style.display='block';}
+if(d.president){setText('pmName',d.president.name||'会长');setText('pmTitle',d.president.title||'');setAttr('pmImg','src',d.president.img||'logo.jpg');setText('pmContent',d.president.content||'会长寄语内容待添加');}
+var mt=document.getElementById('msTimeline'),me=document.getElementById('msEmpty');
+if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return'<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+esc(m.month||''):'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+esc(m.desc||'')+'</p></div>';}).join('');me.style.display='none';}else{mt.innerHTML='';me.style.display='block';}
+var cg=document.getElementById('cmGrid'),ce=document.getElementById('cmEmpty');
+if(d.committees&&d.committees.length>0){cg.innerHTML=d.committees.map(function(c){return'<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+esc(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px">'+esc(c.desc||'')+'</div><div style="font-size:11px;color:#aaa;margin-top:2px">成员：'+esc(c.members||'')+'</div></div></div>';}).join('');ce.style.display='none';}else{cg.innerHTML='';ce.style.display='block';}
+var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
-// Milestones
-var mt=document.getElementById('msTimeline');if(mt){
-if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return '<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+esc(m.month||''):'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+esc(m.desc||'')+'</p></div>';}).join('');}
-else{mt.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
-}
-// Committees
-var cg=document.getElementById('cmGrid');if(cg){
-if(d.committees&&d.committees.length>0){cg.innerHTML=d.committees.map(function(c){return '<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+esc(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(c.desc||'')+'</div><div style="font-size:11px;color:#AAA;margin-top:2px;">成员：'+esc(c.members||'')+'</div></div></div>';}).join('');}
-else{cg.innerHTML='<div class="empty-tip"><i class="fa fa-sitemap"></i><p>专委会信息待添加</p></div>';}
-}
-}
-</script></div>
-<footer class="footer">
-<div class="container">
-<div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</div></div>
-<div class="footer-contact"><h5 id="ft-slogan">如果您有需求，请联系我们；我们将竭诚为您服务！</h5><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-map-marker" style="color:#C9A84C;margin-right:6px"></i> 地址：<span id="ft-addr">成都市金牛区育仁西路8号茗园尚筑2栋29楼</span></p><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-phone" style="color:#C9A84C;margin-right:6px"></i> 电话：<span id="ft-phone">028-83392693</span></p><p style="font-size:13px;line-height:2;color:#AAA;"><i class="fa fa-envelope" style="color:#C9A84C;margin-right:6px"></i> 邮箱：<span id="ft-email">smcc0924@163.com</span></p></div><div class="footer-menu">
-<div class="footer-menu-col"><h4>关于商会</h4><ul><li><a href="about.html#intro">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></div>
-<div class="footer-menu-col"><h4>商会党建</h4><ul><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></div>
-<div class="footer-menu-col"><h4>商会新闻</h4><ul><li><a href="news.html">新闻资讯</a></li></ul></div>
-<div class="footer-menu-col"><h4>加入我们</h4><ul><li><a href="joinus.html">入会指南</a></li><li><a href="strategy.html">战略伙伴</a></li></ul></div>
-</div>
-</div>
-<div class="footer-bottom"><p><span id="ft-copyright"></span> | <a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div>
-</footer>
-<script>
-function renderAboutFooter(){
-var d=window.__CMS_DATA__;
-if(d&&d.footer){
-var f=d.footer;
-var set=function(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;};
-set('ft-slogan',f.slogan);set('ft-addr',f.addr);
-if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
-set('ft-email',f.email);set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
-}
-}
+(function(){if(window.__CMS_DATA__){renderAbout();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderAbout();};s.onerror=function(){renderAbout();};document.body.appendChild(s);})();
 </script>
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
-<script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
-<script>(function(){if(window.__CMS_DATA__){renderAboutContent();renderAboutFooter();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__){renderAboutContent();renderAboutFooter();}};s.onerror=function(){renderAboutContent();renderAboutFooter();};document.body.appendChild(s);})();</script>
-</body></html>
+</body>
+</html>
