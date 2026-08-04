@@ -88,7 +88,6 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="leadership"><i class="fa fa-users"></i> 领导班子</a>
 <a href="#" data-page="president"><i class="fa fa-quote-right"></i> 会长寄语</a>
 <a href="#" data-page="milestones"><i class="fa fa-history"></i> 大事记</a>
-<a href="#" data-page="committees"><i class="fa fa-sitemap"></i> 专委会</a>
 <div class="nav-group">党建管理</div>
 <a href="#" data-page="party"><i class="fa fa-flag"></i> 商会党建</a>
 	<div class="nav-group">资讯管理</div>
@@ -170,8 +169,6 @@ table .mini-input:focus{border-color:#C41230;}
 <!-- ====== 大事记 ====== -->
 <div class="page" id="page-milestones"><div class="card"><div class="card-header"><i class="fa fa-history"></i> 大事记 <span class="tip">（商会发展历程中的重要事件）</span></div><div id="ms-list"></div><button class="btn btn-primary" onclick="addItem('milestones',{year:'',month:'',title:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加事件</button></div></div>
 
-<!-- ====== 专委会 ====== -->
-<div class="page" id="page-committees"><div class="card"><div class="card-header"><i class="fa fa-sitemap"></i> 专委会 <span class="tip">（各专业委员会）</span></div><div id="cm-list"></div><button class="btn btn-primary" onclick="addItem('committees',{name:'',desc:'',members:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加专委会</button></div></div>
 
 <!-- ====== 商会党建 ====== -->
 <div class="page" id="page-party">
@@ -269,7 +266,7 @@ var SK='scmn_cms_data_v2';
 function defData(){return{
 banner:[],about:{en:'ABOUT US',cn:'了解商会',img:'',p1:'',p2:'',link:'#',stats:[]},
 leadership:[],president:{name:'',title:'',img:'',content:''},
-honors:[],milestones:[],committees:[],
+honors:[],milestones:[],
 party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[],history:[]},
 news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
 joinus:{title:'加入我们',req:'',process:'',contact:''},
@@ -299,7 +296,6 @@ case'leadership':renderTable('ld-list','leadership',d.leadership,['name','title'
 case'president':renderPresident(d);break;
 case'honors':renderTable('honors-list','honors',d.honors,['year','title','desc','img'],{year:'年份',title:'荣誉名称',desc:'描述',img:'图片URL'});break;
 case'milestones':(d.milestones||[]).sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||(b.month||'').localeCompare(a.month||'');});renderTable('ms-list','milestones',d.milestones,['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
-case'committees':renderTable('cm-list','committees',d.committees,['name','desc','members'],{name:'专委会名称',desc:'简介',members:'成员'});break;
 case'party':renderParty(d);break;
 	case'party-history':(d.party.history||[]).sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||(b.month||'').localeCompare(a.month||'');});renderTable('py-history-list','partyHistory',d.party.history||[],['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
 case'news':renderCombinedNews(d);break;
@@ -322,7 +318,6 @@ var items=[
 {icon:'red',fa:'fa-image',num:d.banner.length,label:'Banner'},
 {icon:'gold',fa:'fa-users',num:d.leadership.length,label:'领导班子'},
 {icon:'green',fa:'fa-history',num:d.milestones.length,label:'大事记'},
-{icon:'purple',fa:'fa-sitemap',num:d.committees.length,label:'专委会'},
 {icon:'red',fa:'fa-flag',num:d.party.news.length,label:'党建新闻'},{icon:'gold',fa:'fa-history',num:(d.party.history||[]).length,label:'发展历程'},
 {icon:'gold',fa:'fa-newspaper-o',num:d.news.length,label:'商会新闻'},
 {icon:'green',fa:'fa-cubes',num:d.services.items.length,label:'服务项目'},{icon:'purple',fa:'fa-envelope',num:(function(){try{return JSON.parse(localStorage.getItem('scmn_applications')||'[]').length}catch(e){return 0}})(),label:'入会申请'},

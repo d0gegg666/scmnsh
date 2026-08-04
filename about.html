@@ -90,7 +90,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="header"><div class="header-inner"><div class="header-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会"></a><a href="index.html"><div class="header-logo-text"><h1>四川省闽南商会</h1><p>MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></a></div><div class="header-slogan">凝聚闽商力量<span style="color:#C9A84C;font-size:22px;"> · </span>服务川闽发展</div></div></div>
 <div class="navbar"><div class="navbar-inner"><ul class="navbar-menu">
 <li><a href="index.html">网站首页</a></li>
-<li><a href="about.html" class="active">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html?page=honors">荣誉历程</a></li><li><a href="about.html?page=president">会长寄语</a></li><li><a href="about.html?page=leadership">领导班子</a></li><li><a href="about.html?page=milestones">大事记</a></li><li><a href="about.html?page=committees">专委会</a></li></ul></li>
+<li><a href="about.html" class="active">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html?page=honors">荣誉历程</a></li><li><a href="about.html?page=president">会长寄语</a></li><li><a href="about.html?page=leadership">领导班子</a></li><li><a href="about.html?page=milestones">大事记</a></li></ul></li>
 <li><a href="news.html">商会动态</a></li>
 <li><a href="party.html">商会党建<b></b></a><ul class="submenu"><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></li>
 <li><a href="joinus.html">加入我们</a></li>
@@ -103,7 +103,6 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <a href="#" data-p="president">会长寄语</a>
 <a href="#" data-p="leadership">领导班子</a>
 <a href="#" data-p="milestones">大事记</a>
-<a href="#" data-p="committees">专委会</a>
 </div>
 <div id="aboutContent" style="min-height:400px"></div>
 </div>
@@ -145,8 +144,6 @@ c.innerHTML='<div class="card" style="display:flex;gap:30px;align-items:flex-sta
 if(d.leadership&&d.leadership.length>0){c.innerHTML='<div class="leader-grid">'+d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+esc(m.img)+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
 }else if(page==='milestones'){
 if(d.milestones&&d.milestones.length>0){c.innerHTML='<div class="timeline">'+d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return'<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+esc(m.month||''):'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+esc(m.desc||'')+'</p></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
-}else if(page==='committees'){
-if(d.committees&&d.committees.length>0){c.innerHTML='<div class="honor-grid">'+d.committees.map(function(c){return'<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+esc(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px">'+esc(c.desc||'')+'</div><div style="font-size:11px;color:#aaa;margin-top:2px">成员：'+esc(c.members||'')+'</div></div></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-sitemap"></i><p>专委会信息待添加</p></div>';}
 }
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
