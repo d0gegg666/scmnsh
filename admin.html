@@ -343,6 +343,9 @@ allKeys.forEach(function(k){
 var v=item[k]!==undefined?item[k]:'';
 if(k==='img'||k==='structImg'){
 h+='<td>'+(v?'<img src="'+esc(v)+'" class="preview-img">':'')+'<input class="mini-input" value="'+esc(v)+'" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)" style="margin-top:4px;"><button class="btn btn-sm btn-outline" onclick="uploadImg(this,\''+key+'\','+i+',\''+k+'\')" style="margin-top:2px;font-size:11px;"><i class="fa fa-upload"></i> 本地上传</button></td>';
+}else if(k==='link'){
+var isDataLink=v.startsWith('data:');
+h+='<td><input class="mini-input" value="'+esc(v)+'" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)" style="'+(isDataLink?'border-color:#e74c3c;background:#fff5f5;':'')+'">'+(isDataLink?'<span style="color:#e74c3c;font-size:10px;display:block;">⚠ 请填写网页URL，不要粘贴图片数据</span>':'')+'</td>';
 }else{
 h+='<td><input class="mini-input" value="'+esc(v)+'" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)"></td>';
 }
@@ -371,6 +374,7 @@ c.innerHTML=h;
 	}
 	// 通用：更新列表项字段（行内编辑自动保存）
 	function uF(key,i,field,value){
+	if(field==='link'&&value.startsWith('data:')){T('警告：链接字段不应填写图片数据！请填写网页URL','error');}
 	var d=L();
 	if(key==='combinedNews'){var ci=i,cn=(d.news||[]).length;if(ci<cn){d.news[ci][field]=value}else if(d.biznews){d.biznews[ci-cn][field]=value}S(d);return;}if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}if(key==='partyHistory'){if(d.party.history)d.party.history[i][field]=value;S(d);return;}
 	if(key==='services'){if(d.services.items)d.services.items[i][field]=value;S(d);return;}
