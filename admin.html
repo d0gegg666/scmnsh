@@ -189,12 +189,12 @@ table .mini-input:focus{border-color:#C41230;}
 <div class="form-group"><label>架构说明</label><textarea class="form-control" id="py-struct-desc" rows="3"></textarea></div>
 <button class="btn btn-primary" onclick="savePartyStruct()"><i class="fa fa-save"></i> 保存组织架构</button>
 </div>
-<div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 党建新闻</div><div id="py-news-list"></div><button class="btn btn-primary" onclick="addItem('partyNews',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加党建新闻</button></div>
+<div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 党建新闻</div><div id="py-news-list"></div><button class="btn btn-primary" onclick="addItem('partyNews',{date:'',title:'',img:'',link:'#',id:Date.now()})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加党建新闻</button></div>
 	<div class="card"><div class="card-header"><i class="fa fa-history"></i> 发展历程 <span class="tip">（党组织发展历程中的重要事件）</span></div><div id="py-history-list"></div><button class="btn btn-primary" onclick="addItem('partyHistory',{year:'',month:'',title:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加历程事件</button></div>
 </div>
 
 <!-- ====== 商会新闻 ====== -->
-<div class="page" id="page-news"><div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 商会新闻 <span class="tip">（第1条为左侧大图展示）</span></div><div id="news-list"></div><button class="btn btn-primary" onclick="addItem('news',{date:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加新闻</button></div></div>
+<div class="page" id="page-news"><div class="card"><div class="card-header"><i class="fa fa-newspaper-o"></i> 商会新闻 <span class="tip">（第1条为左侧大图展示）</span></div><div id="news-list"></div><button class="btn btn-primary" onclick="addItem('news',{date:'',title:'',img:'',link:'#',id:Date.now()})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加新闻</button></div></div>
 
 <!-- ====== 服务领域 ====== -->
 	<div class="page" id="page-services"><div class="card"><div class="card-header"><i class="fa fa-cubes"></i> 服务领域</div>

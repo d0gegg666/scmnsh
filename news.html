@@ -102,7 +102,7 @@ if(all.length===0){el.innerHTML='<div class="empty-tip"><i class="fa fa-newspape
 el.innerHTML=all.map(function(n){
 var link=n.link||'#';var isValid=link&&link!=='#'&&!link.startsWith('data:');var hasImg=n.img&&n.img.startsWith('data:');
 if(isValid)return'<a href="'+esc(link)+'" class="news-list-item"><span class="date">'+esc(n.date||'')+'</span>'+(n.img?'<img src="'+esc(n.img)+'" class="thumb" alt="">':'')+'<span class="title">'+esc(n.title||'')+'</span></a>';
-if(hasImg)return'<a href="javascript:void(0)" class="news-list-item" onclick="viewNewsImg(\''+esc(n.title||'')+'\',\''+esc(n.img)+'\')"><span class="date">'+esc(n.date||'')+'</span><img src="'+esc(n.img)+'" class="thumb" alt=""><span class="title">'+esc(n.title||'')+'</span></a>';
+if(hasImg)return'<a href="javascript:void(0)" class="news-list-item" onclick="viewNewsImg(\''+escJs(n.title||'')+'\',\''+escJs(n.img)+'\')"><span class="date">'+esc(n.date||'')+'</span><img src="'+esc(n.img)+'" class="thumb" alt=""><span class="title">'+esc(n.title||'')+'</span></a>';
 return'<span class="news-list-item" style="cursor:default"><span class="date">'+esc(n.date||'')+'</span>'+(n.img?'<img src="'+esc(n.img)+'" class="thumb" alt="">':'')+'<span class="title">'+esc(n.title||'')+'</span></span>';
 }).join('');
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}

@@ -229,13 +229,13 @@ function closeImgLightbox(){var l=document.getElementById("imgLightbox");if(l){l
 
 function doSearch(){
 var kw=(document.getElementById('search-input').value||'').trim().toLowerCase();
-var box=document.getElementById('search-results');
+var box=document.getElementById('search-results');if(!box)return;
 if(!kw){box.classList.remove('show');box.innerHTML='';return;}
 var data=window.__CMS_DATA__;
 var all=[].concat((data&&data.news)||[],(data&&data.biznews)||[],(data&&data.party&&data.party.news)||[]);
 var results=all.filter(function(n){return(n.title||'').toLowerCase().indexOf(kw)>=0;});
 if(results.length===0){box.innerHTML='<div class="sr-item" style="text-align:center;color:#999">未找到相关内容</div>';}
-else{box.innerHTML=results.slice(0,10).map(function(n){return'<a href="'+(n.link||'news-detail.html?id='+n.id)+'" class="sr-item"><div>'+esc(n.title||'')+'</div><div class="sr-date">'+esc(n.date||'')+'</div></a>';}).join('');}
+else{box.innerHTML=results.slice(0,10).map(function(n){return'<a href="'+esc(n.link||'news-detail.html?id='+n.id)+'" class="sr-item"><div>'+esc(n.title||'')+'</div><div class="sr-date">'+esc(n.date||'')+'</div></a>';}).join('');}
 box.classList.add('show');
 }
 document.addEventListener('click',function(e){var box=document.getElementById('search-results');var inp=document.getElementById('search-input');if(box&&!box.contains(e.target)&&e.target!==inp)box.classList.remove('show');});

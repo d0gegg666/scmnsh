@@ -116,13 +116,13 @@ setText('articleDate',found.date||'');
 var content=found.content||'';
 if(!content){
 content='<p>'+esc(found.title||'')+'</p>';
-if(found.img){content+='<div style="text-align:center;margin:20px 0"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+esc(found.title||'')+'\',\''+esc(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>';}
+if(found.img){content+='<div style="text-align:center;margin:20px 0"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+escJs(found.title||'')+'\',\''+escJs(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>';}
 content+='<p>发布时间：'+esc(found.date||'')+'</p>';
 content+='<p>来源：四川省闽南商会</p>';
 content+='<p style="margin-top:20px;color:#888">【详细内容待补充】</p>';
 }else{
 // 如果img字段存在，在内容顶部显示图片
-if(found.img){content='<div style="text-align:center;margin-bottom:20px"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+esc(found.title||'')+'\',\''+esc(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>'+content;}
+if(found.img){content='<div style="text-align:center;margin-bottom:20px"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+escJs(found.title||'')+'\',\''+escJs(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>'+content;}
 }
 document.getElementById('articleContent').innerHTML=content;
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
