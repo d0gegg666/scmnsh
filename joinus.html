@@ -111,7 +111,7 @@ if(j.contact){setText('joinContact',j.contact);}
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
 function submitJoin(e){e.preventDefault();var f=e.target;var data={};for(var i=0;i<f.elements.length;i++){var el=f.elements[i];if(el.name)data[el.name]=el.value;}data.time=new Date().toISOString();data.id=Date.now();var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');apps.push(data);try{localStorage.setItem('scmn_applications',JSON.stringify(apps));}catch(e){document.getElementById('joinMsg').innerHTML='<span style="color:#f00">存储空间不足，请联系管理员。</span>';return;}document.getElementById('joinMsg').innerHTML='<span style="color:#4CAF50"><i class="fa fa-check-circle"></i> 申请已提交成功！我们会尽快与您联系。</span>';f.reset();setTimeout(function(){document.getElementById('joinMsg').innerHTML='';},5000);}
-(function(){if(window.__CMS_DATA__){renderJoin();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderJoin();};s.onerror=function(){renderJoin();};document.body.appendChild(s);})();
+(function(){if(window.__CMS_DATA__){renderJoin();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderJoin();};s.onerror=function(){var el=document.getElementById("joinReq");if(el)el.textContent='数据加载失败，请刷新页面重试';renderJoin();};document.body.appendChild(s);})();
 </script>
 </body>
 </html>

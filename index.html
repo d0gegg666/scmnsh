@@ -305,7 +305,7 @@ if(f.title)document.title=f.title+'【官网】';
 if(window.__CMS_DATA__){bindCMS(window.__CMS_DATA__);return;}
 var s=document.createElement('script');s.src='data.js';
 s.onload=function(){if(window.__CMS_DATA__)bindCMS(window.__CMS_DATA__);};
-s.onerror=function(){bindCMS(null);};
+s.onerror=function(){var el=document.getElementById("newsFeat");if(el)el.innerHTML='<div class="empty-tip"><i class="fa fa-exclamation-triangle"></i><p>数据加载失败，请刷新页面重试</p></div>';bindCMS(null);};
 document.body.appendChild(s);
 })();
 </script>

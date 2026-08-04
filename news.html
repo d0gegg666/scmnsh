@@ -107,7 +107,7 @@ return'<span class="news-list-item" style="cursor:default"><span class="date">'+
 }).join('');
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
-(function(){if(window.__CMS_DATA__){renderNews();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderNews();};s.onerror=function(){renderNews();};document.body.appendChild(s);})();
+(function(){if(window.__CMS_DATA__){renderNews();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderNews();};s.onerror=function(){var el=document.getElementById("newsList");if(el)el.innerHTML='<div class="empty-tip"><i class="fa fa-exclamation-triangle"></i><p>数据加载失败，请刷新页面重试</p></div>';renderNews();};document.body.appendChild(s);})();
 </script>
 </body>
 </html>

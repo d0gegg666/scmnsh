@@ -83,10 +83,10 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 
 <div class="main">
 <div class="tab-nav">
-<a href="?p=intro" class="active" data-p="intro">组织介绍</a>
-<a href="?p=structure" data-p="structure">组织架构</a>
-<a href="?p=history" data-p="history">发展历程</a>
-<a href="?p=news" data-p="news">党建新闻</a>
+<a href="#" class="active" data-p="intro">组织介绍</a>
+<a href="#" data-p="structure">组织架构</a>
+<a href="#" data-p="history">发展历程</a>
+<a href="#" data-p="news">党建新闻</a>
 </div>
 <div id="partyContent"></div>
 </div>
@@ -133,7 +133,8 @@ else{c.innerHTML+='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>�
 }
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
-(function(){if(window.__CMS_DATA__){renderParty();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderParty();};s.onerror=function(){renderParty();};document.body.appendChild(s);})();
+document.querySelectorAll('.tab-nav a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=this.dataset.p;history.replaceState(null,'','?p='+p);document.querySelectorAll('.tab-nav a').forEach(function(x){x.classList.remove('active');});this.classList.add('active');renderParty();});});
+(function(){if(window.__CMS_DATA__){renderParty();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderParty();};s.onerror=function(){document.getElementById('partyContent').innerHTML='<div class="empty-tip"><i class="fa fa-exclamation-triangle"></i><p>数据加载失败，请刷新页面重试</p></div>';renderParty();};document.body.appendChild(s);})();
 </script>
 </body>
 </html>
