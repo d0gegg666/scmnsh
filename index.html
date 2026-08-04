@@ -243,15 +243,24 @@ document.addEventListener('click',function(e){var box=document.getElementById('s
 function bindCMS(data){
 if(!data)return;
 
-// Banner
+// Banner: 优先用 banner 数据，没有则取最近3条有图片的新闻
+var bannerSlides=[];
 if(data.banner&&data.banner.length>0){
+bannerSlides=data.banner.slice().sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(b){return{img:b.img||'',title:b.title||'',subtitle:b.subtitle||'',link:b.btnLink||'#'};});
+}else{
+var allNews=(data.news||[]).concat(data.biznews||[]);
+allNews.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+bannerSlides=allNews.filter(function(n){return n.img&&n.img.startsWith('data:')||n.img&&n.img.startsWith('http');}).slice(0,3).map(function(n){return{img:n.img,title:n.title||'',subtitle:n.date||'',link:n.link||'news-detail.html?id='+n.id};});
+}
+if(bannerSlides.length===0){
+bannerSlides=[{img:'',title:'四川省闽南商会',subtitle:'凝聚闽商力量 · 服务川闽发展',link:'about.html'}];
+}
 var slides=document.getElementById('bannerSlides');
-slides.innerHTML=data.banner.slice().sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(b){
+slides.innerHTML=bannerSlides.map(function(b){
 var bg=b.img?'background-image:url('+b.img+')':'background:linear-gradient(135deg,#1a0000,#800000,#CC0000)';
-return'<div class="swiper-slide" style="'+bg+';background-size:cover;background-position:center;height:340px"><div class="banner-text"><h2>'+esc(b.title||'')+'</h2>'+(b.subtitle?'<p>'+esc(b.subtitle)+'</p>':'')+(b.btnText?'<a href="'+(b.btnLink||'#')+'" class="banner-btn">'+esc(b.btnText)+'</a>':'')+'</div></div>';
+return'<div class="swiper-slide" style="'+bg+';background-size:cover;background-position:center;height:340px"><a href="'+esc(b.link)+'" style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;text-align:center"><div class="banner-text"><h2>'+esc(b.title)+'</h2>'+(b.subtitle?'<p>'+esc(b.subtitle)+'</p>':'')+'</div></a></div>';
 }).join('');
 if(window.__swiperBanner)window.__swiperBanner.destroy();window.__swiperBanner=new Swiper('#bannerSwiper',{loop:true,autoplay:{delay:4000},pagination:{el:'.swiper-pagination',clickable:true}});
-}
 
 // 新闻列表
 var allNews=(data.news||[]).concat(data.biznews||[]);
