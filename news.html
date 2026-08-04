@@ -96,7 +96,7 @@ function closeImgLightbox(){var l=document.getElementById("imgLightbox");if(l){l
 function renderNews(){
 var d=window.__CMS_DATA__;if(!d)return;
 var all=(d.news||[]).concat(d.biznews||[]);
-all.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+var toNum=function(dt){if(!dt)return 0;var s=dt.replace(/[年月]/g,'-').replace(/[日]/g,'');var p=s.split('-');return parseInt(p[0])*10000+parseInt(p[1])*100+parseInt(p[2]);};all.sort(function(a,b){return toNum(b.date)-toNum(a.date);});
 var el=document.getElementById('newsList');if(!el)return;
 if(all.length===0){el.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>暂无内容</p></div>';return;}
 el.innerHTML=all.map(function(n){

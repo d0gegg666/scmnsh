@@ -243,14 +243,16 @@ document.addEventListener('click',function(e){var box=document.getElementById('s
 function bindCMS(data){
 if(!data)return;
 
-// Banner: 优先用 banner 数据，没有则取最近3条有图片的新闻
+// Banner: 优先取最近3条有图片的新闻，没有则用 banner 数据，再没有用默认
+var allNewsForBanner=(data.news||[]).concat(data.biznews||[]);
+var toNum=function(dt){if(!dt)return 0;var s=dt.replace(/[年月]/g,'-').replace(/[日]/g,'');var p=s.split('-');return parseInt(p[0])*10000+parseInt(p[1])*100+parseInt(p[2]);};
+allNewsForBanner.sort(function(a,b){return toNum(b.date)-toNum(a.date);});
 var bannerSlides=[];
-if(data.banner&&data.banner.length>0){
-bannerSlides=data.banner.slice().sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(b){return{img:b.img||'',title:b.title||'',subtitle:b.subtitle||'',link:b.btnLink||'#'};});
-}else{
-var allNews=(data.news||[]).concat(data.biznews||[]);
-allNews.sort(function(a,b){var da=(a.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');var db2=(b.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');return db2.localeCompare(da);}););
-bannerSlides=allNews.filter(function(n){return n.img&&n.img.startsWith('data:')||n.img&&n.img.startsWith('http');}).slice(0,3).map(function(n){return{img:n.img,title:n.title||'',subtitle:n.date||'',link:n.link||'news-detail.html?id='+n.id};});
+var newsWithImg=allNewsForBanner.filter(function(n){return n.img&&(n.img.startsWith('data:')||n.img.startsWith('http'));});
+if(newsWithImg.length>0){
+bannerSlides=newsWithImg.slice(0,3).map(function(n){return{img:n.img,title:n.title||'',subtitle:n.date||'',link:n.link||'news-detail.html?id='+n.id};});
+}else if(data.banner&&data.banner.length>0){
+bannerSlides=data.banner.filter(function(b){return b.img;}).sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(b){return{img:b.img,title:b.title||'',subtitle:b.subtitle||'',link:b.btnLink||'#'};});
 }
 if(bannerSlides.length===0){
 bannerSlides=[{img:'',title:'四川省闽南商会',subtitle:'凝聚闽商力量 · 服务川闽发展',link:'about.html'}];
@@ -264,7 +266,7 @@ if(window.__swiperBanner)window.__swiperBanner.destroy();window.__swiperBanner=n
 
 // 新闻列表
 var allNews=(data.news||[]).concat(data.biznews||[]);
-allNews.sort(function(a,b){var da=(a.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');var db2=(b.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');return db2.localeCompare(da);}););
+allNews.sort(function(a,b){return toNum(b.date)-toNum(a.date);});
 if(allNews.length>0){
 var feat=allNews[0],rest=allNews.slice(1,7);
 var featHtml='<h3><a href="'+(feat.link||'news-detail.html?id='+feat.id)+'">'+esc(feat.title||'')+'</a></h3>';
