@@ -307,8 +307,9 @@ case'footer':renderFooter(d);break;
 
 // ==================== 控制台 ====================
 function renderCombinedNews(d){
-var all=(d.news||[]).concat(d.biznews||[]);
-all.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+var dn=d.news||[];dn.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+var db=d.biznews||[];db.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+var all=dn.concat(db);
 renderTable('news-list','combinedNews',all,['date','title','img','link'],{date:'日期(YYYY-MM-DD)',title:'标题',img:'图片URL',link:'链接'});
 }
 function renderDash(d){
@@ -415,7 +416,7 @@ function renderPresident(d){var p=d.president;document.getElementById('pm-name')
 function savePresident(){var d=L();d.president.name=document.getElementById('pm-name').value;d.president.title=document.getElementById('pm-title').value;d.president.img=document.getElementById('pm-img').value;d.president.content=document.getElementById('pm-content').value;S(d);T('会长寄语已保存');}
 
 // ==================== 商会党建 ====================
-function renderParty(d){var p=d.party;document.getElementById('py-name').value=p.name||'';document.getElementById('py-intro').value=p.intro||'';document.getElementById('py-struct-img').value=p.structImg||'';document.getElementById('py-struct-desc').value=p.structDesc||'';var pn=(p.news||[]).slice();pn.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});renderTable('py-news-list','partyNews',pn,['date','title','img','link'],{date:'日期',title:'标题',img:'图片URL',link:'链接'});}
+function renderParty(d){var p=d.party;document.getElementById('py-name').value=p.name||'';document.getElementById('py-intro').value=p.intro||'';document.getElementById('py-struct-img').value=p.structImg||'';document.getElementById('py-struct-desc').value=p.structDesc||'';var pn=p.news||[];pn.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});renderTable('py-news-list','partyNews',pn,['date','title','img','link'],{date:'日期',title:'标题',img:'图片URL',link:'链接'});}
 function savePartyIntro(){var d=L();d.party.name=document.getElementById('py-name').value;d.party.intro=document.getElementById('py-intro').value;S(d);T('党委介绍已保存');}
 function savePartyStruct(){var d=L();d.party.structImg=document.getElementById('py-struct-img').value;d.party.structDesc=document.getElementById('py-struct-desc').value;S(d);T('组织架构已保存');}
 
