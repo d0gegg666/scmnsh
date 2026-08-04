@@ -506,7 +506,7 @@ if(!t){t=prompt('首次使用需要 GitHub Token（仅需一次）：\n\n1. 新�
 return t||null;
 }
 function compressBase64Async(b64){return new Promise(function(resolve){if(!b64||b64.length<200||!/^data:image/.test(b64)){resolve(b64);return;}var img=new Image();img.onload=function(){var c=document.createElement('canvas');var maxW=800;var w=img.width,h=img.height;if(w>maxW){h=Math.round(h*maxW/w);w=maxW;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);resolve(c.toDataURL('image/jpeg',0.7));};img.onerror=function(){resolve(b64);};img.src=b64;});}
-async function compressAllImages(d){var isB64=/^data:image/;var tasks=[];function walk(obj){if(!obj||typeof obj!=='object')return;if(Array.isArray(obj)){for(var i=0;i<obj.length;i++)walk(obj[i]);return;}for(var k in obj){var v=obj[k];if(typeof v==='string'&&isB64.test(v)&&v.length>200){tasks.push(compressBase64Async(v).then(function(r){obj[k]=r;}));}else if(typeof v==='object'){walk(v);}}}walk(d);await Promise.all(tasks);T('图片压缩完成（共'+tasks.length+'张）','success');}
+async function compressAllImages(d){var isB64=/^data:image/;var tasks=[];function walk(obj){if(!obj||typeof obj!=='object')return;if(Array.isArray(obj)){for(var i=0;i<obj.length;i++)walk(obj[i]);return;}for(var k in obj){var v=obj[k];if(typeof v==='string'&&isB64.test(v)&&v.length>200){(function(key){tasks.push(compressBase64Async(v).then(function(r){obj[key]=r;}));})(k);}else if(typeof v==='object'){walk(v);}}}walk(d);await Promise.all(tasks);T('图片压缩完成（共'+tasks.length+'张）','success');}
 async function publishSite(){
 var token=getGitHubToken();
 if(!token){T('需要 GitHub Token 才能自动发布','error');return;}
