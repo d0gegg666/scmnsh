@@ -278,7 +278,7 @@ footer:{title:'四川省闽南商会',keywords:'',desc:'',headerLogo:'',logo:'',
 function L(){try{var r=localStorage.getItem(SK);if(r){var d=JSON.parse(r),df=defData();for(var k in df)if(!(k in d))d[k]=df[k];return d}}catch(e){T('数据读取异常，已重置为空数据！如之前有内容请检查备份','error');console.error('CMS数据解析失败：',e);return defData();}}
 function S(d){try{localStorage.setItem(SK,JSON.stringify(d));}catch(e){T('保存失败：'+e.message,'error');}}
 function T(m,t){var e=document.getElementById('toast');e.textContent=m;e.className='toast '+(t||'success')+' show';clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('show')},2000);}
-function esc(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 
 // ==================== 页面切换 ====================
 document.querySelectorAll('.sidebar nav a[data-page]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();switchPage(this.getAttribute('data-page'));});});
