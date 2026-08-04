@@ -154,7 +154,7 @@ var allNews = (d.news || []).concat(d.biznews || []);
 allNews.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
 var el=document.getElementById('newsList');if(!el)return;
 if(allNews.length===0){el.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>暂无内容</p></div>';return;}
-el.innerHTML=allNews.map(function(n){var link=n.link||'#';var isData=link.startsWith('data:');return '<a href="'+(isData?'#':esc(link))+'"'+(isData?' onclick="window.open(\''+esc(link)+'\',\'_blank\');return false"':'')+' class="news-list-item"><span class="date">'+esc(n.date||'')+'</span>'+(n.img?'<img src="'+esc(n.img)+'" class="thumb" alt="">':'')+'<span class="title">'+esc(n.title||'')+'</span></a>';}).join('');
+el.innerHTML=allNews.map(function(n){var link=n.link||'#';var isData=link.startsWith('data:');return '<'+(isData?'span':'a href="'+esc(link)+'"')+' class="news-list-item"'+(isData?' style="cursor:default"':'')+'><span class="date">'+esc(n.date||'')+'</span>'+(n.img?'<img src="'+esc(n.img)+'" class="thumb" alt="">':'')+'<span class="title">'+esc(n.title||'')+'</span></'+(isData?'span':'a')+'>';}).join('');
 }
 </script></div>
 <footer class="footer">

@@ -717,7 +717,7 @@
             box.innerHTML = '<div class="sr-empty">未找到相关内容</div>';
         } else {
             box.innerHTML = results.slice(0, 15).map(function(n) {
-                var link=n.link||'#';var isData=link.startsWith('data:');return '<a href="'+(isData?'#':link)+'"'+(isData?' onclick="window.open(\''+link+'\',\'_blank\');return false"':'')+' class="sr-item"><div>'+(n.title||'')+'</div><div class="sr-date">'+(n.date||'')+'</div></a>';
+                var link=n.link||'#';var isData=link.startsWith('data:');return '<'+(isData?'span':'a href="'+link+'"')+' class="sr-item"'+(isData?' style="cursor:default"':'')+'><div>'+(n.title||'')+'</div><div class="sr-date">'+(n.date||'')+'</div></'+(isData?'span':'a')+'>';
             }).join('');
         }
         box.classList.add('show');

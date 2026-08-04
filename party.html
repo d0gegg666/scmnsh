@@ -169,7 +169,7 @@ var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',f
 	else if(page==='news'){
 		c.innerHTML='<div class="section-title"><h2>党建新闻</h2></div><div id="pyNewsList"></div>';
 		var nl=document.getElementById('pyNewsList');
-		if(nl&&p.news&&p.news.length>0){nl.innerHTML=p.news.map(function(n){var link=n.link||'#';var isData=link.startsWith('data:');return '<a href="'+(isData?'#':esc(link))+'"'+(isData?' onclick="window.open(\''+esc(link)+'\',\'_blank\');return false"':'')+' class="news-list-item"><span class="date">'+esc(n.date||'')+'</span><span class="title">'+esc(n.title||'')+'</span></a>';}).join('');}
+		if(nl&&p.news&&p.news.length>0){nl.innerHTML=p.news.map(function(n){var link=n.link||'#';var isData=link.startsWith('data:');return '<'+(isData?'span':'a href="'+esc(link)+'"')+' class="news-list-item"'+(isData?' style="cursor:default"':'')+'><span class="date">'+esc(n.date||'')+'</span><span class="title">'+esc(n.title||'')+'</span></'+(isData?'span':'a')+'>';}).join('');}
 		else if(nl){nl.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>党建新闻待添加</p></div>';}}
 	}
 	</script></div>
