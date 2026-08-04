@@ -265,7 +265,7 @@ joinus:{title:'加入我们',req:'',process:'',contact:''},
 footer:{title:'四川省闽南商会',keywords:'',desc:'',headerLogo:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
 };}
 function L(){try{var r=localStorage.getItem(SK);if(r){var d=JSON.parse(r),df=defData();for(var k in df)if(!(k in d))d[k]=df[k];return d}}catch(e){T('数据读取异常，已重置为空数据！如之前有内容请检查备份','error');console.error('CMS数据解析失败：',e);return defData();}}
-function S(d){localStorage.setItem(SK,JSON.stringify(d));}
+function S(d){try{localStorage.setItem(SK,JSON.stringify(d));}catch(e){T('保存失败：'+e.message,'error');}}
 function T(m,t){var e=document.getElementById('toast');e.textContent=m;e.className='toast '+(t||'success')+' show';clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('show')},2000);}
 function esc(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 
@@ -356,7 +356,7 @@ c.innerHTML=h;
 	if(key==='partyNews'){if(!d.party)d.party={};if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(!d.party)d.party={};if(!d.party.history)d.party.history=[];d.party.history.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(!d.services.items)d.services.items=[];d.services.items.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(!d[key])d[key]=[];
-	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());}else{T('添加失败：数据异常','error');}
+	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());T('已添加','success');}else{T('添加失败：数据异常','error');}
 	}
 	// 通用：删除列表项
 	function dI(key,i){
