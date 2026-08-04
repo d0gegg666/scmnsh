@@ -139,7 +139,7 @@ table .mini-input:focus{border-color:#C41230;}
 </div>
 
 <!-- ====== Banner ====== -->
-<div class="page" id="page-banner"><div class="card"><div class="card-header"><i class="fa fa-image"></i> Banner 轮播图管理 <span class="tip">（建议 1920×520px）</span></div><div id="banner-list"></div><button class="btn btn-primary" onclick="addItem('banner',{img:'',title:'',subtitle:'',btnText:'',btnLink:'#',sort:0})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加 Banner</button></div></div>
+<div class="page" id="page-banner"><div class="card"><div class="card-header"><i class="fa fa-image"></i> Banner 轮播图管理 <span class="tip">（建议 1920×520px）</span></div><div id="banner-list"></div><button class="btn btn-primary" onclick="addBanner()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加 Banner</button></div></div>
 
 <!-- ====== 商会简介 ====== -->
 <div class="page" id="page-about">
@@ -155,7 +155,7 @@ table .mini-input:focus{border-color:#C41230;}
 </div>
 
 <!-- ====== 领导班子 ====== -->
-<div class="page" id="page-leadership"><div class="card"><div class="card-header"><i class="fa fa-users"></i> 领导班子 <span class="tip">（会长、执行会长、常务副会长、副会长、秘书长等）</span></div><div id="ld-list"></div><button class="btn btn-primary" onclick="addItem('leadership',{name:'',title:'',img:'',desc:'',sort:0})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加成员</button></div></div>
+<div class="page" id="page-leadership"><div class="card"><div class="card-header"><i class="fa fa-users"></i> 领导班子 <span class="tip">（会长、执行会长、常务副会长、副会长、秘书长等）</span></div><div id="ld-list"></div><button class="btn btn-primary" onclick="addLeader()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加成员</button></div></div>
 
 <!-- ====== 会长寄语 ====== -->
 <div class="page" id="page-president"><div class="card"><div class="card-header"><i class="fa fa-quote-right"></i> 会长寄语</div>
@@ -400,6 +400,8 @@ st.forEach(function(s,i){h+='<tr><td><input class="mini-input" value="'+esc(s.nu
 h+='</tbody></table></div>';sc.innerHTML=h;
 }
 function addStat(){var d=L();if(!d.about.stats)d.about.stats=[];d.about.stats.push({num:'0',unit:'个',label:'新统计项'});S(d);renderPage('about');}
+function addLeader(){var d=L();if(!d.leadership)d.leadership=[];d.leadership.push({name:'',title:'',img:'',desc:'',sort:0});S(d);renderPage('leadership');T('已添加领导班子成员','success');}
+function addBanner(){var d=L();if(!d.banner)d.banner=[];d.banner.push({img:'',title:'',subtitle:'',btnText:'',btnLink:'#',sort:0});S(d);renderPage('banner');T('已添加Banner','success');}
 function dSA(i){var d=L();d.about.stats.splice(i,1);S(d);renderPage('about');}
 function uSA(i,f,v){var d=L();d.about.stats[i][f]=v;S(d);}
 function saveAbout(){var d=L();d.about.en=document.getElementById('af-en').value;d.about.cn=document.getElementById('af-cn').value;d.about.img=document.getElementById('af-img').value;d.about.p1=document.getElementById('af-p1').value;d.about.p2=document.getElementById('af-p2').value;d.about.link=document.getElementById('af-link').value;S(d);T('商会简介已保存');}
