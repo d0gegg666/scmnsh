@@ -176,26 +176,20 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 </div>
 </div>
 
-<!-- 第2行：商会概况预览 -->
+<!-- 第2行：商会概况 + 快捷导航 并排 -->
 <div class="row">
 <div class="sec-title" style="width:100%"><h3>商会概况</h3><a href="about.html" class="more">查看更多 &raquo;</a></div>
 </div>
 <div class="row">
-<div class="about-preview" style="flex:1">
-<img src="logo.jpg" id="aboutPreviewImg" alt="商会简介">
-<div class="text"><p id="aboutPreviewText">商会简介加载中...</p><a href="about.html">了解详情 &raquo;</a></div>
+<div class="about-preview" style="flex:1;max-width:400px">
+<div class="text" style="flex:1"><p id="aboutPreviewText">商会简介加载中...</p><a href="about.html">了解详情 &raquo;</a></div>
 </div>
-</div>
-
-<!-- 第3行：快速入口 -->
-<div class="row"><div class="sec-title" style="width:100%"><h3>快捷导航</h3></div></div>
-<div class="row">
-<div class="quick-links" style="width:100%">
+<div class="quick-links" style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
 <a href="about.html" class="quick-link"><i class="fa fa-building-o"></i><span>商会简介</span></a>
 <a href="about.html?page=leadership" class="quick-link"><i class="fa fa-user-circle-o"></i><span>领导班子</span></a>
 <a href="about.html?page=honors" class="quick-link"><i class="fa fa-trophy"></i><span>荣誉历程</span></a>
-<a href="about.html?page=milestones" class="quick-link"><i class="fa fa-history"></i><span>大事记</span></a>
 <a href="party.html" class="quick-link"><i class="fa fa-flag"></i><span>商会党建</span></a>
+<a href="about.html?page=milestones" class="quick-link"><i class="fa fa-history"></i><span>大事记</span></a>
 <a href="joinus.html" class="quick-link join"><i class="fa fa-pencil-square-o"></i><span>在线入会</span></a>
 </div>
 </div>
@@ -279,7 +273,6 @@ return'<li><a href="'+(n.link||'news-detail.html?id='+n.id)+'">'+esc(n.title||''
 
 // 商会概况预览
 if(data.about){
-setAttr('aboutPreviewImg','src',data.about.img||'logo.jpg');
 setText('aboutPreviewText',(data.about.p1||'商会简介内容待添加').substring(0,200)+'...');
 }
 
