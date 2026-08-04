@@ -87,7 +87,6 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="about"><i class="fa fa-info-circle"></i> 商会简介</a>
 <a href="#" data-page="leadership"><i class="fa fa-users"></i> 领导班子</a>
 <a href="#" data-page="president"><i class="fa fa-quote-right"></i> 会长寄语</a>
-<a href="#" data-page="honors"><i class="fa fa-trophy"></i> 荣誉历程</a>
 <a href="#" data-page="milestones"><i class="fa fa-history"></i> 大事记</a>
 <a href="#" data-page="committees"><i class="fa fa-sitemap"></i> 专委会</a>
 <div class="nav-group">党建管理</div>
@@ -168,8 +167,6 @@ table .mini-input:focus{border-color:#C41230;}
 <button class="btn btn-primary" onclick="savePresident()"><i class="fa fa-save"></i> 保存</button>
 </div></div>
 
-<!-- ====== 荣誉历程 ====== -->
-<div class="page" id="page-honors"><div class="card"><div class="card-header"><i class="fa fa-trophy"></i> 荣誉历程 <span class="tip">（商会获得的各种荣誉和资质）</span></div><div id="honors-list"></div><button class="btn btn-primary" onclick="addItem('honors',{year:'',title:'',desc:'',img:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加荣誉</button></div></div>
 
 <!-- ====== 大事记 ====== -->
 <div class="page" id="page-milestones"><div class="card"><div class="card-header"><i class="fa fa-history"></i> 大事记 <span class="tip">（商会发展历程中的重要事件）</span></div><div id="ms-list"></div><button class="btn btn-primary" onclick="addItem('milestones',{year:'',month:'',title:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加事件</button></div></div>
@@ -314,7 +311,6 @@ function renderDash(d){
 var items=[
 {icon:'red',fa:'fa-image',num:d.banner.length,label:'Banner'},
 {icon:'gold',fa:'fa-users',num:d.leadership.length,label:'领导班子'},
-{icon:'blue',fa:'fa-trophy',num:d.honors.length,label:'荣誉历程'},
 {icon:'green',fa:'fa-history',num:d.milestones.length,label:'大事记'},
 {icon:'purple',fa:'fa-sitemap',num:d.committees.length,label:'专委会'},
 {icon:'red',fa:'fa-flag',num:d.party.news.length,label:'党建新闻'},{icon:'gold',fa:'fa-history',num:(d.party.history||[]).length,label:'发展历程'},
@@ -360,8 +356,8 @@ c.innerHTML=h;
 	var d=L();
 	if(key==='partyNews'){if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(!d.party.history)d.party.history=[];d.party.history.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(!d.services.items)d.services.items=[];d.services.items.push(defaults);S(d);renderPage(getCurrentPage());return;}
-	if(!d[key])return;
-	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());}
+	if(!d[key])d[key]=[];
+	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());}else{T('添加失败：数据异常','error');}
 	}
 	// 通用：删除列表项
 	function dI(key,i){
