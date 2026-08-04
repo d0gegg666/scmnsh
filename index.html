@@ -880,17 +880,19 @@ function bindCMS(_data) {
         }
 
         var fd = formatDate(featured.date);
-        var html = '<a href="' + esc(featured.link || '#') + '" class="news-featured">' +
+        var flink = featured.link || '#'; var isFData = flink.startsWith('data:');
+        var html = '<' + (isFData ? 'span' : 'a href="' + esc(flink) + '"') + ' class="news-featured"' + (isFData ? ' style="cursor:default"' : '') + '>' +
             (featured.img ? '<img src="' + esc(featured.img) + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
-            '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
+            '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></' + (isFData ? 'span' : 'a') + '>';
 
         html += '<div class="news-list">';
         rest.forEach(function(item) {
             var d = formatDate(item.date);
-            html += '<a href="' + esc(item.link || '#') + '" class="news-item">' +
+            var ilink = item.link || '#'; var isIData = ilink.startsWith('data:');
+            html += '<' + (isIData ? 'span' : 'a href="' + esc(ilink) + '"') + ' class="news-item"' + (isIData ? ' style="cursor:default"' : '') + '>' +
                 '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
                 (item.img ? '<img src="' + esc(item.img) + '" class="n-thumb" alt="">' : '') +
-                '<div class="n-title">' + esc(item.title || '') + '</div></a>';
+                '<div class="n-title">' + esc(item.title || '') + '</div></' + (isIData ? 'span' : 'a') + '>';
         });
         html += '</div>';
         grid.innerHTML = html;
