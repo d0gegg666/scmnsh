@@ -140,7 +140,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
-<script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
+<script>function toggleMenu(){var m=document.getElementById("mobileMenu");var o=document.getElementById("mobileOverlay");if(!m||!o)return;var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
 function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
 var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>加入我们</h1><p>JOIN US</p></div><div class="container section">
@@ -152,12 +152,13 @@ var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',f
 <p style="font-size:14px;color:#888;line-height:2;margin-top:8px;">
 凡在四川省境内从事工商活动的闽南籍企业及个体工商户，<br>承认本会章程、自愿申请加入，经审核批准后即可成为本会会员。
 </p>
+	<p id="ju-intro" style="font-size:14px;color:#888;line-height:2;margin-top:8px;"></p>
 <p style="font-size:14px;color:#C41230;margin-top:12px;font-weight:600;">
 <i class="fa fa-phone"></i> 咨询电话：<span id="ju-phone"></span>
 </p>
 </div>
 <script>
-(function(){
+function renderJoinusContent(){
 var d=window.__CMS_DATA__;if(!d)return;
 var f=d.footer||{};
 var el=document.getElementById('ju-phone');
@@ -185,9 +186,10 @@ if(card)card.parentNode.insertBefore(ct,card.nextSibling);
 if(ct)ct.innerHTML='<div class="join-section"><h3><i class="fa fa-phone" style="color:#C9A84C;margin-right:8px;"></i>联系方式</h3><p style="font-size:14px;color:#555;line-height:2;white-space:pre-line;">'+ju.contact+'</p></div>';
 }
 }
-})();
+}
 </script>
 
+	<div id="ju-process-section"></div>
 <!-- ====== 在线申请表单 ====== -->
 <div class="join-section" id="apply-form">
 <h3><i class="fa fa-pencil-square-o" style="color:#C9A84C;margin-right:8px;"></i>在线入会申请</h3>
@@ -239,7 +241,7 @@ if(ct)ct.innerHTML='<div class="join-section"><h3><i class="fa fa-phone" style="
 <div class="footer-bottom"><p><span id="ft-copyright"></span> | <a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div>
 </footer>
 <script>
-(function(){
+function renderJoinusFooter(){
 var d=window.__CMS_DATA__;
 if(d&&d.footer){
 var f=d.footer;
@@ -248,7 +250,7 @@ set('ft-slogan',f.slogan);set('ft-addr',f.addr);
 if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
 set('ft-email',f.email);set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
-})();
+}
 </script>
 
 <script>
@@ -333,5 +335,5 @@ function submitApplication(e) {
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
 <script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
-<script>(function(){if(window.__CMS_DATA__)return;var s=document.createElement('script');s.src='data.js';document.body.appendChild(s);})();</script>
+<script>(function(){if(window.__CMS_DATA__){renderJoinusContent();renderJoinusFooter();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__){renderJoinusContent();renderJoinusFooter();}};s.onerror=function(){renderJoinusContent();renderJoinusFooter();};document.body.appendChild(s);})();</script>
 </body></html>

@@ -141,21 +141,21 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
-<script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
+<script>function toggleMenu(){var m=document.getElementById("mobileMenu");var o=document.getElementById("mobileOverlay");if(!m||!o)return;var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
 function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
 var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>新闻资讯</h1><p>NEWS CENTER</p></div><div class="container section">
 <div id="newsList"></div>
 <script>
-(function(){
+function renderNewsContent(){
 var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
-var d=window.__CMS_DATA__;if(!d)return;
+var d=window.__CMS_DATA__;if(!d){console.log("[新闻页] window.__CMS_DATA__ 为空，跳过渲染");return;}console.log("[新闻页] 开始渲染，共",(d.news||[]).length,"条新闻+",(d.biznews||[]).length,"条商业新闻");
 var allNews = (d.news || []).concat(d.biznews || []);
 allNews.sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
 var el=document.getElementById('newsList');if(!el)return;
 if(allNews.length===0){el.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>暂无内容</p></div>';return;}
-el.innerHTML=allNews.map(function(n){return '<a href="'+esc(n.link||'#')+'" class="news-list-item"><span class="date">'+esc(n.date||'')+'</span>'+(n.img?'<img src="'+esc(n.img)+'" class="thumb" alt="">':'')+'<span class="title">'+esc(n.title||'')+'</span></a>';}).join('');
-})();
+el.innerHTML=allNews.map(function(n){var link=n.link||'#';var isData=link.startsWith('data:');return '<a href="'+(isData?'#':esc(link))+'"'+(isData?' onclick="window.open(\''+esc(link)+'\',\'_blank\');return false"':'')+' class="news-list-item"><span class="date">'+esc(n.date||'')+'</span>'+(n.img?'<img src="'+esc(n.img)+'" class="thumb" alt="">':'')+'<span class="title">'+esc(n.title||'')+'</span></a>';}).join('');
+}
 </script></div>
 <footer class="footer">
 <div class="container">
@@ -170,7 +170,7 @@ el.innerHTML=allNews.map(function(n){return '<a href="'+esc(n.link||'#')+'" clas
 <div class="footer-bottom"><p><span id="ft-copyright"></span> | <a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div>
 </footer>
 <script>
-(function(){
+function renderNewsFooter(){
 var d=window.__CMS_DATA__;
 if(d&&d.footer){
 var f=d.footer;
@@ -179,9 +179,9 @@ set('ft-slogan',f.slogan);set('ft-addr',f.addr);
 if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
 set('ft-email',f.email);set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
-})();
+}
 </script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
 <script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
-<script>(function(){if(window.__CMS_DATA__)return;var s=document.createElement('script');s.src='data.js';document.body.appendChild(s);})();</script>
+<script>console.log("[新闻页] 开始异步加载 data.js");(function(){if(window.__CMS_DATA__){console.log("[新闻页] data.js 已存在，直接渲染");renderNewsContent();renderNewsFooter();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){console.log("[新闻页] data.js 加载完成");if(window.__CMS_DATA__){renderNewsContent();renderNewsFooter();}};s.onerror=function(){console.error("[新闻页] data.js 加载失败!");renderNewsContent();renderNewsFooter();};document.body.appendChild(s);console.log("[新闻页] 已添加 script 标签，等待加载...");})();</script>
 </body></html>

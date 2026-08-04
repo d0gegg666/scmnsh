@@ -140,13 +140,13 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
-<script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
+<script>function toggleMenu(){var m=document.getElementById("mobileMenu");var o=document.getElementById("mobileOverlay");if(!m||!o)return;var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
 function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
 var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>商会党建</h1><p>CHAMBER PARTY</p></div><div class="container section">
 	<div id="party-content"></div>
 	<script>
-	(function(){
+	function renderPartyContent(){
 	var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
 	var d=window.__CMS_DATA__;if(!d)return;
 	var p=d.party||{};
@@ -169,11 +169,10 @@ var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',f
 	else if(page==='news'){
 		c.innerHTML='<div class="section-title"><h2>党建新闻</h2></div><div id="pyNewsList"></div>';
 		var nl=document.getElementById('pyNewsList');
-		if(nl&&p.news&&p.news.length>0){nl.innerHTML=p.news.map(function(n){return '<a href="'+esc(n.link||'#')+'" class="news-list-item"><span class="date">'+esc(n.date||'')+'</span><span class="title">'+esc(n.title||'')+'</span></a>';}).join('');}
+		if(nl&&p.news&&p.news.length>0){nl.innerHTML=p.news.map(function(n){var link=n.link||'#';var isData=link.startsWith('data:');return '<a href="'+(isData?'#':esc(link))+'"'+(isData?' onclick="window.open(\''+esc(link)+'\',\'_blank\');return false"':'')+' class="news-list-item"><span class="date">'+esc(n.date||'')+'</span><span class="title">'+esc(n.title||'')+'</span></a>';}).join('');}
 		else if(nl){nl.innerHTML='<div class="empty-tip"><i class="fa fa-newspaper-o"></i><p>党建新闻待添加</p></div>';}}
-	})();
+	}
 	</script></div>
-</script></div>
 <footer class="footer">
 <div class="container">
 <div class="footer-left"><img src="logo.jpg" alt="四川省闽南商会"><div class="ft-title">四川省闽南商会</div><div class="ft-sub">MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</div></div>
@@ -187,7 +186,7 @@ var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',f
 <div class="footer-bottom"><p><span id="ft-copyright"></span> | <a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div>
 </footer>
 <script>
-(function(){
+function renderPartyFooter(){
 var d=window.__CMS_DATA__;
 if(d&&d.footer){
 var f=d.footer;
@@ -196,9 +195,9 @@ set('ft-slogan',f.slogan);set('ft-addr',f.addr);
 if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
 set('ft-email',f.email);set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
-})();
+}
 </script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
 <script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
-<script>(function(){if(window.__CMS_DATA__)return;var s=document.createElement('script');s.src='data.js';document.body.appendChild(s);})();</script>
+<script>(function(){if(window.__CMS_DATA__){renderPartyContent();renderPartyFooter();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__){renderPartyContent();renderPartyFooter();}};s.onerror=function(){renderPartyContent();renderPartyFooter();};document.body.appendChild(s);})();</script>
 </body></html>

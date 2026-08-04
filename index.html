@@ -395,7 +395,6 @@
     <div class="search-box" id="search-box">
         <form class="search_input" onsubmit="return false;">
             <label for="search-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">搜索</label>
-            <label for="search-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">搜索</label>
             <input type="text" placeholder="请输入关键字" id="search-input" oninput="doSearch()">
             <button type="button" class="search-icon-btn" onclick="doSearch()"><i class="fa fa-search"></i> 搜索</button>
         </form>
@@ -718,7 +717,7 @@
             box.innerHTML = '<div class="sr-empty">未找到相关内容</div>';
         } else {
             box.innerHTML = results.slice(0, 15).map(function(n) {
-                return '<a href="' + (n.link||'#') + '" class="sr-item"><div>' + (n.title||'') + '</div><div class="sr-date">' + (n.date||'') + '</div></a>';
+                var link=n.link||'#';var isData=link.startsWith('data:');return '<a href="'+(isData?'#':link)+'"'+(isData?' onclick="window.open(\''+link+'\',\'_blank\');return false"':'')+' class="sr-item"><div>'+(n.title||'')+'</div><div class="sr-date">'+(n.date||'')+'</div></a>';
             }).join('');
         }
         box.classList.add('show');
@@ -1003,6 +1002,8 @@ function bindCMS(_data) {
     } else {
         initSwipers();
     }
+    // 暴露到全局，供 CMS 数据加载完成后重新初始化（修复异步数据加载竞态）
+    window.reinitSwipers = initSwipers;
 })();
 </script>
 
@@ -1012,7 +1013,7 @@ function bindCMS(_data) {
 if(window.__CMS_DATA__){bindCMS(window.__CMS_DATA__);return;}
 var s=document.createElement('script');
 s.src='data.js';
-s.onload=function(){if(window.__CMS_DATA__)bindCMS(window.__CMS_DATA__);};
+s.onload=function(){if(window.__CMS_DATA__){bindCMS(window.__CMS_DATA__);if(window.reinitSwipers)window.reinitSwipers();}};
 s.onerror=function(){bindCMS(null);};
 document.body.appendChild(s);
 })();

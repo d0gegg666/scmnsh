@@ -140,21 +140,21 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
-<script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
+<script>function toggleMenu(){var m=document.getElementById("mobileMenu");var o=document.getElementById("mobileOverlay");if(!m||!o)return;var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
 function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
 var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>战略伙伴</h1><p>STRATEGIC PARTNERS</p></div><div class="container section">
 <div class="section-title"><h2>战略伙伴</h2></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;" id="strategyGrid"></div>
 <script>
-(function(){
+function renderStrategyContent(){
 var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
 var d=window.__CMS_DATA__;if(!d)return;
 var g=document.getElementById('strategyGrid');if(!g)return;
 var items=d.strategy||[];
 if(items.length===0){g.innerHTML='<div class="empty-tip"><i class="fa fa-star"></i><p>战略伙伴信息待添加</p></div>';return;}
 g.innerHTML=items.map(function(s){return '<div class="card" style="text-align:center;padding:24px;">'+(s.img?'<img src="'+s.img+'" style="max-width:100%;max-height:80px;margin-bottom:12px;">':'')+'<div style="font-weight:600;color:#333;">'+esc(s.name||'')+'</div>'+(s.desc?'<div style="font-size:12px;color:#888;margin-top:6px;">'+esc(s.desc||'')+'</div>':'')+'</div>';}).join('');
-})();
+}
 </script></div>
 <footer class="footer">
 <div class="container">
@@ -169,7 +169,7 @@ g.innerHTML=items.map(function(s){return '<div class="card" style="text-align:ce
 <div class="footer-bottom"><p><span id="ft-copyright"></span> | <a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div>
 </footer>
 <script>
-(function(){
+function renderStrategyFooter(){
 var d=window.__CMS_DATA__;
 if(d&&d.footer){
 var f=d.footer;
@@ -178,9 +178,9 @@ set('ft-slogan',f.slogan);set('ft-addr',f.addr);
 if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
 set('ft-email',f.email);set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
-})();
+}
 </script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
 <script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
-<script>(function(){if(window.__CMS_DATA__)return;var s=document.createElement('script');s.src='data.js';document.body.appendChild(s);})();</script>
+<script>(function(){if(window.__CMS_DATA__){renderStrategyContent();renderStrategyFooter();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__){renderStrategyContent();renderStrategyFooter();}};s.onerror=function(){renderStrategyContent();renderStrategyFooter();};document.body.appendChild(s);})();</script>
 </body></html>

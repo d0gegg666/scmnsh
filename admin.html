@@ -268,7 +268,7 @@ news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
 joinus:{title:'加入我们',req:'',process:'',contact:''},
 footer:{title:'四川省闽南商会',keywords:'',desc:'',headerLogo:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
 };}
-function L(){try{var r=localStorage.getItem(SK);if(r){var d=JSON.parse(r),df=defData();for(var k in df)if(!(k in d))d[k]=df[k];return d}}catch(e){}return defData();}
+function L(){try{var r=localStorage.getItem(SK);if(r){var d=JSON.parse(r),df=defData();for(var k in df)if(!(k in d))d[k]=df[k];return d}}catch(e){T('数据读取异常，已重置为空数据！如之前有内容请检查备份','error');console.error('CMS数据解析失败：',e);return defData();}}
 function S(d){localStorage.setItem(SK,JSON.stringify(d));}
 function T(m,t){var e=document.getElementById('toast');e.textContent=m;e.className='toast '+(t||'success')+' show';clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('show')},2000);}
 function esc(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
@@ -365,14 +365,14 @@ c.innerHTML=h;
 	function dI(key,i){
 	if(!confirm('确定删除？'))return;
 	var d=L();
-	if(key==='combinedNews'){var ci=i,cn=d.news.length;if(ci<cn){d.news.splice(ci,1)}else{d.biznews.splice(ci-cn,1)}S(d);renderPage(getCurrentPage());return;}if(key==='combinedNews'){var ci=i,cn=(d.news||[]).length;if(ci<cn){d.news.splice(ci,1)}else if(d.biznews){d.biznews.splice(ci-cn,1)}S(d);renderPage(getCurrentPage());return;}if(key==='partyNews'){if(d.party.news)d.party.news.splice(i,1);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(d.party.history)d.party.history.splice(i,1);S(d);renderPage(getCurrentPage());return;}
+	if(key==='combinedNews'){var ci=i,cn=(d.news||[]).length;if(ci<cn){d.news.splice(ci,1)}else if(d.biznews){d.biznews.splice(ci-cn,1)}S(d);renderPage(getCurrentPage());return;}if(key==='partyNews'){if(d.party.news)d.party.news.splice(i,1);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(d.party.history)d.party.history.splice(i,1);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(d.services.items)d.services.items.splice(i,1);S(d);renderPage(getCurrentPage());return;}
 	if(Array.isArray(d[key])){d[key].splice(i,1);S(d);renderPage(getCurrentPage());}
 	}
 	// 通用：更新列表项字段（行内编辑自动保存）
 	function uF(key,i,field,value){
 	var d=L();
-	if(key==='combinedNews'){var ci=i,cn=d.news.length;if(ci<cn){d.news[ci][field]=value}else{d.biznews[ci-cn][field]=value}S(d);return;}if(key==='combinedNews'){var ci=i,cn=(d.news||[]).length;if(ci<cn){d.news[ci][field]=value}else if(d.biznews){d.biznews[ci-cn][field]=value}S(d);return;}if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}if(key==='partyHistory'){if(d.party.history)d.party.history[i][field]=value;S(d);return;}
+	if(key==='combinedNews'){var ci=i,cn=(d.news||[]).length;if(ci<cn){d.news[ci][field]=value}else if(d.biznews){d.biznews[ci-cn][field]=value}S(d);return;}if(key==='partyNews'){if(d.party.news)d.party.news[i][field]=value;S(d);return;}if(key==='partyHistory'){if(d.party.history)d.party.history[i][field]=value;S(d);return;}
 	if(key==='services'){if(d.services.items)d.services.items[i][field]=value;S(d);return;}
 	if(key==='party'){
 	if(field.startsWith('struct'))d.party[field]=value;
@@ -508,6 +508,8 @@ if(!token){T('需要 GitHub Token 才能自动发布','error');return;}
 T('正在压缩图片并发布...','warning');
 try{
 var d=L();
+// 备份原始数据，防止压缩失败导致数据损坏
+var backup=JSON.parse(JSON.stringify(d));
 await compressAllImages(d);
 T('开始上传到GitHub...','warning');
 var js='// 四川省闽南商会 - 网站数据文件（由管理后台自动生成）\n// 上传此文件到服务器即可更新网站内容\nwindow.__CMS_DATA__ = '+JSON.stringify(d,null,2)+';\n';
@@ -515,12 +517,18 @@ var base64=btoa(unescape(encodeURIComponent(js)));
 var owner='d0gegg666',repo='scmnsh',path='data.js';
 // 1. 获取当前文件的 SHA
 var resp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path,{headers:{Authorization:'Bearer '+token}});
+if(!resp.ok){var e2=await resp.json();throw new Error('获取文件信息失败：'+(e2.message||resp.status));}
 var info=await resp.json();
 var sha=info.sha||'';
 // 2. 提交新文件
 var body=JSON.stringify({message:'CMS 后台自动更新 data.js',content:base64,sha:sha});
 resp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path,{method:'PUT',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:body});
-if(resp.ok){S(d);T('发布成功！图片已压缩，1-2分钟后网站自动更新','success');}
+if(resp.ok){
+// 发布成功后保存压缩版数据到 localStorage（节省空间），同时保留原始备份
+try{localStorage.setItem(SK+'_backup',JSON.stringify(backup));}catch(e2){}
+S(d);
+T('发布成功！图片已压缩，1-2分钟后网站自动更新','success');
+}
 else{var err=await resp.json();T('发布失败：'+err.message,'error');}
 // 3. 同时下载备份
 var b=new Blob([js],{type:'application/javascript'});

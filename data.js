@@ -1,32 +1,231 @@
 // 四川省闽南商会 - 网站数据文件（由管理后台自动生成）
 // 上传此文件到服务器即可更新网站内容
 window.__CMS_DATA__ = {
-  "banner": [],
+  "banner": [
+    {
+      "img": "",
+      "title": "四川省闽南商会",
+      "subtitle": "凝聚闽商力量 · 服务川闽发展",
+      "btnText": "了解更多",
+      "btnLink": "about.html",
+      "sort": 1
+    },
+    {
+      "img": "",
+      "title": "闽商精神 薪火相传",
+      "subtitle": "爱拼才会赢 · 团结共发展",
+      "btnText": "加入我们",
+      "btnLink": "joinus.html",
+      "sort": 2
+    },
+    {
+      "img": "",
+      "title": "搭建桥梁 共创未来",
+      "subtitle": "川闽经贸合作的坚实平台",
+      "btnText": "战略伙伴",
+      "btnLink": "strategy.html",
+      "sort": 3
+    }
+  ],
   "about": {
     "en": "ABOUT US",
     "cn": "了解商会",
     "img": "",
-    "p1": "",
-    "p2": "",
+    "p1": "四川省闽南商会是由在川投资创业的闽南籍企业家自愿组成的非营利性社会团体。商会秉承\"团结、互助、发展、共赢\"的宗旨，致力于为在川闽商搭建交流合作平台，促进川闽两地经济文化交流与合作。【待补充正式简介内容】",
+    "p2": "自成立以来，商会积极发挥桥梁纽带作用，凝聚在川闽商力量，服务会员企业发展，维护会员合法权益，引导会员履行社会责任。商会现有会员企业数百家，涵盖建筑建材、商贸物流、餐饮酒店、金融投资、信息技术等多个行业领域。【待补充详细内容】",
     "link": "#",
-    "stats": []
+    "stats": [
+      {
+        "num": "500",
+        "unit": "家",
+        "label": "会员企业"
+      },
+      {
+        "num": "20",
+        "unit": "个",
+        "label": "行业覆盖"
+      },
+      {
+        "num": "100",
+        "unit": "亿",
+        "label": "年产值规模"
+      },
+      {
+        "num": "15",
+        "unit": "年",
+        "label": "服务闽商"
+      }
+    ]
   },
-  "leadership": [],
+  "leadership": [
+    {
+      "name": "【待补充会长姓名】",
+      "title": "会长",
+      "img": "",
+      "desc": "全面主持商会工作",
+      "sort": 1
+    },
+    {
+      "name": "【待补充执行会长】",
+      "title": "执行会长",
+      "img": "",
+      "desc": "协助会长处理商会日常事务",
+      "sort": 2
+    },
+    {
+      "name": "【待补充常务副会长】",
+      "title": "常务副会长",
+      "img": "",
+      "desc": "分管商会重点项目推进",
+      "sort": 3
+    },
+    {
+      "name": "【待补充副会长】",
+      "title": "副会长",
+      "img": "",
+      "desc": "负责会员发展与对外联络",
+      "sort": 4
+    },
+    {
+      "name": "【待补充秘书长】",
+      "title": "秘书长",
+      "img": "",
+      "desc": "主持秘书处日常工作",
+      "sort": 5
+    }
+  ],
   "president": {
-    "name": "",
-    "title": "",
+    "name": "【待补充会长姓名】",
+    "title": "四川省闽南商会会长",
     "img": "",
-    "content": ""
+    "content": "尊敬的各位会员、各位乡贤、各界朋友：\n\n四川省闽南商会自成立以来，始终秉持\"凝聚闽商力量、服务川闽发展\"的办会理念，团结带领广大在川闽商，积极融入四川经济社会发展大局。\n\n闽南人自古就有\"爱拼才会赢\"的拼搏精神。在川闽商秉承这一优良传统，在各行各业辛勤耕耘，为四川的经济建设做出了积极贡献，也为家乡增光添彩。\n\n展望未来，商会将继续发挥桥梁纽带作用，深化川闽两地经贸合作，服务会员企业做大做强。我们热忱欢迎更多在川闽商加入商会大家庭，携手共创美好明天！\n\n【待补充会长个人寄语】"
   },
-  "honors": [],
-  "milestones": [],
-  "committees": [],
+  "honors": [
+    {
+      "year": "2024",
+      "title": "【待补充荣誉名称】",
+      "desc": "由【颁发单位】授予",
+      "img": ""
+    },
+    {
+      "year": "2023",
+      "title": "【待补充荣誉名称】",
+      "desc": "由【颁发单位】授予",
+      "img": ""
+    },
+    {
+      "year": "2022",
+      "title": "【待补充荣誉名称】",
+      "desc": "由【颁发单位】授予",
+      "img": ""
+    },
+    {
+      "year": "2021",
+      "title": "【待补充荣誉名称】",
+      "desc": "由【颁发单位】授予",
+      "img": ""
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2024",
+      "month": "",
+      "title": "【待补充大事记内容】",
+      "desc": ""
+    },
+    {
+      "year": "2023",
+      "month": "",
+      "title": "【待补充大事记内容】",
+      "desc": ""
+    },
+    {
+      "year": "2022",
+      "month": "",
+      "title": "【待补充大事记内容】",
+      "desc": ""
+    },
+    {
+      "year": "2021",
+      "month": "",
+      "title": "【待补充大事记内容】",
+      "desc": ""
+    },
+    {
+      "year": "2020",
+      "month": "",
+      "title": "【待补充大事记内容】",
+      "desc": ""
+    },
+    {
+      "year": "2019",
+      "month": "",
+      "title": "【待补充大事记内容】",
+      "desc": ""
+    }
+  ],
+  "committees": [
+    {
+      "name": "【待补充专委会名称】",
+      "desc": "负责【业务范围】相关工作",
+      "members": "【成员姓名】等"
+    },
+    {
+      "name": "【待补充专委会名称】",
+      "desc": "负责【业务范围】相关工作",
+      "members": "【成员姓名】等"
+    },
+    {
+      "name": "【待补充专委会名称】",
+      "desc": "负责【业务范围】相关工作",
+      "members": "【成员姓名】等"
+    }
+  ],
   "party": {
     "name": "党委",
-    "intro": "",
+    "intro": "中共四川省闽南商会委员会（简称\"商会党委\"）是在上级党组织领导下成立的基层党组织。党委坚持以习近平新时代中国特色社会主义思想为指导，全面加强党的建设，发挥政治引领作用，推动商会健康发展。【待补充详细党委介绍】",
     "structImg": "",
-    "structDesc": "",
-    "news": []
+    "structDesc": "党委设书记1名、副书记【人数】名、委员【人数】名。下设【支部数量】个党支部。【待补充详细组织架构描述】",
+    "news": [
+      {
+        "date": "2024-07-01",
+        "title": "商会党委开展庆祝建党纪念日活动",
+        "img": "",
+        "link": "#"
+      },
+      {
+        "date": "2024-06-15",
+        "title": "商会党委组织学习最新会议精神",
+        "img": "",
+        "link": "#"
+      },
+      {
+        "date": "2024-05-20",
+        "title": "商会党委召开年度党建工作总结会",
+        "img": "",
+        "link": "#"
+      }
+    ],
+    "history": [
+      {
+        "year": "2024",
+        "month": "",
+        "title": "【待补充党建工作内容】",
+        "desc": ""
+      },
+      {
+        "year": "2023",
+        "month": "",
+        "title": "【待补充党建工作内容】",
+        "desc": ""
+      },
+      {
+        "year": "2022",
+        "month": "",
+        "title": "【待补充党建工作内容】",
+        "desc": ""
+      }
+    ]
   },
   "news": [
     {
@@ -258,29 +457,113 @@ window.__CMS_DATA__ = {
       "link": "data:image/jpeg;base64,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"
     }
   ],
-  "biznews": [],
+  "biznews": [
+    {
+      "date": "2024-07-15",
+      "title": "商会组织会员企业赴【地点】考察交流",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "date": "2024-06-28",
+      "title": "【企业名称】成功签约重大项目",
+      "img": "",
+      "link": "#"
+    }
+  ],
   "services": {
-    "desc": "",
-    "items": []
+    "desc": "四川省闽南商会为会员企业提供全方位、多层次的服务支持，涵盖政策咨询、法律维权、融资对接、市场拓展、人才培训等多个领域，助力会员企业在川稳健发展。【待补充详细服务介绍】",
+    "items": [
+      {
+        "icon": "fa-handshake-o",
+        "name": "政企对接",
+        "desc": "搭建政企沟通桥梁，协助会员企业对接政府资源与政策支持"
+      },
+      {
+        "icon": "fa-balance-scale",
+        "name": "法律维权",
+        "desc": "提供专业法律咨询与维权服务，维护会员企业合法权益"
+      },
+      {
+        "icon": "fa-line-chart",
+        "name": "融资服务",
+        "desc": "对接银行、投资机构等金融资源，拓宽会员企业融资渠道"
+      },
+      {
+        "icon": "fa-users",
+        "name": "商务交流",
+        "desc": "组织商务考察、行业论坛等活动，促进会员企业交流合作"
+      },
+      {
+        "icon": "fa-globe",
+        "name": "招商引资",
+        "desc": "协助两地政府开展招商引资，推动川闽经贸深度合作"
+      },
+      {
+        "icon": "fa-graduation-cap",
+        "name": "人才培训",
+        "desc": "举办企业管理、法律法规等专题培训，提升会员企业竞争力"
+      }
+    ]
   },
-  "partners": [],
-  "strategy": [],
+  "partners": [
+    {
+      "name": "【待补充合作伙伴名称】",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【待补充合作伙伴名称】",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【待补充合作伙伴名称】",
+      "img": "",
+      "link": "#"
+    },
+    {
+      "name": "【待补充合作伙伴名称】",
+      "img": "",
+      "link": "#"
+    }
+  ],
+  "strategy": [
+    {
+      "name": "【待补充战略伙伴名称】",
+      "img": "",
+      "link": "#",
+      "desc": "【合作领域与内容简介】"
+    },
+    {
+      "name": "【待补充战略伙伴名称】",
+      "img": "",
+      "link": "#",
+      "desc": "【合作领域与内容简介】"
+    },
+    {
+      "name": "【待补充战略伙伴名称】",
+      "img": "",
+      "link": "#",
+      "desc": "【合作领域与内容简介】"
+    }
+  ],
   "joinus": {
     "title": "加入我们",
-    "req": "",
-    "process": "",
-    "contact": ""
+    "req": "1. 在四川省境内合法注册经营的企事业单位、社会团体\n2. 企业法定代表人、股东或高级管理人员为闽南籍（厦门、泉州、漳州）人士\n3. 拥护商会章程，自愿加入商会\n4. 具有良好的商业信誉和社会形象\n5. 按时缴纳会费，积极参加商会活动\n\n【以上为模板条件，请根据商会实际章程修改】",
+    "process": "1. 提交入会申请：填写《入会申请表》并提交相关证明材料\n2. 资格审核：商会秘书处对申请材料进行初审\n3. 考察走访：商会安排人员实地走访了解企业情况\n4. 理事会审批：提交理事会审议表决\n5. 缴纳会费：审批通过后按规定缴纳会费\n6. 颁发证书：正式成为商会会员，颁发会员证书\n\n【以上为模板流程，请根据商会实际章程修改】",
+    "contact": "联系人：【待补充联系人姓名】\n联系电话：028-83392693\n电子邮箱：smcc0924@163.com\n联系地址：成都市金牛区育仁西路8号茗园尚筑2栋29楼\n\n欢迎在川闽商加入商会大家庭！"
   },
   "footer": {
     "title": "四川省闽南商会",
-    "keywords": "",
-    "desc": "",
+    "keywords": "四川省闽南商会,闽南商会,四川闽商,闽商,商会",
+    "desc": "四川省闽南商会是在川闽南籍企业家组成的非营利性社会团体，致力于促进川闽两地经济文化交流与合作。",
     "logo": "",
     "slogan": "如果您有需求，请联系我们；我们将竭诚为您服务！",
-    "email": "",
-    "addr": "",
-    "phone": "",
-    "icp": "",
+    "email": "smcc0924@163.com",
+    "addr": "成都市金牛区育仁西路8号茗园尚筑2栋29楼",
+    "phone": "028-83392693",
+    "icp": "【待补充ICP备案号】",
     "copyright": "Copyright © 四川省闽南商会 All Rights Reserved"
   }
 };

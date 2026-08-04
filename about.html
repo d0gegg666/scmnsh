@@ -140,7 +140,7 @@ body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:#f
 <a href="strategy.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;border-bottom:1px solid #F0F0F0;">战略伙伴</a>
 <a href="joinus.html" style="display:block;padding:12px 20px;color:#333;text-decoration:none;">加入我们</a>
 </div>
-<script>function toggleMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
+<script>function toggleMenu(){var m=document.getElementById("mobileMenu");var o=document.getElementById("mobileOverlay");if(!m||!o)return;var v=m.style.display==='block'?'none':'block';m.style.display=v;o.style.display=v;o.style.pointerEvents=v==='block'?'auto':'none';document.body.style.overflow=v==='block'?'hidden':'';}
 function closeMobileMenu(){var m=document.getElementById('mobileMenu');var o=document.getElementById('mobileOverlay');if(m)m.style.display='none';if(o)o.style.display='none';document.body.style.overflow='';}
 var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',function(e){if(e.target.tagName==='A')closeMobileMenu();});</script>
 <div class="page-banner"><h1>关于商会</h1><p>ABOUT US</p></div><div class="container section">
@@ -158,7 +158,7 @@ var mm=document.getElementById('mobileMenu');if(mm)mm.addEventListener('click',f
 <div id="about-ms-section"><div class="section-title" id="milestones"><h2>大事记</h2></div><div class="timeline" id="msTimeline"></div></div>
 <div id="about-cm-section"><div class="section-title" id="committees"><h2>专委会</h2></div><div class="honor-grid" id="cmGrid"></div></div>
 <script>
-(function(){
+function renderAboutContent(){
 var esc=function(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');};
 var d=window.__CMS_DATA__;if(!d)return;
 var a=d.about||{};
@@ -171,18 +171,21 @@ var hg=document.getElementById('honorGrid');if(hg){if(d.honors&&d.honors.length>
 var p=d.president||{};
 setI('pm-img',p.img);setT('pm-name',p.name);setT('pm-title',p.title);setT('pm-content',p.content);
 // Leadership
-var lg=document.getElementById('leaderGrid');if(!lg)return;
+var lg=document.getElementById('leaderGrid');if(lg){
 if(d.leadership&&d.leadership.length>0){lg.innerHTML=d.leadership.sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return '<div class="leader-card">'+(m.img?'<img src="'+m.img+'" alt="'+esc(m.name||'')+'">':'<div style="height:240px;background:#F0EBE3;"></div>')+'<div class="info"><div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div></div>';}).join('');}
 else{lg.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
+}
 // Milestones
-var mt=document.getElementById('msTimeline');if(!mt)return;
+var mt=document.getElementById('msTimeline');if(mt){
 if(d.milestones&&d.milestones.length>0){mt.innerHTML=d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return '<div class="timeline-item"><div class="year">'+esc(m.year||'')+(m.month?'-'+esc(m.month||''):'')+'</div><h4>'+esc(m.title||'')+'</h4><p>'+esc(m.desc||'')+'</p></div>';}).join('');}
 else{mt.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
+}
 // Committees
-var cg=document.getElementById('cmGrid');if(!cg)return;
+var cg=document.getElementById('cmGrid');if(cg){
 if(d.committees&&d.committees.length>0){cg.innerHTML=d.committees.map(function(c){return '<div class="honor-card"><div class="icon"><i class="fa fa-sitemap"></i></div><div><h4>'+esc(c.name||'')+'</h4><div style="font-size:12px;color:#888;margin-top:4px;">'+esc(c.desc||'')+'</div><div style="font-size:11px;color:#AAA;margin-top:2px;">成员：'+esc(c.members||'')+'</div></div></div>';}).join('');}
 else{cg.innerHTML='<div class="empty-tip"><i class="fa fa-sitemap"></i><p>专委会信息待添加</p></div>';}
-})();
+}
+}
 </script></div>
 <footer class="footer">
 <div class="container">
@@ -197,7 +200,7 @@ else{cg.innerHTML='<div class="empty-tip"><i class="fa fa-sitemap"></i><p>专委
 <div class="footer-bottom"><p><span id="ft-copyright"></span> | <a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div>
 </footer>
 <script>
-(function(){
+function renderAboutFooter(){
 var d=window.__CMS_DATA__;
 if(d&&d.footer){
 var f=d.footer;
@@ -206,9 +209,9 @@ set('ft-slogan',f.slogan);set('ft-addr',f.addr);
 if(f.headerLogo){var hl=document.getElementById('headerLogo');if(hl)hl.src=f.headerLogo;}
 set('ft-email',f.email);set('ft-phone',f.phone);set('ft-icp',f.icp);set('ft-copyright',f.copyright);
 }
-})();
+}
 </script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部"><i class="fa fa-arrow-up"></i></button>
 <script>var bt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(bt)bt.classList.toggle("show",window.scrollY>300)});</script>
-<script>(function(){if(window.__CMS_DATA__)return;var s=document.createElement('script');s.src='data.js';document.body.appendChild(s);})();</script>
+<script>(function(){if(window.__CMS_DATA__){renderAboutContent();renderAboutFooter();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__){renderAboutContent();renderAboutFooter();}};s.onerror=function(){renderAboutContent();renderAboutFooter();};document.body.appendChild(s);})();</script>
 </body></html>
