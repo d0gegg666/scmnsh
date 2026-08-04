@@ -249,7 +249,7 @@ if(data.banner&&data.banner.length>0){
 bannerSlides=data.banner.slice().sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(b){return{img:b.img||'',title:b.title||'',subtitle:b.subtitle||'',link:b.btnLink||'#'};});
 }else{
 var allNews=(data.news||[]).concat(data.biznews||[]);
-allNews.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+allNews.sort(function(a,b){var da=(a.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');var db2=(b.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');return db2.localeCompare(da);}););
 bannerSlides=allNews.filter(function(n){return n.img&&n.img.startsWith('data:')||n.img&&n.img.startsWith('http');}).slice(0,3).map(function(n){return{img:n.img,title:n.title||'',subtitle:n.date||'',link:n.link||'news-detail.html?id='+n.id};});
 }
 if(bannerSlides.length===0){
@@ -264,7 +264,7 @@ if(window.__swiperBanner)window.__swiperBanner.destroy();window.__swiperBanner=n
 
 // 新闻列表
 var allNews=(data.news||[]).concat(data.biznews||[]);
-allNews.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});
+allNews.sort(function(a,b){var da=(a.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');var db2=(b.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');return db2.localeCompare(da);}););
 if(allNews.length>0){
 var feat=allNews[0],rest=allNews.slice(1,7);
 var featHtml='<h3><a href="'+(feat.link||'news-detail.html?id='+feat.id)+'">'+esc(feat.title||'')+'</a></h3>';
