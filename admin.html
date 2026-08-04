@@ -91,8 +91,7 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="committees"><i class="fa fa-sitemap"></i> 专委会</a>
 <div class="nav-group">党建管理</div>
 <a href="#" data-page="party"><i class="fa fa-flag"></i> 商会党建</a>
-	<a href="#" data-page="party-history"><i class="fa fa-history"></i> 发展历程</a>
-<div class="nav-group">资讯管理</div>
+	<div class="nav-group">资讯管理</div>
 <a href="#" data-page="news"><i class="fa fa-newspaper-o"></i> 新闻资讯</a>
 <div class="nav-group">合作与服务</div>
 <a href="#" data-page="services"><i class="fa fa-cubes"></i> 服务领域</a>
@@ -354,7 +353,7 @@ c.innerHTML=h;
 	// 通用：添加列表项（自动识别普通数组、services.items、party.news）
 	function addItem(key,defaults){
 	var d=L();
-	if(key==='partyNews'){if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(!d.party.history)d.party.history=[];d.party.history.push(defaults);S(d);renderPage(getCurrentPage());return;}
+	if(key==='partyNews'){if(!d.party)d.party={};if(!d.party.news)d.party.news=[];d.party.news.push(defaults);S(d);renderPage(getCurrentPage());return;}if(key==='partyHistory'){if(!d.party)d.party={};if(!d.party.history)d.party.history=[];d.party.history.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(key==='services'){if(!d.services.items)d.services.items=[];d.services.items.push(defaults);S(d);renderPage(getCurrentPage());return;}
 	if(!d[key])d[key]=[];
 	if(Array.isArray(d[key])){d[key].push(defaults);S(d);renderPage(getCurrentPage());}else{T('添加失败：数据异常','error');}
