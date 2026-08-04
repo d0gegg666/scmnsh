@@ -307,7 +307,8 @@ case'footer':renderFooter(d);break;
 
 // ==================== 控制台 ====================
 function renderCombinedNews(d){
-var sortByDate=function(a,b){var da=(a.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');var db2=(b.date||'').replace(/[年月]/g,'-').replace(/[日]/g,'');return db2.localeCompare(da);};
+var toNum=function(dt){if(!dt)return 0;var s=dt.replace(/[年月]/g,'-').replace(/[日]/g,'');var p=s.split('-');if(p.length>=3)return parseInt(p[0])*10000+parseInt(p[1])*100+parseInt(p[2]);return 0;};
+var sortByDate=function(a,b){return toNum(b.date)-toNum(a.date);};
 var dn=d.news||[];dn.sort(sortByDate);
 var db=d.biznews||[];db.sort(sortByDate);
 var all=dn.concat(db);
