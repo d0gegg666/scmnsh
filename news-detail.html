@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>加入我们 - 四川省闽南商会</title>
-<meta name="keywords" content="四川省闽南商会,入会指南,加入商会,在线入会">
-<meta name="description" content="欢迎加入四川省闽南商会，了解入会条件、流程及联系方式。">
+<title>新闻详情 - 四川省闽南商会</title>
+<meta name="keywords" content="四川省闽南商会,新闻">
+<meta name="description" content="四川省闽南商会新闻详情">
 <link rel="icon" type="image/jpeg" href="logo.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -35,17 +35,15 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .submenu li a{display:block;padding:8px 20px;color:#fff;font-size:13px;text-align:center}
 .submenu li a:hover{background:#fff;color:#CC0000}
 .main{width:1200px;margin:30px auto}
-.sec-title{font-size:22px;color:#333;padding:10px 0 10px 15px;border-left:4px solid #CC0000;margin-bottom:20px}
-.card{background:#fff;padding:30px;margin-bottom:20px;border-radius:4px}
-.card h3{font-size:18px;color:#CC0000;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid #f5e6c8}
-.card p,.card li{font-size:14px;color:#555;line-height:2}
-.card ul{padding-left:20px}
-.card ul li{margin-bottom:4px}
-.card ul li::marker{color:#C9A84C}
-.join-contact{background:#CC0000;color:#fff;padding:30px;border-radius:4px;text-align:center}
-.join-contact h3{font-size:20px;color:#fff;margin-bottom:20px}
-.join-contact p{font-size:15px;line-height:2.5}
-.join-contact .phone{font-size:28px;font-weight:700;color:#FFA21C;display:block;margin:10px 0}
+.breadcrumb{font-size:13px;color:#999;margin-bottom:20px}
+.breadcrumb a{color:#666}.breadcrumb a:hover{color:#CC0000}
+.article{background:#fff;padding:40px;border-radius:4px}
+.article h1{font-size:24px;color:#333;text-align:center;margin-bottom:15px}
+.article .meta{text-align:center;font-size:13px;color:#999;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #eee}
+.article .content{font-size:15px;color:#555;line-height:2}
+.article .content img{max-width:100%;margin:20px 0;border-radius:4px}
+.article .back{margin-top:30px;text-align:center;padding-top:20px;border-top:1px solid #eee}
+.article .back a{color:#CC0000;font-size:14px}
 .footer{background:#1a1a1a;color:#aaa;padding:30px 0}
 .footer-inner{width:1200px;margin:0 auto;display:flex;gap:40px}
 .footer-logo{text-align:center;flex-shrink:0}.footer-logo img{height:60px}
@@ -57,6 +55,11 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .footer-links .fl-row a:hover{color:#CC0000}
 .footer-links .copyright{font-size:12px;color:#777;line-height:2}.footer-links .copyright a{color:#aaa}
 .footer-qr{text-align:center;flex-shrink:0}.footer-qr img{width:90px;height:90px;margin-bottom:6px}.footer-qr p{font-size:12px}
+#imgLightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;align-items:center;justify-content:center}
+#imgLightbox>span{position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer}
+#imgLightbox img{max-width:90%;max-height:90%;object-fit:contain}
+.article-nav{display:flex;justify-content:space-between;margin-top:20px;padding:15px 0;border-top:1px solid #eee;font-size:13px}
+.article-nav a{color:#555}.article-nav a:hover{color:#CC0000}
 </style>
 </head>
 <body>
@@ -65,31 +68,24 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="navbar"><div class="navbar-inner"><ul class="navbar-menu">
 <li><a href="index.html">网站首页</a></li>
 <li><a href="about.html">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html#honors">荣誉历程</a></li><li><a href="about.html#president">会长寄语</a></li><li><a href="about.html#leadership">领导班子</a></li><li><a href="about.html#milestones">大事记</a></li><li><a href="about.html#committees">专委会</a></li></ul></li>
-<li><a href="news.html">商会动态<b></b></a><ul class="submenu"><li><a href="news.html">商会新闻</a></li><li><a href="strategy.html">战略伙伴</a></li></ul></li>
+<li><a href="news.html" class="active">商会动态<b></b></a><ul class="submenu"><li><a href="news.html">商会新闻</a></li><li><a href="strategy.html">战略伙伴</a></li></ul></li>
 <li><a href="party.html">商会党建<b></b></a><ul class="submenu"><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></li>
 <li><a href="strategy.html">战略伙伴</a></li>
-<li><a href="joinus.html" class="active">加入我们</a></li>
+<li><a href="joinus.html">加入我们</a></li>
 </ul></div></div>
 
 <div class="main">
-<div class="sec-title">加入我们</div>
-<div class="card"><h3>入会条件</h3><div id="joinReq" style="font-size:14px;line-height:2;color:#555">入会条件内容加载中...</div></div>
-<div class="card"><h3>入会流程</h3><div id="joinProcess" style="font-size:14px;line-height:2;color:#555">入会流程内容加载中...</div></div>
-<div class="join-contact"><h3>联系我们</h3><div id="joinContact"><p>联系人：待补充</p><p>联系电话：<span class="phone">028-83392693</span></p><p>电子邮箱：smcc0924@163.com</p><p>联系地址：成都市金牛区育仁西路8号茗园尚筑2栋29楼</p></div></div>
-<div class="card" style="margin-top:20px"><h3>在线入会申请</h3>
-<form id="joinForm" onsubmit="submitJoin(event)" style="max-width:700px;margin:0 auto">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">企业名称 <span style="color:red">*</span></label><input type="text" name="company" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">联系人 <span style="color:red">*</span></label><input type="text" name="contact" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">联系电话 <span style="color:red">*</span></label><input type="tel" name="phone" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">电子邮箱</label><input type="email" name="email" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
+<div class="breadcrumb"><a href="index.html">首页</a> &gt; <a href="news.html">商会动态</a> &gt; <span id="breadTitle">新闻详情</span></div>
+<div class="article">
+<h1 id="articleTitle">新闻标题</h1>
+<div class="meta">发布时间：<span id="articleDate"></span> | 来源：四川省闽南商会</div>
+<div class="content" id="articleContent"></div>
+<div class="article-nav">
+<a href="javascript:history.back()">&larr; 返回列表</a>
+<a href="news.html">查看全部新闻 &rarr;</a>
 </div>
-<div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">企业地址</label><input type="text" name="address" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">主营业务</label><input type="text" name="business" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">申请说明</label><textarea name="remark" rows="4" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px;resize:vertical"></textarea></div>
-<div style="margin-top:20px;text-align:center"><button type="submit" style="padding:12px 50px;background:#CC0000;color:#fff;border:none;border-radius:25px;font-size:16px;cursor:pointer;transition:all 0.3s">提交申请</button></div>
-<div id="joinMsg" style="text-align:center;margin-top:10px;font-size:14px"></div>
-</form></div></div>
+</div>
+</div>
 
 <div class="footer"><div class="footer-inner">
 <div class="footer-logo"><img src="logo.jpg" alt="四川省闽南商会"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></div>
@@ -97,22 +93,42 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
 <div class="footer-qr"><img src="logo.jpg" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo.jpg" alt="手机网站"><p>手机网站</p></div>
 </div></div>
+<div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
 
 <script>
 function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 function setText(id,v){var el=document.getElementById(id);if(el&&v)el.textContent=v;}
+function viewNewsImg(t,s){document.getElementById('imgLightboxImg').src=s;document.getElementById('imgLightbox').style.display='flex';document.body.style.overflow='hidden';}
+function closeImgLightbox(){document.getElementById('imgLightbox').style.display='none';document.body.style.overflow='';}
 (function u(){var d=new Date();var days=['日','一','二','三','四','五','六'];var el=document.getElementById('topDate');if(el)el.value=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 星期'+days[d.getDay()];setTimeout(u,60000);})();
 
-function renderJoin(){
+function renderDetail(){
 var d=window.__CMS_DATA__;if(!d)return;
-var j=d.joinus||{};
-setText('joinReq',j.req||'入会条件待补充');
-setText('joinProcess',j.process||'入会流程待补充');
-if(j.contact){setText('joinContact',j.contact);}
+var params=new URLSearchParams(location.search);
+var newsId=parseInt(params.get('id'))||0;
+// 在所有新闻中查找
+var all=[].concat(d.news||[],d.biznews||[],(d.party||{}).news||[]);
+var found=null;
+for(var i=0;i<all.length;i++){if(all[i].id===newsId){found=all[i];break;}}
+if(!found){document.getElementById('articleTitle').textContent='新闻未找到';return;}
+setText('articleTitle',found.title);
+setText('breadTitle',found.title);
+setText('articleDate',found.date||'');
+var content=found.content||'';
+if(!content){
+content='<p>'+esc(found.title||'')+'</p>';
+if(found.img){content+='<div style="text-align:center;margin:20px 0"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+esc(found.title||'')+'\',\''+esc(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>';}
+content+='<p>发布时间：'+esc(found.date||'')+'</p>';
+content+='<p>来源：四川省闽南商会</p>';
+content+='<p style="margin-top:20px;color:#888">【详细内容待补充】</p>';
+}else{
+// 如果img字段存在，在内容顶部显示图片
+if(found.img){content='<div style="text-align:center;margin-bottom:20px"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+esc(found.title||'')+'\',\''+esc(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>'+content;}
+}
+document.getElementById('articleContent').innerHTML=content;
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
-function submitJoin(e){e.preventDefault();var f=e.target;var data={};for(var i=0;i<f.elements.length;i++){var el=f.elements[i];if(el.name)data[el.name]=el.value;}data.time=new Date().toISOString();data.id=Date.now();var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');apps.push(data);localStorage.setItem('scmn_applications',JSON.stringify(apps));document.getElementById('joinMsg').innerHTML='<span style="color:#4CAF50"><i class="fa fa-check-circle"></i> 申请已提交成功！我们会尽快与您联系。</span>';f.reset();setTimeout(function(){document.getElementById('joinMsg').innerHTML='';},5000);}
-(function(){if(window.__CMS_DATA__){renderJoin();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderJoin();};s.onerror=function(){renderJoin();};document.body.appendChild(s);})();
+(function(){if(window.__CMS_DATA__){renderDetail();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderDetail();};s.onerror=function(){renderDetail();};document.body.appendChild(s);})();
 </script>
 </body>
 </html>

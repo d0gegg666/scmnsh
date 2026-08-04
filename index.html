@@ -376,9 +376,11 @@ function bindCMS(data){
   if(data.banner&&data.banner.length>0){
     var slides=document.getElementById('bannerSlides');
     slides.innerHTML=data.banner.slice().sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(b){
-      var bg=b.img?'background-image:url('+b.img+')':'background-color:#CC0000';
-      return'<div class="swiper-slide" style="'+bg+';background-size:cover;background-position:center;">'+
-        (b.title?'<div class="banner-title"><a href="'+(b.btnLink||'#')+'" style="color:#fff">'+esc(b.title)+'</a></div>':'')+'</div>';
+      var bg=b.img?'background-image:url('+b.img+')':'background:linear-gradient(135deg,#1a0000,#800000,#CC0000)';
+      return'<div class="swiper-slide" style="'+bg+';background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center">'+
+        (b.title?'<div style="background:rgba(0,0,0,0.5);padding:20px 40px;border-radius:8px"><h2 style="color:#fff;font-size:32px;font-weight:700;margin-bottom:8px">'+esc(b.title)+'</h2>'+
+        (b.subtitle?'<p style="color:#C9A84C;font-size:18px">'+esc(b.subtitle)+'</p>':'')+
+        (b.btnText?'<a href="'+(b.btnLink||'#')+'" style="display:inline-block;margin-top:12px;padding:10px 30px;background:#CC0000;color:#fff;border-radius:25px;font-size:14px;transition:all 0.3s">'+esc(b.btnText)+'</a>':'')+'</div>':'')+'</div>';
     }).join('');
     new Swiper('#bannerSwiper',{loop:true,autoplay:{delay:4000},pagination:{el:'.swiper-pagination',clickable:true}});
   }
