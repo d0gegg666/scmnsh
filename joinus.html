@@ -42,6 +42,9 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .card ul{padding-left:20px}
 .card ul li{margin-bottom:4px}
 .card ul li::marker{color:#C9A84C}
+.tab-nav{display:flex;gap:0;margin-bottom:20px;background:#fff;border-radius:4px;overflow:hidden}
+.tab-nav a{display:block;padding:12px 28px;font-size:14px;color:#555;transition:all 0.3s}
+.tab-nav a.active,.tab-nav a:hover{background:#CC0000;color:#fff}
 .join-contact{background:#CC0000;color:#fff;padding:30px;border-radius:4px;text-align:center}
 .join-contact h3{font-size:20px;color:#fff;margin-bottom:20px}
 .join-contact p{font-size:15px;line-height:2.5}
@@ -71,24 +74,14 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 </ul></div></div>
 
 <div class="main">
-<div class="sec-title">加入我们</div>
-<div class="card"><h3>入会条件</h3><div id="joinReq" style="font-size:14px;line-height:2;color:#555">入会条件内容加载中...</div></div>
-<div class="card"><h3>入会流程</h3><div id="joinProcess" style="font-size:14px;line-height:2;color:#555">入会流程内容加载中...</div></div>
-<div class="join-contact"><h3>联系我们</h3><div id="joinContact"><p>联系人：待补充</p><p>联系电话：<span class="phone">028-83392693</span></p><p>电子邮箱：smcc0924@163.com</p><p>联系地址：成都市金牛区育仁西路8号茗园尚筑2栋29楼</p></div></div>
-<div class="card" style="margin-top:20px"><h3>在线入会申请</h3>
-<form id="joinForm" onsubmit="submitJoin(event)" style="max-width:700px;margin:0 auto">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">企业名称 <span style="color:red">*</span></label><input type="text" name="company" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">联系人 <span style="color:red">*</span></label><input type="text" name="contact" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">联系电话 <span style="color:red">*</span></label><input type="tel" name="phone" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">电子邮箱</label><input type="email" name="email" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
+<div class="tab-nav">
+<a href="#" class="active" data-p="req">入会条件</a>
+<a href="#" data-p="process">入会流程</a>
+<a href="#" data-p="contact">联系我们</a>
+<a href="#" data-p="apply">在线入会</a>
 </div>
-<div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">企业地址</label><input type="text" name="address" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">主营业务</label><input type="text" name="business" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div>
-<div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">申请说明</label><textarea name="remark" rows="4" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px;resize:vertical"></textarea></div>
-<div style="margin-top:20px;text-align:center"><button type="submit" style="padding:12px 50px;background:#CC0000;color:#fff;border:none;border-radius:25px;font-size:16px;cursor:pointer;transition:all 0.3s">提交申请</button></div>
-<div id="joinMsg" style="text-align:center;margin-top:10px;font-size:14px"></div>
-</form></div></div>
+<div id="joinContent" style="min-height:400px"></div>
+</div>
 
 <div class="footer"><div class="footer-inner">
 <div class="footer-logo"><img src="logo.jpg" alt="四川省闽南商会"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></div>
@@ -104,14 +97,25 @@ function setText(id,v){var el=document.getElementById(id);if(el&&v!=null&&v!==un
 
 function renderJoin(){
 var d=window.__CMS_DATA__;if(!d)return;
+var c=document.getElementById('joinContent');if(!c)return;
+var page=(location.search||'').match(/page=(\w+)/);
+page=page?page[1]:'req';
+document.querySelectorAll('.tab-nav a').forEach(function(a){a.classList.toggle('active',a.dataset.p===page);});
 var j=d.joinus||{};
-setText('joinReq',j.req||'入会条件待补充');
-setText('joinProcess',j.process||'入会流程待补充');
-if(j.contact){setText('joinContact',j.contact);}
+if(page==='req'){
+c.innerHTML='<div class="card"><h3>入会条件</h3><div style="font-size:14px;line-height:2;color:#555;white-space:pre-line">'+esc(j.req||'入会条件待补充')+'</div></div>';
+}else if(page==='process'){
+c.innerHTML='<div class="card"><h3>入会流程</h3><div style="font-size:14px;line-height:2;color:#555;white-space:pre-line">'+esc(j.process||'入会流程待补充')+'</div></div>';
+}else if(page==='contact'){
+c.innerHTML='<div class="join-contact"><h3>联系我们</h3><div style="font-size:15px;line-height:2.5"><p>联系人：待补充</p><p>联系电话：<span class="phone">028-83392693</span></p><p>电子邮箱：smcc0924@163.com</p><p>联系地址：成都市金牛区育仁西路8号茗园尚筑2栋29楼</p></div></div>';
+}else if(page==='apply'){
+c.innerHTML='<div class="card"><h3>在线入会申请</h3><form id="joinForm" onsubmit="submitJoin(event)" style="max-width:700px;margin:0 auto"><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px"><div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">企业名称 <span style="color:red">*</span></label><input type="text" name="company" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div><div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">联系人 <span style="color:red">*</span></label><input type="text" name="contact" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div><div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">联系电话 <span style="color:red">*</span></label><input type="tel" name="phone" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div><div><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">电子邮箱</label><input type="email" name="email" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div></div><div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">企业地址</label><input type="text" name="address" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div><div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">主营业务</label><input type="text" name="business" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px"></div><div style="margin-top:15px"><label style="font-size:13px;color:#666;display:block;margin-bottom:4px">申请说明</label><textarea name="remark" rows="4" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px;resize:vertical"></textarea></div><div style="margin-top:20px;text-align:center"><button type="submit" style="padding:12px 50px;background:#CC0000;color:#fff;border:none;border-radius:25px;font-size:16px;cursor:pointer;transition:all 0.3s">提交申请</button></div><div id="joinMsg" style="text-align:center;margin-top:10px;font-size:14px"></div></form></div>';
+}
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
 }
 function submitJoin(e){e.preventDefault();var f=e.target;var data={};for(var i=0;i<f.elements.length;i++){var el=f.elements[i];if(el.name)data[el.name]=el.value;}data.time=new Date().toISOString();data.id=Date.now();var apps=JSON.parse(localStorage.getItem('scmn_applications')||'[]');apps.push(data);try{localStorage.setItem('scmn_applications',JSON.stringify(apps));}catch(e){document.getElementById('joinMsg').innerHTML='<span style="color:#f00">存储空间不足，请联系管理员。</span>';return;}document.getElementById('joinMsg').innerHTML='<span style="color:#4CAF50"><i class="fa fa-check-circle"></i> 申请已提交成功！我们会尽快与您联系。</span>';f.reset();setTimeout(function(){document.getElementById('joinMsg').innerHTML='';},5000);}
-(function(){if(window.__CMS_DATA__){renderJoin();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderJoin();};s.onerror=function(){var el=document.getElementById("joinReq");if(el)el.textContent='数据加载失败，请刷新页面重试';renderJoin();};document.body.appendChild(s);})();
+document.querySelectorAll('.tab-nav a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=this.dataset.p;history.replaceState(null,'','?page='+p);document.querySelectorAll('.tab-nav a').forEach(function(x){x.classList.remove('active');});this.classList.add('active');renderJoin();});});
+(function(){if(window.__CMS_DATA__){renderJoin();return;}var s=document.createElement('script');s.src='data.js';s.onload=function(){if(window.__CMS_DATA__)renderJoin();};s.onerror=function(){var el=document.getElementById('joinContent');if(el)el.innerHTML='<div class="empty-tip"><i class="fa fa-exclamation-triangle"></i><p>数据加载失败，请刷新页面重试</p></div>';renderJoin();};document.body.appendChild(s);})();
 </script>
 </body>
 </html>
