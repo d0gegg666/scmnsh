@@ -717,7 +717,7 @@
             box.innerHTML = '<div class="sr-empty">未找到相关内容</div>';
         } else {
             box.innerHTML = results.slice(0, 15).map(function(n) {
-                var link=n.link||'#';var isData=link.startsWith('data:');return '<'+(isData?'span':'a href="'+link+'"')+' class="sr-item"'+(isData?' style="cursor:default"':'')+'><div>'+(n.title||'')+'</div><div class="sr-date">'+(n.date||'')+'</div></'+(isData?'span':'a')+'>';
+                var link=n.link||'#';var isValid=link&&link!=='#'&&!link.startsWith('data:');var hasImg=n.img&&n.img.startsWith('data:');if(isValid)return '<a href="'+link+'" class="sr-item"><div>'+(n.title||'')+'</div><div class="sr-date">'+(n.date||'')+'</div></a>';if(hasImg)return '<a href="javascript:void(0)" class="sr-item" onclick="viewNewsImg(\''+(n.title||'')+'\',\''+n.img+'\')"><div>'+(n.title||'')+'</div><div class="sr-date">'+(n.date||'')+'</div></a>';return '<span class="sr-item" style="cursor:default"><div>'+(n.title||'')+'</div><div class="sr-date">'+(n.date||'')+'</div></span>';
             }).join('');
         }
         box.classList.add('show');
@@ -880,19 +880,41 @@ function bindCMS(_data) {
         }
 
         var fd = formatDate(featured.date);
-        var flink = featured.link || '#'; var isFData = flink.startsWith('data:');
-        var html = '<' + (isFData ? 'span' : 'a href="' + esc(flink) + '"') + ' class="news-featured"' + (isFData ? ' style="cursor:default"' : '') + '>' +
-            (featured.img ? '<img src="' + esc(featured.img) + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
-            '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></' + (isFData ? 'span' : 'a') + '>';
+        var flink = featured.link || '#'; var fValid = flink && flink !== '#' && !flink.startsWith('data:'); var fHasImg = featured.img && featured.img.startsWith('data:');
+        if (fValid) {
+            html = '<a href="' + esc(flink) + '" class="news-featured">' +
+                (featured.img ? '<img src="' + esc(featured.img) + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
+                '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
+        } else if (fHasImg) {
+            html = '<a href="javascript:void(0)" class="news-featured" onclick="viewNewsImg(\'' + esc(featured.title||'') + '\',\'' + esc(featured.img) + '\')">' +
+                '<img src="' + esc(featured.img) + '" alt="' + (featured.title||'') + '">' +
+                '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></a>';
+        } else {
+            html = '<span class="news-featured" style="cursor:default">' +
+                (featured.img ? '<img src="' + esc(featured.img) + '" alt="' + (featured.title||'') + '">' : '<div style="height:320px;background:#F0EBE3;"></div>') +
+                '<div class="news-featured-info"><div class="date">' + esc(featured.date || '') + '</div><h3>' + esc(featured.title || '') + '</h3></div></span>';
+        }
 
         html += '<div class="news-list">';
         rest.forEach(function(item) {
             var d = formatDate(item.date);
-            var ilink = item.link || '#'; var isIData = ilink.startsWith('data:');
-            html += '<' + (isIData ? 'span' : 'a href="' + esc(ilink) + '"') + ' class="news-item"' + (isIData ? ' style="cursor:default"' : '') + '>' +
-                '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
-                (item.img ? '<img src="' + esc(item.img) + '" class="n-thumb" alt="">' : '') +
-                '<div class="n-title">' + esc(item.title || '') + '</div></' + (isIData ? 'span' : 'a') + '>';
+            var ilink = item.link || '#'; var iValid = ilink && ilink !== '#' && !ilink.startsWith('data:'); var iHasImg = item.img && item.img.startsWith('data:');
+            if (iValid) {
+                html += '<a href="' + esc(ilink) + '" class="news-item">' +
+                    '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
+                    (item.img ? '<img src="' + esc(item.img) + '" class="n-thumb" alt="">' : '') +
+                    '<div class="n-title">' + esc(item.title || '') + '</div></a>';
+            } else if (iHasImg) {
+                html += '<a href="javascript:void(0)" class="news-item" onclick="viewNewsImg(\'' + esc(item.title||'') + '\',\'' + esc(item.img) + '\')">' +
+                    '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
+                    '<img src="' + esc(item.img) + '" class="n-thumb" alt="">' +
+                    '<div class="n-title">' + esc(item.title || '') + '</div></a>';
+            } else {
+                html += '<span class="news-item" style="cursor:default">' +
+                    '<div class="n-date"><span class="day">' + d.day + '</span><span class="month">' + d.month + '</span></div>' +
+                    (item.img ? '<img src="' + esc(item.img) + '" class="n-thumb" alt="">' : '') +
+                    '<div class="n-title">' + esc(item.title || '') + '</div></span>';
+            }
         });
         html += '</div>';
         grid.innerHTML = html;
@@ -1020,5 +1042,7 @@ s.onerror=function(){bindCMS(null);};
 document.body.appendChild(s);
 })();
 </script>
+<div id="imgLightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;align-items:center;justify-content:center;" onclick="closeImgLightbox()"><span style="position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer;">&times;</span><img id="imgLightboxImg" style="max-width:90%;max-height:90%;object-fit:contain;"></div>
+<script>function viewNewsImg(title,src){var lb=document.getElementById('imgLightbox');var img=document.getElementById('imgLightboxImg');img.src=src;img.alt=title;lb.style.display='flex';document.body.style.overflow='hidden';}function closeImgLightbox(){var lb=document.getElementById('imgLightbox');lb.style.display='none';document.body.style.overflow='';}</script>
 </body>
 </html>
