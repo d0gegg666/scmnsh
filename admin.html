@@ -245,14 +245,25 @@ table .mini-input:focus{border-color:#C41230;}
 
 <script>
 	// ==================== 登录 ====================
-	(function(){
-		var exp = localStorage.getItem('cms_login_expire');
-		if (exp && parseInt(exp) > Date.now() && localStorage.getItem('cms_logged_in') === 'true') return;
-		if (sessionStorage.getItem('cms_logged_in') === 'true') return;
-		document.write('<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>管理后台 - 登录</title><link rel="icon" type="image/jpeg" href="logo.jpg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script src="https://cdn.tailwindcss.com"><\/script><script>tailwind.config={theme:{extend:{colors:{primary:"#C41230","primary-dark":"#8B1A2B",gold:"#C9A84C"}}}}<\/script><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Microsoft YaHei","微软雅黑",Arial,sans-serif;background:linear-gradient(135deg,#1a0a0a 0%,#4a1525 40%,#8B1A2B 70%,#5A1020 100%);min-height:100vh;display:flex;align-items:center;justify-content:center}.box{background:#fff;border-radius:14px;padding:40px;width:400px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3)}.box h2{text-align:center;color:#C41230;margin-bottom:4px;font-size:22px;letter-spacing:2px}.box .sub{text-align:center;color:#C9A84C;font-size:12px;margin-bottom:28px;letter-spacing:1px}.fg{margin-bottom:18px}.fg label{display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600}.fg .iw{display:flex;align-items:center;border:2px solid #E8E8E8;border-radius:8px;overflow:hidden;transition:border-color .2s}.fg .iw:focus-within{border-color:#C41230}.fg .iw i{width:40px;text-align:center;color:#999;font-size:16px}.fg input{flex:1;padding:12px 12px 12px 0;border:none;outline:none;font-size:14px;font-family:inherit}.btn-login{width:100%;padding:12px;background:linear-gradient(135deg,#C41230,#E8394A);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600;letter-spacing:4px;transition:.3s}.btn-login:hover{background:linear-gradient(135deg,#8B1A2B,#C41230);box-shadow:0 6px 20px rgba(196,18,48,.4)}.err{color:#C41230;font-size:13px;text-align:center;margin-top:12px;display:none}</style></head><body><div class="box"><h2>四川省闽南商会</h2><div class="sub">管理后台</div><div class="fg"><label>账号</label><div class="iw"><i class="fa fa-user-circle-o"></i><input id="u" type="text" placeholder="请输入账号" value="admin"></div></div><div class="fg"><label>密码</label><div class="iw"><i class="fa fa-key"></i><input id="p" type="password" placeholder="请输入密码"></div></div><button class="btn-login" onclick="dL()">登 录</button><div class="err" id="err"></div></div><script>function dL(){var u=document.getElementById("u").value.trim();var p=document.getElementById("p").value.trim();if(u==="admin"&&p==="admin888"){sessionStorage.setItem("cms_logged_in","true");localStorage.setItem("cms_logged_in","true");localStorage.setItem("cms_login_expire",Date.now()+7*24*3600*1000);location.reload()}else{var er=document.getElementById("err");er.style.display="block";er.textContent="账号或密码错误"}}document.getElementById("p").addEventListener("keydown",function(e){if(e.key==="Enter")dL()});<\/script></body></html>');
-		throw new Error('login');
-	})();
-
+(function(){
+var exp = localStorage.getItem('cms_login_expire');
+if (exp && parseInt(exp) > Date.now() && localStorage.getItem('cms_logged_in') === 'true') return;
+if (sessionStorage.getItem('cms_logged_in') === 'true') return;
+// 隐藏主界面，显示登录框
+var sb=document.getElementById('sidebar');if(sb)sb.style.display='none';
+var mn=document.querySelector('.main');if(mn)mn.style.display='none';
+var lb=document.createElement('div');
+lb.innerHTML='<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1a0a0a,#4a1525,#8B1A2B);z-index:99999;display:flex;align-items:center;justify-content:center"><div style="background:#fff;border-radius:14px;padding:40px;width:400px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.3)"><h2 style="text-align:center;color:#C41230;margin-bottom:4px;font-size:22px">四川省闽南商会</h2><div style="text-align:center;color:#C9A84C;font-size:12px;margin-bottom:28px">管理后台</div><div style="margin-bottom:18px"><label style="display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600">账号</label><div style="display:flex;align-items:center;border:2px solid #E8E8E8;border-radius:8px;overflow:hidden"><i class="fa fa-user-circle-o" style="width:40px;text-align:center;color:#999"></i><input id="loginUser" type="text" placeholder="请输入账号" value="admin" style="flex:1;padding:12px;border:none;outline:none;font-size:14px"></div></div><div style="margin-bottom:18px"><label style="display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600">密码</label><div style="display:flex;align-items:center;border:2px solid #E8E8E8;border-radius:8px;overflow:hidden"><i class="fa fa-key" style="width:40px;text-align:center;color:#999"></i><input id="loginPass" type="password" placeholder="请输入密码" style="flex:1;padding:12px;border:none;outline:none;font-size:14px"></div></div><button onclick="doLogin()" style="width:100%;padding:12px;background:linear-gradient(135deg,#C41230,#E8394A);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-weight:600">登 录</button><div id="loginErr" style="color:#C41230;font-size:13px;text-align:center;margin-top:12px;display:none"></div></div></div>';
+document.body.appendChild(lb);
+window.doLogin=function(){
+var u=document.getElementById('loginUser').value.trim();
+var p=document.getElementById('loginPass').value.trim();
+if(u==='admin'&&p==='admin888'){sessionStorage.setItem('cms_logged_in','true');localStorage.setItem('cms_logged_in','true');localStorage.setItem('cms_login_expire',Date.now()+7*24*3600*1000);location.reload();}
+else{var er=document.getElementById('loginErr');er.style.display='block';er.textContent='账号或密码错误';}
+};
+document.getElementById('loginPass').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+throw new Error('login');
+})();
 // ==================== 数据层 ====================
 var SK='scmn_cms_data_v2';
 function defData(){return{
