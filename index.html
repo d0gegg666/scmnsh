@@ -143,7 +143,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 
 <!-- 头部 -->
 <div class="header"><div class="header-inner">
-<div class="header-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo"></a><a href="index.html"><div><h1>四川省闽南商会</h1><p>MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></a></div>
+<div class="header-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogo"></a><a href="index.html"><div id="headerLogoText"><h1>四川省闽南商会</h1><p>MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></a></div>
 <div class="header-slogan">凝聚闽商力量<span style="color:#C9A84C;font-size:22px;"> · </span>服务川闽发展</div>
 </div></div>
 
@@ -205,7 +205,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 
 <!-- 页脚 -->
 <div class="footer"><div class="footer-inner">
-<div class="footer-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></a></div>
+<div class="footer-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会" id="footerLogo"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></a></div>
 <div class="footer-links">
 <div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="joinus.html">加入我们</a></div>
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
@@ -293,6 +293,8 @@ setText('topPhone',f.phone||'028-83392693');setText('topEmail',f.email||'smcc092
 setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);
 if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}
 if(f.title)document.title=f.title+'【官网】';
+	if(f.headerLogo){var hli=document.getElementById('headerLogo');if(hli)hli.src=f.headerLogo;var hlt=document.getElementById('headerLogoText');if(hlt)hlt.style.display='none';}
+	if(f.logo){var fli=document.getElementById('footerLogo');if(fli)fli.src=f.logo;}
 }
 }
 
