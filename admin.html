@@ -128,12 +128,14 @@ table .mini-input:focus{border-color:#C41230;}
 <span style="color:#999;font-size:12px;">↑ 自动推送到 GitHub，1-2分钟生效</span>
 </div>
 <hr style="border-color:#EEE;">
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
 <button class="btn btn-outline btn-sm" onclick="exportData()"><i class="fa fa-download"></i> 备份数据 JSON</button>
 <button class="btn btn-outline btn-sm" onclick="document.getElementById('importFile').click()"><i class="fa fa-upload"></i> 恢复备份</button>
 <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
+<button class="btn btn-gold btn-sm" onclick="compactAllImages()"><i class="fa fa-compress"></i> 极限压缩全部图片</button>
 <button class="btn btn-danger btn-sm" onclick="if(confirm('确定清空所有数据？不可恢复！')){clearAllData();}"><i class="fa fa-trash"></i> 清空全部数据</button>
 </div>
+<p id="storage-info" style="margin-top:12px;color:#999;font-size:12px;"></p>
 </div>
 </div>
 
@@ -263,6 +265,13 @@ throw new Error('login');
 })();
 // ==================== 数据层 ====================
 var SK='scmn_cms_data_v2';
+var CMS_CACHE=null;
+var IDB_DB=null;
+var IDB_READY=false;
+var _saveQueue=null;
+function idbOpen(){return new Promise(function(resolve,reject){var req=indexedDB.open('scmnsh_cms',1);req.onupgradeneeded=function(e){var db=e.target.result;if(!db.objectStoreNames.contains('data'))db.createObjectStore('data');};req.onsuccess=function(e){IDB_DB=e.target.result;resolve(IDB_DB);};req.onerror=function(e){reject(e.target.error);};});}
+function idbLoad(){return new Promise(function(resolve,reject){if(!IDB_DB){resolve(null);return;}var tx=IDB_DB.transaction('data','readonly');var store=tx.objectStore('data');var req=store.get('cms_data');req.onsuccess=function(){resolve(req.result);};req.onerror=function(){reject(req.error);};});}
+function idbSave(data){return new Promise(function(resolve,reject){if(!IDB_DB){resolve();return;}var tx=IDB_DB.transaction('data','readwrite');var store=tx.objectStore('data');var req=store.put(data,'cms_data');req.onsuccess=function(){resolve();};req.onerror=function(){reject(req.error);};});}
 function defData(){return{
 banner:[],about:{en:'ABOUT US',cn:'了解商会',img:'',p1:'',p2:'',link:'#',stats:[]},
 leadership:[],president:{name:'',title:'',img:'',content:''},
@@ -272,8 +281,8 @@ news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
 joinus:{title:'加入我们',req:'',process:'',contact:''},
 footer:{title:'四川省闽南商会',keywords:'',desc:'',headerLogo:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
 };}
-function L(){try{var r=localStorage.getItem(SK);if(r){var d=JSON.parse(r),df=defData();for(var k in df)if(!(k in d))d[k]=df[k];return d}}catch(e){T('数据读取异常，已重置为空数据！如之前有内容请检查备份','error');console.error('CMS数据解析失败：',e);return defData();}}
-function S(d){try{localStorage.setItem(SK,JSON.stringify(d));}catch(e){T('保存失败：'+e.message,'error');}}
+function L(){if(CMS_CACHE)return JSON.parse(JSON.stringify(CMS_CACHE));return defData();}
+function S(d){try{var cloned=JSON.parse(JSON.stringify(d));CMS_CACHE=cloned;}catch(e){T('保存失败：数据序列化异常','error');console.error('S() JSON clone error:',e);return;}// 始终先写 localStorage 作为紧急备份try{var js=JSON.stringify(CMS_CACHE);localStorage.setItem(SK,js);}catch(e){/* localStorage 可能满了 */}if(!IDB_READY){// IndexedDB 还没初始化完，把数据暂存，等就绪后自动写入_saveQueue=CMS_CACHE;console.warn('IndexedDB 未就绪，数据已暂存内存，待就绪后自动保存');return;}idbSave(CMS_CACHE).then(function(){console.log('IndexedDB 保存成功');}).catch(function(e){console.error('IndexedDB 保存失败：',e);// IndexedDB 失败时，localStorage 已是备份if(e.name==='QuotaExceededError'||e.toString().indexOf('quota')>-1||e.toString().indexOf('Quota')>-1){T('存储空间不足！请到控制台点击"极限压缩全部图片"释放空间','error');}else{T('IndexedDB 保存失败：'+e.message+'（数据已暂存本地缓存，请勿关闭页面）','warning');}});}
 function T(m,t){var e=document.getElementById('toast');e.textContent=m;e.className='toast '+(t||'success')+' show';clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('show')},2000);}
 function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 
@@ -325,6 +334,14 @@ var items=[
 {icon:'gold',fa:'fa-star',num:d.strategy.length,label:'战略伙伴'}
 ];
 document.getElementById('dash-stats').innerHTML=items.map(function(i){return'<div class="stat-card"><div class="icon '+i.icon+'"><i class="fa '+i.fa+'"></i></div><div><div class="num">'+i.num+'</div><div class="label">'+i.label+'</div></div></div>';}).join('');
+// 显示数据占用（IndexedDB 存储，上限可达数百MB）
+var raw=JSON.stringify(CMS_CACHE||d);
+var kb=Math.round(raw.length/1024);
+var info=document.getElementById('storage-info');
+if(info){
+if(kb>=1024){info.innerHTML='<i class="fa fa-database"></i> 数据占用：<b style="color:#e67e22">'+(kb/1024).toFixed(1)+' MB</b>（IndexedDB 存储）';}
+else{info.innerHTML='<i class="fa fa-database"></i> 数据占用：<b style="color:#27ae60">'+kb+' KB</b>（IndexedDB 存储）';}
+}
 }
 
 // ==================== 通用表格渲染 ====================
@@ -386,7 +403,7 @@ c.innerHTML=h;
 	if(Array.isArray(d[key])){d[key][i][field]=value;S(d);}
 	}
 // 本地上传图片转 base64
-function uploadImg(btn,key,i,field){var inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=function(){var f=this.files[0];if(!f)return;compressImg(f,function(b64){uF(key,i,field,b64);var td=btn.parentElement;var mi=td.querySelector('.mini-input');if(mi)mi.value=b64;var pv=td.querySelector('.preview-img');if(pv){pv.src=b64;}else{var np=document.createElement('img');np.className='preview-img';np.src=b64;td.insertBefore(np,td.firstChild);}});};inp.click();}
+function uploadImg(btn,key,i,field){var inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=function(){var f=this.files[0];if(!f)return;try{compressImg(f,function(b64){try{uF(key,i,field,b64);var td=btn.parentElement;var mi=td.querySelector('.mini-input');if(mi)mi.value=b64;var pv=td.querySelector('.preview-img');if(pv){pv.src=b64;}else{var np=document.createElement('img');np.className='preview-img';np.src=b64;td.insertBefore(np,td.firstChild);}var kb=Math.round(b64.length/1024);if(kb>200){T('图片已上传（'+kb+'KB），体积较大建议更换小图','warning');}else{T('图片已上传（'+kb+'KB）','success');}}catch(e2){T('保存失败：'+e2.message,'error');}});}catch(e){T('上传失败：'+e.message,'error');}};inp.click();}
 function getCurrentPage(){
 var a=document.querySelector('.sidebar nav a.active');
 return a?a.getAttribute('data-page'):'dashboard';
@@ -499,8 +516,8 @@ function renderFooter(d){var f=d.footer;document.getElementById('ft-title').valu
 function saveFooter(){var d=L();var f=d.footer;f.title=document.getElementById('ft-title').value;f.keywords=document.getElementById('ft-keywords').value;f.desc=document.getElementById('ft-desc').value;f.headerLogo=document.getElementById('ft-header-logo').value;f.logo=document.getElementById('ft-logo').value;f.slogan=document.getElementById('ft-slogan').value;f.email=document.getElementById('ft-email').value;f.phone=document.getElementById('ft-phone').value;f.addr=document.getElementById('ft-addr').value;f.icp=document.getElementById('ft-icp').value;f.copyright=document.getElementById('ft-copyright').value;S(d);T('联系方式已保存');}
 
 // ==================== 导入导出与发布 ====================
-function compressImg(file,cb){var r=new FileReader();r.onload=function(e){var img=new Image();img.onload=function(){var c=document.createElement('canvas');var maxW=400;var w=img.width,h=img.height;if(w>maxW){h=Math.round(h*maxW/w);w=maxW;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);cb(c.toDataURL('image/jpeg',0.6));};img.src=e.target.result;};r.readAsDataURL(file);}
-function uploadToField(fieldId){var inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=function(){var f=this.files[0];if(!f)return;compressImg(f,function(b64){document.getElementById(fieldId).value=b64;});};inp.click();}
+function compressImg(file,cb){var r=new FileReader();r.onerror=function(){T('文件读取失败，请重试','error');};r.onload=function(e){var img=new Image();img.onerror=function(){T('图片格式不支持，请选择 JPG/PNG/GIF 图片','error');};img.onload=function(){var c=document.createElement('canvas');var maxW=300;var w=img.width,h=img.height;if(w>maxW){h=Math.round(h*maxW/w);w=maxW;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);cb(c.toDataURL('image/jpeg',0.5));};img.src=e.target.result;};r.readAsDataURL(file);}
+function uploadToField(fieldId){var inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=function(){var f=this.files[0];if(!f)return;try{compressImg(f,function(b64){try{document.getElementById(fieldId).value=b64;var kb=Math.round(b64.length/1024);if(kb>200){T('图片已上传（'+kb+'KB），体积较大建议更换小图','warning');}else{T('图片已上传（'+kb+'KB）','success');}}catch(e2){T('保存失败：'+e2.message,'error');}});}catch(e){T('上传失败：'+e.message,'error');}};inp.click();}
 function getGitHubToken(){
 var t=localStorage.getItem('scmn_gh_token');
 if(!t){t=prompt('首次使用需要 GitHub Token（仅需一次）：\n\n1. 新窗口打开 https://github.com/settings/tokens\n2. Generate new token (classic)\n3. 勾选 repo，点 Generate\n4. 复制 token 粘贴到下方：\n','');if(t){localStorage.setItem('scmn_gh_token',t);T('Token 已保存，再次点击发布即可','success');return null;}}
@@ -508,6 +525,8 @@ return t||null;
 }
 function compressBase64Async(b64){return new Promise(function(resolve){if(!b64||b64.length<200||!/^data:image/.test(b64)){resolve(b64);return;}var img=new Image();img.onload=function(){var c=document.createElement('canvas');var maxW=800;var w=img.width,h=img.height;if(w>maxW){h=Math.round(h*maxW/w);w=maxW;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);resolve(c.toDataURL('image/jpeg',0.7));};img.onerror=function(){resolve(b64);};img.src=b64;});}
 async function compressAllImages(d){var isB64=/^data:image/;var tasks=[];function walk(obj){if(!obj||typeof obj!=='object')return;if(Array.isArray(obj)){for(var i=0;i<obj.length;i++)walk(obj[i]);return;}for(var k in obj){var v=obj[k];if(typeof v==='string'&&isB64.test(v)&&v.length>200){(function(key){tasks.push(compressBase64Async(v).then(function(r){obj[key]=r;}));})(k);}else if(typeof v==='object'){walk(v);}}}walk(d);await Promise.all(tasks);T('图片压缩完成（共'+tasks.length+'张）','success');}
+function compactBase64Async(b64){return new Promise(function(resolve){if(!b64||b64.length<200||!/^data:image/.test(b64)){resolve(b64);return;}var img=new Image();img.onerror=function(){resolve(b64);};img.onload=function(){var c=document.createElement('canvas');var maxW=300;var w=img.width,h=img.height;if(w>maxW){h=Math.round(h*maxW/w);w=maxW;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);resolve(c.toDataURL('image/jpeg',0.5));};img.src=b64;});}
+async function compactAllImages(){if(!confirm('将把所有图片极限压缩为300px宽、JPEG-50%质量，以释放存储空间。\n\n建议先"备份数据 JSON"以防万一。\n\n确定继续？'))return;T('正在极限压缩...','warning');try{var d=L();var backup=JSON.parse(JSON.stringify(d));var isB64=/^data:image/;var tasks=[];function walk(obj){if(!obj||typeof obj!=='object')return;if(Array.isArray(obj)){for(var i=0;i<obj.length;i++)walk(obj[i]);return;}for(var k in obj){var v=obj[k];if(typeof v==='string'&&isB64.test(v)&&v.length>200){(function(key){tasks.push(compactBase64Async(v).then(function(r){obj[key]=r;}));})(k);}else if(typeof v==='object'){walk(v);}}}walk(d);await Promise.all(tasks);try{localStorage.setItem(SK+'_backup',JSON.stringify(backup));}catch(e2){}S(d);var before=Math.round(JSON.stringify(backup).length/1024);var after=Math.round(JSON.stringify(d).length/1024);var saved=before-after;T('极限压缩完成！共 '+tasks.length+' 张，从 '+before+'KB → '+after+'KB'+(saved>0?'，节省 '+saved+'KB':''),'success');renderPage('dashboard');}catch(e){T('压缩失败：'+e.message,'error');}}
 async function publishSite(){
 var token=getGitHubToken();
 if(!token){T('需要 GitHub Token 才能自动发布','error');return;}
@@ -548,19 +567,31 @@ T('备份已导出');
 }
 function importData(inp){
 var f=inp.files[0];if(!f)return;
-var r=new FileReader();r.onload=function(e){try{var d=JSON.parse(e.target.result);localStorage.setItem(SK,JSON.stringify(d));T('导入成功，页面将刷新');setTimeout(function(){location.reload()},1000);}catch(err){T('文件格式错误','error');}};r.readAsText(f);
+var r=new FileReader();r.onload=function(e){try{var d=JSON.parse(e.target.result);CMS_CACHE=d;if(IDB_DB){idbSave(d).catch(function(){});}try{localStorage.setItem(SK+'_backup',JSON.stringify(d));}catch(e2){}T('导入成功，页面将刷新');setTimeout(function(){location.reload()},1000);}catch(err){T('文件格式错误','error');}};r.readAsText(f);
 }
-function clearAllData(){localStorage.removeItem(SK);T('数据已清空，页面将刷新');setTimeout(function(){location.reload()},1000);}
+function clearAllData(){CMS_CACHE=defData();if(IDB_DB){idbSave(CMS_CACHE).catch(function(){});}try{localStorage.removeItem(SK);localStorage.removeItem(SK+'_backup');}catch(e){}T('数据已清空，页面将刷新');setTimeout(function(){location.reload()},1000);}
 
 // ==================== 退出 ====================
 function logout(){if(confirm('确定退出登录？')){sessionStorage.removeItem('cms_logged_in');localStorage.removeItem('cms_logged_in');localStorage.removeItem('cms_login_expire');location.reload();}}
 
 // ==================== 初始化 ====================
-(function(){
-var d=L();
-// 兼容添加 partyNews
-if(!d.party.news)d.party.news=[];
-renderDash(d);
+(async function(){
+// 1. 初始化 IndexedDB
+var idbOk=false;
+try{await idbOpen();var idbData=await idbLoad();if(idbData){CMS_CACHE=idbData;}idbOk=true;}catch(e){console.error('IndexedDB 初始化失败：',e);}
+// 2. 如果 IndexedDB 没数据，尝试从 localStorage 迁移
+if(!CMS_CACHE){try{var legacy=localStorage.getItem(SK);if(legacy){CMS_CACHE=JSON.parse(legacy);}}catch(e){console.error('localStorage 数据迁移失败：',e);}}
+// 3. 兜底
+if(!CMS_CACHE){CMS_CACHE=defData();}
+// 4. 补齐缺失字段
+var df=defData();for(var k in df){if(!(k in CMS_CACHE))CMS_CACHE[k]=df[k];}
+if(!CMS_CACHE.party.news)CMS_CACHE.party.news=[];
+// 5. 标记就绪
+IDB_READY=true;
+// 6. 如果 IndexedDB 可用，写入初始数据 + 暂存队列
+if(idbOk&&IDB_DB){if(_saveQueue){CMS_CACHE=_saveQueue;_saveQueue=null;}idbSave(CMS_CACHE).catch(function(e){console.error('初始保存失败：',e);});}
+else{console.warn('IndexedDB 不可用，仅依赖 localStorage（数据量较大时可能保存失败）');}
+renderDash(CMS_CACHE);
 })();
 </script>
 </body>
