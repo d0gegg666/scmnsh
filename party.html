@@ -6,7 +6,7 @@
 <title>商会党建 - 四川省闽南商会</title>
 <meta name="keywords" content="四川省闽南商会,商会党建,党委">
 <meta name="description" content="四川省闽南商会党建工作">
-<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="icon" type="image/png" href="logo-header.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#CC0000',gold:'#C9A84C'}}}}</script>
@@ -19,8 +19,6 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .header{width:100%;height:130px;background:linear-gradient(135deg,#1a0000,#4d0000,#800000)}
 .header-inner{width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:130px}
 .header-logo{display:flex;align-items:center;gap:20px}.header-logo img{height:80px;width:auto}
-.header-logo-text h1{font-size:28px;font-weight:700;color:#fff;letter-spacing:6px}
-.header-logo-text p{font-size:11px;color:#C9A84C;letter-spacing:3px;margin-top:4px}
 .header-slogan{color:#fff;font-size:16px;letter-spacing:2px}
 .navbar{width:100%;height:52px;background:#CC0000;position:sticky;top:0;z-index:999}
 .navbar-inner{width:1200px;margin:0 auto;display:flex;align-items:center;height:52px}
@@ -72,7 +70,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 </head>
 <body>
 <div class="topbar"><div class="topbar-inner"><div class="topbar-welcome">欢迎访问 <span><a href="index.html" style="color:#999">四川省闽南商会官方网站</a></span> 今天是<input type="text" id="topDate" readonly style="border:0;background:none;color:#999;font-size:12px;width:160px"></div></div></div>
-<div class="header"><div class="header-inner"><div class="header-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会" id="headerLogoImg"></a><a href="index.html"><div class="header-logo-text" id="headerLogoText"><h1>四川省闽南商会</h1><p>MINNAN CHAMBER OF COMMERCE IN SICHUAN PROVINCE</p></div></a></div><div class="header-slogan">凝聚闽商力量<span style="color:#C9A84C;font-size:22px;"> · </span>服务川闽发展</div></div></div>
+<div class="header"><div class="header-inner"><div class="header-logo"><a href="index.html"><img src="logo-header.png" alt="四川省闽南商会" id="headerLogoImg"></a></div><div class="header-slogan">凝聚闽商力量<span style="color:#C9A84C;font-size:22px;"> · </span>服务川闽发展</div></div></div>
 <div class="navbar"><div class="navbar-inner"><ul class="navbar-menu">
 <li><a href="index.html">网站首页</a></li>
 <li><a href="about.html">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html?page=honors">荣誉历程</a></li><li><a href="about.html?page=president">会长寄语</a></li><li><a href="about.html?page=leadership">领导班子</a></li><li><a href="about.html?page=milestones">大事记</a></li></ul></li>
@@ -92,10 +90,10 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 </div>
 
 <div class="footer"><div class="footer-inner">
-<div class="footer-logo"><a href="index.html"><img src="logo.jpg" alt="四川省闽南商会" id="footerLogo"><p style="color:#C9A84C;font-size:10px;margin-top:4px">MINNAN CHAMBER</p></a></div>
+<div class="footer-logo"><a href="index.html"><img src="logo-footer.png" alt="四川省闽南商会" id="footerLogo"></a></div>
 <div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="joinus.html">加入我们</a></div>
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
-<div class="footer-qr"><img src="logo.jpg" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo.jpg" alt="手机网站"><p>手机网站</p></div>
+<div class="footer-qr"><img src="logo-footer.png" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo-footer.png" alt="手机网站"><p>手机网站</p></div>
 </div></div>
 <div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
 
@@ -107,7 +105,7 @@ function closeImgLightbox(){var l=document.getElementById("imgLightbox");if(l){l
 (function u(){var d=new Date();var days=['日','一','二','三','四','五','六'];var el=document.getElementById('topDate');if(el)el.value=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 星期'+days[d.getDay()];setTimeout(u,60000);})();
 
 function renderParty(){
-var d=window.__CMS_DATA__;if(!d)return;var f=d.footer;if(f){if(f.headerLogo){var hli=document.getElementById("headerLogoImg");if(hli)hli.src=f.headerLogo;var hlt=document.getElementById("headerLogoText");if(hlt)hlt.style.display="none";}if(f.logo){var fli=document.getElementById("footerLogo");if(fli)fli.src=f.logo;}}
+var d=window.__CMS_DATA__;if(!d)return;var f=d.footer;if(f){if(f.headerLogo){var hli=document.getElementById("headerLogoImg");if(hli)hli.src=f.headerLogo;}if(f.logo){var fli=document.getElementById("footerLogo");if(fli)fli.src=f.logo;}}
 var p=d.party||{},c=document.getElementById('partyContent');
 var page=(location.search||'').match(/p=(\w+)/);
 page=page?page[1]:'intro';
