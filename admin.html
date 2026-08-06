@@ -87,6 +87,7 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="about"><i class="fa fa-info-circle"></i> 商会简介</a>
 <a href="#" data-page="leadership"><i class="fa fa-users"></i> 领导班子</a>
 <a href="#" data-page="president"><i class="fa fa-quote-right"></i> 会长寄语</a>
+<a href="#" data-page="honors"><i class="fa fa-trophy"></i> 荣誉历程</a>
 <a href="#" data-page="milestones"><i class="fa fa-history"></i> 大事记</a>
 <div class="nav-group">党建管理</div>
 <a href="#" data-page="party"><i class="fa fa-flag"></i> 商会党建</a>
@@ -167,6 +168,9 @@ table .mini-input:focus{border-color:#C41230;}
 <button class="btn btn-primary" onclick="savePresident()"><i class="fa fa-save"></i> 保存</button>
 </div></div>
 
+
+<!-- ====== 荣誉历程 ====== -->
+<div class="page" id="page-honors"><div class="card"><div class="card-header"><i class="fa fa-trophy"></i> 荣誉历程 <span class="tip">（商会获得的荣誉和奖项）</span></div><div id="honors-list"></div><button class="btn btn-primary" onclick="addItem('honors',{year:'',title:'',desc:'',img:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加荣誉</button></div></div>
 
 <!-- ====== 大事记 ====== -->
 <div class="page" id="page-milestones"><div class="card"><div class="card-header"><i class="fa fa-history"></i> 大事记 <span class="tip">（商会发展历程中的重要事件）</span></div><div id="ms-list"></div><button class="btn btn-primary" onclick="addItem('milestones',{year:'',month:'',title:'',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加事件</button></div></div>
