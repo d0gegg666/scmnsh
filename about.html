@@ -131,7 +131,7 @@ document.querySelectorAll('.tab-nav a').forEach(function(a){a.classList.toggle('
 
 var a=d.about||{};
 if(page==='intro'){
-var img=a.img||'logo-header.png';
+var img=a.img||'logo-icon.png';
 c.innerHTML='<div class="card"><div style="display:flex;gap:30px;flex-wrap:wrap"><div style="width:300px;flex-shrink:0"><img src="'+esc(img)+'" style="width:100%;height:250px;object-fit:cover;border-radius:4px"></div><div style="flex:1;min-width:400px"><p style="margin-bottom:15px;font-size:14px;color:#555;line-height:2;text-indent:2em">'+esc(a.p1||'商会简介内容待添加')+'</p><p style="font-size:14px;color:#555;line-height:2;text-indent:2em">'+esc(a.p2||'')+'</p></div></div></div>';
 }else if(page==='honors'){
 if(d.honors&&d.honors.length>0){c.innerHTML='<div class="honor-grid">'+d.honors.map(function(h){return'<div class="honor-card"><div class="icon"><i class="fa fa-trophy"></i></div><div><h4>'+esc(h.title||'')+'</h4><div class="year">'+esc(h.year||'')+'</div><div style="font-size:12px;color:#888;margin-top:4px">'+esc(h.desc||'')+'</div></div></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-trophy"></i><p>荣誉历程内容待添加</p></div>';}
