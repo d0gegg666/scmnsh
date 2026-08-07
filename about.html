@@ -81,6 +81,12 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .footer-qr{text-align:center;flex-shrink:0}
 .footer-qr img{width:90px;height:90px;margin-bottom:6px}
 .footer-qr p{font-size:12px}
+.sidebar-layout{display:flex;gap:30px;min-height:400px}
+.sidebar-left{width:200px;flex-shrink:0;background:#f8f5f0;border-radius:8px;padding:0;overflow:hidden}
+.sidebar-left a{display:block;padding:14px 20px;font-size:15px;color:#333;border-bottom:1px solid #eee;transition:all 0.2s;text-decoration:none}
+.sidebar-left a:hover{background:#e8e0d5;color:#CC0000}
+.sidebar-left a.active{background:#CC0000;color:#fff;font-weight:700}
+.sidebar-right{flex:1;min-width:0}
 #imgLightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;align-items:center;justify-content:center}
 #imgLightbox>span{position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer}
 #imgLightbox img{max-width:90%;max-height:90%;object-fit:contain}
@@ -151,14 +157,28 @@ var sections=[
 {key:'secretariat',label:'秘书处'},
 {key:'advisor',label:'顾问'}
 ];
-var html='';
+// 构建全局成员渲染函数
+var buildGrid=function(cat){
+var members=d.leadership.filter(function(m){return m.name&&m.category===cat;}).sort(function(a,b){return(a.sort||0)-(b.sort||0);});
+if(!members.length)return'<div class="empty-tip"><i class="fa fa-users"></i><p>该分类暂无成员</p></div>';
+return'<div class="leader-grid">'+members.map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+esc(m.img)+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('')+'</div>';
+};
+var firstCat=(sections.find(function(s){return d.leadership.some(function(m){return m.name&&m.category===s.key;});})||sections[0]).key;
+var html='<div class="sidebar-layout"><div class="sidebar-left">';
 sections.forEach(function(sec){
-var members=d.leadership.filter(function(m){return m.name&&m.category===sec.key;}).sort(function(a,b){return(a.sort||0)-(b.sort||0);});
-if(members.length===0)return;
-html+='<h3 style="margin:30px 0 16px;padding-left:12px;border-left:4px solid #CC0000;font-size:18px">'+sec.label+'</h3>';
-html+='<div class="leader-grid">'+members.map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+esc(m.img)+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('')+'</div>';
+var has=d.leadership.some(function(m){return m.name&&m.category===sec.key;});
+html+='<a href="#" class="ld-sidelink'+(sec.key===firstCat?' active':'')+'" data-cat="'+sec.key+'" onclick="switchLdSideCat(\''+sec.key+'\');return false;">'+sec.label+'</a>';
 });
-c.innerHTML=html||'<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';
+html+='</div><div class="sidebar-right" id="ld-side-content">'+buildGrid(firstCat)+'</div></div>';
+c.innerHTML=html;
+// 挂载切换函数
+window._ldBuildGrid=buildGrid;
+window.switchLdSideCat=function(cat){
+document.querySelectorAll('.ld-sidelink').forEach(function(a){a.classList.remove('active');});
+var link=document.querySelector('.ld-sidelink[data-cat="'+cat+'"]');
+if(link)link.classList.add('active');
+document.getElementById('ld-side-content').innerHTML=buildGrid(cat);
+};
 }else{c.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
 }else if(page==='milestones'){
 if(d.milestones&&d.milestones.length>0){c.innerHTML='<div class="timeline">'+d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return'<div class="timeline-item"><div class="year">'+esc(m.year||'')+'</div><div style="font-size:14px;color:#555;line-height:2;white-space:pre-line">'+esc(m.content||'')+'</div></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
