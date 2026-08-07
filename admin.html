@@ -503,7 +503,7 @@ st.forEach(function(s,i){h+='<tr><td><input class="mini-input" value="'+esc(s.nu
 h+='</tbody></table></div>';sc.innerHTML=h;
 }
 function addStat(){var d=L();if(!d.about.stats)d.about.stats=[];d.about.stats.push({num:'0',unit:'个',label:'新统计项'});S(d);renderPage('about');}
-function addLeader(cat){var d=L();if(!d.leadership)d.leadership=[];d.leadership.push({name:'',title:'',img:'',desc:'',sort:0,category:cat});S(d);renderPage('leadership');T('已添加成员','success');}
+function addLeader(cat){var d=L();if(!d.leadership)d.leadership=[];var sameCat=d.leadership.filter(function(m){return m.category===cat;});var nextSort=sameCat.length>0?Math.max.apply(null,sameCat.map(function(m){return m.sort||0;}))+1:1;d.leadership.push({name:'',title:'',img:'',desc:'',sort:nextSort,category:cat});S(d);renderPage('leadership');T('已添加成员','success');}
 function addBanner(){var d=L();if(!d.banner)d.banner=[];d.banner.push({img:'',title:'',subtitle:'',btnText:'',btnLink:'#',sort:0});S(d);renderPage('banner');T('已添加Banner','success');}
 function dSA(i){var d=L();d.about.stats.splice(i,1);S(d);renderPage('about');}
 function uSA(i,f,v){var d=L();d.about.stats[i][f]=v;S(d);}
