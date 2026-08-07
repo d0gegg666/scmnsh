@@ -149,8 +149,7 @@ table .mini-input:focus{border-color:#C41230;}
 <div class="card"><div class="card-header"><i class="fa fa-info-circle"></i> 商会简介</div>
 <div class="form-row"><div class="form-group"><label>英文标题</label><input class="form-control" id="af-en"></div><div class="form-group"><label>中文标题</label><input class="form-control" id="af-cn"></div></div>
 <div class="form-group"><label>简介图片</label><div style="display:flex;gap:8px;"><input class="form-control" id="af-img" style="flex:1;"><button class="btn btn-outline btn-sm" onclick="uploadToField('af-img')" style="white-space:nowrap;"><i class="fa fa-upload"></i> 本地上传</button></div></div>
-<div class="form-group"><label>简介内容（段落1）</label><textarea class="form-control" id="af-p1" rows="3"></textarea></div>
-<div class="form-group"><label>简介内容（段落2）</label><textarea class="form-control" id="af-p2" rows="3"></textarea></div>
+<div class="form-group"><label>简介内容</label><textarea class="form-control" id="af-content" rows="8" style="white-space:pre-wrap"></textarea></div>
 <div class="form-group"><label>"查看更多"链接</label><input class="form-control" id="af-link"></div>
 <button class="btn btn-primary" onclick="saveAbout()"><i class="fa fa-save"></i> 保存</button>
 </div>
@@ -281,7 +280,7 @@ function idbOpen(){return new Promise(function(resolve,reject){var req=indexedDB
 function idbLoad(){return new Promise(function(resolve,reject){if(!IDB_DB){resolve(null);return;}var tx=IDB_DB.transaction('data','readonly');var store=tx.objectStore('data');var req=store.get('cms_data');req.onsuccess=function(){resolve(req.result);};req.onerror=function(){reject(req.error);};});}
 function idbSave(data){return new Promise(function(resolve,reject){if(!IDB_DB){resolve();return;}var tx=IDB_DB.transaction('data','readwrite');var store=tx.objectStore('data');var req=store.put(data,'cms_data');req.onsuccess=function(){resolve();};req.onerror=function(){reject(req.error);};});}
 function defData(){return{
-banner:[],about:{en:'ABOUT US',cn:'了解商会',img:'',p1:'',p2:'',link:'#',stats:[]},
+banner:[],about:{en:'ABOUT US',cn:'了解商会',img:'',content:'',link:'#',stats:[]},
 leadership:[],president:{name:'',title:'',img:'',content:''},
 honors:[],milestones:[],
 party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[],history:[]},
@@ -424,8 +423,12 @@ return a?a.getAttribute('data-page'):'dashboard';
 function renderAbout(d){
 var a=d.about;
 document.getElementById('af-en').value=a.en||'';document.getElementById('af-cn').value=a.cn||'';
-document.getElementById('af-img').value=a.img||'';document.getElementById('af-p1').value=a.p1||'';
-document.getElementById('af-p2').value=a.p2||'';document.getElementById('af-link').value=a.link||'#';
+document.getElementById('af-img').value=a.img||'';
+// 优先使用 content，兼容旧的 p1+p2 数据
+var c=a.content||'';
+if(!c&&(a.p1||a.p2)){c=(a.p1||'')+'\n\n'+(a.p2||'');}
+document.getElementById('af-content').value=c;
+document.getElementById('af-link').value=a.link||'#';
 var sc=document.getElementById('stats-list');
 var st=a.stats||[];
 if(st.length===0){sc.innerHTML='<div class="empty-state"><i class="fa fa-bar-chart"></i><p>暂无统计数据</p></div>';return;}
@@ -438,7 +441,7 @@ function addLeader(){var d=L();if(!d.leadership)d.leadership=[];d.leadership.pus
 function addBanner(){var d=L();if(!d.banner)d.banner=[];d.banner.push({img:'',title:'',subtitle:'',btnText:'',btnLink:'#',sort:0});S(d);renderPage('banner');T('已添加Banner','success');}
 function dSA(i){var d=L();d.about.stats.splice(i,1);S(d);renderPage('about');}
 function uSA(i,f,v){var d=L();d.about.stats[i][f]=v;S(d);}
-function saveAbout(){var d=L();d.about.en=document.getElementById('af-en').value;d.about.cn=document.getElementById('af-cn').value;d.about.img=document.getElementById('af-img').value;d.about.p1=document.getElementById('af-p1').value;d.about.p2=document.getElementById('af-p2').value;d.about.link=document.getElementById('af-link').value;S(d);T('商会简介已保存');}
+function saveAbout(){var d=L();d.about.en=document.getElementById('af-en').value;d.about.cn=document.getElementById('af-cn').value;d.about.img=document.getElementById('af-img').value;d.about.content=document.getElementById('af-content').value;d.about.link=document.getElementById('af-link').value;S(d);T('商会简介已保存');}
 
 // ==================== 会长寄语 ====================
 function renderPresident(d){var p=d.president;document.getElementById('pm-name').value=p.name||'';document.getElementById('pm-title').value=p.title||'';document.getElementById('pm-img').value=p.img||'';document.getElementById('pm-content').value=p.content||'';}

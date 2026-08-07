@@ -273,7 +273,8 @@ return'<li><a href="'+(n.link||'news-detail.html?id='+n.id)+'">'+esc(n.title||''
 
 // 商会概况预览
 if(data.about){
-setText('aboutPreviewText',(data.about.p1||'商会简介内容待添加').substring(0,200)+'...');
+var aboutPreview=(data.about.content||data.about.p1||'商会简介内容待添加');
+document.getElementById('aboutPreviewText').textContent=aboutPreview.substring(0,200)+'...';
 }
 
 // 会员风采
