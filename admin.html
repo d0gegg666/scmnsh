@@ -650,7 +650,7 @@ function importData(inp){
 var f=inp.files[0];if(!f)return;
 var r=new FileReader();r.onload=function(e){try{var d=JSON.parse(e.target.result);CMS_CACHE=d;if(IDB_DB){idbSave(d).catch(function(){});}try{localStorage.setItem(SK+'_backup',JSON.stringify(d));}catch(e2){}T('导入成功，页面将刷新');setTimeout(function(){location.reload()},1000);}catch(err){T('文件格式错误','error');}};r.readAsText(f);
 }
-function clearAllData(){CMS_CACHE=defData();if(IDB_DB){idbSave(CMS_CACHE).catch(function(){});}try{localStorage.removeItem(SK);localStorage.removeItem(SK+'_backup');}catch(e){}T('数据已清空，页面将刷新');setTimeout(function(){location.reload()},1000);}
+function clearAllData(){if(IDB_DB){var tx=IDB_DB.transaction('data','readwrite');tx.objectStore('data').delete('cms_data');}try{localStorage.removeItem(SK);localStorage.removeItem(SK+'_backup');}catch(e){}T('缓存已清空，页面将刷新并从data.js加载');setTimeout(function(){location.reload()},1500);}
 
 // ==================== 退出 ====================
 function logout(){if(confirm('确定退出登录？')){sessionStorage.removeItem('cms_logged_in');localStorage.removeItem('cms_logged_in');localStorage.removeItem('cms_login_expire');location.reload();}}
@@ -662,9 +662,12 @@ var idbOk=false;
 try{await idbOpen();var idbData=await idbLoad();if(idbData){CMS_CACHE=idbData;}idbOk=true;}catch(e){console.error('IndexedDB 初始化失败：',e);}
 // 2. 如果 IndexedDB 没数据，尝试从 localStorage 迁移
 if(!CMS_CACHE){try{var legacy=localStorage.getItem(SK);if(legacy){CMS_CACHE=JSON.parse(legacy);}}catch(e){console.error('localStorage 数据迁移失败：',e);}}
-// 3. 尝试从 data.js 加载
-if(!CMS_CACHE){try{var resp=await fetch('data.js?t='+Date.now());var text=await resp.text();var m=text.match(/window\.__CMS_DATA__\s*=\s*(\{[\s\S]*\})/);if(m){CMS_CACHE=JSON.parse(m[1]);console.log('已从 data.js 加载数据');}}catch(e){console.log('data.js 加载失败，使用默认数据:',e.message);}}
-// 4. 兜底
+// 3. 判断数据是否为空壳（被 clearAllData 污染）
+function isEmpty(d){return (!d.leadership||d.leadership.length===0)&&(!d.news||d.news.length===0)&&(!d.honors||d.honors.length===0)&&(!d.banner||d.banner.length===0);}
+if(CMS_CACHE&&isEmpty(CMS_CACHE)){CMS_CACHE=null;}
+// 4. 尝试从 data.js 加载
+if(!CMS_CACHE){try{var resp=await fetch('data.js?t='+Date.now());var text=await resp.text();var m=text.match(/window\.__CMS_DATA__\s*=\s*(\{[\s\S]*\})/);if(m){CMS_CACHE=JSON.parse(m[1]);console.log('已从 data.js 加载数据');}}catch(e){console.log('data.js 加载失败:',e.message);}}
+// 5. 兜底
 if(!CMS_CACHE){CMS_CACHE=defData();}
 // 4. 补齐缺失字段
 var df=defData();for(var k in df){if(!(k in CMS_CACHE))CMS_CACHE[k]=df[k];}
