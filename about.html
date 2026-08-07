@@ -144,7 +144,22 @@ if(d.honors&&d.honors.length>0){c.innerHTML='<div class="honor-grid">'+d.honors.
 var pd=d.president||{};
 c.innerHTML='<div class="card" style="display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap"><div style="width:200px;text-align:center;flex-shrink:0"><img src="'+(pd.img||'logo-header.png')+'" style="width:180px;height:220px;object-fit:cover;border-radius:4px;background:#f0ebe3"><div style="font-size:16px;font-weight:700;margin-top:8px">'+esc(pd.name||'会长')+'</div><div style="font-size:13px;color:#CC0000">'+esc(pd.title||'')+'</div></div><div style="flex:1;min-width:400px"><p style="font-size:14px;color:#555;line-height:2;white-space:pre-line">'+esc(pd.content||'会长寄语内容待添加')+'</p></div></div>';
 }else if(page==='leadership'){
-if(d.leadership&&d.leadership.length>0){c.innerHTML='<div class="leader-grid">'+d.leadership.filter(function(m){return m.name;}).sort(function(a,b){return(a.sort||0)-(b.sort||0);}).map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+esc(m.img)+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
+if(d.leadership&&d.leadership.length>0){
+var sections=[
+{key:'council',label:'理事会领导'},
+{key:'supervisor',label:'监事会领导'},
+{key:'secretariat',label:'秘书处'},
+{key:'advisor',label:'顾问'}
+];
+var html='';
+sections.forEach(function(sec){
+var members=d.leadership.filter(function(m){return m.name&&m.category===sec.key;}).sort(function(a,b){return(a.sort||0)-(b.sort||0);});
+if(members.length===0)return;
+html+='<h3 style="margin:30px 0 16px;padding-left:12px;border-left:4px solid #CC0000;font-size:18px">'+sec.label+'</h3>';
+html+='<div class="leader-grid">'+members.map(function(m){return'<div class="leader-card">'+(m.img?'<img src="'+esc(m.img)+'" alt="'+esc(m.name||'')+'">':'<div style="width:150px;height:180px;background:#f0ebe3;margin:0 auto 10px;border-radius:4px"></div>')+'<div class="name">'+esc(m.name||'')+'</div><div class="title">'+esc(m.title||'')+'</div>'+(m.desc?'<div class="desc">'+esc(m.desc||'')+'</div>':'')+'</div>';}).join('')+'</div>';
+});
+c.innerHTML=html||'<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';
+}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-users"></i><p>领导班子信息待添加</p></div>';}
 }else if(page==='milestones'){
 if(d.milestones&&d.milestones.length>0){c.innerHTML='<div class="timeline">'+d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return'<div class="timeline-item"><div class="year">'+esc(m.year||'')+'</div><div style="font-size:14px;color:#555;line-height:2;white-space:pre-line">'+esc(m.content||'')+'</div></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
 }

@@ -157,7 +157,12 @@ table .mini-input:focus{border-color:#C41230;}
 </div>
 
 <!-- ====== 领导班子 ====== -->
-<div class="page" id="page-leadership"><div class="card"><div class="card-header"><i class="fa fa-users"></i> 领导班子 <span class="tip">（会长、执行会长、常务副会长、副会长、秘书长等）</span></div><div id="ld-list"></div><button class="btn btn-primary" onclick="addLeader()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加成员</button></div></div>
+<div class="page" id="page-leadership">
+<div class="card"><div class="card-header"><i class="fa fa-users"></i> 理事会领导</div><div id="ld-council-list"></div><button class="btn btn-primary" onclick="addLeader('council')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加理事会领导</button></div>
+<div class="card"><div class="card-header"><i class="fa fa-check-circle"></i> 监事会领导</div><div id="ld-supervisor-list"></div><button class="btn btn-primary" onclick="addLeader('supervisor')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加监事会领导</button></div>
+<div class="card"><div class="card-header"><i class="fa fa-briefcase"></i> 秘书处</div><div id="ld-secretariat-list"></div><button class="btn btn-primary" onclick="addLeader('secretariat')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加秘书处成员</button></div>
+<div class="card"><div class="card-header"><i class="fa fa-lightbulb-o"></i> 顾问</div><div id="ld-advisor-list"></div><button class="btn btn-primary" onclick="addLeader('advisor')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加顾问</button></div>
+</div>
 
 <!-- ====== 会长寄语 ====== -->
 <div class="page" id="page-president"><div class="card"><div class="card-header"><i class="fa fa-quote-right"></i> 会长寄语</div>
@@ -309,7 +314,7 @@ switch(pg){
 case'dashboard':renderDash(d);break;
 case'banner':renderTable('banner-list','banner',d.banner,['img','title','subtitle','btnText','btnLink'],{img:'图片URL',title:'标题',subtitle:'副标题',btnText:'按钮文字',btnLink:'按钮链接'},{sort:'排序'});break;
 case'about':renderAbout(d);break;
-case'leadership':renderTable('ld-list','leadership',d.leadership,['name','title','img','desc'],{name:'姓名',title:'职务',img:'照片URL',desc:'简介'},{sort:'排序'});break;
+case'leadership':renderLeadership(d);break;
 case'president':renderPresident(d);break;
 case'honors':renderTable('honors-list','honors',d.honors,['year','title','desc','img'],{year:'年份',title:'荣誉名称',desc:'描述',img:'图片URL'});break;
 case'milestones':renderMilestones(d);break;
@@ -355,6 +360,34 @@ else{info.innerHTML='<i class="fa fa-database"></i> 数据占用：<b style="col
 }
 
 // ==================== 通用表格渲染 ====================
+function renderLeadership(d){
+var items=(d.leadership||[]).slice().sort(function(a,b){return(a.sort||0)-(b.sort||0);});
+var cats=[
+{key:'council',label:'理事会领导',listId:'ld-council-list'},
+{key:'supervisor',label:'监事会领导',listId:'ld-supervisor-list'},
+{key:'secretariat',label:'秘书处',listId:'ld-secretariat-list'},
+{key:'advisor',label:'顾问',listId:'ld-advisor-list'}
+];
+cats.forEach(function(cat){
+var list=items.filter(function(m){return m.category===cat.key;});
+var el=document.getElementById(cat.listId);
+if(!list.length){el.innerHTML='<div class="empty-state">暂无成员</div>';return;}
+var h='<div class="table-wrap"><table><thead><tr><th>#</th><th>照片</th><th>姓名</th><th>职务</th><th>简介</th><th>排序</th><th>操作</th></tr></thead><tbody>';
+list.forEach(function(m){
+var idx=items.indexOf(m);
+h+='<tr><td>'+(idx+1)+'</td>';
+h+='<td>'+(m.img?'<img src="'+esc(m.img)+'" class="preview-img">':'')+'<input class="mini-input" value="'+esc(m.img||'')+'" onchange="uF(\'leadership\','+idx+',\'img\',this.value)" style="margin-top:4px;"><button class="btn btn-sm btn-outline" onclick="uploadImg(this,\'leadership\','+idx+',\'img\')" style="margin-top:2px;font-size:11px;"><i class="fa fa-upload"></i></button></td>';
+h+='<td><input class="mini-input" value="'+esc(m.name||'')+'" onchange="uF(\'leadership\','+idx+',\'name\',this.value)"></td>';
+h+='<td><input class="mini-input" value="'+esc(m.title||'')+'" onchange="uF(\'leadership\','+idx+',\'title\',this.value)"></td>';
+h+='<td><input class="mini-input" value="'+esc(m.desc||'')+'" onchange="uF(\'leadership\','+idx+',\'desc\',this.value)"></td>';
+h+='<td><input class="mini-input" value="'+esc(m.sort||0)+'" onchange="uF(\'leadership\','+idx+',\'sort\',this.value)" style="width:60px"></td>';
+h+='<td><button class="btn btn-sm btn-danger" onclick="dI(\'leadership\','+idx+')"><i class="fa fa-trash"></i></button></td></tr>';
+});
+h+='</tbody></table></div>';
+el.innerHTML=h;
+});
+}
+
 function renderMilestones(d){
 var items=(d.milestones||[]).slice().sort(function(a,b){return parseInt(b.year)-parseInt(a.year);});
 var c=document.getElementById('ms-list');
@@ -452,7 +485,7 @@ st.forEach(function(s,i){h+='<tr><td><input class="mini-input" value="'+esc(s.nu
 h+='</tbody></table></div>';sc.innerHTML=h;
 }
 function addStat(){var d=L();if(!d.about.stats)d.about.stats=[];d.about.stats.push({num:'0',unit:'个',label:'新统计项'});S(d);renderPage('about');}
-function addLeader(){var d=L();if(!d.leadership)d.leadership=[];d.leadership.push({name:'',title:'',img:'',desc:'',sort:0});S(d);renderPage('leadership');T('已添加领导班子成员','success');}
+function addLeader(cat){var d=L();if(!d.leadership)d.leadership=[];d.leadership.push({name:'',title:'',img:'',desc:'',sort:0,category:cat});S(d);renderPage('leadership');T('已添加成员','success');}
 function addBanner(){var d=L();if(!d.banner)d.banner=[];d.banner.push({img:'',title:'',subtitle:'',btnText:'',btnLink:'#',sort:0});S(d);renderPage('banner');T('已添加Banner','success');}
 function dSA(i){var d=L();d.about.stats.splice(i,1);S(d);renderPage('about');}
 function uSA(i,f,v){var d=L();d.about.stats[i][f]=v;S(d);}
