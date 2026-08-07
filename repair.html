@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>数据修复</title></head><body>
+<h2>数据修复页面</h2>
+<p id="msg">正在修复...</p>
+<script>
+window._fixDone=function(){
+  var msg=document.getElementById('msg');
+  try{
+    indexedDB.deleteDatabase('scmnsh_cms');
+    localStorage.removeItem('scmn_cms_data_v2');
+    localStorage.removeItem('scmn_cms_data_v2_backup');
+
+    var data=window.__CMS_DATA__;
+    if(!data){msg.textContent='加载失败，请刷新重试';return;}
+
+    var dbReq=indexedDB.open('scmnsh_cms',1);
+    dbReq.onupgradeneeded=function(e){e.target.result.createObjectStore('data');};
+    dbReq.onsuccess=function(e){
+      var db=e.target.result;
+      var tx=db.transaction('data','readwrite');
+      tx.objectStore('data').put(data,'cms_data');
+      tx.oncomplete=function(){
+        msg.innerHTML='✅ 修复完成！共加载数据：<br>新闻: '+data.news.length+' 条<br>领导班子: '+data.leadership.length+' 条<br>荣誉: '+data.honors.length+' 条<br>大事记: '+data.milestones.length+' 条<br><br><a href="admin.html">→ 返回后台</a>';
+      };
+      tx.onerror=function(){msg.textContent='保存失败: '+tx.error.message;};
+    };
+    dbReq.onerror=function(){msg.textContent='数据库错误: '+dbReq.error.message;};
+  }catch(e){msg.textContent='错误: '+e.message;}
+};
+</script>
+<script src="data.js" onload="window._fixDone()" onerror="document.getElementById('msg').textContent='data.js 加载失败，请检查网络'"></script>
+</body></html>
