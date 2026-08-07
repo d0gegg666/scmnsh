@@ -383,9 +383,9 @@ var list=items.filter(function(m){return m.category===cat;});
 var el=document.getElementById('ld-list');
 if(!list.length){el.innerHTML='<div class="empty-state">暂无成员</div>';return;}
 var h='<div class="table-wrap"><table><thead><tr><th>#</th><th>照片</th><th>姓名</th><th>职务</th><th>简介</th><th>排序</th><th>操作</th></tr></thead><tbody>';
-list.forEach(function(m){
-var idx=items.indexOf(m);
-h+='<tr><td>'+(idx+1)+'</td>';
+list.forEach(function(m,listIdx){
+var idx=d.leadership.indexOf(m);
+h+='<tr><td>'+(listIdx+1)+'</td>';
 h+='<td>'+(m.img?'<img src="'+esc(m.img)+'" class="preview-img">':'')+'<input class="mini-input" value="'+esc(m.img||'')+'" onchange="uF(\'leadership\','+idx+',\'img\',this.value)" style="margin-top:4px;"><button class="btn btn-sm btn-outline" onclick="uploadImg(this,\'leadership\','+idx+',\'img\')" style="margin-top:2px;font-size:11px;"><i class="fa fa-upload"></i></button></td>';
 h+='<td><input class="mini-input" value="'+esc(m.name||'')+'" onchange="uF(\'leadership\','+idx+',\'name\',this.value)"></td>';
 h+='<td><input class="mini-input" value="'+esc(m.title||'')+'" onchange="uF(\'leadership\','+idx+',\'title\',this.value)"></td>';
@@ -412,10 +412,11 @@ var c=document.getElementById('ms-list');
 if(!items||items.length===0){c.innerHTML='<div class="empty-state"><i class="fa fa-inbox"></i><p>暂无内容，点击下方按钮添加</p></div>';return;}
 var h='<div class="table-wrap"><table><thead><tr><th>#</th><th>年份</th><th>详细内容</th><th>操作</th></tr></thead><tbody>';
 items.forEach(function(item,i){
+var rawIdx=d.milestones.indexOf(item);
 h+='<tr><td>'+(i+1)+'</td>';
-h+='<td><input class="mini-input" value="'+esc(item.year||'')+'" onchange="uF(\'milestones\','+i+',\'year\',this.value)" style="width:80px"></td>';
-h+='<td><textarea style="width:100%;min-height:80px;font-size:13px;white-space:pre-wrap" onchange="uF(\'milestones\','+i+',\'content\',this.value)">'+esc(item.content||'')+'</textarea></td>';
-h+='<td><button class="btn btn-sm btn-danger" onclick="dI(\'milestones\','+i+')"><i class="fa fa-trash"></i></button></td></tr>';
+h+='<td><input class="mini-input" value="'+esc(item.year||'')+'" onchange="uF(\'milestones\','+rawIdx+',\'year\',this.value)" style="width:80px"></td>';
+h+='<td><textarea style="width:100%;min-height:80px;font-size:13px;white-space:pre-wrap" onchange="uF(\'milestones\','+rawIdx+',\'content\',this.value)">'+esc(item.content||'')+'</textarea></td>';
+h+='<td><button class="btn btn-sm btn-danger" onclick="dI(\'milestones\','+rawIdx+')"><i class="fa fa-trash"></i></button></td></tr>';
 });
 h+='</tbody></table></div>';
 c.innerHTML=h;
@@ -431,6 +432,7 @@ var h='<div class="table-wrap"><table><thead><tr><th>#</th>';
 allKeys.forEach(function(k){h+='<th>'+(labels[k]||extra[k]||k)+'</th>';});
 h+='<th>操作</th></tr></thead><tbody>';
 items.forEach(function(item,i){
+var rawIdx=d.milestones.indexOf(item);
 h+='<tr><td>'+(i+1)+'</td>';
 allKeys.forEach(function(k){
 var v=item[k]!==undefined?item[k]:'';
