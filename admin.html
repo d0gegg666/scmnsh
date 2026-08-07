@@ -158,10 +158,13 @@ table .mini-input:focus{border-color:#C41230;}
 
 <!-- ====== 领导班子 ====== -->
 <div class="page" id="page-leadership">
-<div class="card"><div class="card-header"><i class="fa fa-users"></i> 理事会领导</div><div id="ld-council-list"></div><button class="btn btn-primary" onclick="addLeader('council')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加理事会领导</button></div>
-<div class="card"><div class="card-header"><i class="fa fa-check-circle"></i> 监事会领导</div><div id="ld-supervisor-list"></div><button class="btn btn-primary" onclick="addLeader('supervisor')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加监事会领导</button></div>
-<div class="card"><div class="card-header"><i class="fa fa-briefcase"></i> 秘书处</div><div id="ld-secretariat-list"></div><button class="btn btn-primary" onclick="addLeader('secretariat')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加秘书处成员</button></div>
-<div class="card"><div class="card-header"><i class="fa fa-lightbulb-o"></i> 顾问</div><div id="ld-advisor-list"></div><button class="btn btn-primary" onclick="addLeader('advisor')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加顾问</button></div>
+<div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap" id="ld-tabs">
+<button class="btn btn-primary ld-tab" data-cat="council" style="font-size:14px"><i class="fa fa-users"></i> 理事会领导</button>
+<button class="btn btn-outline ld-tab" data-cat="supervisor" style="font-size:14px"><i class="fa fa-check-circle"></i> 监事会领导</button>
+<button class="btn btn-outline ld-tab" data-cat="secretariat" style="font-size:14px"><i class="fa fa-briefcase"></i> 秘书处</button>
+<button class="btn btn-outline ld-tab" data-cat="advisor" style="font-size:14px"><i class="fa fa-lightbulb-o"></i> 顾问</button>
+</div>
+<div class="card"><div class="card-header" id="ld-cat-title"><i class="fa fa-users"></i> 理事会领导</div><div id="ld-list"></div><button class="btn btn-primary" id="ld-add-btn" onclick="addLeader('council')" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加理事会领导</button></div>
 </div>
 
 <!-- ====== 会长寄语 ====== -->
@@ -314,7 +317,7 @@ switch(pg){
 case'dashboard':renderDash(d);break;
 case'banner':renderTable('banner-list','banner',d.banner,['img','title','subtitle','btnText','btnLink'],{img:'图片URL',title:'标题',subtitle:'副标题',btnText:'按钮文字',btnLink:'按钮链接'},{sort:'排序'});break;
 case'about':renderAbout(d);break;
-case'leadership':renderLeadership(d);break;
+case'leadership':switchLdCat(_ldActiveCat||'council');break;
 case'president':renderPresident(d);break;
 case'honors':renderTable('honors-list','honors',d.honors,['year','title','desc','img'],{year:'年份',title:'荣誉名称',desc:'描述',img:'图片URL'});break;
 case'milestones':renderMilestones(d);break;
@@ -360,17 +363,24 @@ else{info.innerHTML='<i class="fa fa-database"></i> 数据占用：<b style="col
 }
 
 // ==================== 通用表格渲染 ====================
+var _ldActiveCat='council';
+function switchLdCat(cat){
+_ldActiveCat=cat;
+document.querySelectorAll('.ld-tab').forEach(function(b){
+b.className=(b.getAttribute('data-cat')===cat)?'btn btn-primary ld-tab':'btn btn-outline ld-tab';
+});
+var labels={council:'理事会领导',supervisor:'监事会领导',secretariat:'秘书处',advisor:'顾问'};
+var icons={council:'fa-users',supervisor:'fa-check-circle',secretariat:'fa-briefcase',advisor:'fa-lightbulb-o'};
+document.getElementById('ld-cat-title').innerHTML='<i class="fa '+icons[cat]+'"></i> '+labels[cat];
+document.getElementById('ld-add-btn').setAttribute('onclick',"addLeader('"+cat+"')");
+document.getElementById('ld-add-btn').innerHTML='<i class="fa fa-plus"></i> 添加'+labels[cat];
+renderLeadership(L());
+}
 function renderLeadership(d){
 var items=(d.leadership||[]).slice().sort(function(a,b){return(a.sort||0)-(b.sort||0);});
-var cats=[
-{key:'council',label:'理事会领导',listId:'ld-council-list'},
-{key:'supervisor',label:'监事会领导',listId:'ld-supervisor-list'},
-{key:'secretariat',label:'秘书处',listId:'ld-secretariat-list'},
-{key:'advisor',label:'顾问',listId:'ld-advisor-list'}
-];
-cats.forEach(function(cat){
-var list=items.filter(function(m){return m.category===cat.key;});
-var el=document.getElementById(cat.listId);
+var cat=_ldActiveCat||'council';
+var list=items.filter(function(m){return m.category===cat;});
+var el=document.getElementById('ld-list');
 if(!list.length){el.innerHTML='<div class="empty-state">暂无成员</div>';return;}
 var h='<div class="table-wrap"><table><thead><tr><th>#</th><th>照片</th><th>姓名</th><th>职务</th><th>简介</th><th>排序</th><th>操作</th></tr></thead><tbody>';
 list.forEach(function(m){
@@ -385,8 +395,16 @@ h+='<td><button class="btn btn-sm btn-danger" onclick="dI(\'leadership\','+idx+'
 });
 h+='</tbody></table></div>';
 el.innerHTML=h;
-});
 }
+
+// 初始化标签点击事件
+document.addEventListener('DOMContentLoaded',function(){
+setTimeout(function(){
+document.querySelectorAll('.ld-tab').forEach(function(b){
+b.addEventListener('click',function(){switchLdCat(this.getAttribute('data-cat'));});
+});
+},100);
+});
 
 function renderMilestones(d){
 var items=(d.milestones||[]).slice().sort(function(a,b){return parseInt(b.year)-parseInt(a.year);});
