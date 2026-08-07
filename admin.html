@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="data.js"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#C41230','primary-dark':'#8B1A2B',gold:'#C9A84C','gold-light':'#F5E6C8'}}}}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -279,7 +280,7 @@ document.getElementById('loginPass').addEventListener('keydown',function(e){if(e
 throw new Error('login');
 })();
 // ==================== 数据层 ====================
-var SK='scmn_cms_data_v3';
+var SK='scmn_cms_data_v2';
 var CMS_CACHE=null;
 var IDB_DB=null;
 var IDB_READY=false;
@@ -662,7 +663,9 @@ var idbOk=false;
 try{await idbOpen();var idbData=await idbLoad();if(idbData){CMS_CACHE=idbData;}idbOk=true;}catch(e){console.error('IndexedDB 初始化失败：',e);}
 // 2. 如果 IndexedDB 没数据，尝试从 localStorage 迁移
 if(!CMS_CACHE){try{var legacy=localStorage.getItem(SK);if(legacy){CMS_CACHE=JSON.parse(legacy);}}catch(e){console.error('localStorage 数据迁移失败：',e);}}
-// 3. 兜底
+// 3. 尝试从 data.js 加载
+if(!CMS_CACHE&&window.__CMS_DATA__){CMS_CACHE=window.__CMS_DATA__;}
+// 4. 兜底
 if(!CMS_CACHE){CMS_CACHE=defData();}
 // 4. 补齐缺失字段
 var df=defData();for(var k in df){if(!(k in CMS_CACHE))CMS_CACHE[k]=df[k];}
