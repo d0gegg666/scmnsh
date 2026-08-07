@@ -97,6 +97,7 @@ table .mini-input:focus{border-color:#C41230;}
 <a href="#" data-page="services"><i class="fa fa-cubes"></i> 服务领域</a>
 <a href="#" data-page="partners"><i class="fa fa-handshake-o"></i> 商务合作</a>
 <a href="#" data-page="strategy"><i class="fa fa-star"></i> 战略伙伴</a>
+<a href="#" data-page="members"><i class="fa fa-id-card"></i> 会员风采</a>
 <div class="nav-group">页面管理</div>
 <a href="#" data-page="joinus"><i class="fa fa-user-plus"></i> 加入我们</a>
 <a href="#" data-page="applications"><i class="fa fa-envelope"></i> 入会申请</a>
@@ -207,6 +208,9 @@ table .mini-input:focus{border-color:#C41230;}
 <!-- ====== 战略伙伴 ====== -->
 <div class="page" id="page-strategy"><div class="card"><div class="card-header"><i class="fa fa-star"></i> 战略伙伴</div><div id="sg-list"></div><button class="btn btn-primary" onclick="addItem('strategy',{name:'',img:'',link:'#',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加战略伙伴</button></div></div>
 
+<!-- ====== 会员风采 ====== -->
+<div class="page" id="page-members"><div class="card"><div class="card-header"><i class="fa fa-id-card"></i> 会员风采 <span class="tip">（首页轮播展示）</span></div><div id="members-list"></div><button class="btn btn-primary" onclick="addItem('members',{name:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加会员</button></div></div>
+
 <!-- ====== 加入我们 ====== -->
 <div class="page" id="page-joinus"><div class="card"><div class="card-header"><i class="fa fa-user-plus"></i> 加入我们</div>
 <div class="form-group"><label>页面标题</label><input class="form-control" id="ju-title"></div>
@@ -283,6 +287,7 @@ honors:[],milestones:[],
 party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[],history:[]},
 news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
 joinus:{title:'加入我们',req:'',process:'',contact:''},
+members:[],
 footer:{title:'四川省闽南商会',keywords:'',desc:'',headerLogo:'',logo:'',slogan:'如果您有需求，请联系我们；我们将竭诚为您服务！',email:'',addr:'',phone:'',icp:'',copyright:'Copyright © 四川省闽南商会 All Rights Reserved'}
 };}
 function L(){if(CMS_CACHE)return JSON.parse(JSON.stringify(CMS_CACHE));return defData();}
@@ -315,6 +320,7 @@ case'news':renderCombinedNews(d);break;
 case'services':renderServices(d);break;
 case'partners':renderTable('pt-list','partners',d.partners,['name','img','link'],{name:'名称',img:'Logo URL',link:'链接'});break;
 case'strategy':renderTable('sg-list','strategy',d.strategy,['name','img','link','desc'],{name:'名称',img:'Logo URL',link:'链接',desc:'简介'});break;
+case'members':renderTable('members-list','members',d.members,['name','title','img','link'],{name:'姓名',title:'职务',img:'照片URL',link:'链接'});break;
 case'joinus':renderJoinUs(d);break;
 case'applications':renderApps();break;
 case'footer':renderFooter(d);break;
@@ -335,7 +341,8 @@ var items=[
 {icon:'gold',fa:'fa-newspaper-o',num:d.news.length,label:'商会新闻'},
 {icon:'green',fa:'fa-cubes',num:d.services.items.length,label:'服务项目'},{icon:'purple',fa:'fa-envelope',num:(function(){try{return JSON.parse(localStorage.getItem('scmn_applications')||'[]').length}catch(e){return 0}})(),label:'入会申请'},
 {icon:'purple',fa:'fa-handshake-o',num:d.partners.length,label:'合作伙伴'},
-{icon:'gold',fa:'fa-star',num:d.strategy.length,label:'战略伙伴'}
+{icon:'gold',fa:'fa-star',num:d.strategy.length,label:'战略伙伴'},
+{icon:'green',fa:'fa-id-card',num:(d.members||[]).length,label:'会员风采'}
 ];
 document.getElementById('dash-stats').innerHTML=items.map(function(i){return'<div class="stat-card"><div class="icon '+i.icon+'"><i class="fa '+i.fa+'"></i></div><div><div class="num">'+i.num+'</div><div class="label">'+i.label+'</div></div></div>';}).join('');
 // 显示数据占用（IndexedDB 存储，上限可达数百MB）
