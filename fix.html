@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>数据修复</title></head><body>
 <h2>数据修复页面</h2>
-<p id="msg">正在加载 data.js...</p>
+<p id="msg">正在修复...</p>
 <script>
 (async function(){
   var msg=document.getElementById('msg');
   try{
-    // 1. 删除旧 IndexedDB
-    var req=indexedDB.deleteDatabase('scmnsh_cms');
-    await new Promise(function(r){req.onsuccess=r;req.onerror=r;});
-    msg.textContent='旧缓存已删除';
-
-    // 2. 删除 localStorage
+    // 1. 删缓存
+    try{indexedDB.deleteDatabase('scmnsh_cms');}catch(e){}
     localStorage.removeItem('scmn_cms_data_v2');
     localStorage.removeItem('scmn_cms_data_v2_backup');
-    msg.textContent='localStorage 已清理';
+    msg.textContent='缓存已清除，正在加载数据...';
 
-    // 3. 从 data.js 加载
+    // 2. 加载 data.js
     var resp=await fetch('data.js');
     var text=await resp.text();
     var m=text.match(/window\.__CMS_DATA__\s*=\s*(\{[\s\S]*\})/);
     if(!m){msg.textContent='解析 data.js 失败';return;}
     var data=JSON.parse(m[1]);
 
-    // 4. 存入 IndexedDB
+    // 3. 存入 IndexedDB
     var dbReq=indexedDB.open('scmnsh_cms',1);
-    dbReq.onupgradeneeded=function(e){e.target.result.createObjectStore('data');};
     await new Promise(function(resolve,reject){
+      dbReq.onupgradeneeded=function(e){e.target.result.createObjectStore('data');};
       dbReq.onsuccess=function(e){
         var db=e.target.result;
         var tx=db.transaction('data','readwrite');
@@ -37,9 +33,9 @@
       dbReq.onerror=function(){reject(dbReq.error);};
     });
 
-    msg.innerHTML='✅ 修复完成！<br>Banner: '+data.banner.length+' 条<br>新闻: '+data.news.length+' 条<br>领导班子: '+data.leadership.length+' 条<br><br><a href="admin.html">→ 返回后台</a>';
+    msg.innerHTML='✅ 修复完成！共加载数据：<br>Banner: '+data.banner.length+' 条<br>新闻: '+data.news.length+' 条<br>领导班子: '+data.leadership.length+' 条<br>荣誉: '+data.honors.length+' 条<br>大事记: '+data.milestones.length+' 条<br><br><a href="admin.html">→ 返回后台</a>';
   }catch(e){
-    msg.textContent='错误: '+e.message;
+    msg.textContent='错误: '+e.message+' | '+e.stack;
   }
 })();
 </script>
