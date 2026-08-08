@@ -193,7 +193,7 @@ var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setTe
 }
 // Tab 无刷新切换
 document.querySelectorAll('.tab-nav a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=this.dataset.p;history.replaceState(null,'','?page='+p);document.querySelectorAll('.tab-nav a').forEach(function(x){x.classList.remove('active');});this.classList.add('active');renderAbout();});});
-(function(){if(window.__CMS_DATA__){renderAbout();return;}function _ld(u){var s=document.createElement('script');s.src=u;s.onload=function(){if(window.__CMS_DATA__)renderAbout();};s.onerror=function(){document.getElementById('aboutContent').innerHTML='<div class="empty-tip"><i class="fa fa-exclamation-triangle"></i><p>数据加载失败，请刷新页面重试</p></div>';renderAbout();};document.body.appendChild(s);}fetch('version.txt?t='+Date.now()).then(function(r){return r.text();}).then(function(v){_ld('data.js?v='+v.trim());}).catch(function(){_ld('data.js');});})();
+(function(){if(window.__CMS_DATA__){renderAbout();return;}function _ld(u){var s=document.createElement('script');s.src=u;s.onload=function(){if(window.__CMS_DATA__)renderAbout();};s.onerror=function(){document.getElementById('aboutContent').innerHTML='<div class="empty-tip"><i class="fa fa-exclamation-triangle"></i><p>数据加载失败，请刷新页面重试</p></div>';renderAbout();};document.body.appendChild(s);}fetch('version.txt?t='+Date.now()).then(function(r){if(!r.ok)throw new Error('v');return r.text();}).then(function(v){_ld('data.js?v='+v.trim());}).catch(function(){_ld('data.js');});})();
 </script>
 </body>
 </html>
