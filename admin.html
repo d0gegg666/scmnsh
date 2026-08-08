@@ -138,10 +138,25 @@ table .mini-input:focus{border-color:#C41230;}
 <button class="btn btn-danger btn-sm" onclick="if(confirm('确定清空所有数据？不可恢复！')){clearAllData();}"><i class="fa fa-trash"></i> 清空全部数据</button>
 </div>
 <p id="storage-info" style="margin-top:12px;color:#999;font-size:12px;"></p>
-</div>
-</div>
+	</div>
+	<div class="card" style="border:2px solid #E67E22;">
+	<div class="card-header"><i class="fa fa-refresh"></i> 缓存问题排查（微信浏览器）</div>
+	<div style="color:#666;line-height:2;font-size:13px;">
+	<p><b>为什么微信打开还是旧内容？</b></p>
+	<p>微信内置浏览器会<u>强制缓存</u> JS 文件。发布新内容后，微信端可能仍显示旧版本。</p>
+	<p style="margin-top:8px;"><b>🔧 解决方法（让微信用户尝试）：</b></p>
+	<ol style="padding-left:20px;margin:4px 0;">
+	<li>在微信中打开页面 → 点击右上角 <b>"···"</b> 菜单</li>
+	<li>选择 <b>"刷新"</b>（下拉页面顶部也可触发刷新）</li>
+	<li>如果仍不行 → 点击 <b>"···"</b> → <b>"设置"</b> → <b>"清除缓存"</b></li>
+	<li>彻底退出微信（后台也关掉），重新打开公众号访问</li>
+	</ol>
+	<p style="margin-top:8px;color:#E67E22;"><i class="fa fa-lightbulb-o"></i> <b>提示：</b>本系统已自动为每次发布生成新版本号，正常情况下微信浏览器会在发布后 1-2 分钟内自动显示最新内容。</p>
+	</div>
+	</div>
+	</div>
 
-<!-- ====== Banner ====== -->
+	<!-- ====== Banner ====== -->
 <div class="page" id="page-banner"><div class="card"><div class="card-header"><i class="fa fa-image"></i> Banner 轮播图管理 <span class="tip">（建议 1920×520px）</span></div><div id="banner-list"></div><button class="btn btn-primary" onclick="addBanner()" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加 Banner</button></div></div>
 
 <!-- ====== 商会简介 ====== -->
@@ -612,38 +627,45 @@ async function compressAllImages(d){var isB64=/^data:image/;var tasks=[];functio
 function compactBase64Async(b64){return new Promise(function(resolve){if(!b64||b64.length<200||!/^data:image/.test(b64)){resolve(b64);return;}var img=new Image();img.onerror=function(){resolve(b64);};img.onload=function(){var c=document.createElement('canvas');var maxW=300;var w=img.width,h=img.height;if(w>maxW){h=Math.round(h*maxW/w);w=maxW;}c.width=w;c.height=h;var ctx=c.getContext('2d');ctx.fillStyle='#FFFFFF';ctx.fillRect(0,0,w,h);ctx.drawImage(img,0,0,w,h);resolve(c.toDataURL('image/jpeg',0.5));};img.src=b64;});}
 async function compactAllImages(){if(!confirm('将把所有图片极限压缩为300px宽、JPEG-50%质量，以释放存储空间。\n\n建议先"备份数据 JSON"以防万一。\n\n确定继续？'))return;T('正在极限压缩...','warning');try{var d=L();var backup=JSON.parse(JSON.stringify(d));var isB64=/^data:image/;var tasks=[];function walk(obj){if(!obj||typeof obj!=='object')return;if(Array.isArray(obj)){for(var i=0;i<obj.length;i++)walk(obj[i]);return;}for(var k in obj){var v=obj[k];if(typeof v==='string'&&isB64.test(v)&&v.length>200){(function(key){tasks.push(compactBase64Async(v).then(function(r){obj[key]=r;}));})(k);}else if(typeof v==='object'){walk(v);}}}walk(d);await Promise.all(tasks);try{localStorage.setItem(SK+'_backup',JSON.stringify(backup));}catch(e2){}S(d);var before=Math.round(JSON.stringify(backup).length/1024);var after=Math.round(JSON.stringify(d).length/1024);var saved=before-after;T('极限压缩完成！共 '+tasks.length+' 张，从 '+before+'KB → '+after+'KB'+(saved>0?'，节省 '+saved+'KB':''),'success');renderPage('dashboard');}catch(e){T('压缩失败：'+e.message,'error');}}
 async function publishSite(){
-var token=getGitHubToken();
-if(!token){T('需要 GitHub Token 才能自动发布','error');return;}
-T('正在压缩图片并发布...','warning');
-try{
-var d=L();
-// 备份原始数据，防止压缩失败导致数据损坏
-var backup=JSON.parse(JSON.stringify(d));
-await compressAllImages(d);
-T('开始上传到GitHub...','warning');
-var js='// 四川省闽南商会 - 网站数据文件（由管理后台自动生成）\n// 上传此文件到服务器即可更新网站内容\nwindow.__CMS_DATA__ = '+JSON.stringify(d,null,2)+';\n';
-var base64=btoa(unescape(encodeURIComponent(js)));
-var owner='d0gegg666',repo='scmnsh',path='data.js';
-// 1. 获取当前文件的 SHA
-var resp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path,{headers:{Authorization:'Bearer '+token}});
-if(!resp.ok){var e2=await resp.json();throw new Error('获取文件信息失败：'+(e2.message||resp.status));}
-var info=await resp.json();
-var sha=info.sha||'';
-// 2. 提交新文件
-var body=JSON.stringify({message:'CMS 后台自动更新 data.js',content:base64,sha:sha});
-resp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path,{method:'PUT',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:body});
-if(resp.ok){
-// 发布成功后保存压缩版数据到 localStorage（节省空间），同时保留原始备份
-try{localStorage.setItem(SK+'_backup',JSON.stringify(backup));}catch(e2){}
-S(d);
-T('发布成功！图片已压缩，1-2分钟后网站自动更新','success');
-}
-else{var err=await resp.json();T('发布失败：'+err.message,'error');}
-// 3. 同时下载备份
-var b=new Blob([js],{type:'application/javascript'});
-var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='data.js';a.click();URL.revokeObjectURL(u);
-}catch(e){T('发布失败：'+e.message,'error');console.error(e);}
-}
+	var token=getGitHubToken();
+	if(!token){T('需要 GitHub Token 才能自动发布','error');return;}
+	T('正在压缩图片并发布...','warning');
+	try{
+	var d=L();
+	// 备份原始数据，防止压缩失败导致数据损坏
+	var backup=JSON.parse(JSON.stringify(d));
+	await compressAllImages(d);
+	T('开始上传到GitHub...','warning');
+	var js='// 四川省闽南商会 - 网站数据文件（由管理后台自动生成）\n// 上传此文件到服务器即可更新网站内容\nwindow.__CMS_DATA__ = '+JSON.stringify(d,null,2)+';\n';
+	var base64=btoa(unescape(encodeURIComponent(js)));
+	var owner='d0gegg666',repo='scmnsh',path='data.js';
+	// 1. 获取当前 data.js 的 SHA
+	var resp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path,{headers:{Authorization:'Bearer '+token}});
+	if(!resp.ok){var e2=await resp.json();throw new Error('获取文件信息失败：'+(e2.message||resp.status));}
+	var info=await resp.json();
+	var sha=info.sha||'';
+	// 2. 提交新 data.js
+	var body=JSON.stringify({message:'CMS 后台自动更新 data.js',content:base64,sha:sha});
+	resp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path,{method:'PUT',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:body});
+	if(!resp.ok){var err=await resp.json();T('发布失败：'+err.message,'error');return;}
+	// 3. 同步更新 version.txt（用于缓存破坏）
+	var version=String(Date.now());
+	var verContent=btoa(unescape(encodeURIComponent(version)));
+	try{
+	var vResp=await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/version.txt',{headers:{Authorization:'Bearer '+token}});
+	var vSha='';if(vResp.ok){var vInfo=await vResp.json();vSha=vInfo.sha||'';}
+	var vBody=JSON.stringify({message:'CMS 更新版本号',content:verContent,sha:vSha});
+	await fetch('https://api.github.com/repos/'+owner+'/'+repo+'/contents/version.txt',{method:'PUT',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:vBody});
+	}catch(e3){console.warn('version.txt 更新失败（不影响主发布）：',e3);}
+	// 发布成功后保存压缩版数据到 localStorage（节省空间），同时保留原始备份
+	try{localStorage.setItem(SK+'_backup',JSON.stringify(backup));}catch(e2){}
+	S(d);
+	T('发布成功！版本号已更新，1-2分钟后网站自动刷新','success');
+	// 4. 同时下载备份
+	var b=new Blob([js],{type:'application/javascript'});
+	var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='data.js';a.click();URL.revokeObjectURL(u);
+	}catch(e){T('发布失败：'+e.message,'error');console.error(e);}
+	}
 function exportData(){
 var b=new Blob([JSON.stringify(L(),null,2)],{type:'application/json'});
 var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='scmn_backup.json';a.click();URL.revokeObjectURL(u);

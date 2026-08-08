@@ -28,5 +28,5 @@ window._fixDone=function(){
   }catch(e){msg.textContent='错误: '+e.message;}
 };
 </script>
-<script src="data.js" onload="window._fixDone()" onerror="document.getElementById('msg').textContent='data.js 加载失败，请检查网络'"></script>
+<script src="data.js?v="+(function(){try{return Date.now()}catch(e){return""}})() onload="window._fixDone()" onerror="document.getElementById('msg').textContent='data.js 加载失败，请检查网络'"></script>
 </body></html>
