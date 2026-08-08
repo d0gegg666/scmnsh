@@ -148,7 +148,13 @@ c.innerHTML='<div class="card"><div style="display:flex;gap:30px;flex-wrap:wrap"
 if(d.honors&&d.honors.length>0){c.innerHTML='<div class="honor-grid">'+d.honors.map(function(h){return'<div class="honor-card">'+(h.img?'<img src="'+esc(h.img)+'" alt="'+esc(h.title||'')+'">':'<div style="height:200px;background:#f8f8f8;display:flex;align-items:center;justify-content:center"><i class="fa fa-trophy" style="font-size:48px;color:#ddd"></i></div>')+'<div class="honor-info"><h4>'+esc(h.title||'')+'</h4><div class="year">'+esc(h.year||'')+'</div></div></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-trophy"></i><p>荣誉展示内容待添加</p></div>';}
 }else if(page==='president'){
 var pd=d.president||{};
-c.innerHTML='<div class="card" style="display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap"><div style="width:200px;text-align:center;flex-shrink:0"><img src="'+(pd.img||'logo-header.png')+'" style="width:180px;height:220px;object-fit:cover;border-radius:4px;background:#f0ebe3"><div style="font-size:16px;font-weight:700;margin-top:8px">'+esc(pd.name||'会长')+'</div><div style="font-size:13px;color:#CC0000">'+esc(pd.title||'')+'</div></div><div style="flex:1;min-width:400px"><p style="font-size:14px;color:#555;line-height:2;white-space:pre-line">'+esc(pd.content||'会长寄语内容待添加')+'</p></div></div>';
+var content=pd.content||'会长寄语内容待添加';
+var paragraphs=content.split(/\n+/).filter(function(p){return p.trim();});
+var contentHtml=paragraphs.map(function(p){return '<p style="font-size:14px;color:#555;line-height:2;text-indent:2em;margin-bottom:0">'+esc(p)+'</p>';}).join('');
+if(pd.signature){
+contentHtml+='<img src="'+esc(pd.signature)+'" style="display:block;margin-left:auto;margin-top:24px;width:150px;height:auto;" alt="会长签名">';
+}
+c.innerHTML='<div class="card" style="display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap"><div style="width:200px;text-align:center;flex-shrink:0"><img src="'+(pd.img||'logo-header.png')+'" style="width:180px;height:220px;object-fit:cover;border-radius:4px;background:#f0ebe3"><div style="font-size:16px;font-weight:700;margin-top:8px">'+esc(pd.name||'会长')+'</div><div style="font-size:13px;color:#CC0000">'+esc(pd.title||'')+'</div></div><div style="flex:1;min-width:400px">'+contentHtml+'</div></div>';
 }else if(page==='leadership'){
 if(d.leadership&&d.leadership.length>0){
 var sections=[

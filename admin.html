@@ -173,6 +173,7 @@ table .mini-input:focus{border-color:#C41230;}
 <div class="form-group"><label>会长姓名</label><input class="form-control" id="pm-name"></div>
 <div class="form-group"><label>会长职务</label><input class="form-control" id="pm-title"></div>
 <div class="form-group"><label>寄语内容</label><textarea class="form-control" id="pm-content" rows="6"></textarea></div>
+<div class="form-group"><label>会长签名</label><div style="display:flex;gap:8px;"><input class="form-control" id="pm-signature" style="flex:1;"><button class="btn btn-outline btn-sm" onclick="uploadToField('pm-signature')" style="white-space:nowrap;"><i class="fa fa-upload"></i> 本地上传</button></div></div>
 <button class="btn btn-primary" onclick="savePresident()"><i class="fa fa-save"></i> 保存</button>
 </div></div>
 
@@ -290,7 +291,7 @@ function idbLoad(){return new Promise(function(resolve,reject){if(!IDB_DB){resol
 function idbSave(data){return new Promise(function(resolve,reject){if(!IDB_DB){resolve();return;}var tx=IDB_DB.transaction('data','readwrite');var store=tx.objectStore('data');var req=store.put(data,'cms_data');req.onsuccess=function(){resolve();};req.onerror=function(){reject(req.error);};});}
 function defData(){return{
 banner:[],about:{en:'ABOUT US',cn:'了解商会',img:'',content:'',link:'#',stats:[]},
-leadership:[],president:{name:'',title:'',img:'',content:''},
+leadership:[],president:{name:'',title:'',img:'',content:'',signature:''},
 honors:[],milestones:[],
 party:{name:'党委',intro:'',structImg:'',structDesc:'',news:[],history:[]},
 news:[],biznews:[],services:{desc:'',items:[]},partners:[],strategy:[],
@@ -512,8 +513,8 @@ function uSA(i,f,v){var d=L();d.about.stats[i][f]=v;S(d);}
 function saveAbout(){var d=L();d.about.en=document.getElementById('af-en').value;d.about.cn=document.getElementById('af-cn').value;d.about.img=document.getElementById('af-img').value;d.about.content=document.getElementById('af-content').value;d.about.link=document.getElementById('af-link').value;S(d);T('商会简介已保存');}
 
 // ==================== 会长寄语 ====================
-function renderPresident(d){var p=d.president;document.getElementById('pm-name').value=p.name||'';document.getElementById('pm-title').value=p.title||'';document.getElementById('pm-img').value=p.img||'';document.getElementById('pm-content').value=p.content||'';}
-function savePresident(){var d=L();d.president.name=document.getElementById('pm-name').value;d.president.title=document.getElementById('pm-title').value;d.president.img=document.getElementById('pm-img').value;d.president.content=document.getElementById('pm-content').value;S(d);T('会长寄语已保存');}
+function renderPresident(d){var p=d.president;document.getElementById('pm-name').value=p.name||'';document.getElementById('pm-title').value=p.title||'';document.getElementById('pm-img').value=p.img||'';document.getElementById('pm-content').value=p.content||'';document.getElementById('pm-signature').value=p.signature||'';}
+function savePresident(){var d=L();d.president.name=document.getElementById('pm-name').value;d.president.title=document.getElementById('pm-title').value;d.president.img=document.getElementById('pm-img').value;d.president.content=document.getElementById('pm-content').value;d.president.signature=document.getElementById('pm-signature').value;S(d);T('会长寄语已保存');}
 
 // ==================== 商会党建 ====================
 function renderParty(d){var p=d.party;document.getElementById('py-name').value=p.name||'';document.getElementById('py-intro').value=p.intro||'';document.getElementById('py-struct-img').value=p.structImg||'';document.getElementById('py-struct-desc').value=p.structDesc||'';var pn=(p.news||[]).slice().sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});renderTable('py-news-list','partyNews',pn,['date','title','img','link'],{date:'日期',title:'标题',img:'图片URL',link:'链接'});var ph=(p.history||[]).slice().sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||(b.month||'').localeCompare(a.month||'');});renderTable('py-history-list','partyHistory',ph,['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});}
