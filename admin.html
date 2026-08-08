@@ -322,7 +322,7 @@ case'president':renderPresident(d);break;
 case'honors':renderTable('honors-list','honors',d.honors,['year','title','desc','img'],{year:'年份',title:'荣誉名称',desc:'描述',img:'图片URL'});break;
 case'milestones':renderMilestones(d);break;
 case'party':renderParty(d);break;
-	case'party-history':(d.party.history||[]).sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||(b.month||'').localeCompare(a.month||'');});renderTable('py-history-list','partyHistory',d.party.history||[],['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
+	case'party-history':(d.party.history||[]).slice().sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||(b.month||'').localeCompare(a.month||'');});renderTable('py-history-list','partyHistory',d.party.history||[],['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});break;
 case'news':renderCombinedNews(d);break;
 case'services':renderServices(d);break;
 case'partners':renderTable('pt-list','partners',d.partners,['name','img','link'],{name:'名称',img:'Logo URL',link:'链接'});break;
@@ -432,7 +432,6 @@ var h='<div class="table-wrap"><table><thead><tr><th>#</th>';
 allKeys.forEach(function(k){h+='<th>'+(labels[k]||extra[k]||k)+'</th>';});
 h+='<th>操作</th></tr></thead><tbody>';
 items.forEach(function(item,i){
-var rawIdx=d.milestones.indexOf(item);
 h+='<tr><td>'+(i+1)+'</td>';
 allKeys.forEach(function(k){
 var v=item[k]!==undefined?item[k]:'';
@@ -516,7 +515,7 @@ function renderPresident(d){var p=d.president;document.getElementById('pm-name')
 function savePresident(){var d=L();d.president.name=document.getElementById('pm-name').value;d.president.title=document.getElementById('pm-title').value;d.president.img=document.getElementById('pm-img').value;d.president.content=document.getElementById('pm-content').value;S(d);T('会长寄语已保存');}
 
 // ==================== 商会党建 ====================
-function renderParty(d){var p=d.party;document.getElementById('py-name').value=p.name||'';document.getElementById('py-intro').value=p.intro||'';document.getElementById('py-struct-img').value=p.structImg||'';document.getElementById('py-struct-desc').value=p.structDesc||'';var pn=p.news||[];pn.sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});renderTable('py-news-list','partyNews',pn,['date','title','img','link'],{date:'日期',title:'标题',img:'图片URL',link:'链接'});}
+function renderParty(d){var p=d.party;document.getElementById('py-name').value=p.name||'';document.getElementById('py-intro').value=p.intro||'';document.getElementById('py-struct-img').value=p.structImg||'';document.getElementById('py-struct-desc').value=p.structDesc||'';var pn=(p.news||[]).slice().sort(function(a,b){return(b.date||'').localeCompare(a.date||'');});renderTable('py-news-list','partyNews',pn,['date','title','img','link'],{date:'日期',title:'标题',img:'图片URL',link:'链接'});var ph=(p.history||[]).slice().sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||(b.month||'').localeCompare(a.month||'');});renderTable('py-history-list','partyHistory',ph,['year','month','title','desc'],{year:'年份',month:'月份',title:'事件标题',desc:'详细描述'});}
 function savePartyIntro(){var d=L();d.party.name=document.getElementById('py-name').value;d.party.intro=document.getElementById('py-intro').value;S(d);T('党委介绍已保存');}
 function savePartyStruct(){var d=L();d.party.structImg=document.getElementById('py-struct-img').value;d.party.structDesc=document.getElementById('py-struct-desc').value;S(d);T('组织架构已保存');}
 
