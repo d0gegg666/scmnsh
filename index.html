@@ -255,7 +255,7 @@ bannerSlides=[{img:'',title:'四川省闽南商会',subtitle:'凝聚闽商力量
 var slides=document.getElementById('bannerSlides');
 slides.innerHTML=bannerSlides.map(function(b){
 var bg=b.img?'background-image:url('+b.img+')':'background:linear-gradient(135deg,#1a0000,#800000,#CC0000)';
-return'<div class="swiper-slide" style="'+bg+';background-size:cover;background-position:center;height:380px"><a href="'+esc(b.link)+'" style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;text-align:center"><div class="banner-text"><h2>'+esc(b.title)+'</h2>'+(b.subtitle?'<p>'+esc(b.subtitle)+'</p>':'')+'</div></a></div>';
+return'<div class="swiper-slide" style="'+bg+';background-size:cover;background-position:center;image-rendering:auto;height:380px"><a href="'+esc(b.link)+'" style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;text-align:center"><div class="banner-text"><h2>'+esc(b.title)+'</h2>'+(b.subtitle?'<p>'+esc(b.subtitle)+'</p>':'')+'</div></a></div>';
 }).join('');
 if(window.__swiperBanner)window.__swiperBanner.destroy();window.__swiperBanner=new Swiper('#bannerSwiper',{loop:true,autoplay:{delay:4000},pagination:{el:'.swiper-pagination',clickable:true}});
 
