@@ -457,6 +457,8 @@ h+='<td>'+(v?'<img src="'+esc(v)+'" class="preview-img">':'')+'<input class="min
 }else if(k==='link'){
 var isDataLink=v.startsWith('data:');
 h+='<td><input class="mini-input" value="'+esc(v)+'" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)" style="'+(isDataLink?'border-color:#e74c3c;background:#fff5f5;':'')+'">'+(isDataLink?'<span style="color:#e74c3c;font-size:10px;display:block;">⚠ 请填写网页URL，不要粘贴图片数据</span>':'')+'</td>';
+}else if(k==='companyTitle'||k==='intro'){
+h+='<td><textarea class="mini-input" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)" style="height:60px;resize:vertical">'+esc(v)+'</textarea></td>';
 }else{
 h+='<td><input class="mini-input" value="'+esc(v)+'" onchange="uF(\''+key+'\','+i+',\''+k+'\',this.value)"></td>';
 }
