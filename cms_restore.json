@@ -31,7 +31,7 @@
     "img": "",
     "p1": "四川省闽南商会是由在川投资创业的闽南籍企业家自愿组成的非营利性社会团体。商会秉承\"团结、互助、发展、共赢\"的宗旨，致力于为在川闽商搭建交流合作平台，促进川闽两地经济文化交流与合作。【待补充正式简介内容】",
     "p2": "自成立以来，商会积极发挥桥梁纽带作用，凝聚在川闽商力量，服务会员企业发展，维护会员合法权益，引导会员履行社会责任。商会现有会员企业数百家，涵盖建筑建材、商贸物流、餐饮酒店、金融投资、信息技术等多个行业领域。【待补充详细内容】",
-    "link": "#",
+    "link": "#", "companyTitle": "", "intro": "",
     "stats": [
       {
         "num": "500",
@@ -269,41 +269,41 @@
     {
       "name": "【待补充合作伙伴名称】",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【待补充合作伙伴名称】",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【待补充合作伙伴名称】",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【待补充合作伙伴名称】",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     }
   ],
   "strategy": [
     {
       "name": "【待补充战略伙伴名称】",
       "img": "",
-      "link": "#",
+      "link": "#", "companyTitle": "", "intro": "",
       "desc": "【合作领域与内容简介】"
     },
     {
       "name": "【待补充战略伙伴名称】",
       "img": "",
-      "link": "#",
+      "link": "#", "companyTitle": "", "intro": "",
       "desc": "【合作领域与内容简介】"
     },
     {
       "name": "【待补充战略伙伴名称】",
       "img": "",
-      "link": "#",
+      "link": "#", "companyTitle": "", "intro": "",
       "desc": "【合作领域与内容简介】"
     }
   ],
@@ -330,49 +330,49 @@
       "name": "【会长姓名】",
       "title": "会长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【执行会长】",
       "title": "执行会长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【常务副会长】",
       "title": "常务副会长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【副会长】",
       "title": "副会长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【副会长】",
       "title": "副会长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【副会长】",
       "title": "副会长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【秘书长】",
       "title": "秘书长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     },
     {
       "name": "【副秘书长】",
       "title": "副秘书长",
       "img": "",
-      "link": "#"
+      "link": "#", "companyTitle": "", "intro": ""
     }
   ]
 }

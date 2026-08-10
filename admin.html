@@ -232,7 +232,7 @@ table .mini-input:focus{border-color:#C41230;}
 <div class="page" id="page-strategy"><div class="card"><div class="card-header"><i class="fa fa-star"></i> 战略伙伴</div><div id="sg-list"></div><button class="btn btn-primary" onclick="addItem('strategy',{name:'',img:'',link:'#',desc:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加战略伙伴</button></div></div>
 
 <!-- ====== 会员风采 ====== -->
-<div class="page" id="page-members"><div class="card"><div class="card-header"><i class="fa fa-id-card"></i> 会员风采 <span class="tip">（首页轮播展示）</span></div><div id="members-list"></div><button class="btn btn-primary" onclick="addItem('members',{name:'',title:'',img:'',link:'#'})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加会员</button></div></div>
+<div class="page" id="page-members"><div class="card"><div class="card-header"><i class="fa fa-id-card"></i> 会员风采 <span class="tip">（首页轮播展示）</span></div><div id="members-list"></div><button class="btn btn-primary" onclick="addItem('members',{name:'',title:'',img:'',link:'#',companyTitle:'',intro:''})" style="margin-top:12px;"><i class="fa fa-plus"></i> 添加会员</button></div></div>
 
 <!-- ====== 加入我们 ====== -->
 <div class="page" id="page-joinus"><div class="card"><div class="card-header"><i class="fa fa-user-plus"></i> 加入我们</div>
@@ -344,7 +344,7 @@ case'news':renderCombinedNews(d);break;
 case'services':renderServices(d);break;
 case'partners':renderTable('pt-list','partners',d.partners,['name','img','link'],{name:'名称',img:'Logo URL',link:'链接'});break;
 case'strategy':renderTable('sg-list','strategy',d.strategy,['name','img','link','desc'],{name:'名称',img:'Logo URL',link:'链接',desc:'简介'});break;
-case'members':renderTable('members-list','members',d.members,['name','title','img','link'],{name:'姓名',title:'职务',img:'照片URL',link:'链接'});break;
+case'members':renderTable('members-list','members',d.members,['name','title','companyTitle','img','intro'],{name:'姓名',title:'商会职务',companyTitle:'公司职务',img:'照片',intro:'介绍'});break;
 case'joinus':renderJoinUs(d);break;
 case'applications':renderApps();break;
 case'footer':renderFooter(d);break;

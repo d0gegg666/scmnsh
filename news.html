@@ -82,7 +82,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="footer-logo"><a href="index.html"><img src="logo-footer.png" alt="四川省闽南商会" id="footerLogo"></a></div>
 <div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="joinus.html">加入我们</a></div>
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
-<div class="footer-qr"><img src="logo-footer.png" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo-footer.png" alt="手机网站"><p>手机网站</p></div>
+<div class="footer-qr"><img src="logo-footer.png" alt="微信公众号" id="footerQr"><p>微信公众号</p></div>
 </div></div>
 <div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
 
@@ -105,7 +105,7 @@ if(isValid)return'<a href="'+esc(link)+'" class="news-list-item"><span class="da
 if(hasImg)return'<a href="javascript:void(0)" class="news-list-item" onclick="viewNewsImg(\''+escJs(n.title||'')+'\',\''+escJs(n.img)+'\')"><span class="date">'+esc(n.date||'')+'</span><img src="'+esc(n.img)+'" class="thumb" alt=""><span class="title">'+esc(n.title||'')+'</span></a>';
 return'<span class="news-list-item" style="cursor:default"><span class="date">'+esc(n.date||'')+'</span>'+(n.img?'<img src="'+esc(n.img)+'" class="thumb" alt="">':'')+'<span class="title">'+esc(n.title||'')+'</span></span>';
 }).join('');
-var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
+var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}if(f.qrcode){var fq=document.getElementById('footerQr');if(fq)fq.src=f.qrcode;}}
 }
 (function(){if(window.__CMS_DATA__){renderNews();return;}function _ld(u){var s=document.createElement('script');s.src=u;s.onload=function(){if(window.__CMS_DATA__)renderNews();};s.onerror=function(){var el=document.getElementById("newsList");if(el)el.innerHTML='<div class="empty-tip"><i class="fa fa-exclamation-triangle"></i><p>数据加载失败，请刷新页面重试</p></div>';renderNews();};document.body.appendChild(s);}fetch('version.txt?t='+Date.now()).then(function(r){if(!r.ok)throw new Error('v');return r.text();}).then(function(v){_ld('data.js?v='+v.trim());}).catch(function(){_ld('data.js');});})();
 </script>

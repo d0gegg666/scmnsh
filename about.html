@@ -118,7 +118,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="footer-logo"><a href="index.html"><img src="logo-footer.png" alt="四川省闽南商会" id="footerLogo"></a></div>
 <div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="joinus.html">加入我们</a></div>
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
-<div class="footer-qr"><img src="logo-footer.png" alt="官方微信"><p>官方微信</p></div><div class="footer-qr"><img src="logo-footer.png" alt="手机网站"><p>手机网站</p></div>
+<div class="footer-qr"><img src="logo-footer.png" alt="微信公众号" id="footerQr"><p>微信公众号</p></div>
 </div></div>
 <div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
 
@@ -189,7 +189,7 @@ document.getElementById('ld-side-content').innerHTML=buildGrid(cat);
 }else if(page==='milestones'){
 if(d.milestones&&d.milestones.length>0){c.innerHTML='<div class="timeline">'+d.milestones.sort(function(a,b){return parseInt(b.year)-parseInt(a.year)||0;}).map(function(m){return'<div class="timeline-item"><div class="year">'+esc(m.year||'')+'</div><div style="font-size:14px;color:#555;line-height:2;white-space:pre-line">'+esc(m.content||'')+'</div></div>';}).join('')+'</div>';}else{c.innerHTML='<div class="empty-tip"><i class="fa fa-history"></i><p>大事记内容待添加</p></div>';}
 }
-var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}}
+var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}if(f.qrcode){var fq=document.getElementById('footerQr');if(fq)fq.src=f.qrcode;}}
 }
 // Tab 无刷新切换
 document.querySelectorAll('.tab-nav a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=this.dataset.p;history.replaceState(null,'','?page='+p);document.querySelectorAll('.tab-nav a').forEach(function(x){x.classList.remove('active');});this.classList.add('active');renderAbout();});});

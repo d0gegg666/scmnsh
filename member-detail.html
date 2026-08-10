@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新闻详情 - 四川省闽南商会</title>
-<meta name="keywords" content="四川省闽南商会,新闻">
-<meta name="description" content="四川省闽南商会新闻详情">
+<title>会员详情 - 四川省闽南商会</title>
+<meta name="keywords" content="四川省闽南商会,会员风采,会员详情">
+<meta name="description" content="四川省闽南商会会员详情">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -37,13 +37,18 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .main{width:1200px;margin:30px auto}
 .breadcrumb{font-size:13px;color:#999;margin-bottom:20px}
 .breadcrumb a{color:#666}.breadcrumb a:hover{color:#CC0000}
-.article{background:#fff;padding:40px;border-radius:4px}
-.article h1{font-size:24px;color:#333;text-align:center;margin-bottom:15px}
-.article .meta{text-align:center;font-size:13px;color:#999;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #eee}
-.article .content{font-size:15px;color:#555;line-height:2}
-.article .content img{max-width:100%;margin:20px 0;border-radius:4px}
-.article .back{margin-top:30px;text-align:center;padding-top:20px;border-top:1px solid #eee}
-.article .back a{color:#CC0000;font-size:14px}
+.member-card{background:#fff;padding:40px;border-radius:4px}
+.member-header{display:flex;gap:40px}
+.member-info{flex:1;min-width:0}
+.member-info .mem-name{font-size:26px;color:#333;font-weight:700;margin-bottom:12px}
+.member-info .mem-company{font-size:13px;color:#888;text-indent:2em;margin-bottom:24px}
+.member-info .intro-content{font-size:15px;color:#555;line-height:2;text-indent:2em;white-space:pre-line}
+.member-info .intro-empty{color:#ccc;font-size:14px;text-indent:0;padding:20px 0}
+.member-photo{flex-shrink:0}
+.member-photo img{width:200px;height:240px;object-fit:cover;border-radius:4px;border:1px solid #eee}
+.back-nav{margin-top:20px;text-align:center}
+.back-nav a{color:#CC0000;font-size:14px}
+.back-nav a:hover{text-decoration:underline}
 .footer{background:#800000;color:#ddd;padding:30px 0}
 .footer-inner{width:1200px;margin:0 auto;display:flex;align-items:center;gap:40px}
 .footer-logo{text-align:center;flex-shrink:0}.footer-logo img{height:90px}
@@ -55,11 +60,6 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .footer-links .fl-row a:hover{color:#CC0000}
 .footer-links .copyright{font-size:12px;color:#777;line-height:2}.footer-links .copyright a{color:#aaa}
 .footer-qr{text-align:center;flex-shrink:0}.footer-qr img{width:90px;height:90px;margin-bottom:6px}.footer-qr p{font-size:12px}
-#imgLightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;align-items:center;justify-content:center}
-#imgLightbox>span{position:absolute;top:20px;right:30px;color:#fff;font-size:36px;cursor:pointer}
-#imgLightbox img{max-width:90%;max-height:90%;object-fit:contain}
-.article-nav{display:flex;justify-content:space-between;margin-top:20px;padding:15px 0;border-top:1px solid #eee;font-size:13px}
-.article-nav a{color:#555}.article-nav a:hover{color:#CC0000}
 </style>
 </head>
 <body>
@@ -68,22 +68,24 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="navbar"><div class="navbar-inner"><ul class="navbar-menu">
 <li><a href="index.html">网站首页</a></li>
 <li><a href="about.html">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html?page=honors">荣誉展示</a></li><li><a href="about.html?page=president">会长寄语</a></li><li><a href="about.html?page=leadership">领导班子</a></li><li><a href="about.html?page=milestones">大事记</a></li></ul></li>
-<li><a href="news.html" class="active">商会动态</a></li>
+<li><a href="news.html">商会动态</a></li>
 <li><a href="party.html">商会党建<b></b></a><ul class="submenu"><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></li>
 <li><a href="joinus.html">加入我们</a></li>
 </ul></div></div>
 
 <div class="main">
-<div class="breadcrumb"><a href="index.html">首页</a> &gt; <a href="news.html">商会动态</a> &gt; <span id="breadTitle">新闻详情</span></div>
-<div class="article">
-<h1 id="articleTitle">新闻标题</h1>
-<div class="meta">发布时间：<span id="articleDate"></span> | 来源：四川省闽南商会</div>
-<div class="content" id="articleContent"></div>
-<div class="article-nav">
-<a href="javascript:history.back()">&larr; 返回列表</a>
-<a href="news.html">查看全部新闻 &rarr;</a>
+<div class="breadcrumb"><a href="index.html">首页</a> &gt; <span id="breadName">会员详情</span></div>
+<div class="member-card">
+<div class="member-header">
+<div class="member-info">
+<div class="mem-name" id="memName">会员姓名</div>
+<div class="mem-company" id="memCompany">公司职务</div>
+<div class="intro-content" id="memIntro"></div>
+</div>
+<div class="member-photo"><img src="logo-header.png" alt="" id="memImg"></div>
 </div>
 </div>
+<div class="back-nav"><a href="javascript:history.back()">&larr; 返回上一页</a></div>
 </div>
 
 <div class="footer"><div class="footer-inner">
@@ -92,42 +94,32 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
 <div class="footer-qr"><img src="logo-footer.png" alt="微信公众号" id="footerQr"><p>微信公众号</p></div>
 </div></div>
-<div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
 
 <script>
-function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}function escJs(s){return String(s||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
+function esc(s){if(!s&&s!==0)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 function setText(id,v){var el=document.getElementById(id);if(el&&v!=null&&v!==undefined)el.textContent=v;}
-function viewNewsImg(t,s){var i=document.getElementById("imgLightboxImg");var l=document.getElementById("imgLightbox");if(i&&l){i.src=s;l.style.display="flex";document.body.style.overflow="hidden";}}
-function closeImgLightbox(){var l=document.getElementById("imgLightbox");if(l){l.style.display="none";}document.body.style.overflow="";}
 (function u(){var d=new Date();var days=['日','一','二','三','四','五','六'];var el=document.getElementById('topDate');if(el)el.value=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 星期'+days[d.getDay()];setTimeout(u,60000);})();
 
-function renderDetail(){
+function renderMember(){
 var d=window.__CMS_DATA__;if(!d)return;var f=d.footer;if(f){if(f.headerLogo){var hli=document.getElementById("headerLogoImg");if(hli)hli.src=f.headerLogo;}if(f.logo){var fli=document.getElementById("footerLogo");if(fli)fli.src=f.logo;}}
 var params=new URLSearchParams(location.search);
-var newsId=parseInt(params.get('id'))||0;
-// 在所有新闻中查找
-var all=[].concat(d.news||[],d.biznews||[],(d.party||{}).news||[]);
-var found=null;
-for(var i=0;i<all.length;i++){if(all[i].id===newsId){found=all[i];break;}}
-if(!found){document.getElementById('articleTitle').textContent='新闻未找到';return;}
-setText('articleTitle',found.title);
-setText('breadTitle',found.title);
-setText('articleDate',found.date||'');
-var content=found.content||'';
-if(!content){
-content='<p>'+esc(found.title||'')+'</p>';
-if(found.img){content+='<div style="text-align:center;margin:20px 0"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+escJs(found.title||'')+'\',\''+escJs(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>';}
-content+='<p>发布时间：'+esc(found.date||'')+'</p>';
-content+='<p>来源：四川省闽南商会</p>';
-content+='<p style="margin-top:20px;color:#888">【详细内容待补充】</p>';
-}else{
-// 如果img字段存在，在内容顶部显示图片
-if(found.img){content='<div style="text-align:center;margin-bottom:20px"><img src="'+esc(found.img)+'" style="max-width:100%;cursor:pointer" onclick="viewNewsImg(\''+escJs(found.title||'')+'\',\''+escJs(found.img)+'\')" alt="'+esc(found.title||'')+'"></div>'+content;}
-}
-document.getElementById('articleContent').innerHTML=content;
+var memberId=parseInt(params.get('id'));
+if(isNaN(memberId)||!d.members||!d.members[memberId]){setText('memName','会员未找到');return;}
+var m=d.members[memberId];
+var nameText=(m.title?m.title:'')+(m.name||'');
+setText('memName',nameText);
+setText('breadName',nameText);
+var companyText=m.companyTitle||'';
+var companyEl=document.getElementById('memCompany');
+if(companyText){companyEl.textContent=companyText;companyEl.style.display='block';}else{companyEl.style.display='none';}
+var imgEl=document.getElementById('memImg');
+if(m.img){imgEl.src=m.img;imgEl.alt=m.name||'';}
+var intro=m.intro||'';
+var introEl=document.getElementById('memIntro');
+if(intro){introEl.textContent=intro;introEl.className='intro-content';}else{introEl.innerHTML='<div class="intro-empty"><i class="fa fa-pencil"></i><p>暂无介绍内容</p></div>';}
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}if(f.qrcode){var fq=document.getElementById('footerQr');if(fq)fq.src=f.qrcode;}}
 }
-(function(){if(window.__CMS_DATA__){renderDetail();return;}function _ld(u){var s=document.createElement('script');s.src=u;s.onload=function(){if(window.__CMS_DATA__)renderDetail();};s.onerror=function(){var el=document.getElementById('articleTitle');if(el)el.textContent='数据加载失败，请刷新页面重试';renderDetail();};document.body.appendChild(s);}fetch('version.txt?t='+Date.now()).then(function(r){if(!r.ok)throw new Error('v');return r.text();}).then(function(v){_ld('data.js?v='+v.trim());}).catch(function(){_ld('data.js');});})();
+(function(){if(window.__CMS_DATA__){renderMember();return;}function _ld(u){var s=document.createElement('script');s.src=u;s.onload=function(){if(window.__CMS_DATA__)renderMember();};s.onerror=function(){var el=document.getElementById('memName');if(el)el.textContent='数据加载失败，请刷新页面重试';renderMember();};document.body.appendChild(s);}fetch('version.txt?t='+Date.now()).then(function(r){if(!r.ok)throw new Error('v');return r.text();}).then(function(v){_ld('data.js?v='+v.trim());}).catch(function(){_ld('data.js');});})();
 </script>
 </body>
 </html>

@@ -281,8 +281,8 @@ document.getElementById('aboutPreviewText').textContent=aboutPreview.substring(0
 if(data.members&&data.members.length>0){
 document.getElementById('membersRow').style.display='flex';
 document.getElementById('membersBox').style.display='flex';
-document.getElementById('membersSlides').innerHTML=data.members.map(function(m){
-return'<div class="swiper-slide"><a href="'+(m.link||'#')+'"><img src="'+(m.img||'logo-header.png')+'" alt="'+esc(m.name||'')+'"><div class="mem-name">'+esc(m.name||'')+'</div><div class="mem-title">'+esc(m.title||'')+'</div></a></div>';
+document.getElementById('membersSlides').innerHTML=data.members.map(function(m,i){
+return'<div class="swiper-slide"><a href="member-detail.html?id='+i+'"><img src="'+(m.img||'logo-header.png')+'" alt="'+esc(m.name||'')+'"><div class="mem-name">'+esc(m.name||'')+'</div><div class="mem-title">'+esc(m.title||'')+'</div></a></div>';
 }).join('');
 if(window.__swiperMembers)window.__swiperMembers.destroy();window.__swiperMembers=new Swiper('#membersSwiper',{slidesPerView:6,spaceBetween:10,navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'},autoplay:{delay:3000},loop:true});
 }
