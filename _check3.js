@@ -1,0 +1,1 @@
+tailwind.config={theme:{extend:{colors:{primary:'#C41230','primary-dark':'#8B1A2B',gold:'#C9A84C','gold-light':'#F5E6C8'}}}}

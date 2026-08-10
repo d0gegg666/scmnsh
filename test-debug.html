@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>诊断工具 - 闽南商会</title>
+<style>
+body{font-family:monospace;max-width:800px;margin:50px auto;padding:20px;background:#1a1a1a;color:#0f0}
+.log{background:#000;padding:15px;border-radius:8px;min-height:200px;margin:20px 0;font-size:13px;line-height:1.8;overflow-y:auto;max-height:400px}
+.error{color:#f44}.warn{color:#fa0}.ok{color:#0f0}
+button{padding:12px 24px;margin:5px;background:#0a0;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:14px}
+button:hover{background:#0c0}
+</style>
+</head>
+<body>
+<h1>🔍 网站诊断工具</h1>
+<p>点击按钮测试各项功能</p>
+<button onclick="testLoad()">1. 测试加载 data.js</button>
+<button onclick="testRender()">2. 测试渲染新闻</button>
+<button onclick="testLocalStorage()">3. 检查 localStorage</button>
+<button onclick="clearTest()">清空日志</button>
+<div class="log" id="log">等待测试...</div>
+
+<script>
+var logEl = document.getElementById('log');
+function log(msg, cls) {
+    logEl.innerHTML += '<span class="'+(cls||'')+'">'+msg+'</span><br>';
+    logEl.scrollTop = logEl.scrollHeight;
+}
+
+function clearTest() { logEl.innerHTML = ''; }
+
+function testLoad() {
+    log('开始加载 data.js...', 'warn');
+    var start = Date.now();
+    if (window.__CMS_DATA__) {
+        log('⚠ data.js 已经在页面中加载过了', 'warn');
+        log('news 数量: ' + (window.__CMS_DATA__.news||[]).length, 'ok');
+        return;
+    }
+    var s = document.createElement('script');
+    s.src = 'data.js';
+    s.onload = function() {
+        var elapsed = Date.now() - start;
+        log('✅ data.js 加载成功！耗时: ' + elapsed + 'ms', 'ok');
+        if (window.__CMS_DATA__) {
+            log('✅ window.__CMS_DATA__ 已设置', 'ok');
+            log('news 数量: ' + (window.__CMS_DATA__.news||[]).length, 'ok');
+            log('biznews 数量: ' + (window.__CMS_DATA__.biznews||[]).length, 'ok');
+            log('banner 数量: ' + (window.__CMS_DATA__.banner||[]).length, 'ok');
+            var totalSize = JSON.stringify(window.__CMS_DATA__).length;
+            log('数据总大小: ' + Math.round(totalSize/1024) + 'KB', 'ok');
+        } else {
+            log('❌ data.js 加载了但 window.__CMS_DATA__ 为空！', 'error');
+        }
+    };
+    s.onerror = function(e) {
+        var elapsed = Date.now() - start;
+        log('❌ data.js 加载失败！耗时: ' + elapsed + 'ms', 'error');
+        log('可能原因: 文件不存在或网络错误', 'error');
+        log('当前 URL: ' + window.location.href, 'warn');
+    };
+    document.body.appendChild(s);
+    log('已创建 <script> 标签，等待加载...');
+}
+
+function testRender() {
+    if (!window.__CMS_DATA__) {
+        log('❌ window.__CMS_DATA__ 不存在，请先执行步骤1', 'error');
+        return;
+    }
+    var d = window.__CMS_DATA__;
+    log('开始测试渲染...');
+    var allNews = (d.news || []).concat(d.biznews || []);
+    log('合并后新闻总数: ' + allNews.length, 'ok');
+    if (allNews.length > 0) {
+        log('第一条: ' + allNews[0].title + ' (' + allNews[0].date + ')', 'ok');
+        log('最后一条: ' + allNews[allNews.length-1].title + ' (' + allNews[allNews.length-1].date + ')', 'ok');
+        var hasImg = allNews.filter(function(n){return !!n.img;}).length;
+        log('有图片的新闻: ' + hasImg + '/' + allNews.length, 'ok');
+    } else {
+        log('❌ 新闻列表为空！', 'error');
+    }
+}
+
+function testLocalStorage() {
+    try {
+        var raw = localStorage.getItem('scmn_cms_data_v2');
+        if (raw) {
+            var data = JSON.parse(raw);
+            log('✅ localStorage 中有 CMS 数据', 'ok');
+            log('localStorage 中 news 数量: ' + (data.news||[]).length, 'ok');
+            var size = raw.length;
+            log('localStorage 数据大小: ' + Math.round(size/1024) + 'KB', 'ok');
+        } else {
+            log('⚠ localStorage 中没有 CMS 数据', 'warn');
+            log('key: scmn_cms_data_v2', 'warn');
+        }
+    } catch(e) {
+        log('❌ localStorage 读取失败: ' + e.message, 'error');
+    }
+}
+</script>
+</body>
+</html>
