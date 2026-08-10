@@ -48,11 +48,12 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .footer-inner{width:1200px;margin:0 auto;display:flex;align-items:center;gap:40px}
 .footer-logo{text-align:center;flex-shrink:0}.footer-logo img{height:90px}
 .footer-links{flex:1}
-.footer-links .fl-row{display:flex;margin-bottom:12px;font-size:13px}
-.footer-links .fl-row a{color:#ccc;padding:0 12px;border-right:1px solid #444}
-.footer-links .fl-row a:first-child{padding-left:0}
-.footer-links .fl-row a:last-child{border-right:0}
-.footer-links .fl-row a:hover{color:#CC0000}
+.footer-links .fl-row{display:flex;gap:30px;margin-bottom:12px}
+.footer-links .fl-col{display:flex;flex-direction:column;min-width:100px}
+.footer-links .fl-col a{color:#ccc;padding:2px 0;font-size:12px}
+.footer-links .fl-col a:first-child{font-size:14px;color:#eee;font-weight:700;margin-bottom:4px}
+.footer-links .fl-col a:hover{color:#CC0000}
+.footer-links .tech-support{font-size:12px;color:#666;margin-top:8px}
 .footer-links .copyright{font-size:12px;color:#777;line-height:2}.footer-links .copyright a{color:#aaa}
 .footer-qr{text-align:center;flex-shrink:0}.footer-qr img{width:90px;height:90px;margin-bottom:6px}.footer-qr p{font-size:12px}
 #imgLightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;cursor:pointer;align-items:center;justify-content:center}
@@ -66,7 +67,7 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 <div class="topbar"><div class="topbar-inner"><div class="topbar-welcome">欢迎访问 <span><a href="index.html" style="color:#999">四川省闽南商会官方网站</a></span> 今天是<input type="text" id="topDate" readonly style="border:0;background:none;color:#999;font-size:12px;width:160px"></div></div></div>
 <div class="header"><div class="header-inner"><div class="header-logo"><a href="index.html"><img src="logo-header.png" alt="四川省闽南商会" id="headerLogoImg"></a></div><div class="header-slogan">凝聚闽商力量<span style="color:#C9A84C;font-size:22px;"> · </span>服务川闽发展</div></div></div>
 <div class="navbar"><div class="navbar-inner"><ul class="navbar-menu">
-<li><a href="index.html">网站首页</a></li>
+<li><a href="index.html">首页</a></li>
 <li><a href="about.html">商会概况<b></b></a><ul class="submenu"><li><a href="about.html">商会简介</a></li><li><a href="about.html?page=honors">荣誉展示</a></li><li><a href="about.html?page=president">会长寄语</a></li><li><a href="about.html?page=leadership">领导班子</a></li><li><a href="about.html?page=milestones">大事记</a></li></ul></li>
 <li><a href="news.html" class="active">商会动态</a></li>
 <li><a href="party.html">商会党建<b></b></a><ul class="submenu"><li><a href="party.html?p=intro">组织介绍</a></li><li><a href="party.html?p=structure">组织架构</a></li><li><a href="party.html?p=history">发展历程</a></li><li><a href="party.html?p=news">党建新闻</a></li></ul></li>
@@ -88,8 +89,8 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 
 <div class="footer"><div class="footer-inner">
 <div class="footer-logo"><a href="index.html"><img src="logo-footer.png" alt="四川省闽南商会" id="footerLogo"></a></div>
-<div class="footer-links"><div class="fl-row"><a href="about.html">商会概况</a><a href="news.html">商会动态</a><a href="party.html">商会党建</a><a href="joinus.html">加入我们</a></div>
-<div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p></div></div>
+<div class="footer-links"><div class="fl-row"><div class="fl-col"><a href="about.html">商会概况</a><a href="about.html">商会简介</a><a href="about.html?page=honors">荣誉展示</a><a href="about.html?page=president">会长寄语</a><a href="about.html?page=leadership">领导班子</a><a href="about.html?page=milestones">大事记</a></div><div class="fl-col"><a href="news.html">商会动态</a></div><div class="fl-col"><a href="party.html">商会党建</a><a href="party.html?p=intro">组织介绍</a><a href="party.html?p=structure">组织架构</a><a href="party.html?p=history">发展历程</a><a href="party.html?p=news">党建新闻</a></div><div class="fl-col"><a href="joinus.html">加入我们</a></div></div>
+<div class="copyright"><p id="copyright">Copyright &copy; 四川省闽南商会 All Rights Reserved</p><p>地址：<span id="ft-addr"></span> | 电话：<span id="ft-phone"></span> | 邮箱：<span id="ft-email"></span></p><p><a href="https://beian.miit.gov.cn/" target="_blank" id="ft-icp"></a></p><p class="tech-support">技术支持：比例品牌设计</p></div></div>
 <div class="footer-qr"><img src="logo-footer.png" alt="微信公众号" id="footerQr"><p>微信公众号</p></div>
 </div></div>
 <div id="imgLightbox" onclick="closeImgLightbox()"><span>&times;</span><img id="imgLightboxImg"></div>
