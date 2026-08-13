@@ -41,8 +41,9 @@ a{text-decoration:none;color:inherit}ul,ol{list-style:none}
 .member-header{display:flex;gap:40px}
 .member-info{flex:1;min-width:0}
 .member-info .mem-name{font-size:26px;color:#333;font-weight:700;margin-bottom:12px}
-.member-info .mem-company{font-size:13px;color:#888;text-indent:2em;margin-bottom:24px;white-space:pre-line}
-.member-info .intro-content{font-size:15px;color:#555;line-height:2;text-indent:2em;white-space:pre-line}
+.member-info .mem-company{font-size:13px;color:#888;margin-bottom:24px;white-space:pre-line;line-height:1.8}
+.member-info .intro-content{font-size:15px;color:#555;line-height:2}
+.member-info .intro-content p{text-indent:2em;margin:0}
 .member-info .intro-empty{color:#ccc;font-size:14px;text-indent:0;padding:20px 0}
 .member-photo{flex-shrink:0}
 .member-photo img{width:200px;height:240px;object-fit:cover;border-radius:4px;border:1px solid #eee}
@@ -117,7 +118,7 @@ var imgEl=document.getElementById('memImg');
 if(m.img){imgEl.src=m.img;imgEl.alt=m.name||'';}
 var intro=m.intro||'';
 var introEl=document.getElementById('memIntro');
-if(intro){introEl.textContent=intro;introEl.className='intro-content';}else{introEl.innerHTML='<div class="intro-empty"><i class="fa fa-pencil"></i><p>暂无介绍内容</p></div>';}
+if(intro){introEl.className='intro-content';var paras=intro.split('\n').map(function(s){return s.trim();}).filter(function(s){return s.length>0;});introEl.innerHTML=paras.map(function(p){return '<p>'+esc(p)+'</p>';}).join('');}else{introEl.innerHTML='<div class="intro-empty"><i class="fa fa-pencil"></i><p>暂无介绍内容</p></div>';}
 var f=d.footer;if(f){setText('ft-addr',f.addr);setText('ft-phone',f.phone);setText('ft-email',f.email);setText('ft-icp',f.icp);if(f.copyright){var cx=document.getElementById('copyright');if(cx)cx.textContent=f.copyright;}if(f.qrcode){var fq=document.getElementById('footerQr');if(fq)fq.src=f.qrcode;}}
 }
 (function(){if(window.__CMS_DATA__){renderMember();return;}function _ld(u){var s=document.createElement('script');s.src=u;s.onload=function(){if(window.__CMS_DATA__)renderMember();};s.onerror=function(){var el=document.getElementById('memName');if(el)el.textContent='数据加载失败，请刷新页面重试';renderMember();};document.body.appendChild(s);}fetch('version.txt?t='+Date.now()).then(function(r){if(!r.ok)throw new Error('v');return r.text();}).then(function(v){_ld('data.js?v='+v.trim());}).catch(function(){_ld('data.js');});})();
