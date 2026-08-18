@@ -1,6 +1,6 @@
 // migrate-images.js — 一次性迁移脚本
 // 作用：把 data.js 里内嵌的 base64 图片提取成 images/ 目录下的独立文件，
-//       并把数据里的 base64 字符串替换为相对路径 /images/xxx.jpg。
+//       并把数据里的 base64 字符串替换为相对路径 images/xxx.jpg。
 // 用法：node migrate-images.js
 // 说明：纯本地文件操作，不调用 GitHub API、无需 Token；
 //       运行后自行 git add images/ data.js version.txt && git commit && git push。
@@ -64,7 +64,7 @@ function main() {
     const hash = crypto.createHash('sha256').update(buffer).digest('hex').slice(0, 16);
     const filename = `img_${hash}.${ext}`;
     fs.writeFileSync(path.join(IMAGES_DIR, filename), buffer);
-    map.set(b64, `/images/${filename}`);
+    map.set(b64, `images/${filename}`);
     written++;
   }
   console.log(`已写入 ${written} 个图片文件到 images/`);

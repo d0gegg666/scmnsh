@@ -198,7 +198,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪辉煌",
       "title": "会长",
-      "img": "/images/img_4d89efa1d7e7a151.jpg",
+      "img": "images/img_4d89efa1d7e7a151.jpg",
       "desc": "",
       "sort": 1,
       "category": "council"
@@ -206,7 +206,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪振原",
       "title": "执行会长",
-      "img": "/images/img_e3383355af3a471c.jpg",
+      "img": "images/img_e3383355af3a471c.jpg",
       "desc": "",
       "sort": 2,
       "category": "council"
@@ -214,7 +214,7 @@ window.__CMS_DATA__ = {
     {
       "name": "苏天津",
       "title": "副会长",
-      "img": "/images/img_c444dab0c50ba268.jpg",
+      "img": "images/img_c444dab0c50ba268.jpg",
       "desc": "",
       "sort": 9,
       "category": "council"
@@ -222,7 +222,7 @@ window.__CMS_DATA__ = {
     {
       "name": "高国顺",
       "title": "副会长",
-      "img": "/images/img_9d883d22714927cd.jpg",
+      "img": "images/img_9d883d22714927cd.jpg",
       "desc": "",
       "sort": 10,
       "category": "council"
@@ -230,7 +230,7 @@ window.__CMS_DATA__ = {
     {
       "name": "杨家福",
       "title": "副会长",
-      "img": "/images/img_7f74a8aa37e95ed4.jpg",
+      "img": "images/img_7f74a8aa37e95ed4.jpg",
       "desc": "",
       "sort": 11,
       "category": "council"
@@ -238,7 +238,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄德胜",
       "title": "副会长",
-      "img": "/images/img_e2efb572647d1a75.jpg",
+      "img": "images/img_e2efb572647d1a75.jpg",
       "desc": "",
       "sort": 12,
       "category": "council"
@@ -246,7 +246,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪马建",
       "title": "副会长",
-      "img": "/images/img_32f0497e5178f7ba.jpg",
+      "img": "images/img_32f0497e5178f7ba.jpg",
       "desc": "",
       "sort": 13,
       "category": "council"
@@ -254,7 +254,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪维协",
       "title": "副会长",
-      "img": "/images/img_f2321ec71973c536.jpg",
+      "img": "images/img_f2321ec71973c536.jpg",
       "desc": "",
       "sort": 14,
       "category": "council"
@@ -262,7 +262,7 @@ window.__CMS_DATA__ = {
     {
       "name": "梁晓强",
       "title": "副会长",
-      "img": "/images/img_db4bf1a183aeef9a.jpg",
+      "img": "images/img_db4bf1a183aeef9a.jpg",
       "desc": "",
       "sort": 15,
       "category": "council"
@@ -270,7 +270,7 @@ window.__CMS_DATA__ = {
     {
       "name": "许连接",
       "title": "副会长",
-      "img": "/images/img_dbe3afbe3beb2341.jpg",
+      "img": "images/img_dbe3afbe3beb2341.jpg",
       "desc": "",
       "sort": 16,
       "category": "council"
@@ -278,7 +278,7 @@ window.__CMS_DATA__ = {
     {
       "name": "柳孙尧",
       "title": "党支部书记",
-      "img": "/images/img_93d7fcb279adad31.jpg",
+      "img": "images/img_93d7fcb279adad31.jpg",
       "desc": "",
       "sort": 17,
       "category": "council"
@@ -286,7 +286,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄英娇",
       "title": "理事",
-      "img": "/images/img_06bd61a1c11f93bd.jpg",
+      "img": "images/img_06bd61a1c11f93bd.jpg",
       "desc": "",
       "sort": 18,
       "category": "council"
@@ -294,7 +294,7 @@ window.__CMS_DATA__ = {
     {
       "name": "傅金沙",
       "title": "理事",
-      "img": "/images/img_db4f4571a7a8872f.jpg",
+      "img": "images/img_db4f4571a7a8872f.jpg",
       "desc": "",
       "sort": 19,
       "category": "council"
@@ -302,7 +302,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄小灵",
       "title": "理事",
-      "img": "/images/img_c25b94b3b9f4a7db.jpg",
+      "img": "images/img_c25b94b3b9f4a7db.jpg",
       "desc": "",
       "sort": 20,
       "category": "council"
@@ -310,7 +310,7 @@ window.__CMS_DATA__ = {
     {
       "name": "韩春艳",
       "title": "理事",
-      "img": "/images/img_13a38b7979cd7f96.jpg",
+      "img": "images/img_13a38b7979cd7f96.jpg",
       "desc": "",
       "sort": 21,
       "category": "council"
@@ -318,7 +318,7 @@ window.__CMS_DATA__ = {
     {
       "name": "郭炜峰",
       "title": "理事",
-      "img": "/images/img_ad52f1a497d48169.jpg",
+      "img": "images/img_ad52f1a497d48169.jpg",
       "desc": "",
       "sort": 22,
       "category": "council"
@@ -326,7 +326,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄必定",
       "title": "理事",
-      "img": "/images/img_5ea251b0df01b53d.jpg",
+      "img": "images/img_5ea251b0df01b53d.jpg",
       "desc": "",
       "sort": 23,
       "category": "council"
@@ -334,7 +334,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄晓聪",
       "title": "理事",
-      "img": "/images/img_c04fd806d893f33b.jpg",
+      "img": "images/img_c04fd806d893f33b.jpg",
       "desc": "",
       "sort": 24,
       "category": "council"
@@ -342,7 +342,7 @@ window.__CMS_DATA__ = {
     {
       "name": "孙振东",
       "title": "理事",
-      "img": "/images/img_850a563cc6488159.jpg",
+      "img": "images/img_850a563cc6488159.jpg",
       "desc": "",
       "sort": 25,
       "category": "council"
@@ -350,7 +350,7 @@ window.__CMS_DATA__ = {
     {
       "name": "古延洪",
       "title": "理事",
-      "img": "/images/img_48dc3477179b8107.jpg",
+      "img": "images/img_48dc3477179b8107.jpg",
       "desc": "",
       "sort": 26,
       "category": "council"
@@ -358,7 +358,7 @@ window.__CMS_DATA__ = {
     {
       "name": "蔡斯钗",
       "title": "理事",
-      "img": "/images/img_212c5165f61a01b9.jpg",
+      "img": "images/img_212c5165f61a01b9.jpg",
       "desc": "",
       "sort": 27,
       "category": "council"
@@ -366,7 +366,7 @@ window.__CMS_DATA__ = {
     {
       "name": "张耀武",
       "title": "理事",
-      "img": "/images/img_02eb8493c2b3a0ef.jpg",
+      "img": "images/img_02eb8493c2b3a0ef.jpg",
       "desc": "",
       "sort": 28,
       "category": "council"
@@ -374,7 +374,7 @@ window.__CMS_DATA__ = {
     {
       "name": "吴光华",
       "title": "理事",
-      "img": "/images/img_8984690c78b1f36c.jpg",
+      "img": "images/img_8984690c78b1f36c.jpg",
       "desc": "",
       "sort": 29,
       "category": "council"
@@ -382,7 +382,7 @@ window.__CMS_DATA__ = {
     {
       "name": "刘家名",
       "title": "理事",
-      "img": "/images/img_6b1541815944776f.jpg",
+      "img": "images/img_6b1541815944776f.jpg",
       "desc": "",
       "sort": 30,
       "category": "council"
@@ -390,7 +390,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄传利",
       "title": "理事",
-      "img": "/images/img_bc1712123d44786f.jpg",
+      "img": "images/img_bc1712123d44786f.jpg",
       "desc": "",
       "sort": 31,
       "category": "council"
@@ -398,7 +398,7 @@ window.__CMS_DATA__ = {
     {
       "name": "林锦辉",
       "title": "理事",
-      "img": "/images/img_22bf3168f82f199d.jpg",
+      "img": "images/img_22bf3168f82f199d.jpg",
       "desc": "",
       "sort": 32,
       "category": "council"
@@ -406,7 +406,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪海林",
       "title": "理事",
-      "img": "/images/img_01bd719a58c2eae0.jpg",
+      "img": "images/img_01bd719a58c2eae0.jpg",
       "desc": "",
       "sort": 33,
       "category": "council"
@@ -414,7 +414,7 @@ window.__CMS_DATA__ = {
     {
       "name": "孙建发",
       "title": "理事",
-      "img": "/images/img_3d3a110eb8b566c9.jpg",
+      "img": "images/img_3d3a110eb8b566c9.jpg",
       "desc": "",
       "sort": 34,
       "category": "council"
@@ -422,7 +422,7 @@ window.__CMS_DATA__ = {
     {
       "name": "李建立",
       "title": "理事",
-      "img": "/images/img_f5f769ab55076861.jpg",
+      "img": "images/img_f5f769ab55076861.jpg",
       "desc": "",
       "sort": 35,
       "category": "council"
@@ -430,7 +430,7 @@ window.__CMS_DATA__ = {
     {
       "name": "杜实生",
       "title": "理事",
-      "img": "/images/img_0a6f3f7bedd37a0e.jpg",
+      "img": "images/img_0a6f3f7bedd37a0e.jpg",
       "desc": "",
       "sort": 36,
       "category": "council"
@@ -438,7 +438,7 @@ window.__CMS_DATA__ = {
     {
       "name": "刘东胜",
       "title": "理事",
-      "img": "/images/img_450d7d57ce551e7b.jpg",
+      "img": "images/img_450d7d57ce551e7b.jpg",
       "desc": "",
       "sort": 37,
       "category": "council"
@@ -446,7 +446,7 @@ window.__CMS_DATA__ = {
     {
       "name": "许著立",
       "title": "理事",
-      "img": "/images/img_11d820da41a993e9.jpg",
+      "img": "images/img_11d820da41a993e9.jpg",
       "desc": "",
       "sort": 38,
       "category": "council"
@@ -454,7 +454,7 @@ window.__CMS_DATA__ = {
     {
       "name": "吴端塔",
       "title": "理事",
-      "img": "/images/img_d9e4008a1f0273e3.jpg",
+      "img": "images/img_d9e4008a1f0273e3.jpg",
       "desc": "",
       "sort": 39,
       "category": "council"
@@ -462,7 +462,7 @@ window.__CMS_DATA__ = {
     {
       "name": "陈才建",
       "title": "理事",
-      "img": "/images/img_210485809133acc4.jpg",
+      "img": "images/img_210485809133acc4.jpg",
       "desc": "",
       "sort": 40,
       "category": "council"
@@ -470,7 +470,7 @@ window.__CMS_DATA__ = {
     {
       "name": "王培焜",
       "title": "理事",
-      "img": "/images/img_0573531564c4b63c.jpg",
+      "img": "images/img_0573531564c4b63c.jpg",
       "desc": "",
       "sort": 41,
       "category": "council"
@@ -478,7 +478,7 @@ window.__CMS_DATA__ = {
     {
       "name": "柯辉辉",
       "title": "理事",
-      "img": "/images/img_716338f8210ccb39.jpg",
+      "img": "images/img_716338f8210ccb39.jpg",
       "desc": "",
       "sort": 42,
       "category": "council"
@@ -486,7 +486,7 @@ window.__CMS_DATA__ = {
     {
       "name": "陈诗怡",
       "title": "理事",
-      "img": "/images/img_ad974f259110b65c.jpg",
+      "img": "images/img_ad974f259110b65c.jpg",
       "desc": "",
       "sort": 43,
       "category": "council"
@@ -494,7 +494,7 @@ window.__CMS_DATA__ = {
     {
       "name": " 陈永刚",
       "title": "理事",
-      "img": "/images/img_52ce6a863f7f5f7a.jpg",
+      "img": "images/img_52ce6a863f7f5f7a.jpg",
       "desc": "",
       "sort": 44,
       "category": "council"
@@ -502,7 +502,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄志刚",
       "title": "理事",
-      "img": "/images/img_c6225b22e8453f95.jpg",
+      "img": "images/img_c6225b22e8453f95.jpg",
       "desc": "",
       "sort": 45,
       "category": "council"
@@ -510,7 +510,7 @@ window.__CMS_DATA__ = {
     {
       "name": "黄宗保",
       "title": "理事",
-      "img": "/images/img_b2d19d015a3f4f10.jpg",
+      "img": "images/img_b2d19d015a3f4f10.jpg",
       "desc": "",
       "sort": 46,
       "category": "council"
@@ -518,7 +518,7 @@ window.__CMS_DATA__ = {
     {
       "name": "李志阳",
       "title": "理事",
-      "img": "/images/img_857deca926323ab3.jpg",
+      "img": "images/img_857deca926323ab3.jpg",
       "desc": "",
       "sort": 47,
       "category": "council"
@@ -526,7 +526,7 @@ window.__CMS_DATA__ = {
     {
       "name": "林承侠",
       "title": "理事",
-      "img": "/images/img_cd8e058a6bc7ac9a.jpg",
+      "img": "images/img_cd8e058a6bc7ac9a.jpg",
       "desc": "",
       "sort": 48,
       "category": "council"
@@ -534,7 +534,7 @@ window.__CMS_DATA__ = {
     {
       "name": "林辉荣",
       "title": "理事",
-      "img": "/images/img_b669f2c3271cf097.jpg",
+      "img": "images/img_b669f2c3271cf097.jpg",
       "desc": "",
       "sort": 49,
       "category": "council"
@@ -542,7 +542,7 @@ window.__CMS_DATA__ = {
     {
       "name": "刘慧",
       "title": "理事",
-      "img": "/images/img_a27de9f1daef5e8b.jpg",
+      "img": "images/img_a27de9f1daef5e8b.jpg",
       "desc": "",
       "sort": 50,
       "category": "council"
@@ -550,7 +550,7 @@ window.__CMS_DATA__ = {
     {
       "name": "柳潇璇",
       "title": "理事",
-      "img": "/images/img_b2c8f9f75e3294e5.jpg",
+      "img": "images/img_b2c8f9f75e3294e5.jpg",
       "desc": "",
       "sort": 51,
       "category": "council"
@@ -558,7 +558,7 @@ window.__CMS_DATA__ = {
     {
       "name": "吕清云",
       "title": "理事",
-      "img": "/images/img_049665f710441526.jpg",
+      "img": "images/img_049665f710441526.jpg",
       "desc": "",
       "sort": 52,
       "category": "council"
@@ -566,7 +566,7 @@ window.__CMS_DATA__ = {
     {
       "name": "孟经宇",
       "title": "理事",
-      "img": "/images/img_33bd4ce8201ced08.jpg",
+      "img": "images/img_33bd4ce8201ced08.jpg",
       "desc": "",
       "sort": 53,
       "category": "council"
@@ -574,7 +574,7 @@ window.__CMS_DATA__ = {
     {
       "name": "邵剑锋",
       "title": "理事",
-      "img": "/images/img_52df26690626609b.jpg",
+      "img": "images/img_52df26690626609b.jpg",
       "desc": "",
       "sort": 54,
       "category": "council"
@@ -582,7 +582,7 @@ window.__CMS_DATA__ = {
     {
       "name": "吴真真",
       "title": "理事",
-      "img": "/images/img_cbcac36df73cccb9.jpg",
+      "img": "images/img_cbcac36df73cccb9.jpg",
       "desc": "",
       "sort": 55,
       "category": "council"
@@ -590,7 +590,7 @@ window.__CMS_DATA__ = {
     {
       "name": "肖美",
       "title": "理事",
-      "img": "/images/img_c116975aa374e946.jpg",
+      "img": "images/img_c116975aa374e946.jpg",
       "desc": "",
       "sort": 56,
       "category": "council"
@@ -598,7 +598,7 @@ window.__CMS_DATA__ = {
     {
       "name": "叶一江",
       "title": "理事",
-      "img": "/images/img_7f9e73a89104faa6.jpg",
+      "img": "images/img_7f9e73a89104faa6.jpg",
       "desc": "",
       "sort": 57,
       "category": "council"
@@ -606,7 +606,7 @@ window.__CMS_DATA__ = {
     {
       "name": " 卓俊林",
       "title": "理事",
-      "img": "/images/img_207c06e25d6e83dc.jpg",
+      "img": "images/img_207c06e25d6e83dc.jpg",
       "desc": "",
       "sort": 58,
       "category": "council"
@@ -614,7 +614,7 @@ window.__CMS_DATA__ = {
     {
       "name": "李清选",
       "title": "监视长",
-      "img": "/images/img_74f5d86f5a580454.jpg",
+      "img": "images/img_74f5d86f5a580454.jpg",
       "desc": "",
       "sort": 1,
       "category": "supervisor"
@@ -622,7 +622,7 @@ window.__CMS_DATA__ = {
     {
       "name": "许劲松",
       "title": "副监事长",
-      "img": "/images/img_4f5ff70f64d0c416.jpg",
+      "img": "images/img_4f5ff70f64d0c416.jpg",
       "desc": "",
       "sort": 2,
       "category": "supervisor"
@@ -630,7 +630,7 @@ window.__CMS_DATA__ = {
     {
       "name": "陈清湘",
       "title": "副监事长",
-      "img": "/images/img_14f7bb059d984837.jpg",
+      "img": "images/img_14f7bb059d984837.jpg",
       "desc": "",
       "sort": 3,
       "category": "supervisor"
@@ -638,7 +638,7 @@ window.__CMS_DATA__ = {
     {
       "name": "陈德恩",
       "title": "秘书长",
-      "img": "/images/img_46c1f1a02adb6388.jpg",
+      "img": "images/img_46c1f1a02adb6388.jpg",
       "desc": "",
       "sort": 1,
       "category": "secretariat"
@@ -646,7 +646,7 @@ window.__CMS_DATA__ = {
     {
       "name": "苏玉胜",
       "title": "法律顾问",
-      "img": "/images/img_bc396e8f17c10fdc.jpg",
+      "img": "images/img_bc396e8f17c10fdc.jpg",
       "desc": "",
       "sort": 1,
       "category": "advisor"
@@ -654,7 +654,7 @@ window.__CMS_DATA__ = {
     {
       "name": "吴志贤",
       "title": "副监事长",
-      "img": "/images/img_1ace7187b27a795f.jpg",
+      "img": "images/img_1ace7187b27a795f.jpg",
       "desc": "",
       "sort": 4,
       "category": "supervisor"
@@ -662,7 +662,7 @@ window.__CMS_DATA__ = {
     {
       "name": "王经博",
       "title": "副监事长",
-      "img": "/images/img_6f69059faf409206.jpg",
+      "img": "images/img_6f69059faf409206.jpg",
       "desc": "",
       "sort": 5,
       "category": "supervisor"
@@ -670,7 +670,7 @@ window.__CMS_DATA__ = {
     {
       "name": "柯孙厚",
       "title": "副监事长",
-      "img": "/images/img_5a865b0eea71a94a.jpg",
+      "img": "images/img_5a865b0eea71a94a.jpg",
       "desc": "",
       "sort": 6,
       "category": "supervisor"
@@ -678,7 +678,7 @@ window.__CMS_DATA__ = {
     {
       "name": "邱玲搓",
       "title": "副监事长",
-      "img": "/images/img_e700a8c52998c3c2.jpg",
+      "img": "images/img_e700a8c52998c3c2.jpg",
       "desc": "",
       "sort": 7,
       "category": "supervisor"
@@ -686,7 +686,7 @@ window.__CMS_DATA__ = {
     {
       "name": "张舒馨",
       "title": "执行秘书长",
-      "img": "/images/img_2a84670459869c76.jpg",
+      "img": "images/img_2a84670459869c76.jpg",
       "desc": "",
       "sort": 2,
       "category": "secretariat"
@@ -694,7 +694,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪连套",
       "title": "副秘书长兼办公室主任",
-      "img": "/images/img_943224858b92611f.jpg",
+      "img": "images/img_943224858b92611f.jpg",
       "desc": "",
       "sort": 3,
       "category": "secretariat"
@@ -702,7 +702,7 @@ window.__CMS_DATA__ = {
     {
       "name": "周宏伟",
       "title": "副秘书长",
-      "img": "/images/img_d5bb0c1fbd3a749f.jpg",
+      "img": "images/img_d5bb0c1fbd3a749f.jpg",
       "desc": "",
       "sort": 4,
       "category": "secretariat"
@@ -710,7 +710,7 @@ window.__CMS_DATA__ = {
     {
       "name": "肖延波",
       "title": "副秘书长",
-      "img": "/images/img_7d1ed9fa624f3fa9.jpg",
+      "img": "images/img_7d1ed9fa624f3fa9.jpg",
       "desc": "",
       "sort": 5,
       "category": "secretariat"
@@ -718,7 +718,7 @@ window.__CMS_DATA__ = {
     {
       "name": "沈育莲",
       "title": "副秘书长",
-      "img": "/images/img_83a3f32ffbbead32.jpg",
+      "img": "images/img_83a3f32ffbbead32.jpg",
       "desc": "",
       "sort": 6,
       "category": "secretariat"
@@ -726,7 +726,7 @@ window.__CMS_DATA__ = {
     {
       "name": "李小兰",
       "title": "法律顾问",
-      "img": "/images/img_1d43eae508f19559.jpg",
+      "img": "images/img_1d43eae508f19559.jpg",
       "desc": "",
       "sort": 2,
       "category": "advisor"
@@ -734,7 +734,7 @@ window.__CMS_DATA__ = {
     {
       "name": "张宜泉",
       "title": "法律顾问",
-      "img": "/images/img_d88048192a679138.jpg",
+      "img": "images/img_d88048192a679138.jpg",
       "desc": "",
       "sort": 3,
       "category": "advisor"
@@ -742,7 +742,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪加作",
       "title": "常务副会长",
-      "img": "/images/img_d64a8a5b99efc3db.jpg",
+      "img": "images/img_d64a8a5b99efc3db.jpg",
       "desc": "",
       "sort": "3",
       "category": "council"
@@ -750,7 +750,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪俊雄",
       "title": "常务副会长",
-      "img": "/images/img_64acf27a8b77eec9.jpg",
+      "img": "images/img_64acf27a8b77eec9.jpg",
       "desc": "",
       "sort": "4",
       "category": "council"
@@ -758,7 +758,7 @@ window.__CMS_DATA__ = {
     {
       "name": "李金杯",
       "title": "常务副会长",
-      "img": "/images/img_2afeb6b9a6fc147e.jpg",
+      "img": "images/img_2afeb6b9a6fc147e.jpg",
       "desc": "",
       "sort": "5",
       "category": "council"
@@ -766,7 +766,7 @@ window.__CMS_DATA__ = {
     {
       "name": "杨帆",
       "title": "常务副会长",
-      "img": "/images/img_bbf9d74b83b7ae92.jpg",
+      "img": "images/img_bbf9d74b83b7ae92.jpg",
       "desc": "",
       "sort": "6",
       "category": "council"
@@ -774,7 +774,7 @@ window.__CMS_DATA__ = {
     {
       "name": "林明照",
       "title": "副会长",
-      "img": "/images/img_0877359dda729ad6.jpg",
+      "img": "images/img_0877359dda729ad6.jpg",
       "desc": "",
       "sort": "7",
       "category": "council"
@@ -782,7 +782,7 @@ window.__CMS_DATA__ = {
     {
       "name": "吴镇勇",
       "title": "副会长",
-      "img": "/images/img_75916ea368412e17.jpg",
+      "img": "images/img_75916ea368412e17.jpg",
       "desc": "",
       "sort": "8",
       "category": "council"
@@ -791,292 +791,292 @@ window.__CMS_DATA__ = {
   "president": {
     "name": "洪辉煌",
     "title": "四川省闽南商会会长",
-    "img": "/images/img_305de80769466e58.jpg",
+    "img": "images/img_305de80769466e58.jpg",
     "content": "尊敬的各位同仁、各位乡贤：\n  见字如面。\n  在筹备这本三十周年特刊的日子里，我们在办公室翻看了数千张老照片。照片里，有1996年西藏饭店成立大会上的青春面庞，有2000年首个异地商会党支部挂牌时的热泪盈眶，也有一次次抗震救灾、疫情驰援中大家疲惫却坚定的身影。\n  看着这些发黄的影像，我们决定，这封信不讲空洞的套话，不列繁杂的成绩单，我们只跟各位兄弟姐妹说几句掏心窝子的话。\n  做企业，是一条极其孤独的修行之路。外界看到的是名片上的头衔、是企业简介上的产值，但只有我们自己知道，这些年咽下了多少委屈，熬过了多少个为了资金链、为了订单而夜不能寐的晚上。\n  值得庆幸的是，在这条孤独的路上，我们拥有彼此。三十年来，四川省闽南商会之所以能成为八百多家在川闽企的家，不是因为这个牌子有多亮，而是因为这里的每一位成员，都把“老乡”这两个字看得很重。\n  在这里，我们不以企业大小论英雄。我们只认那份“有钱出钱、有力出力”的担当，只认那份“一家有难、八方支援”的道义。正是这份真诚，让商会在每一次换届、每一次时代的风浪中，都能紧紧攥成一个拳头，稳步向前。\n  各位同仁，三十年，对于一个人来说是半生，对于一个商会来说，正是成熟与蜕变的转折点。\n  当前，全球经济形势复杂多变，各行各业都面临着巨大的转型阵痛。老一辈的红利正在消退，新一代的挑战已经逼近胸前。越是在这样的大变局中，我们越要摒弃单打独斗的旧思维。商会理事会与监事会将拼尽全力，把商会打造成一个真正能为企业赋能、能解决实际痛点、能引领大家进行数字化与现代化转型的“超级大本营”。\n  我们深知，未来的路不会比过去三十年更容易。但只要我们身上那股“滴水穿石、锲而不舍”的韧劲还在，只要我们紧握在一起的双手不曾松开，就没有什么寒冬不可逾越。\n  感谢您三十年来的不离不弃。愿我们带着父辈的底色，带着创新的勇气，在这个伟大的时代里，继续写好属于我们这代闽商的故事。\n  祝各位同仁：事业长青，家国安康！                                           \n                                                                                                                                       ",
-    "signature": "/images/img_80762219d4709bb4.jpg"
+    "signature": "images/img_80762219d4709bb4.jpg"
   },
   "honors": [
     {
       "year": "1998年8月",
       "title": "向灾区捐赠物资",
       "desc": "",
-      "img": "/images/img_ae50e3d47c1527a6.jpg"
+      "img": "images/img_ae50e3d47c1527a6.jpg"
     },
     {
       "year": "2001年7月",
       "title": "先进党支部",
       "desc": "",
-      "img": "/images/img_7ecff04acee0e4e7.jpg"
+      "img": "images/img_7ecff04acee0e4e7.jpg"
     },
     {
       "year": "2002年7月",
       "title": "先进党支部",
       "desc": "",
-      "img": "/images/img_06e2fda230b9dc89.jpg"
+      "img": "images/img_06e2fda230b9dc89.jpg"
     },
     {
       "year": "2002年12月",
       "title": "心系桑梓 慈善为怀",
       "desc": "",
-      "img": "/images/img_1d434dd1c89b2b64.jpg"
+      "img": "images/img_1d434dd1c89b2b64.jpg"
     },
     {
       "year": "2003年12月",
       "title": "工商联工作先进单位",
       "desc": "",
-      "img": "/images/img_968473926543ffef.jpg"
+      "img": "images/img_968473926543ffef.jpg"
     },
     {
       "year": "2004年5月",
       "title": "解决仪陇县饮水问题",
       "desc": "",
-      "img": "/images/img_28ce60cc8b879659.jpg"
+      "img": "images/img_28ce60cc8b879659.jpg"
     },
     {
       "year": "2004年6月",
       "title": "先进党支部",
       "desc": "",
-      "img": "/images/img_3c328c9031e39ef2.jpg"
+      "img": "images/img_3c328c9031e39ef2.jpg"
     },
     {
       "year": "2005年3月",
       "title": "支持第六届全国健康老人颁奖大会",
       "desc": "",
-      "img": "/images/img_f0c7bed6acce8c3f.jpg"
+      "img": "images/img_f0c7bed6acce8c3f.jpg"
     },
     {
       "year": "2005年4月",
       "title": "重点维权单位",
       "desc": "",
-      "img": "/images/img_fb7d658af725c834.jpg"
+      "img": "images/img_fb7d658af725c834.jpg"
     },
     {
       "year": "2005年5月",
       "title": "闽南商会 鸿星尔克杯篮球赛第三名",
       "desc": "",
-      "img": "/images/img_917b054d2d86e06f.jpg"
+      "img": "images/img_917b054d2d86e06f.jpg"
     },
     {
       "year": "2005年8月",
       "title": "什邡市城市顾问",
       "desc": "",
-      "img": "/images/img_e80890aa573f070f.jpg"
+      "img": "images/img_e80890aa573f070f.jpg"
     },
     {
       "year": "2006年1月",
       "title": "扶烫济闲 功德干秋",
       "desc": "",
-      "img": "/images/img_42562485aa026be5.jpg"
+      "img": "images/img_42562485aa026be5.jpg"
     },
     {
       "year": "2007年1月",
       "title": "支持四川老龄事业",
       "desc": "",
-      "img": "/images/img_974b1568097dafd2.jpg"
+      "img": "images/img_974b1568097dafd2.jpg"
     },
     {
       "year": "2008年1月",
       "title": "副主席单位",
       "desc": "",
-      "img": "/images/img_3a03d6fb35095b65.jpg"
+      "img": "images/img_3a03d6fb35095b65.jpg"
     },
     {
       "year": "2008年10月",
       "title": "先进社会组织",
       "desc": "",
-      "img": "/images/img_eadbbade3ad9ab77.jpg"
+      "img": "images/img_eadbbade3ad9ab77.jpg"
     },
     {
       "year": "2009年8月",
       "title": "同胞之谊 手足之情",
       "desc": "",
-      "img": "/images/img_2b062e5810af7de3.jpg"
+      "img": "images/img_2b062e5810af7de3.jpg"
     },
     {
       "year": "2010年6月",
       "title": "同胞之谊 手足之情",
       "desc": "",
-      "img": "/images/img_6e528de8609a4d4d.jpg"
+      "img": "images/img_6e528de8609a4d4d.jpg"
     },
     {
       "year": "2011年9月",
       "title": "扶贸济困 德善留芳",
       "desc": "",
-      "img": "/images/img_3559750b4f2cd5fe.jpg"
+      "img": "images/img_3559750b4f2cd5fe.jpg"
     },
     {
       "year": "2012年9月",
       "title": "商界翘楚 造福人群",
       "desc": "",
-      "img": "/images/img_1e2feb08d6f443c7.jpg"
+      "img": "images/img_1e2feb08d6f443c7.jpg"
     },
     {
       "year": "2015年9月",
       "title": "爱心单位",
       "desc": "",
-      "img": "/images/img_9db9d781dec39b2b.jpg"
+      "img": "images/img_9db9d781dec39b2b.jpg"
     },
     {
       "year": "2015年12月",
       "title": "爱心企业",
       "desc": "",
-      "img": "/images/img_211210ec68b1ff06.jpg"
+      "img": "images/img_211210ec68b1ff06.jpg"
     },
     {
       "year": "2016年8月",
       "title": "第一届四川省闽南男子篮球联赛  冠军",
       "desc": "",
-      "img": "/images/img_b257a6598e2f7dee.jpg"
+      "img": "images/img_b257a6598e2f7dee.jpg"
     },
     {
       "year": "2016年8月",
       "title": "四川省闽南男子篮球联赛",
       "desc": "",
-      "img": "/images/img_b549a5c914db609e.jpg"
+      "img": "images/img_b549a5c914db609e.jpg"
     },
     {
       "year": "2016年9月",
       "title": "青年部",
       "desc": "",
-      "img": "/images/img_61d4ca2a48281116.jpg"
+      "img": "images/img_61d4ca2a48281116.jpg"
     },
     {
       "year": "2019年",
       "title": "先进商（协）会",
       "desc": "",
-      "img": "/images/img_1d9c32eeba68b73a.jpg"
+      "img": "images/img_1d9c32eeba68b73a.jpg"
     },
     {
       "year": "2019年9月",
       "title": "青年创业创新中心",
       "desc": "",
-      "img": "/images/img_3162bab6e8030686.jpg"
+      "img": "images/img_3162bab6e8030686.jpg"
     },
     {
       "year": "2019年12月",
       "title": "杭州·泉州商会",
       "desc": "",
-      "img": "/images/img_ef467a5cf2821011.jpg"
+      "img": "images/img_ef467a5cf2821011.jpg"
     },
     {
       "year": "2020年3月",
       "title": "指赠荣誉证",
       "desc": "",
-      "img": "/images/img_3d240b99f969c526.jpg"
+      "img": "images/img_3d240b99f969c526.jpg"
     },
     {
       "year": "2021年9月",
       "title": "爱心商会",
       "desc": "",
-      "img": "/images/img_3dd715ded3329774.jpg"
+      "img": "images/img_3dd715ded3329774.jpg"
     },
     {
       "year": "2021年9月",
       "title": "爱心助学 真情暖心",
       "desc": "",
-      "img": "/images/img_844409065673ebc0.jpg"
+      "img": "images/img_844409065673ebc0.jpg"
     },
     {
       "year": "2022年5月",
       "title": "疫情捐赠",
       "desc": "",
-      "img": "/images/img_3546a71110d4b6bd.jpg"
+      "img": "images/img_3546a71110d4b6bd.jpg"
     },
     {
       "year": "2023年5月",
       "title": "涌泉人才驿站",
       "desc": "",
-      "img": "/images/img_0c73a63e32cf8eba.jpg"
+      "img": "images/img_0c73a63e32cf8eba.jpg"
     },
     {
       "year": "2023年5月",
       "title": "泉商回归办公室",
       "desc": "",
-      "img": "/images/img_5b18e9bb2881810a.jpg"
+      "img": "images/img_5b18e9bb2881810a.jpg"
     },
     {
       "year": "2023年9月",
       "title": "陈祥榕事迹展陈中心",
       "desc": "",
-      "img": "/images/img_6dc64a5282ac2e35.jpg"
+      "img": "images/img_6dc64a5282ac2e35.jpg"
     },
     {
       "year": "2023年5月",
       "title": "泉州商会",
       "desc": "",
-      "img": "/images/img_54ad9fb0acfde570.jpg"
+      "img": "images/img_54ad9fb0acfde570.jpg"
     },
     {
       "year": "2024年9月",
       "title": "凉山州越西县优秀学生一对一助学",
       "desc": "",
-      "img": "/images/img_75ec67c31ce8e5e2.jpg"
+      "img": "images/img_75ec67c31ce8e5e2.jpg"
     },
     {
       "year": "2024年9月",
       "title": "林建成荣誉证书",
       "desc": "",
-      "img": "/images/img_cab35213a2b59db0.jpg"
+      "img": "images/img_cab35213a2b59db0.jpg"
     },
     {
       "year": "2024年10月",
       "title": "桑梓心篮球情",
       "desc": "",
-      "img": "/images/img_6521acd7caa43c73.jpg"
+      "img": "images/img_6521acd7caa43c73.jpg"
     },
     {
       "year": "2025年12月",
       "title": "美食推广部",
       "desc": "",
-      "img": "/images/img_90a39f3a1df8f8f3.jpg"
+      "img": "images/img_90a39f3a1df8f8f3.jpg"
     },
     {
       "year": "2006年7月",
       "title": "先进党支部",
       "desc": "",
-      "img": "/images/img_accc56c3fc957b12.jpg"
+      "img": "images/img_accc56c3fc957b12.jpg"
     },
     {
       "year": "",
       "title": "美食推广部",
       "desc": "",
-      "img": "/images/img_ad81e9d125219a27.jpg"
+      "img": "images/img_ad81e9d125219a27.jpg"
     },
     {
       "year": "",
       "title": "金华市泉州商会——留念",
       "desc": "",
-      "img": "/images/img_13ef0c60fb566b76.jpg"
+      "img": "images/img_13ef0c60fb566b76.jpg"
     },
     {
       "year": "",
       "title": "热心公益将",
       "desc": "",
-      "img": "/images/img_73dcdd922ad3cbaa.jpg"
+      "img": "images/img_73dcdd922ad3cbaa.jpg"
     },
     {
       "year": "",
       "title": "生育关怀基金",
       "desc": "",
-      "img": "/images/img_14c4fccb9c3b0f51.jpg"
+      "img": "images/img_14c4fccb9c3b0f51.jpg"
     },
     {
       "year": "",
       "title": "四川联络组",
       "desc": "",
-      "img": "/images/img_b7b3b62ecff27e22.jpg"
+      "img": "images/img_b7b3b62ecff27e22.jpg"
     },
     {
       "year": "",
       "title": "越南中国商会  福建企业联合会",
       "desc": "",
-      "img": "/images/img_7bfb424aac1381ae.jpg"
+      "img": "images/img_7bfb424aac1381ae.jpg"
     },
     {
       "year": "",
       "title": "中华联合杯篮球邀请赛亚军",
       "desc": "",
-      "img": "/images/img_a8539223228efe46.jpg"
+      "img": "images/img_a8539223228efe46.jpg"
     }
   ],
   "milestones": [
@@ -1321,2430 +1321,2430 @@ window.__CMS_DATA__ = {
     {
       "date": "2016年08月12日",
       "title": "闽南商会篮球邀请赛8月18日6点准时开打",
-      "img": "/images/img_9e6bf62cdba319ac.jpg",
+      "img": "images/img_9e6bf62cdba319ac.jpg",
       "link": "https://mp.weixin.qq.com/s/32BmwIe7yVM4g6cFfY9DkQ"
     },
     {
       "date": "2016年08月18日",
       "title": "【邀请函】四川省闽南商业联合会诚邀您出席商会二十周年庆篮球邀请赛的开幕式并观看比赛",
-      "img": "/images/img_0f24465a95580b6f.jpg",
+      "img": "images/img_0f24465a95580b6f.jpg",
       "link": "http://mp.weixin.qq.com/s?__biz=MzIyNTQ5NTYxNA==&mid=2247483682&idx=1&sn=23fd7ca75c07bb20189651e041050185&chksm=e87f9e73df081765dab22fd1c2de78159aa7c573ba089b36e858a065d4934e2883c3051981ba&scene=126&sessionid=1785821428&subscene=undefined&clicktime=1785822077&enterid=1785822077#rd"
     },
     {
       "date": "2016年08月31日",
       "title": "冠军之战，一触即发！！！",
-      "img": "/images/img_0f24465a95580b6f.jpg",
+      "img": "images/img_0f24465a95580b6f.jpg",
       "link": "https://mp.weixin.qq.com/s/dsfEGcbdkytPUdE4DN_knQ"
     },
     {
       "date": "2016年09月08日",
       "title": "四川省闽南商会二十周年庆邀请赛落下帷幕，闽南队勇夺冠军！！！",
-      "img": "/images/img_9cd5e0ebdfea6d5d.jpg",
+      "img": "images/img_9cd5e0ebdfea6d5d.jpg",
       "link": "http://mp.weixin.qq.com/s?__biz=MzIyNTQ5NTYxNA==&mid=2247483834&idx=1&sn=8fa8335ad2ec764d5a916fc7576ed7da&chksm=e87f9eebdf0817fdf677c25132ad54ea13f019e05f52f49c2017dbf4963770768923bb5d2994&scene=126&sessionid=1785821428&subscene=undefined&clicktime=1785822090&enterid=1785822090#rd"
     },
     {
       "date": "2016年09月28日",
       "title": "“辉煌二十年 传承新希望”四川省闽南商会20年周年庆典晚会9月24日在蓉圆满举行",
-      "img": "/images/img_7b0466c5265457ab.jpg",
+      "img": "images/img_7b0466c5265457ab.jpg",
       "link": "http://mp.weixin.qq.com/s?__biz=MzIyNTQ5NTYxNA==&mid=2247483871&idx=1&sn=fc0ed5ec66c48ee4161905ae4717b884&chksm=e87f9e8edf081798a7425410a93cfdc5410c095917d35d2425276ba9219595349ececbcc2cd9&scene=126&sessionid=1785821428&subscene=undefined&clicktime=1785822100&enterid=1785822100#rd"
     },
     {
       "date": "2016年10月19日",
       "title": "晋江市内坑镇三民中心小学“心天地·多媒体互动阅读教室”揭牌仪式",
-      "img": "/images/img_645978a5783f2277.jpg",
+      "img": "images/img_645978a5783f2277.jpg",
       "link": "http://mp.weixin.qq.com/s?__biz=MzIyNTQ5NTYxNA==&mid=2247483873&idx=1&sn=051a063f6a90d541074939cb4a934cf6&chksm=e87f9eb0df0817a6b84f8cc7a302fcb3a6763c1d46b00a2acee95518c47d778b9e86026dbc2f&scene=126&sessionid=1785821428&subscene=undefined&clicktime=1785822111&enterid=1785822111#rd"
     },
     {
       "date": "2016年11月15日",
       "title": "四川省闽南商会召开（六届）第八次常务工作会议",
-      "img": "/images/img_7fb032623481c08b.jpg",
+      "img": "images/img_7fb032623481c08b.jpg",
       "link": "https://mp.weixin.qq.com/s/kiEj3k7yH9q84QvX7d1cOw",
       "id": 1785832966677
     },
     {
       "date": "2016年11月21日",
       "title": "闽南商会青年部及篮球队拜访安踏四川总部",
-      "img": "/images/img_908379a8560ea1f9.jpg",
+      "img": "images/img_908379a8560ea1f9.jpg",
       "link": "https://mp.weixin.qq.com/s/GNt34GmFNq9Rfk2srnGV4A",
       "id": 1785833024067
     },
     {
       "date": "2017年01月20日",
       "title": "参加省侨商会活动                    拓宽交流协作领域",
-      "img": "/images/img_023e31f26b618f9f.jpg",
+      "img": "images/img_023e31f26b618f9f.jpg",
       "link": "https://mp.weixin.qq.com/s/8bnMs_6ggms3QROSVH5gVQ",
       "id": 1785833074616
     },
     {
       "date": "2017年07月12日",
       "title": "四川省闽南商会与重庆市闽籍商会举办“纪念建党96周年”暨工作交流会",
-      "img": "/images/img_23416f63ee64a0d8.jpg",
+      "img": "images/img_23416f63ee64a0d8.jpg",
       "link": "https://mp.weixin.qq.com/s/EONQzMSuBrb0WZDockLQpw",
       "id": 1785833111586
     },
     {
       "date": "2017年07月27日",
       "title": "四川省闽南商会参加《四川省闽籍商会党建交流工作会暨秘书长联席会议》",
-      "img": "/images/img_5fc269bc78df86a9.jpg",
+      "img": "images/img_5fc269bc78df86a9.jpg",
       "link": "https://mp.weixin.qq.com/s/x_JlsDzfB3-DO0uwgHcllA",
       "id": 1785833151985
     },
     {
       "date": "2017年07月29日",
       "title": "“闽南商会家庭安全应急技能培训”第一期即将开班",
-      "img": "/images/img_925260410b4998ad.jpg",
+      "img": "images/img_925260410b4998ad.jpg",
       "link": "https://mp.weixin.qq.com/s/U7cDu67bZjZw6oxw2S2Thw",
       "id": 1785833212132
     },
     {
       "date": "2017年07月31日",
       "title": "四川省闽南商会参加《泉州建材中国行成都专场》活动",
-      "img": "/images/img_733e3662ad0f87a2.jpg",
+      "img": "images/img_733e3662ad0f87a2.jpg",
       "link": "https://mp.weixin.qq.com/s/um1O2Z8I-I2IpJl2gpdBlA",
       "id": 1785833232708
     },
     {
       "date": "2017年08月08日",
       "title": "四川省闽南商会参加《四川省福清商会成立活动》",
-      "img": "/images/img_c4c09c230e43c0d2.jpg",
+      "img": "images/img_c4c09c230e43c0d2.jpg",
       "link": "https://mp.weixin.qq.com/s/2e_sZlGrixuuEPKzs1SjQQ",
       "id": 1785833287768
     },
     {
       "date": "2017年08月09日",
       "title": "在九寨沟的闽籍乡亲或者亲属，如若需要帮助，请联系闽南商会",
-      "img": "/images/img_81f069ddff106ea1.jpg",
+      "img": "images/img_81f069ddff106ea1.jpg",
       "link": "https://mp.weixin.qq.com/s/gyd9koFMZI0xNSNeKhFLVg",
       "id": 1785833416317
     },
     {
       "date": "2017年08月10日",
       "title": "四川省闽南商会参加《凉山州福建商会十周年庆典》",
-      "img": "/images/img_ebd5d4253e1f6b07.jpg",
+      "img": "images/img_ebd5d4253e1f6b07.jpg",
       "link": "https://mp.weixin.qq.com/s/TlPveZH582KjIDVryL0mhQ",
       "id": 1785833450547
     },
     {
       "date": "2017年08月28日",
       "title": "四川省闽南商会热烈欢迎晋江留学协会代表团来蓉考察",
-      "img": "/images/img_25f470919de79b32.jpg",
+      "img": "images/img_25f470919de79b32.jpg",
       "link": "https://mp.weixin.qq.com/s/e48JxbiSUt9HRmpBCUHGtw",
       "id": 1785833498478
     },
     {
       "date": "2017年10月17日",
       "title": "四川省闽南商会召开常务工作会议暨迎国庆贺中秋联欢活动",
-      "img": "/images/img_26ff172a71e7ca99.jpg",
+      "img": "images/img_26ff172a71e7ca99.jpg",
       "link": "https://mp.weixin.qq.com/s/3SEwWSGJ91LQHDJsvG1VvQ",
       "id": 1785833531428
     },
     {
       "date": "2017年10月18日",
       "title": "四川省闽南商会召开《四川省闽南商会换届工作座谈会》",
-      "img": "/images/img_d4b93d4534d39fa0.jpg",
+      "img": "images/img_d4b93d4534d39fa0.jpg",
       "link": "https://mp.weixin.qq.com/s/1_XNZr2UHyTRXelmEWbuXw",
       "id": 1785833585830
     },
     {
       "date": "2017年11月15日",
       "title": "泉州市人民政府驻成都办事处组织了在川泉籍商会企业家“学习十九大精神，加快建设现代经济体系”的宣讲活动",
-      "img": "/images/img_eee8ba06da6ca274.jpg",
+      "img": "images/img_eee8ba06da6ca274.jpg",
       "link": "https://mp.weixin.qq.com/s/Bixq7iWbVD9j9YhicKstIQ",
       "id": 1785833609958
     },
     {
       "date": "2017年11月23日",
       "title": "四川闽南商会受邀参加2017年全国泉籍商会秘书长工作交流会议",
-      "img": "/images/img_93e7981ebe1653d1.jpg",
+      "img": "images/img_93e7981ebe1653d1.jpg",
       "link": "https://mp.weixin.qq.com/s/9rx9aDrDU0d_yRruMqihhg",
       "id": 1785833652293
     },
     {
       "date": "2017年12月08日",
       "title": "四川省闽南商业联合会“不忘初心，共创未来”21年周年庆典暨第七届理监事会就职典礼在蓉圆满举行",
-      "img": "/images/img_bc35d15b58252351.jpg",
+      "img": "images/img_bc35d15b58252351.jpg",
       "link": "https://mp.weixin.qq.com/s/ZXLb66paKmuTh4GjUTHpUA",
       "id": 1785833688969
     },
     {
       "date": "2017年12月22日",
       "title": "绵阳福建商会举行10周年庆暨第四届理事会成立授牌仪式",
-      "img": "/images/img_5c31e9c7651c5574.jpg",
+      "img": "images/img_5c31e9c7651c5574.jpg",
       "link": "https://mp.weixin.qq.com/s/cLf1L8z6BnVqONQJB8jWUw",
       "id": 1785833754111
     },
     {
       "date": "2017年12月28日",
       "title": "四川闽南商会受邀参加成都福州商会成立十七周年庆典暨成都福州商会青年分会成立大会",
-      "img": "/images/img_ca3bdfa6df82cb93.jpg",
+      "img": "images/img_ca3bdfa6df82cb93.jpg",
       "link": "https://mp.weixin.qq.com/s/d7rNPBX9Wy4clNUHCnVR_w",
       "id": 1785833805625
     },
     {
       "date": "2018年01月02日",
       "title": "四川省闽南商会受邀参加北京石狮商会第二届理监事会·京津冀石狮企业联谊会就职典礼 四川省闽南商会 ￼ ￼ 2018年1月2日 12:47 四川 ￼ 听全文 ￼",
-      "img": "/images/img_435298aabc368202.jpg",
+      "img": "images/img_435298aabc368202.jpg",
       "link": "https://mp.weixin.qq.com/s/h_mr3nmO2nDJHRWjHHP6zA",
       "id": 1785833845369
     },
     {
       "date": "2018年01月03日",
       "title": "四川省闽南商会受邀参加斯坦福东方研究院中国企业经营与创新发展年会",
-      "img": "/images/img_85efcf638a14eb63.jpg",
+      "img": "images/img_85efcf638a14eb63.jpg",
       "link": "https://mp.weixin.qq.com/s/e-i0x373KUmlkFlv8kpq2w",
       "id": 1785833879138
     },
     {
       "date": "2018年01月16日",
       "title": "四川省闽南商会受邀参加四川省福建商会“新时代、新征程、新思路”经济创新发展论坛暨四川省福建商会第四届监理事会就职典礼",
-      "img": "/images/img_8d912772b76ddd93.jpg",
+      "img": "images/img_8d912772b76ddd93.jpg",
       "link": "https://mp.weixin.qq.com/s/Ccn-U-eiKCc3cgLdcd-7kQ",
       "id": 1785833939202
     },
     {
       "date": "2018年01月22日",
       "title": "四川省闽南商会召开四川省闽南商会第七届理监事会第一次会长（扩大）会议暨2018年新春团拜会 秘书处四川省闽南商会 ￼ ￼ 2018年1月22日 17:14 四川 ￼ 听全文 ￼",
-      "img": "/images/img_09d4bc23217957b3.jpg",
+      "img": "images/img_09d4bc23217957b3.jpg",
       "link": "https://mp.weixin.qq.com/s/bPApDeZwQh9TXUgXTKKxzg",
       "id": 1785833962843
     },
     {
       "date": "2018年01月30日",
       "title": "四川省闽南商会会长黄志坚带队前往凉山州越西县进行精准扶贫情况调研并捐献首批物资",
-      "img": "/images/img_f89a5aa4bfea9a2a.jpg",
+      "img": "images/img_f89a5aa4bfea9a2a.jpg",
       "link": "https://mp.weixin.qq.com/s/kA7sFa6zJtVbMDa5kMgnqg",
       "id": 1785833995973
     },
     {
       "date": "2018年02月14日",
       "title": "四川省闽南商会祝您新春快乐!狗年大吉!",
-      "img": "/images/img_61e1fec9a4ad835e.jpg",
+      "img": "images/img_61e1fec9a4ad835e.jpg",
       "link": "https://mp.weixin.qq.com/s/zxDqtbi5vlobam5A7WA-FA",
       "id": 1785834044002
     },
     {
       "date": "2018年03月01日",
       "title": "四川省闽南商会祝大家元宵节快乐！",
-      "img": "/images/img_2e7ad66c3399069c.jpg",
+      "img": "images/img_2e7ad66c3399069c.jpg",
       "link": "https://mp.weixin.qq.com/s/_AFEMN07rmWMNxQhyWz61w",
       "id": 1785834087644
     },
     {
       "date": "2018年03月31日",
       "title": "四川省闽南商会青年部举办青年创业者交流分享活动",
-      "img": "/images/img_3b362f223a645a71.jpg",
+      "img": "images/img_3b362f223a645a71.jpg",
       "link": "https://mp.weixin.qq.com/s/MuOosFUXFddt8mDgNzNNDA",
       "id": 1785834128191
     },
     {
       "date": "2018年04月13日",
       "title": "泉州市人大曾巍副主任一行来蓉考察 并莅临四川省闽南商会关心指导",
-      "img": "/images/img_c299480baefa6114.jpg",
+      "img": "images/img_c299480baefa6114.jpg",
       "link": "https://mp.weixin.qq.com/s/AUOkXEC79vEzCEl-ZUDA1Q",
       "id": 1785834177838
     },
     {
       "date": "2018年04月19日",
       "title": "四川省闽南商会企业互访交流活动——常务副会长洪建筑所属企业金哥针织有限公司站",
-      "img": "/images/img_4388c8d0449bf403.jpg",
+      "img": "images/img_4388c8d0449bf403.jpg",
       "link": "https://mp.weixin.qq.com/s/c0MWymfCvvfCWyOqWa5phQ",
       "id": 1785834231051
     },
     {
       "date": "2018年04月30日",
       "title": "四川省闽南商会祝大家“五一“劳动节快乐！",
-      "img": "/images/img_b438de6ac54e7172.jpg",
+      "img": "images/img_b438de6ac54e7172.jpg",
       "link": "https://mp.weixin.qq.com/s/bPM9OkgHAPd8julMfmy1qg",
       "id": 1785834275246
     },
     {
       "date": "2018年05月04日",
       "title": "共庆五一  畅叙乡情",
-      "img": "/images/img_78c093140863db00.jpg",
+      "img": "images/img_78c093140863db00.jpg",
       "link": "https://mp.weixin.qq.com/s/43rJpWyeavWJlotLgQxiYA",
       "id": 1785834319928
     },
     {
       "date": "2018年05月07日",
       "title": "念五四青年节   四川省闽南商会青年部组织法律大讲堂活动",
-      "img": "/images/img_907db519b741db00.jpg",
+      "img": "images/img_907db519b741db00.jpg",
       "link": "https://mp.weixin.qq.com/s/8y34kn0mW-vJwuRENueoJA",
       "id": 1785834352240
     },
     {
       "date": "2018年06月11日",
       "title": "柬埔寨总理府经济、文化社会部部长助理林春良阁下莅临四川省闽南商会联谊座谈",
-      "img": "/images/img_d31b8ceaf541ed0b.jpg",
+      "img": "images/img_d31b8ceaf541ed0b.jpg",
       "link": "https://mp.weixin.qq.com/s/Vy3P9w8fWcKH-oVCNEoiaw",
       "id": 1785834432709
     },
     {
       "date": "2018年06月13日",
       "title": "高新技术企业厦门东城港光电科技有限公司加入四川省闽南商会成为常务理事单位",
-      "img": "/images/img_facbfd1cb8c81dbb.jpg",
+      "img": "images/img_facbfd1cb8c81dbb.jpg",
       "link": "https://mp.weixin.qq.com/s/MPgoKr1M22VME0JdlOnIxg",
       "id": 1785834489136
     },
     {
       "date": "2018年06月17日",
       "title": "四川省闽南商会祝大家端午节安康",
-      "img": "/images/img_c2d9409e21a34da1.jpg",
+      "img": "images/img_c2d9409e21a34da1.jpg",
       "link": "https://mp.weixin.qq.com/s/dF9AKjmxDs8_In3VaE3FgA",
       "id": 1785834537247
     },
     {
       "date": "2018年06月30日",
       "title": "四川省闽南商会参加沿着总书记足迹·重走凉山扶贫路活动大会",
-      "img": "/images/img_022f2a0a82b17d42.jpg",
+      "img": "images/img_022f2a0a82b17d42.jpg",
       "link": "https://mp.weixin.qq.com/s/4WzuQ98mbbN6tbeTzJlg7A",
       "id": 1785834729440
     },
     {
       "date": "2018年07月03日",
       "title": "四川省闽南商会召开第七届理监事第二次会长（扩大）会议",
-      "img": "/images/img_a5341a6a30174bc9.jpg",
+      "img": "images/img_a5341a6a30174bc9.jpg",
       "link": "https://mp.weixin.qq.com/s/mlLhOGD8IxfZBr7aKzrgZQ",
       "id": 1785834789639
     },
     {
       "date": "2018年07月09日",
       "title": "四川省闽南商会举办“个人所得税风险分析与税收规划”的知识讲堂",
-      "img": "/images/img_76346668400515c2.jpg",
+      "img": "images/img_76346668400515c2.jpg",
       "link": "https://mp.weixin.qq.com/s/yz3NodSJt8qIc_cbcgNN8w",
       "id": 1785834832383
     },
     {
       "date": "2018年07月18日",
       "title": "再见世界杯 哈啰！2018四川省闽南商会慈善篮球赛",
-      "img": "/images/img_a08b7d45739cc738.jpg",
+      "img": "images/img_a08b7d45739cc738.jpg",
       "link": "https://mp.weixin.qq.com/s/lqdSTYBegt9ZYsUu6v3ctQ",
       "id": 1785834876581
     },
     {
       "date": "2018年08月13日",
       "title": "四川的这群闽南人，在球场上帅爆了！！！",
-      "img": "/images/img_27c1724f510358eb.jpg",
+      "img": "images/img_27c1724f510358eb.jpg",
       "link": "https://mp.weixin.qq.com/s/d4n0devVeoe3vHXOVXtSbg",
       "id": 1785834928276
     },
     {
       "date": "2018年08月14日",
       "title": "第四轮战罢，快来看看最新的战绩和积分情况吧",
-      "img": "/images/img_2a4535292746915e.jpg",
+      "img": "images/img_2a4535292746915e.jpg",
       "link": "https://mp.weixin.qq.com/s/qJ8aEd19-JgRgojFVmVtVg",
       "id": 1785834965164
     },
     {
       "date": "2018年08月20日",
       "title": "四川省闽南商会举办了“人民币贬值背景下的资产配置和风险隔离”的讲座",
-      "img": "/images/img_e6f5529dd2f4651c.jpg",
+      "img": "images/img_e6f5529dd2f4651c.jpg",
       "link": "https://mp.weixin.qq.com/s/jwBCMUgWFtLoSsRbUcJS1A",
       "id": 1785835030548
     },
     {
       "date": "2018年08月23日",
       "title": "2018四川闽南商会慈善篮球赛最后一轮精彩收官 冠亚军巅峰对决即将上演",
-      "img": "/images/img_b39d3127d6997c53.jpg",
+      "img": "images/img_b39d3127d6997c53.jpg",
       "link": "https://mp.weixin.qq.com/s/CGISbUStpx2t7HNg5o37vQ",
       "id": 1785835084200
     },
     {
       "date": "2018年08月28日",
       "title": "福建安利达消防队夺冠 四川省闽南商会2018年慈善篮球赛完美闭幕",
-      "img": "/images/img_bd551a0593123468.jpg",
+      "img": "images/img_bd551a0593123468.jpg",
       "link": "https://mp.weixin.qq.com/s/U0XFHK5GttsaaIxQBq5eFA",
       "id": 1785835124353
     },
     {
       "date": "2018年09月15日",
       "title": "四川省闽南商会会长黄志坚带队前往凉山州越西县捐赠精准扶贫第二批物资",
-      "img": "/images/img_96239b359dbf968d.jpg",
+      "img": "images/img_96239b359dbf968d.jpg",
       "link": "https://mp.weixin.qq.com/s/L7DMH5eSMiRDDchxBBHx8A",
       "id": 1785835192008
     },
     {
       "date": "2018年09月23日",
       "title": "四川省闽南商会祝大家中秋节快乐！",
-      "img": "/images/img_a182a2f920bee738.jpg",
+      "img": "images/img_a182a2f920bee738.jpg",
       "link": "https://mp.weixin.qq.com/s/0WFBq7QG4Ikn2fV2AOXzYg",
       "id": 1785835249513
     },
     {
       "date": "2018年09月24日",
       "title": "热烈庆祝四川省闽南商会成立22周年",
-      "img": "/images/img_18b8ae1930141a6e.jpg",
+      "img": "images/img_18b8ae1930141a6e.jpg",
       "link": "https://mp.weixin.qq.com/s/JTy_-FPOQTrakhdn5vt6_g",
       "id": 1785835285543
     },
     {
       "date": "2018年09月27日",
       "title": "四川省闽南商业联合会第22周年庆典暨中秋联谊晚会在蓉圆满举行",
-      "img": "/images/img_caf7eac08863ccc4.jpg",
+      "img": "images/img_caf7eac08863ccc4.jpg",
       "link": "https://mp.weixin.qq.com/s/ZSpdBcORxd-dCln38_xpnw",
       "id": 1785835323492
     },
     {
       "date": "2018年09月28日",
       "title": "泉州南安市美林街道办黄立新书记及美林商会企业家们一行莅临闽南商会关心交流",
-      "img": "/images/img_4da70b323dacea9b.jpg",
+      "img": "images/img_4da70b323dacea9b.jpg",
       "link": "https://mp.weixin.qq.com/s/k5gsECO-QypIhiuQw9_Bmg",
       "id": 1785835366889
     },
     {
       "date": "2018年09月30日",
       "title": "四川省闽南商会祝大家国庆节快乐",
-      "img": "/images/img_f3d345c57915926e.jpg",
+      "img": "images/img_f3d345c57915926e.jpg",
       "link": "https://mp.weixin.qq.com/s/xoSRDVt4n0IoZfoC9T4whA",
       "id": 1785835473693
     },
     {
       "date": "2018年11月01日",
       "title": "四川省闽南商会举办消防安全知识培训活动",
-      "img": "/images/img_81b7019d6cfe7cd5.jpg",
+      "img": "images/img_81b7019d6cfe7cd5.jpg",
       "link": "https://mp.weixin.qq.com/s/1mV1EyW64SHdBA-FOqGXqg",
       "id": 1785835511099
     },
     {
       "date": "2018年11月09日",
       "title": "四川省闽南商会参加全国异地泉籍商会会长联谊会暨全国异地泉籍商会秘书长工作和党建工作经验交流会",
-      "img": "/images/img_90140cf1e4d012e0.jpg",
+      "img": "images/img_90140cf1e4d012e0.jpg",
       "link": "https://mp.weixin.qq.com/s/31xzTIE3CKPMM_BBSAMJlA",
       "id": 1785835600067
     },
     {
       "date": "2018年11月12日",
       "title": "四川省闽南商会新入常务理事企业：成都益安博生物技术有限公司",
-      "img": "/images/img_9d05d44509f1be72.jpg",
+      "img": "images/img_9d05d44509f1be72.jpg",
       "link": "https://mp.weixin.qq.com/s/k8BhzUgSwEb9BtlnJQ_7Sw",
       "id": 1785835619862
     },
     {
       "date": "2018年11月16日",
       "title": "四川省闽南商会企业互访交流活动——拜访参观常务理事单位成都市益安博生物技术有限公司",
-      "img": "/images/img_8e5314546e52ec7b.jpg",
+      "img": "images/img_8e5314546e52ec7b.jpg",
       "link": "https://mp.weixin.qq.com/s/8bB-D5w4y7Hf7H1ZkYon7A",
       "id": 1785835658233
     },
     {
       "date": "2018年11月26日",
       "title": "四川省闽南商会名誉会长单位福建盼盼集团一行赴雅安石棉县进行投资洽谈",
-      "img": "/images/img_8d8162813677cdb2.jpg",
+      "img": "images/img_8d8162813677cdb2.jpg",
       "link": "https://mp.weixin.qq.com/s/9xzNm-heNIug3qKqedjGaw",
       "id": 1785835770345
     },
     {
       "date": "2018年12月03日",
       "title": "四川省闽南商会举办“量化评估免疫力和个体化提升免疫力”讲座活动",
-      "img": "/images/img_b5b9a384b35162cf.jpg",
+      "img": "images/img_b5b9a384b35162cf.jpg",
       "link": "https://mp.weixin.qq.com/s/erFPN1dPODCXsE_eHCYmPQ",
       "id": 1785835812367
     },
     {
       "date": "2018年12月14日",
       "title": "四川省工商联领导袁明副主席调研关心四川省闽南商会名誉会长单位------福建盼盼集团成都分公司",
-      "img": "/images/img_839dac9ded724f6a.jpg",
+      "img": "images/img_839dac9ded724f6a.jpg",
       "link": "https://mp.weixin.qq.com/s/rp7LSX8SpljMrVzVZq97pw",
       "id": 1785835852565
     },
     {
       "date": "2018年12月24日",
       "title": "四川省闽南商会通过厦门大学四川校友会资助阿坝州贫困学生",
-      "img": "/images/img_8b7f3fe0985c1513.jpg",
+      "img": "images/img_8b7f3fe0985c1513.jpg",
       "link": "https://mp.weixin.qq.com/s/rgpNqpTSob0Aq_EovoY9fg",
       "id": 1785835907384
     },
     {
       "date": "2018年12月31日",
       "title": "四川省闽南商会祝全国人民元旦快乐！",
-      "img": "/images/img_1a91b9284b6bb47a.jpg",
+      "img": "images/img_1a91b9284b6bb47a.jpg",
       "link": "https://mp.weixin.qq.com/s/duxHxYC3e9yMCKQmwAig3w",
       "id": 1785835957860
     },
     {
       "date": "2019年01月14日",
       "title": "四川省闽南商会举行第七届第二次会员代表大会暨2019新春团拜会",
-      "img": "/images/img_9df9b12009e7fdf9.jpg",
+      "img": "images/img_9df9b12009e7fdf9.jpg",
       "link": "https://mp.weixin.qq.com/s/ZXRfN-vlqTlW5gmd5BwmYA",
       "id": 1785893115516
     },
     {
       "date": "2019年02月04日",
       "title": "四川省闽南商会祝大家新春快乐猪年大吉！",
-      "img": "/images/img_68d209f718f2bdf1.jpg",
+      "img": "images/img_68d209f718f2bdf1.jpg",
       "link": "https://mp.weixin.qq.com/s/3jzfZVxOInRGKfaLWpvJXg",
       "id": 1785893145427
     },
     {
       "date": "2019年02月19日",
       "title": "四川省闽南商会祝大家元宵节快乐",
-      "img": "/images/img_0b50f336889f3395.jpg",
+      "img": "images/img_0b50f336889f3395.jpg",
       "link": "https://mp.weixin.qq.com/s/U_sDpEzTES-Xt1RA0wEq-w",
       "id": 1785893212050
     },
     {
       "date": "2019年02月28日",
       "title": "四川省闽南商会参加四川省工商联2019年“万企帮万村”精准扶贫行动暨经济工作会议",
-      "img": "/images/img_330817adc1509bc1.jpg",
+      "img": "images/img_330817adc1509bc1.jpg",
       "link": "https://mp.weixin.qq.com/s/ORT2jzK9UpNhCl5ErteI3Q",
       "id": 1785893241445
     },
     {
       "date": "2019年03月29日",
       "title": "四川省闽南商会代表涉侨社团参加四川省第八次归侨侨眷代表大会  会长黄志坚先生被选举为省八届侨联委员",
-      "img": "/images/img_362af8c27e1953d3.jpg",
+      "img": "images/img_362af8c27e1953d3.jpg",
       "link": "https://mp.weixin.qq.com/s/L4RIl-H1UKlv3xG8lF1twg",
       "id": 1785893295983
     },
     {
       "date": "2019年04月01日",
       "title": "四川省闽南商会应邀参加在川涉侨商协会座谈会",
-      "img": "/images/img_8b3a68769b41f8ed.jpg",
+      "img": "images/img_8b3a68769b41f8ed.jpg",
       "link": "https://mp.weixin.qq.com/s/fZUrw_5ro1WG_djJBcJn1g",
       "id": 1785893336528
     },
     {
       "date": "2019年04月03日",
       "title": "成都市委统战部于代松教授到四川省闽南商会进行2019年“关于成都企业家群体成长环境的调研”活动",
-      "img": "/images/img_cf09d0254611b735.jpg",
+      "img": "images/img_cf09d0254611b735.jpg",
       "link": "https://mp.weixin.qq.com/s/g2N4eM5lh33phVk39JwVRQ",
       "id": 1785893401683
     },
     {
       "date": "2019年04月30日",
       "title": "四川省闽南商会祝大家“五一“劳动节快乐 劳动者最美",
-      "img": "/images/img_f8919392237c16b4.jpg",
+      "img": "images/img_f8919392237c16b4.jpg",
       "link": "https://mp.weixin.qq.com/s/Nma1GOGjnErZ9JpuAanNGQ",
       "id": 1785893444940
     },
     {
       "date": "2019年05月07日",
       "title": "泉州市人民政府办公室、新疆昌吉国家高新技术产业开发区党组成员 副主任洪冬青一行到闽南商会交流访问",
-      "img": "/images/img_398e046211010df3.jpg",
+      "img": "images/img_398e046211010df3.jpg",
       "link": "https://mp.weixin.qq.com/s/EWVn_AZ-DyniwODd3S-hvQ",
       "id": 1785893476956
     },
     {
       "date": "2019年05月20日",
       "title": "四川省闽南商会参加\"侨商进园区\"活动",
-      "img": "/images/img_2a4587f81ff35bde.jpg",
+      "img": "images/img_2a4587f81ff35bde.jpg",
       "link": "https://mp.weixin.qq.com/s/X-qzqZDCG5xpc9GGZvu7mw",
       "id": 1785893592070
     },
     {
       "date": "2019年06月06日",
       "title": "四川省闽南商会祝大家端午安康",
-      "img": "/images/img_e0cdc4924279b148.jpg",
+      "img": "images/img_e0cdc4924279b148.jpg",
       "link": "https://mp.weixin.qq.com/s/KUbxd3w7CzRJ8O4_B_ymPA",
       "id": 1785893656556
     },
     {
       "date": "2019年06月10日",
       "title": "四川省闽南商会参加“侨资企业雅安行”活动",
-      "img": "/images/img_3fa7c35b7449bc8d.jpg",
+      "img": "images/img_3fa7c35b7449bc8d.jpg",
       "link": "https://mp.weixin.qq.com/s/DQewUobUl7SZsVJIr6zRgw",
       "id": 1785893732511
     },
     {
       "date": "2019年07月02日",
       "title": "2019川商发展大会在蓉举行，四川省闽南商会企业家代表组团参加",
-      "img": "/images/img_d16664eb5d096cf3.jpg",
+      "img": "images/img_d16664eb5d096cf3.jpg",
       "link": "https://mp.weixin.qq.com/s/Dscwu3W3Xpa8FU05CWFg7w",
       "id": 1785893813626
     },
     {
       "date": "2019年07月22日",
       "title": "四川省闽南商会企业家们参加第一期在川涉侨企业高管培训班",
-      "img": "/images/img_44ab933d9fc07452.jpg",
+      "img": "images/img_44ab933d9fc07452.jpg",
       "link": "https://mp.weixin.qq.com/s/UqFMWGa_3GtRiFMI9SS_kQ",
       "id": 1785893925427
     },
     {
       "date": "2019年07月29日",
       "title": "四川省闽南商会召开第七届理监事会第三次会长（扩大）会议",
-      "img": "/images/img_1035b8ad3f6b60e1.jpg",
+      "img": "images/img_1035b8ad3f6b60e1.jpg",
       "link": "https://mp.weixin.qq.com/s/Ysb18NKGX8JVxPlP8Rv_kA",
       "id": 1785893971311
     },
     {
       "date": "2019年08月23日",
       "title": "四川省闽南商会会长黄志坚率团到菲律宾进行商务考察及海外社团交流",
-      "img": "/images/img_d49977f362211687.jpg",
+      "img": "images/img_d49977f362211687.jpg",
       "link": "https://mp.weixin.qq.com/s/95QQF4ZXph3_PO3vC-k7zQ",
       "id": 1785894072880
     },
     {
       "date": "2019年09月13日",
       "title": "四川省闽南商会祝大家中秋节快乐！         秘书处 秘书处        四川省闽南商会     2019年9月13日 12:10 四川   听全文           在小说阅读器读本章    去阅读        在小说阅读器中沉浸阅读",
-      "img": "/images/img_c57d281a5e6d4341.jpg",
+      "img": "images/img_c57d281a5e6d4341.jpg",
       "link": "https://mp.weixin.qq.com/s/2hhjh-Ft6Un9Fy30kDSUxQ",
       "id": 1785894119020
     },
     {
       "date": "2019年09月18日",
       "title": "四川省闽南商会会长黄志坚回乡关怀慰问教师",
-      "img": "/images/img_d52741d33ecbb8ff.jpg",
+      "img": "images/img_d52741d33ecbb8ff.jpg",
       "link": "https://mp.weixin.qq.com/s/y8wFAM9VOKkxZ360naeRsQ",
       "id": 1785894218783
     },
     {
       "date": "2019年09月25日",
       "title": "四川省闽南商会热烈庆祝新中国七十年华诞暨四川省闽南商会创会二十三周年纪念活动在蓉圆满举行",
-      "img": "/images/img_0c2c855c3890f039.jpg",
+      "img": "images/img_0c2c855c3890f039.jpg",
       "link": "https://mp.weixin.qq.com/s/wvV-2HLgrXwJ__gtuH2fyA",
       "id": 1785894262054
     },
     {
       "date": "2019年10月01日",
       "title": "四川省闽南商会祝大家国庆节快乐！",
-      "img": "/images/img_07395eeae8a1e29e.jpg",
+      "img": "images/img_07395eeae8a1e29e.jpg",
       "link": "https://mp.weixin.qq.com/s/gbCLXP9pnX8LKAOFSkMboQ",
       "id": 1785894325606
     },
     {
       "date": "2019年10月17日",
       "title": "“泉商中国行“巡回采风团到四川省闽南商会进行座谈采访",
-      "img": "/images/img_3af60d0dec7e0345.jpg",
+      "img": "images/img_3af60d0dec7e0345.jpg",
       "link": "https://mp.weixin.qq.com/s/ciEksRz0ovQMXF1zHk29wQ",
       "id": 1785894363560
     },
     {
       "date": "2019年10月24日",
       "title": "四川省闽南商会组织会员到成都中铁至善投资有限公司进行参访交流",
-      "img": "/images/img_1e3954aa5a202ac9.jpg",
+      "img": "images/img_1e3954aa5a202ac9.jpg",
       "link": "https://mp.weixin.qq.com/s/T4chSqBhP72DHIee21kKlw",
       "id": 1785894421494
     },
     {
       "date": "2019年10月28日",
       "title": "四川省闽南商会应邀参加2019年全国泉籍商会会长及秘书长工作经验交流会暨招商推介会",
-      "img": "/images/img_fdf6d8f5bbc735ce.jpg",
+      "img": "images/img_fdf6d8f5bbc735ce.jpg",
       "link": "https://mp.weixin.qq.com/s/xcZtKHjWaauH9wtRQBMA6w",
       "id": 1785894469602
     },
     {
       "date": "2019年11月15日",
       "title": "四川省闽南商会热烈欢迎福建省石狮市统战部、工商联来蓉学习培训人员交流活动圆满结束",
-      "img": "/images/img_e26a398b93c005ab.jpg",
+      "img": "images/img_e26a398b93c005ab.jpg",
       "link": "https://mp.weixin.qq.com/s/MsF--zWZXE2t8loMpETc9Q",
       "id": 1785894505409
     },
     {
       "date": "2019年11月18日",
       "title": "四川省闽南商业联合会党支部 参加全省非公企业和社会组织党组织书记示范培训班",
-      "img": "/images/img_f5260af216f9cd68.jpg",
+      "img": "images/img_f5260af216f9cd68.jpg",
       "link": "https://mp.weixin.qq.com/s/JfzPF6k-Pem7E8_MYLwU4Q",
       "id": 1785894576483
     },
     {
       "date": "2019年11月19日",
       "title": "四川省广安市武胜县县委毛加庆书记一行莅临四川省闽南商会进行交流活动",
-      "img": "/images/img_b244dc28fb5a7adb.jpg",
+      "img": "images/img_b244dc28fb5a7adb.jpg",
       "link": "https://mp.weixin.qq.com/s/xWMEPgRilHGvSHtf-R50Ag",
       "id": 1785894606759
     },
     {
       "date": "2019年12月02日",
       "title": "四川省闽南商会在川闽籍大学生见面交流会在蓉圆满举行",
-      "img": "/images/img_ed8e358cceedc75d.jpg",
+      "img": "images/img_ed8e358cceedc75d.jpg",
       "link": "https://mp.weixin.qq.com/s/fu8udw8Mxkk9Oa5S9gjTIQ",
       "id": 1785894655857
     },
     {
       "date": "2019年12月09日",
       "title": "攀枝花市东区区委副书记王兴全一行莅临四川省闽南商会进行交流访问",
-      "img": "/images/img_b0a4f691ddf1fc31.jpg",
+      "img": "images/img_b0a4f691ddf1fc31.jpg",
       "link": "https://mp.weixin.qq.com/s/65yWHFC-QKZDSly5vAeaQA",
       "id": 1785894710664
     },
     {
       "date": "2020年01月01日",
       "title": "四川省闽南商会祝大家2020元旦节快乐！",
-      "img": "/images/img_f02142f4698fd134.jpg",
+      "img": "images/img_f02142f4698fd134.jpg",
       "link": "https://mp.weixin.qq.com/s/1Csz5pHyK1fqduMFbtXrjA",
       "id": 1785894759001
     },
     {
       "date": "2020年01月06日",
       "title": "四川省闽南商会第七届第三次全体理监事会会议暨2020新春团拜会在蓉圆满举行",
-      "img": "/images/img_5201804808f48b54.jpg",
+      "img": "images/img_5201804808f48b54.jpg",
       "link": "https://mp.weixin.qq.com/s/8pQ9BeL-9KZHGUqX9H6epQ",
       "id": 1785894794925
     },
     {
       "date": "2020年01月14日",
       "title": "四川省闽南商会会长黄志坚在蓉会见福建省省委统战部副部长李家荣及原全国工商联专职副主席庄聪生",
-      "img": "/images/img_6fa225bed2c3a4b9.jpg",
+      "img": "images/img_6fa225bed2c3a4b9.jpg",
       "link": "https://mp.weixin.qq.com/s/T4lgYQVnAIuiwME--VF24w",
       "id": 1785894902800
     },
     {
       "date": "2020年01月24日",
       "title": "四川省闽南商会祝大家新年快乐，鼠年大吉！",
-      "img": "/images/img_7221d2e1b32914f9.jpg",
+      "img": "images/img_7221d2e1b32914f9.jpg",
       "link": "https://mp.weixin.qq.com/s/bbHzzL58ailuE5SOrAhzlw",
       "id": 1785894992460
     },
     {
       "date": "2020年02月28日",
       "title": "四川省闽南商会参加在川侨资企业和侨界专家防疫情促发展专题座谈会",
-      "img": "/images/img_1f7be57fb45d1a64.jpg",
+      "img": "images/img_1f7be57fb45d1a64.jpg",
       "link": "https://mp.weixin.qq.com/s/LTF7eGTpgQ3lCTCBkcFk_A",
       "id": 1785895140632
     },
     {
       "date": "2020年04月29日",
       "title": "抗疫复产强突围 四川省闽南商会脱贫攻坚再发力",
-      "img": "/images/img_ed6fd5f8c1df3667.jpg",
+      "img": "images/img_ed6fd5f8c1df3667.jpg",
       "link": "https://mp.weixin.qq.com/s/pj1ctKIy8oJztj8nWeXKHg",
       "id": 1785895233363
     },
     {
       "date": "2020年04月30日",
       "title": "阿坝州小金县经信局局长杨斌一行到访四川省闽南商会交流座谈",
-      "img": "/images/img_fe2343d57327b2e8.jpg",
+      "img": "images/img_fe2343d57327b2e8.jpg",
       "link": "https://mp.weixin.qq.com/s/UY_fp-YUhEGYXDa28O6jlA",
       "id": 1785895273642
     },
     {
       "date": "2020年05月01日",
       "title": "四川省闽南商会祝大家“五一”劳动节快乐，祝会员企业复工复产顺利！",
-      "img": "/images/img_673c3cffe34f4535.jpg",
+      "img": "images/img_673c3cffe34f4535.jpg",
       "link": "https://mp.weixin.qq.com/s/eSf1YbMsC4CV2U9zCXPhDg",
       "id": 1785895311252
     },
     {
       "date": "2020年05月08日",
       "title": "四川省闽南商会被评为“2019年度先进商（协）会”         四川省闽南商会     2020年5月8日 18:41 四川   听全文           在小说阅读器读本章    去阅读        在小说阅读器中沉浸阅读",
-      "img": "/images/img_3c75f8a8a51aedab.jpg",
+      "img": "images/img_3c75f8a8a51aedab.jpg",
       "link": "https://mp.weixin.qq.com/s/Us-zY2w823nuO1psdRgqDw",
       "id": 1785895348660
     },
     {
       "date": "2020年05月11日",
       "title": "四川省闽南商会召开第七届第四次会长（扩大）会议",
-      "img": "/images/img_e8bcb12e940d777e.jpg",
+      "img": "images/img_e8bcb12e940d777e.jpg",
       "link": "https://mp.weixin.qq.com/s/E5tZzH8jRRMd8clPh-QYVw",
       "id": 1785895390770
     },
     {
       "date": "2020年05月13日",
       "title": "成都市委统战部走进四川省闽南商会会员企业进行第四组调研工作",
-      "img": "/images/img_46323d6901af9466.jpg",
+      "img": "images/img_46323d6901af9466.jpg",
       "link": "https://mp.weixin.qq.com/s/eL4aYn1_eTQNSq3xDPp1RA",
       "id": 1785895425443
     },
     {
       "date": "2020年05月29日",
       "title": "四川省闽南商会参加由四川省委统战部主办的在川侨资企业互助合作洽谈会",
-      "img": "/images/img_1067556fd4c0c8d3.jpg",
+      "img": "images/img_1067556fd4c0c8d3.jpg",
       "link": "https://mp.weixin.qq.com/s/KT2hKhzpK3dL60pvhhqD7g",
       "id": 1785895461767
     },
     {
       "date": "2020年06月02日",
       "title": "四川省闽南商会应邀参加“四川知名企业消费扶贫阿坝行暨汶川县投资推介会”",
-      "img": "/images/img_d543a0103b25cb2c.jpg",
+      "img": "images/img_d543a0103b25cb2c.jpg",
       "link": "https://mp.weixin.qq.com/s/RKiWcS1iP9ie7VcvcHeWqg",
       "id": 1785895540234
     },
     {
       "date": "2020年06月08日",
       "title": "四川省闽南商会参加由省侨联主办的“知名侨商泸州行”活动 考察对接重点项目",
-      "img": "/images/img_c1eb0cf1893eae63.jpg",
+      "img": "images/img_c1eb0cf1893eae63.jpg",
       "link": "https://mp.weixin.qq.com/s/A1bsao4Z9plrQ7a8e6CyLg",
       "id": 1785895579091
     },
     {
       "date": "2020年06月11日",
       "title": "四川省闽南商会召开闽籍商会秘书长交流座谈会",
-      "img": "/images/img_76b14950c0e03987.jpg",
+      "img": "images/img_76b14950c0e03987.jpg",
       "link": "https://mp.weixin.qq.com/s/75m0eQiMUBBP0LIbkgnQuQ",
       "id": 1785895653217
     },
     {
       "date": "2020年06月12日",
       "title": "四川省委统战部副部长、省侨办主任文甦一行莅临四川省闽南商会关心调研",
-      "img": "/images/img_09c9c6578823229f.jpg",
+      "img": "images/img_09c9c6578823229f.jpg",
       "link": "https://mp.weixin.qq.com/s/9X7QDBMPIliYtcZu-rBRbQ",
       "id": 1785895685183
     },
     {
       "date": "2020年06月19日",
       "title": "2020公益助农 闽商联盟在行动",
-      "img": "/images/img_e0e2e6ff7df89480.jpg",
+      "img": "images/img_e0e2e6ff7df89480.jpg",
       "link": "https://mp.weixin.qq.com/s/4SO5cLPFT_8nBsgmvOn4rg",
       "id": 1785895789839
     },
     {
       "date": "2020年06月25日",
       "title": "四川省闽南商会祝大家端午吉祥安康",
-      "img": "/images/img_d8caa2f675ca8726.jpg",
+      "img": "images/img_d8caa2f675ca8726.jpg",
       "link": "https://mp.weixin.qq.com/s/MT1dcXObbkdlKe7__HCP8Q",
       "id": 1785895858960
     },
     {
       "date": "2020年07月14日",
       "title": "山海虽隔情相连 西班牙四川总商会发信感谢四川省闽南商会捐赠防疫物资",
-      "img": "/images/img_2f6a3faf643f2ac4.jpg",
+      "img": "images/img_2f6a3faf643f2ac4.jpg",
       "link": "https://mp.weixin.qq.com/s/i5CMMFBFrXCdEiu_y148NQ",
       "id": 1785896456938
     },
     {
       "date": "2020年07月21日",
       "title": "四川省闽南商会参访亚度家居",
-      "img": "/images/img_7d0693d34b4f9fb0.jpg",
+      "img": "images/img_7d0693d34b4f9fb0.jpg",
       "link": "https://mp.weixin.qq.com/s/A3s7-MyyLUVRj_wcTx2Qpw",
       "id": 1785896599454
     },
     {
       "date": "2020年08月27日",
       "title": "四川省闽南商会会长黄志坚带队前往名誉会长企业蜡笔小新四川分公司关心交流",
-      "img": "/images/img_8ff2afba222d27ea.jpg",
+      "img": "images/img_8ff2afba222d27ea.jpg",
       "link": "https://mp.weixin.qq.com/s/HXu1grDUpli98GxNt1dl5g",
       "id": 1785896762812
     },
     {
       "date": "2020年08月28日",
       "title": "四川省闽南商会与成都电子科技大学职业技能培训中心签订战略合作协议",
-      "img": "/images/img_525209ebdbf9e315.jpg",
+      "img": "images/img_525209ebdbf9e315.jpg",
       "link": "https://mp.weixin.qq.com/s/Uwp6Ojtx7BKF0PS1GNB6bQ",
       "id": 1785896812679
     },
     {
       "date": "2020年09月25日",
       "title": "四川省闽南商业联合会迎国庆贺中秋暨二十四周年庆祝活动在蓉圆满举行",
-      "img": "/images/img_2f6203b35f367117.jpg",
+      "img": "images/img_2f6203b35f367117.jpg",
       "link": "https://mp.weixin.qq.com/s/cpPdfwgEDs078vwVVNAiSw",
       "id": 1785896856855
     },
     {
       "date": "2020年10月01日",
       "title": "四川省闽南商会祝大家国庆中秋双节快乐！",
-      "img": "/images/img_e4b6a8da7340b336.jpg",
+      "img": "images/img_e4b6a8da7340b336.jpg",
       "link": "https://mp.weixin.qq.com/s/qMzdHx8tyJGvLLo6PWSz_w",
       "id": 1785896910448
     },
     {
       "date": "2020年11月04日",
       "title": "四川省闽南商会受邀参加“侨爱工程—绿色宜居乡村行动”芦山县宝盛乡中坝村厕所革命现场会",
-      "img": "/images/img_bdea922ae9ef5248.jpg",
+      "img": "images/img_bdea922ae9ef5248.jpg",
       "link": "https://mp.weixin.qq.com/s/AYGPXvSSorbzBQzC2H6ufQ",
       "id": 1785896961125
     },
     {
       "date": "2020年11月23日",
       "title": "四川省闽南商会企业家们参加第二期在川侨资企业高管研修班",
-      "img": "/images/img_814485a68fd86a2f.jpg",
+      "img": "images/img_814485a68fd86a2f.jpg",
       "link": "https://mp.weixin.qq.com/s/eXq_wSNcQR3HAYcEo0Logg",
       "id": 1785896998220
     },
     {
       "date": "2020年11月30日",
       "title": "四川省闽南商会举行“情系老区、扶智助学”爱心捐助贫困大学生表彰仪式",
-      "img": "/images/img_bc72b70fa9f84b1c.jpg",
+      "img": "images/img_bc72b70fa9f84b1c.jpg",
       "link": "https://mp.weixin.qq.com/s/s2xUVpIgn-sLcSkPw2legg",
       "id": 1785897074348
     },
     {
       "date": "2021年01月01日",
       "title": "四川省闽南商会祝大家2021元旦节快乐！",
-      "img": "/images/img_7fcfb8d7c5106947.jpg",
+      "img": "images/img_7fcfb8d7c5106947.jpg",
       "link": "https://mp.weixin.qq.com/s/y_CkFkKMMfig-A2vBnfOkw",
       "id": 1785897140708
     },
     {
       "date": "2021年02月11日",
       "title": "四川省闽南商会祝大家新年快乐，牛年大吉！",
-      "img": "/images/img_f919421d7c0be3f0.jpg",
+      "img": "images/img_f919421d7c0be3f0.jpg",
       "link": "https://mp.weixin.qq.com/s/XCgUd96KPQExAT-18QKD1Q",
       "id": 1785897210772
     },
     {
       "date": "2021年02月26日",
       "title": "四川省闽南商会祝大家元宵节快乐!",
-      "img": "/images/img_f886f84076a36ab7.jpg",
+      "img": "images/img_f886f84076a36ab7.jpg",
       "link": "https://mp.weixin.qq.com/s/ZAg-kZKJMR9Vslqx6_8xHg",
       "id": 1785897247019
     },
     {
       "date": "2021年03月14日",
       "title": "四川省闽南商会举办新民法典解读沙龙暨“凝心聚力，共谋发展”--2021年新春联谊交流活动",
-      "img": "/images/img_92c518a11ad32f4d.jpg",
+      "img": "images/img_92c518a11ad32f4d.jpg",
       "link": "https://mp.weixin.qq.com/s/yy_SSmgmMkQOTmmf8v1lqQ",
       "id": 1785897291909
     },
     {
       "date": "2021年03月18日",
       "title": "增进交流，共谋发展--走访企业",
-      "img": "/images/img_28394bf661a37f6a.jpg",
+      "img": "images/img_28394bf661a37f6a.jpg",
       "link": "https://mp.weixin.qq.com/s/pf8nAYPYfe-JlBmwSbM5kA",
       "id": 1785897331353
     },
     {
       "date": "2021年03月23日",
       "title": "商会走访茶叶市场会员企业",
-      "img": "/images/img_172305b687ed3143.jpg",
+      "img": "images/img_172305b687ed3143.jpg",
       "link": "https://mp.weixin.qq.com/s/hsP2l9wz2q1ef6YUcNLkMA",
       "id": 1785897370755
     },
     {
       "date": "2021年03月24日",
       "title": "闽南商会沙龙活动《杜甫在成都》",
-      "img": "/images/img_2aa1bd42619ade23.jpg",
+      "img": "images/img_2aa1bd42619ade23.jpg",
       "link": "https://mp.weixin.qq.com/s/mU-q6r6hQz_V1U-p-Wqqvg",
       "id": 1785897408755
     },
     {
       "date": "2021年04月28日",
       "title": "四川省闽南商会常务理事杨波接受中央领导检阅工作",
-      "img": "/images/img_6d91c8477b0ae782.jpg",
+      "img": "images/img_6d91c8477b0ae782.jpg",
       "link": "https://mp.weixin.qq.com/s/1Pk1YTBTDu8aiXNzo_3Sfg",
       "id": 1785897443694
     },
     {
       "date": "2021年05月01日",
       "title": "四川省闽南商会祝大家“五一”国际劳动节快乐！",
-      "img": "/images/img_eeaf8cac15895669.jpg",
+      "img": "images/img_eeaf8cac15895669.jpg",
       "link": "https://mp.weixin.qq.com/s/mlXCGRO3oeGw8za5EmbJFw",
       "id": 1785897486288
     },
     {
       "date": "2021年05月14日",
       "title": "关于四川省闽南商会第八届理监事会成员参选报名的事宜",
-      "img": "/images/img_37ec8d36cc66cc68.jpg",
+      "img": "images/img_37ec8d36cc66cc68.jpg",
       "link": "https://mp.weixin.qq.com/s/Q3ICDuNLW5sQz37y4Jo8CA",
       "id": 1785897516037
     },
     {
       "date": "2021年05月17日",
       "title": "一场放松之旅--高端岩茶品鉴会",
-      "img": "/images/img_1934444f1a9c6730.jpg",
+      "img": "images/img_1934444f1a9c6730.jpg",
       "link": "https://mp.weixin.qq.com/s/DKGFJJ7YFys3N3xSjiFlWw",
       "id": 1785897554032
     },
     {
       "date": "2021年06月07日",
       "title": "四川闽南商会及闽籍大学生户外交流活动",
-      "img": "/images/img_d95a8352cc29759c.jpg",
+      "img": "images/img_d95a8352cc29759c.jpg",
       "link": "https://mp.weixin.qq.com/s/5ibOI9_HOUfhF7exn1rPpA",
       "id": 1785897603375
     },
     {
       "date": "2021年06月14日",
       "title": "四川省闽南商会祝大家节日快乐，端午安康！",
-      "img": "/images/img_2fe1fff66d4681c3.jpg",
+      "img": "images/img_2fe1fff66d4681c3.jpg",
       "link": "https://mp.weixin.qq.com/s/bnFztnFivQCTlgo7N-Qv5g",
       "id": 1785897635075
     },
     {
       "date": "2021年06月16日",
       "title": "四川省闽南商业联合会第八届理监事会筹委会第一次会议圆满召开",
-      "img": "/images/img_c9b31a623c72adf8.jpg",
+      "img": "images/img_c9b31a623c72adf8.jpg",
       "link": "https://mp.weixin.qq.com/s/E0tYcmidN014tgab9pausA",
       "id": 1785897696808
     },
     {
       "date": "2021年06月21日",
       "title": "互访增交流，学习共发展  ---四川省闽南商业联合会与重庆福建泉州商会交流活动",
-      "img": "/images/img_e6b2c881fa47d444.jpg",
+      "img": "images/img_e6b2c881fa47d444.jpg",
       "link": "https://mp.weixin.qq.com/s/Gw6GsGc1IAZROgJF0jpRvg",
       "id": 1785897755932
     },
     {
       "date": "2021年07月01日",
       "title": "百年征程，恰风华正茂---热烈庆祝中国共产党成立100周年！",
-      "img": "/images/img_1e7227c526204593.jpg",
+      "img": "images/img_1e7227c526204593.jpg",
       "link": "https://mp.weixin.qq.com/s/Se19_HewEsaPqtm0NuakdA",
       "id": 1785897803949
     },
     {
       "date": "2021年07月02日",
       "title": "中国民营文化产业商会领导莅临四川闽南商会指导交流座谈",
-      "img": "/images/img_44369b0992fb2504.jpg",
+      "img": "images/img_44369b0992fb2504.jpg",
       "link": "https://mp.weixin.qq.com/s/xYgSbUUFUjnOMltxeKrB3A",
       "id": 1785897839257
     },
     {
       "date": "2021年07月11日",
       "title": "四川省闽南商会第七届第五次会长（扩大）会议 暨“共进共赢 共创辉煌”走进会长单位参观交流",
-      "img": "/images/img_92efa922e041b875.jpg",
+      "img": "images/img_92efa922e041b875.jpg",
       "link": "https://mp.weixin.qq.com/s/Xjgo3uDelJ8t9NIE5B1g-Q",
       "id": 1785898170350
     },
     {
       "date": "2021年07月12日",
       "title": "“ 牢记初心 坚定决心 永远跟党走” —— 四川省闽南商业联合会党支部学习习近平总书记在庆祝建党100周年大会的讲话精神",
-      "img": "/images/img_1cd213e16fa6cd7f.jpg",
+      "img": "images/img_1cd213e16fa6cd7f.jpg",
       "link": "https://mp.weixin.qq.com/s/DwO0e0alhXHxoySqimawKg",
       "id": 1785898284660
     },
     {
       "date": "2021年07月26日",
       "title": "成都闽籍商会联盟第二届第九次会议",
-      "img": "/images/img_697b044d2ca58c2e.jpg",
+      "img": "images/img_697b044d2ca58c2e.jpg",
       "link": "https://mp.weixin.qq.com/s/sV9uGgwzjWVCM_KPQC6ZRw",
       "id": 1785898663871
     },
     {
       "date": "2021年08月24日",
       "title": "四川省闽南商业联合会第八届筹备委员会第二次会议顺利召开",
-      "img": "/images/img_d12a811e081c4e0a.jpg",
+      "img": "images/img_d12a811e081c4e0a.jpg",
       "link": "https://mp.weixin.qq.com/s/cpOVWRaC2vAlSsjIrv5p5g",
       "id": 1785898896541
     },
     {
       "date": "2021年08月25日",
       "title": "中共四川省闽南商业联合会支部委员会 党史教育专题组织生活会",
-      "img": "/images/img_7a747a4506ea93d5.jpg",
+      "img": "images/img_7a747a4506ea93d5.jpg",
       "link": "https://mp.weixin.qq.com/s/kcEOlyTUc-W9I1GMxENc7g",
       "id": 1785899025346
     },
     {
       "date": "2021年09月21日",
       "title": "四川省闽南商业联合会祝大家中秋节快乐！阖家幸福！",
-      "img": "/images/img_a1362b79b9bfd043.jpg",
+      "img": "images/img_a1362b79b9bfd043.jpg",
       "link": "https://mp.weixin.qq.com/s/Wv1OesD5aITugVbIwctyvg",
       "id": 1785899309654
     },
     {
       "date": "2021年09月22日",
       "title": "“九一八事变”党史教育专题组织生活会",
-      "img": "/images/img_8935a3317ac56972.jpg",
+      "img": "images/img_8935a3317ac56972.jpg",
       "link": "https://mp.weixin.qq.com/s/SUjfhW5rKpF8w035YI9gbA",
       "id": 1785899343904
     },
     {
       "date": "2021年10月01日",
       "title": "欢度国庆",
-      "img": "/images/img_29a52b08c9ba4f7e.jpg",
+      "img": "images/img_29a52b08c9ba4f7e.jpg",
       "link": "https://mp.weixin.qq.com/s/www2b3l7ElOTjMKkEAo1zw",
       "id": 1785899390569
     },
     {
       "date": "2021年10月14日",
       "title": "九九重阳节",
-      "img": "/images/img_0941ee11636242ae.jpg",
+      "img": "images/img_0941ee11636242ae.jpg",
       "link": "https://mp.weixin.qq.com/s/z66m_LoP8wx9L5orBOPBSw",
       "id": 1785899438843
     },
     {
       "date": "2021年10月20日",
       "title": "祝贺“2021年泉州市招商大会暨项目签约活动”圆满结束",
-      "img": "/images/img_d45151a28a5b2edb.jpg",
+      "img": "images/img_d45151a28a5b2edb.jpg",
       "link": "https://mp.weixin.qq.com/s/gTXK_GItay89vRRjnqBu0A",
       "id": 1785899488269
     },
     {
       "date": "2021年10月25日",
       "title": "圆贫困学子之梦—— 四川省闽南商会参加“大爱闽商  情满石渠  云端结对 爱心助学”活动",
-      "img": "/images/img_f660d284b77fff0b.jpg",
+      "img": "images/img_f660d284b77fff0b.jpg",
       "link": "https://mp.weixin.qq.com/s/BipO76Mh-EnvnQGCfG1s5A",
       "id": 1785899525329
     },
     {
       "date": "2021年11月29日",
       "title": "四川省闽南商会应邀参加“泉州泉商发展促进会第二届第一次会员代表大会”",
-      "img": "/images/img_7626117961af9924.jpg",
+      "img": "images/img_7626117961af9924.jpg",
       "link": "https://mp.weixin.qq.com/s/NqxGOkaqehc9nl4pdy1dKg",
       "id": 1785899573512
     },
     {
       "date": "2021年12月06日",
       "title": "四川省闽南商会企业家们参加第三期在川侨资企业高管研修班系列活动",
-      "img": "/images/img_0e649e5c45071d64.jpg",
+      "img": "images/img_0e649e5c45071d64.jpg",
       "link": "https://mp.weixin.qq.com/s/GkAnE36ZCmTKA8Uo-l4wug",
       "id": 1785899618042
     },
     {
       "date": "2021年12月22日",
       "title": "热烈祝贺四川省闽南商业联合会第八届一次会员代表大会顺利召开",
-      "img": "/images/img_adee85b67a7da623.jpg",
+      "img": "images/img_adee85b67a7da623.jpg",
       "link": "https://mp.weixin.qq.com/s/hJrhyAy_o1vUeukh2V3O4A",
       "id": 1785899658178
     },
     {
       "date": "2021年12月23日",
       "title": "热烈庆祝四川省闽南商业联合会成立25周年",
-      "img": "/images/img_a3ce50272548de23.jpg",
+      "img": "images/img_a3ce50272548de23.jpg",
       "link": "https://mp.weixin.qq.com/s/nuHN-v2x4CfBnxBirzo23w",
       "id": 1785899703241
     },
     {
       "date": "2021年12月30日",
       "title": "中共四川省闽南商业联合会支部委员会召开“学习党的十九届六中全会精神”专题会",
-      "img": "/images/img_3a2ea69d6f46c430.jpg",
+      "img": "images/img_3a2ea69d6f46c430.jpg",
       "link": "https://mp.weixin.qq.com/s/vM652EA2yy1NJ0jSVfEDrw",
       "id": 1785900522401
     },
     {
       "date": "2022年01月01日",
       "title": "四川省闽南商业联合会祝大家新年快乐！",
-      "img": "/images/img_4f650dafc389b656.jpg",
+      "img": "images/img_4f650dafc389b656.jpg",
       "link": "https://mp.weixin.qq.com/s/JOUqJImoj9TkrvccvELyXw",
       "id": 1785900712100
     },
     {
       "date": "2022年01月06日",
       "title": "四川省委统战部文甦副部长到我会永远名誉会长企业慰问调研",
-      "img": "/images/img_0186cd53eaaacf0e.jpg",
+      "img": "images/img_0186cd53eaaacf0e.jpg",
       "link": "https://mp.weixin.qq.com/s/AiKpbayXrvtv6o38vUKT2Q",
       "id": 1785900740215
     },
     {
       "date": "2022年01月18日",
       "title": "四川省闽南商业联合会秘书处召开新年工作会议",
-      "img": "/images/img_9be0ac49b6f72e23.jpg",
+      "img": "images/img_9be0ac49b6f72e23.jpg",
       "link": "https://mp.weixin.qq.com/s/W-e-0xWvbaFAsKmUxhGFZg",
       "id": 1785900773732
     },
     {
       "date": "2022年01月30日",
       "title": "四川省闽南商业联合会春节放假通知",
-      "img": "/images/img_05b347804825b2f6.jpg",
+      "img": "images/img_05b347804825b2f6.jpg",
       "link": "https://mp.weixin.qq.com/s/qzjPG7wYC4v_wW39PB-VBg",
       "id": 1785900887619
     },
     {
       "date": "2022年03月08日",
       "title": "四川省闽南商业联合会祝女神们节日快乐！",
-      "img": "/images/img_48384c90b8a967aa.jpg",
+      "img": "images/img_48384c90b8a967aa.jpg",
       "link": "https://mp.weixin.qq.com/s/s-8-dKiACkMePBHtu6wrfw",
       "id": 1785900920025
     },
     {
       "date": "2022年03月22日",
       "title": "“我们同努力   疫情定可防” 四川省闽南商业联合会援助泉州市抗疫急需医用物资",
-      "img": "/images/img_245d8b192f20f466.jpg",
+      "img": "images/img_245d8b192f20f466.jpg",
       "link": "https://mp.weixin.qq.com/s/6g9eOX4E6b2f2VpQ9HVKlw",
       "id": 1785900962232
     },
     {
       "date": "2022年04月01日",
       "title": "商会动态丨四川省侨联副主席、四川侨商联合会会长薛水和一行到访我商会永远名誉会长企业关心指导工作",
-      "img": "/images/img_b4675889e3282c1f.jpg",
+      "img": "images/img_b4675889e3282c1f.jpg",
       "link": "https://mp.weixin.qq.com/s/SXem7BNBk7n_3t5mtlgHZg",
       "id": 1785901015272
     },
     {
       "date": "2022年04月02日",
       "title": "四川省闽南商会清明节放假通知",
-      "img": "/images/img_22a5a8d9a1f23024.jpg",
+      "img": "images/img_22a5a8d9a1f23024.jpg",
       "link": "https://mp.weixin.qq.com/s/nIdzS5pZy8DqULIQBiB0nQ",
       "id": 1785901058090
     },
     {
       "date": "2022年04月12日",
       "title": "商会动态|提升会员福利、助力企业发展",
-      "img": "/images/img_ad4d92837f76b82a.jpg",
+      "img": "images/img_ad4d92837f76b82a.jpg",
       "link": "https://mp.weixin.qq.com/s/TAaN1W2F37k3kGPjh-j84w",
       "id": 1785901093060
     },
     {
       "date": "2022年05月17日",
       "title": "发挥商会职能，凝聚发展力量|四川省闽南商业联合会第八届理事会第二次全体会议顺利召开",
-      "img": "/images/img_9bcc6b2c092a0c08.jpg",
+      "img": "images/img_9bcc6b2c092a0c08.jpg",
       "link": "https://mp.weixin.qq.com/s/GmrRQ_TSEo6h1ojIybKiVw",
       "id": 1785901288285
     },
     {
       "date": "2022年05月25日",
       "title": "组织生活会|四川省闽南商业联合会党支部组织学习《迎接党的二十大胜利召开组织开展“强国复兴有我”群众性主题宣传教育活动的通知》",
-      "img": "/images/img_034055e7cbf9e7ce.jpg",
+      "img": "images/img_034055e7cbf9e7ce.jpg",
       "link": "https://mp.weixin.qq.com/s/4IzPPz2EBpVY_M4KXvXLxA",
       "id": 1785901479371
     },
     {
       "date": "2022年05月31日",
       "title": "商会动态|四川省闽南商会会长洪辉煌带领商会领导一行参观走访副秘书长单位（国泰君安证券成都交子大道营业部）",
-      "img": "/images/img_7b880710f5794fb7.jpg",
+      "img": "images/img_7b880710f5794fb7.jpg",
       "link": "https://mp.weixin.qq.com/s/2YQj_Nc7tHDAeDbLw6GFPg",
       "id": 1785902144703
     },
     {
       "date": "2022年06月01日",
       "title": "商会动态|四川省闽南商业联合会2022年“‘粽’情端午，无限欢乐”活动暨季度轮值交流会圆满结束",
-      "img": "/images/img_26e6cfa218ac7ce3.jpg",
+      "img": "images/img_26e6cfa218ac7ce3.jpg",
       "link": "https://mp.weixin.qq.com/s/7RFQz93-N8O4Nb66WBGusw",
       "id": 1785908178104
     },
     {
       "date": "2022年06月17日",
       "title": "商会动态|走访执行会长单位--成都福升裕万隆建材有限公司",
-      "img": "/images/img_5843b469e30e3966.jpg",
+      "img": "images/img_5843b469e30e3966.jpg",
       "link": "https://mp.weixin.qq.com/s/3wi28OvniUFjNGescObLaw",
       "id": 1785908389581
     },
     {
       "date": "2022年06月18日",
       "title": "商会动态|走访常务副会长单位--四川恒都物流有限公司",
-      "img": "/images/img_4fe45fd08af40c0a.jpg",
+      "img": "images/img_4fe45fd08af40c0a.jpg",
       "link": "https://mp.weixin.qq.com/s/7VLgsWuD1Re0YId4H8Wm1w",
       "id": 1785908468702
     },
     {
       "date": "2022年06月28日",
       "title": "商会资讯|四川省闽南商业联合会应邀参加“庆香港回归 享祖国荣光”2022年川港交流系列活动启动仪式",
-      "img": "/images/img_a7aec955186b9d29.jpg",
+      "img": "images/img_a7aec955186b9d29.jpg",
       "link": "https://mp.weixin.qq.com/s/drgD0wljQWd5HBd0xGkwjQ",
       "id": 1785908527519
     },
     {
       "date": "2022年06月30日",
       "title": "商会动态|2022年6月轮值--“走访促交流共发展”走进常务副会长单位（成都广维建材有限公司）",
-      "img": "/images/img_f9e4de565e412f40.jpg",
+      "img": "images/img_f9e4de565e412f40.jpg",
       "link": "https://mp.weixin.qq.com/s/jIAimP0bMnJvPrM5PPjEsQ",
       "id": 1785908653457
     },
     {
       "date": "2022年07月01日",
       "title": "庆祝中国共产党成立101周年·奋进新征程   喜迎二十大",
-      "img": "/images/img_98f11c2881eb395c.jpg",
+      "img": "images/img_98f11c2881eb395c.jpg",
       "link": "https://mp.weixin.qq.com/s/c9OS735HATYqvUQTXb5dCg",
       "id": 1785908705253
     },
     {
       "date": "2022年07月04日",
       "title": "商会资讯|四川省闽南商业联合会受邀参加昌吉市人民政府 泉州市人民政府驻蓉办招商推介会",
-      "img": "/images/img_91ddc4dfbc83dfdf.jpg",
+      "img": "images/img_91ddc4dfbc83dfdf.jpg",
       "link": "https://mp.weixin.qq.com/s/uChgOaxCmOk7I830zbtLYA",
       "id": 1785908746087
     },
     {
       "date": "2022年07月06日",
       "title": "商会动态|“走进闽商企业 喜迎党的生日”--走访名誉会长单位（盼盼食品集团成都分公司）",
-      "img": "/images/img_af0ea9f70b1b69a4.jpg",
+      "img": "images/img_af0ea9f70b1b69a4.jpg",
       "link": "https://mp.weixin.qq.com/s/TGtq6w8y2VHD3HloObGEXw",
       "id": 1785908794715
     },
     {
       "date": "2022年07月07日",
       "title": "商会动态|“走进闽商企业 喜迎党的生日”--走访成都万佳旺食品有限公司",
-      "img": "/images/img_cedad27eec51367a.jpg",
+      "img": "images/img_cedad27eec51367a.jpg",
       "link": "https://mp.weixin.qq.com/s/R2EB817Zun5W3kOOBXsrsw",
       "id": 1785908819759
     },
     {
       "date": "2022年07月12日",
       "title": "商会动态|四川省闽南商业联合会组织企业家赴郎酒庄园参观学习",
-      "img": "/images/img_84d6093a3b93f7b5.jpg",
+      "img": "images/img_84d6093a3b93f7b5.jpg",
       "link": "https://mp.weixin.qq.com/s/1xbZn3YCNSoSPIEiBPwK0w",
       "id": 1785908852574
     },
     {
       "date": "2022年08月02日",
       "title": "“2022年全国异地泉籍商会会长及秘书长工作经验交流会暨招商工作推进会”在武汉隆重召开",
-      "img": "/images/img_4b53f14a85632d02.jpg",
+      "img": "images/img_4b53f14a85632d02.jpg",
       "link": "https://mp.weixin.qq.com/s/M_ufa5G8EBZ6HPd3f31dMg",
       "id": 1785908985765
     },
     {
       "date": "2022年08月17日",
       "title": "“共享改革红利，共谋发展大计，共创美好未来”--“晋江经验”20周年招商签约大会圆满召开",
-      "img": "/images/img_6d7507330f00b78a.jpg",
+      "img": "images/img_6d7507330f00b78a.jpg",
       "link": "https://mp.weixin.qq.com/s/I77L4h30MsGRY1FWoVZNgw",
       "id": 1785909041053
     },
     {
       "date": "2022年09月10日",
       "title": "四川省闽南商会祝大家中秋节快乐！",
-      "img": "/images/img_3efb57f69037665c.jpg",
+      "img": "images/img_3efb57f69037665c.jpg",
       "link": "https://mp.weixin.qq.com/s/NxheoIjPG1wnz-VNKRRzDA",
       "id": 1785909332724
     },
     {
       "date": "2022年09月13日",
       "title": "四川省闽南商会党支部党员积极响应号召 捐款支援“9.5”泸定地震抗震救灾",
-      "img": "/images/img_115f65a4440bacd7.jpg",
+      "img": "images/img_115f65a4440bacd7.jpg",
       "link": "https://mp.weixin.qq.com/s/NpBzVzJoJ3VVgY6poF8oCQ",
       "id": 1785909375925
     },
     {
       "date": "2022年09月30日",
       "title": "商会动态丨四川省闽南商会开展会员单位走访交流活动",
-      "img": "/images/img_9574494e92c5b99e.jpg",
+      "img": "images/img_9574494e92c5b99e.jpg",
       "link": "https://mp.weixin.qq.com/s/HkLOggnks6icOKfUuVT-5w",
       "id": 1785909409572
     },
     {
       "date": "2022年10月01日",
       "title": "四川省闽南商业联合会祝您：国庆节快乐！",
-      "img": "/images/img_a532ce5d6414922b.jpg",
+      "img": "images/img_a532ce5d6414922b.jpg",
       "link": "https://mp.weixin.qq.com/s/Bn9W9gSB9G_N5FzxBRei7Q",
       "id": 1785909456655
     },
     {
       "date": "2022年10月04日",
       "title": "九九重阳节   百善孝为先",
-      "img": "/images/img_590a613fcf5342cd.jpg",
+      "img": "images/img_590a613fcf5342cd.jpg",
       "link": "https://mp.weixin.qq.com/s/HSaF-k2XCT9oC21iO4j7pQ",
       "id": 1785909523369
     },
     {
       "date": "2022年11月01日",
       "title": "学习二十大精神 永远跟党走 奋进新征程--四川省闽南商会组织学习贯彻“党的二十大精神”",
-      "img": "/images/img_d91510114b6d90ad.jpg",
+      "img": "images/img_d91510114b6d90ad.jpg",
       "link": "https://mp.weixin.qq.com/s/ngb_gUvBjQWDxOFADPeb4w",
       "id": 1785909562048
     },
     {
       "date": "2022年11月17日",
       "title": "四川省闽南商会走进宜宾闽商生产园区",
-      "img": "/images/img_227dabc524bc1cd0.jpg",
+      "img": "images/img_227dabc524bc1cd0.jpg",
       "link": "https://mp.weixin.qq.com/s/1Fon3D9G-Iip8MF_p5DTEw",
       "id": 1785909671816
     },
     {
       "date": "2023年01月01日",
       "title": "四川省闽南商业联合会祝大家元旦快乐，万事如意！",
-      "img": "/images/img_b06f52c2a707c9ee.jpg",
+      "img": "images/img_b06f52c2a707c9ee.jpg",
       "link": "https://mp.weixin.qq.com/s/Ia6RkW-oorKaeRs0BeZJcA",
       "id": 1785909735239
     },
     {
       "date": "2023年01月20日",
       "title": "【放假通知】四川省闽南商业联合会2023年春节放假通知",
-      "img": "/images/img_d14e9f1e2173ccd5.jpg",
+      "img": "images/img_d14e9f1e2173ccd5.jpg",
       "link": "https://mp.weixin.qq.com/s/CmLlN_xMUbVoZtlxvw4eQg",
       "id": 1785909785245
     },
     {
       "date": "2023年01月21日",
       "title": "【节日祝福】拜年啦！恭祝大家新春快乐、兔年安康、辉煌腾达！",
-      "img": "/images/img_e1667df01859eaea.jpg",
+      "img": "images/img_e1667df01859eaea.jpg",
       "link": "https://mp.weixin.qq.com/s/CgP-BtJNrNlMgFqOTUTonw",
       "id": 1785910546267
     },
     {
       "date": "2023年02月05日",
       "title": "四川省闽南商会祝您元宵节快乐！",
-      "img": "/images/img_34f1e8f7acef296c.jpg",
+      "img": "images/img_34f1e8f7acef296c.jpg",
       "link": "https://mp.weixin.qq.com/s/RFgtybp3g8Efcd3OptZjjw",
       "id": 1785910588709
     },
     {
       "date": "2023年03月06日",
       "title": "商会动态|四川省闽南商会开展“大邑县云中屋踏青活动”",
-      "img": "/images/img_711e8cae48d6b72d.jpg",
+      "img": "images/img_711e8cae48d6b72d.jpg",
       "link": "https://mp.weixin.qq.com/s/p39JC1Y_GkuaDrbm63JbtQ",
       "id": 1785910675558
     },
     {
       "date": "2023年03月09日",
       "title": "商会动态|四川省闽南商会开展“3.8国际妇女节”主题活动",
-      "img": "/images/img_5aaa90de87b52887.jpg",
+      "img": "images/img_5aaa90de87b52887.jpg",
       "link": "https://mp.weixin.qq.com/s/bnEm2lAVnVlmpj46jAthCg",
       "id": 1785910753908
     },
     {
       "date": "2023年03月13日",
       "title": "泉州市商务局党组成员、一级调研员黄金跋一行到访四川省闽南商会座谈交流",
-      "img": "/images/img_5ddbd52029089c23.jpg",
+      "img": "images/img_5ddbd52029089c23.jpg",
       "link": "https://mp.weixin.qq.com/s/rBYP-eGEt7Oo-lv-R4jmZA",
       "id": 1785910765682
     },
     {
       "date": "2023年03月14日",
       "title": "商会动态|四川省闽南商会第八届理事会第四次全体会议顺利召开",
-      "img": "/images/img_0e8bdf252cb5122e.jpg",
+      "img": "images/img_0e8bdf252cb5122e.jpg",
       "link": "https://mp.weixin.qq.com/s/D8mRqgu4Zgy4P7nAPG4_zg",
       "id": 1785910851380
     },
     {
       "date": "2023年03月16日",
       "title": "商会动态|“协作交流，协同发展”兰州市经济合作局及四川省甘肃商会领导莅临我会交流座谈",
-      "img": "/images/img_d4109de3e20038c7.jpg",
+      "img": "images/img_d4109de3e20038c7.jpg",
       "link": "https://mp.weixin.qq.com/s/EUj-AiMBEHhgJVKmlA39gA",
       "id": 1785910894099
     },
     {
       "date": "2023年03月23日",
       "title": "商会动态|四川省闽南商会开展“走访交流助发展”系列活动（一）",
-      "img": "/images/img_96677a3714e500b6.jpg",
+      "img": "images/img_96677a3714e500b6.jpg",
       "link": "https://mp.weixin.qq.com/s/uFy99ojvs-EXz9GXbzBQIQ",
       "id": 1785910924354
     },
     {
       "date": "2023年03月25日",
       "title": "商会资讯|泉州市委统战部领导莅临四川省闽南商会交流座谈",
-      "img": "/images/img_c7b0d4808df32580.jpg",
+      "img": "images/img_c7b0d4808df32580.jpg",
       "link": "https://mp.weixin.qq.com/s/1V-mtfF6Rc03VHn7E30EHw",
       "id": 1785910955561
     },
     {
       "date": "2023年03月29日",
       "title": "商会资讯|四川省闽南商会组织四川福建广东浙江香港五地闽商企业家赴达州进行商务考察及项目洽谈",
-      "img": "/images/img_6744b1c2b8cb2858.jpg",
+      "img": "images/img_6744b1c2b8cb2858.jpg",
       "link": "https://mp.weixin.qq.com/s/SAnZAVFL_SW0obfmHbatWg",
       "id": 1785910990294
     },
     {
       "date": "2023年03月30日",
       "title": "商会资讯|四川省闽南商会参加在川港澳台侨商协会和企业负责人投资发展恳谈会",
-      "img": "/images/img_3ec5e296615b8bd4.jpg",
+      "img": "images/img_3ec5e296615b8bd4.jpg",
       "link": "https://mp.weixin.qq.com/s/KrRaDu9dD5s9VIDQpzYarw",
       "id": 1785911041635
     },
     {
       "date": "2023年03月31日",
       "title": "四川省闽南商会党支部书记柳孙尧参加“2023 年度第一期全省性社会组织党组织书记、党建工作指导员示范培训班”",
-      "img": "/images/img_8a2ef75294692579.jpg",
+      "img": "images/img_8a2ef75294692579.jpg",
       "link": "https://mp.weixin.qq.com/s/KfrNOBjIDzLxX2GxaDrrdQ",
       "id": 1785911066733
     },
     {
       "date": "2023年04月03日",
       "title": "放假通知|四川省闽南商会清明节放假安排",
-      "img": "/images/img_b44b8736fdd79c13.jpg",
+      "img": "images/img_b44b8736fdd79c13.jpg",
       "link": "https://mp.weixin.qq.com/s/AuWGoocgdHNCaEMTbcWCng",
       "id": 1785911169541
     },
     {
       "date": "2023年04月04日",
       "title": "四川省闽南商会参加“2023年第2次四川省委统战部部长与民营企业家沟通协商‘面对面+键对键’活动（侨商投资企业专场）”线上会议",
-      "img": "/images/img_13677b19af1daf28.jpg",
+      "img": "images/img_13677b19af1daf28.jpg",
       "link": "https://mp.weixin.qq.com/s/WTSM6p1ERLatGj3l12sYCA",
       "id": 1785911210876
     },
     {
       "date": "2023年04月06日",
       "title": "商会资讯|四川省委统战部机关党委书记王志军一行莅临四川省闽南商会调研",
-      "img": "/images/img_537367ef518c5e67.jpg",
+      "img": "images/img_537367ef518c5e67.jpg",
       "link": "https://mp.weixin.qq.com/s/TrrEp2rA1QYZLIFAojPuVA",
       "id": 1785911245792
     },
     {
       "date": "2023年04月11日",
       "title": "商会动态|厦门市泉州商会、厦门市侨乡经济促进会会长许国锋一行到访四川省闽南商会",
-      "img": "/images/img_2d7de42efc63c3ab.jpg",
+      "img": "images/img_2d7de42efc63c3ab.jpg",
       "link": "https://mp.weixin.qq.com/s/DQpvR05N2u9y2g5ijZ_8bw",
       "id": 1785911298239
     },
     {
       "date": "2023年04月14日",
       "title": "商会动态|永春县县委常委、统战部部长陈佩芳一行到访四川省闽南商会交流座谈",
-      "img": "/images/img_dab12ac5dba87245.jpg",
+      "img": "images/img_dab12ac5dba87245.jpg",
       "link": "https://mp.weixin.qq.com/s/LDcDsgXR43Wf0LZwWr_nWQ",
       "id": 1785911349457
     },
     {
       "date": "2023年04月18日",
       "title": "商会动态|成都市金牛区茶店子街道办事处主任黄明洪一行到访四川省闽南商会交流座谈",
-      "img": "/images/img_f5349d7797b90fce.jpg",
+      "img": "images/img_f5349d7797b90fce.jpg",
       "link": "https://mp.weixin.qq.com/s/9Gpr4Vcr17-pFqqgiDXWJA",
       "id": 1785911386692
     },
     {
       "date": "2023年04月19日",
       "title": "商会动态|厦门市工商联党组成员周敏一行到访四川省闽南商会交流座谈",
-      "img": "/images/img_2e3b7c19833285c2.jpg",
+      "img": "images/img_2e3b7c19833285c2.jpg",
       "link": "https://mp.weixin.qq.com/s/PaZaKMUeAaPN7T3o_mElgg",
       "id": 1785911496876
     },
     {
       "date": "2023年04月27日",
       "title": "商会动态|泉州市洛江区领导一行莅临四川省闽南商会交流座谈",
-      "img": "/images/img_9b4a57fa64091872.jpg",
+      "img": "images/img_9b4a57fa64091872.jpg",
       "link": "https://mp.weixin.qq.com/s/r7K2UvO-CQ33XykppvgV3w",
       "id": 1785911538927
     },
     {
       "date": "2023年04月28日",
       "title": "致敬每一位劳动者    四川省闽南商会 “五一劳动节”放假安排",
-      "img": "/images/img_424172a825bc4066.jpg",
+      "img": "images/img_424172a825bc4066.jpg",
       "link": "https://mp.weixin.qq.com/s/iGKpK1xJzqPX0ykXtmYIEA",
       "id": 1785911613537
     },
     {
       "date": "2023年04月29日",
       "title": "商会动态|成都市双流区国资金融局副局长黄乙峰一行到访四川省闽南商会开展经济交流座谈会",
-      "img": "/images/img_6f89b56b1d352613.jpg",
+      "img": "images/img_6f89b56b1d352613.jpg",
       "link": "https://mp.weixin.qq.com/s/8oxvtikEmsAklmL_cpPXSw",
       "id": 1785911663531
     },
     {
       "date": "2023年05月07日",
       "title": "“西南片区泉籍商会联盟筹备会（四川专场） ”在四川省闽南商会顺利召开",
-      "img": "/images/img_a4fca89620ceb3ec.jpg",
+      "img": "images/img_a4fca89620ceb3ec.jpg",
       "link": "https://mp.weixin.qq.com/s/g-POn05qfxNxnMtLP56Q1g",
       "id": 1785911795318
     },
     {
       "date": "2023年05月18日",
       "title": "商会动态|泉州市委常委、宣传部部长、秘书长陈辉宗一行莅临四川省闽南商会调研关心",
-      "img": "/images/img_a4973a8a8e945bbe.jpg",
+      "img": "images/img_a4973a8a8e945bbe.jpg",
       "link": "https://mp.weixin.qq.com/s/4ckQ9flZGHP01yOWTm19eQ",
       "id": 1785911851388
     },
     {
       "date": "2023年06月03日",
       "title": "四川省闽南商业联合会第八届就职典礼暨二十七周年庆典活动圆满成功",
-      "img": "/images/img_68e4622c5fd7daf7.jpg",
+      "img": "images/img_68e4622c5fd7daf7.jpg",
       "link": "https://mp.weixin.qq.com/s/gV5li-oyY_XKUGCzkPBujA",
       "id": 1785911943103
     },
     {
       "date": "2023年06月06日",
       "title": "四川省闽南商会组织海内外闽商赴遂宁进行商务考察及项目洽谈",
-      "img": "/images/img_0033671c7dbf759d.jpg",
+      "img": "images/img_0033671c7dbf759d.jpg",
       "link": "https://mp.weixin.qq.com/s/0gPF20KhZiOjx7UMoPJezQ",
       "id": 1785911989393
     },
     {
       "date": "2023年06月21日",
       "title": "四川闽南商会祝大家端午安康！",
-      "img": "/images/img_3b1fdf3637c1583c.jpg",
+      "img": "images/img_3b1fdf3637c1583c.jpg",
       "link": "https://mp.weixin.qq.com/s/Zkcl7anMknuxNkodV9-7HQ",
       "id": 1785912102608
     },
     {
       "date": "2023年06月29日",
       "title": "商会动态|石狮市乡村振兴考察团莅临四川闽南商会交流座谈",
-      "img": "/images/img_eaa0d70c1f47c050.jpg",
+      "img": "images/img_eaa0d70c1f47c050.jpg",
       "link": "https://mp.weixin.qq.com/s/cZHcpTDj8TyVwrfDusBeYA",
       "id": 1785912185827
     },
     {
       "date": "2023年07月24日",
       "title": "党建工作|中共四川省闽南商业联合会支部委员会开展“重温峥嵘岁月，传承红色精神”主题党日活动",
-      "img": "/images/img_592fb27e4f762fe5.jpg",
+      "img": "images/img_592fb27e4f762fe5.jpg",
       "link": "https://mp.weixin.qq.com/s/glNY5_pnkT6EW37qPiGXyA",
       "id": 1785912236209
     },
     {
       "date": "2023年07月26日",
       "title": "商会动态|四川闽南商会开展“走进优秀川企学习交流活动”--四川一只老鹰集团股份有限公司",
-      "img": "/images/img_adc7817a6ad2c74f.jpg",
+      "img": "images/img_adc7817a6ad2c74f.jpg",
       "link": "https://mp.weixin.qq.com/s/HPiG2e9uDkJXPfofEUHY3w",
       "id": 1785912266930
     },
     {
       "date": "2023年08月01日",
       "title": "商会动态|四川省闽南商会第八届第五次常务理事会（扩大）会议暨5-6月轮值活动顺利开展",
-      "img": "/images/img_a3f28602368ab575.jpg",
+      "img": "images/img_a3f28602368ab575.jpg",
       "link": "https://mp.weixin.qq.com/s/oOQAGAYrUEZ2BjLUiJ1dEw",
       "id": 1785912307194
     },
     {
       "date": "2023年08月14日",
       "title": "商会动态|四川省闽南商会会同中国民营文化产业商会赴越西县开展乡村振兴调研及产业项目交流活动",
-      "img": "/images/img_55b51915e51a9ad3.jpg",
+      "img": "images/img_55b51915e51a9ad3.jpg",
       "link": "https://mp.weixin.qq.com/s/38q0sZiYa_Gg7-RW7QbDvg",
       "id": 1785912349368
     },
     {
       "date": "2023年08月17日",
       "title": "商会动态|四川省闽南商会开展“凝心聚力共发展”走访会员企业活动",
-      "img": "/images/img_08d9e8a46d518395.jpg",
+      "img": "images/img_08d9e8a46d518395.jpg",
       "link": "https://mp.weixin.qq.com/s/cGu3P9KJAv3PbYBLxHN8TA",
       "id": 1785912439460
     },
     {
       "date": "2023年08月18日",
       "title": "商会动态|晋江市安海镇政协联络组莅临四川省闽南商会交流指导",
-      "img": "/images/img_cd1d5575c8474c6a.jpg",
+      "img": "images/img_cd1d5575c8474c6a.jpg",
       "link": "https://mp.weixin.qq.com/s/7zBQCUsmOXIrVp9jFimC2A",
       "id": 1785912530920
     },
     {
       "date": "2023年09月04日",
       "title": "商会动态|四川闽南商会赴成都市双流区芯谷产业园开展产业研究交流活动",
-      "img": "/images/img_1bda74c997a0bd45.jpg",
+      "img": "images/img_1bda74c997a0bd45.jpg",
       "link": "https://mp.weixin.qq.com/s/sITrzcw1dk4vDb5YdVSDKg",
       "id": 1785912569769
     },
     {
       "date": "2023年09月05日",
       "title": "商会动态|菲律宾中国商会宿务分会回国访问团莅临四川闽南商会交流指导",
-      "img": "/images/img_fbd662f5a13b2a64.jpg",
+      "img": "images/img_fbd662f5a13b2a64.jpg",
       "link": "https://mp.weixin.qq.com/s/pc5sno8vRuKxL8QPOmyypQ",
       "id": 1785913202705
     },
     {
       "date": "2023年09月25日",
       "title": "商会动态|四川省闽南商会举办“行业同心·一路同行”食品行业交流会",
-      "img": "/images/img_aeaa6132f4af77d7.jpg",
+      "img": "images/img_aeaa6132f4af77d7.jpg",
       "link": "https://mp.weixin.qq.com/s/qDqBRNDF0FK0Fs_asETQkg",
       "id": 1785913239444
     },
     {
       "date": "2023年09月26日",
       "title": "商会动态|四川省闽南商会“迎中秋·庆国庆”暨成立27周年纪念活动圆满举办",
-      "img": "/images/img_683c252ab28ca468.jpg",
+      "img": "images/img_683c252ab28ca468.jpg",
       "link": "https://mp.weixin.qq.com/s/-FLoPK_dvk6kKZFKTltilQ",
       "id": 1785913422929
     },
     {
       "date": "2023年09月27日",
       "title": "企业走访|四川省闽南商会开展9月轮值走访--“凝心聚力共发展”企业走访学习交流系列活动",
-      "img": "/images/img_9de48572cd723679.jpg",
+      "img": "images/img_9de48572cd723679.jpg",
       "link": "https://mp.weixin.qq.com/s/TFdo8QOe2mZHVxixZzrA3Q",
       "id": 1785913470456
     },
     {
       "date": "2023年09月28日",
       "title": "喜报|热烈祝贺四川省闽南商会会长洪辉煌荣获2023年亚洲（行业）十大领军人物",
-      "img": "/images/img_4b7be00aa8742f58.jpg",
+      "img": "images/img_4b7be00aa8742f58.jpg",
       "link": "https://mp.weixin.qq.com/s/i2PSAymhe_ky4E9WWFzfgQ",
       "id": 1785913500432
     },
     {
       "date": "2023年09月29日",
       "title": "放假通知|“喜迎祖国华诞  共度中秋佳节”四川闽南商会祝大家双节快乐！",
-      "img": "/images/img_518892f9efc078ed.jpg",
+      "img": "images/img_518892f9efc078ed.jpg",
       "link": "https://mp.weixin.qq.com/s/WMJT-cus-51dUn1nzRf_xw",
       "id": 1785913885736
     },
     {
       "date": "2023年10月23日",
       "title": "商会动态|石狮市工商联赴成都考察团莅临四川省闽南商会考察交流",
-      "img": "/images/img_27f4cf399ef0b4b4.jpg",
+      "img": "images/img_27f4cf399ef0b4b4.jpg",
       "link": "https://mp.weixin.qq.com/s/LnyBGkWRLM2wl_UhJJtYRA",
       "id": 1785913937624
     },
     {
       "date": "2023年10月24日",
       "title": "商会动态|石狮市团市委书记孙甜甜率领石狮市青年商会一行莅临四川闽南商会座谈交流",
-      "img": "/images/img_c414756f71b368f4.jpg",
+      "img": "images/img_c414756f71b368f4.jpg",
       "link": "https://mp.weixin.qq.com/s/NVqC1n3fn6GF_TtoQvzV7w",
       "id": 1785913977255
     },
     {
       "date": "2023年10月25日",
       "title": "商会资讯|四川大学MBA（研修）校友会联合四川省闽南商会举办“商道圆桌派”活动",
-      "img": "/images/img_f013bda2a4084d27.jpg",
+      "img": "images/img_f013bda2a4084d27.jpg",
       "link": "https://mp.weixin.qq.com/s/HaqyPeTXNS6_aNE_dyrNTA",
       "id": 1785913999391
     },
     {
       "date": "2023年10月31日",
       "title": "商会资讯|四川省闽南商会会长洪辉煌带队前往成都市青白江区进行交流访问",
-      "img": "/images/img_9f88a37e442633d9.jpg",
+      "img": "images/img_9f88a37e442633d9.jpg",
       "link": "https://mp.weixin.qq.com/s/1NColbNid3n40Z83M7isoQ",
       "id": 1785914063915
     },
     {
       "date": "2023年11月01日",
       "title": "商会资讯|我会会长洪辉煌作为西南区域泉商代表接受《异地泉商致敬泉州企业家日宣传片》访问",
-      "img": "/images/img_3e039ca9c0a391a7.jpg",
+      "img": "images/img_3e039ca9c0a391a7.jpg",
       "link": "https://mp.weixin.qq.com/s/8UydDAI86xDOJBxZtY_xAg",
       "id": 1785914111549
     },
     {
       "date": "2023年11月16日",
       "title": "企业走访|四川省闽南商会开展11月轮值走访--“凝心聚力共发展”企业走访学习交流系列活动",
-      "img": "/images/img_0421cf66788c9bc8.jpg",
+      "img": "images/img_0421cf66788c9bc8.jpg",
       "link": "https://mp.weixin.qq.com/s/2936X_19PIh_AioI0qmg-w",
       "id": 1785914175927
     },
     {
       "date": "2023年11月19日",
       "title": "热烈祝贺！四川省闽南商会荣誉会长洪君默当选晋江市南英诗词协会会长、祝贺理（监）事就职典礼圆满举行",
-      "img": "/images/img_079d03abc6f2dee0.jpg",
+      "img": "images/img_079d03abc6f2dee0.jpg",
       "link": "https://mp.weixin.qq.com/s/NZdDa-EzPQBBKjE6_4Z_LQ",
       "id": 1785914227395
     },
     {
       "date": "2023年11月23日",
       "title": "企业走访|秘书处走访理事单位--四川宏利建材有限公司、四川志与德建材有限公司、成都鹏龙灿建材有限公司",
-      "img": "/images/img_db172cf116861137.jpg",
+      "img": "images/img_db172cf116861137.jpg",
       "link": "https://mp.weixin.qq.com/s/lR1zLX_ttCBd-i6gKSFlDg",
       "id": 1785914261483
     },
     {
       "date": "2023年12月01日",
       "title": "商会资讯|泉州市公安局、泉州市工商联首个驻外省“经侦警务联络站”揭牌仪式在四川省闽南商会举行",
-      "img": "/images/img_ffe8c49abe896725.jpg",
+      "img": "images/img_ffe8c49abe896725.jpg",
       "link": "https://mp.weixin.qq.com/s/51wodnrtDQ_crLl-Uh0uIg",
       "id": 1785914308259
     },
     {
       "date": "2023年12月07日",
       "title": "商会资讯|会长洪辉煌率团赴澳门进行访问交流并受邀参加世界晋江同乡总会第十四届董事会暨澳门晋江同乡会第十四届理监事就职典礼",
-      "img": "/images/img_987003766fbd9da9.jpg",
+      "img": "images/img_987003766fbd9da9.jpg",
       "link": "https://mp.weixin.qq.com/s/HsPq9IusICVaumHB-Aayfg",
       "id": 1785914425311
     },
     {
       "date": "2023年12月22日",
       "title": "热烈祝贺！四川省闽南商会常务副会长洪振原当选温江区侨联第三届主席 图片 热烈",
-      "img": "/images/img_95bf2477519898a5.jpg",
+      "img": "images/img_95bf2477519898a5.jpg",
       "link": "https://mp.weixin.qq.com/s/npjKrIAbkfqR5fU2aZK_sA",
       "id": 1785914653452
     },
     {
       "date": "2023年12月27日",
       "title": "企业走访|四川省闽南商会开展12月轮值走访--“凝心聚力共发展”企业走访学习交流系列活动",
-      "img": "/images/img_e929e61c3e8b21a5.jpg",
+      "img": "images/img_e929e61c3e8b21a5.jpg",
       "link": "https://mp.weixin.qq.com/s/tEAknHbeCbWrXMil-E6eig",
       "id": 1785914930118
     },
     {
       "date": "2023年12月29日",
       "title": "四川省闽南商会祝您新年快乐！",
-      "img": "/images/img_41cedfc402b1c06c.jpg",
+      "img": "images/img_41cedfc402b1c06c.jpg",
       "link": "https://mp.weixin.qq.com/s/Si54VhYGjShreVA3G3aiLg",
       "id": 1785914968165
     },
     {
       "date": "2024年01月22日",
       "title": "商会资讯|四川省闽南商会第八届第三次会员代表大会暨第八届理监事会第五次全体会议、2024年“龙腾四海  共迎新春”联谊会成功举行",
-      "img": "/images/img_6c62129ab78bc9ef.jpg",
+      "img": "images/img_6c62129ab78bc9ef.jpg",
       "link": "https://mp.weixin.qq.com/s/K4AEzE7nFaVQ_m4UV4u56w",
       "id": 1785915007149
     },
     {
       "date": "2024年02月04日",
       "title": "商会资讯|四川省闽南商会作为涉侨商协会代表参加省总工会和省委统战部共同举办的2024年迎春茶话会",
-      "img": "/images/img_58500830a6f162de.jpg",
+      "img": "images/img_58500830a6f162de.jpg",
       "link": "https://mp.weixin.qq.com/s/26fvrd-C6mle8anJBXMk1Q",
       "id": 1785915078775
     },
     {
       "date": "2024年02月08日",
       "title": "新春佳节|四川省闽南商会祝大家龙年大吉  龙行龘龘  前程朤朤！",
-      "img": "/images/img_a47d4cc659d62742.jpg",
+      "img": "images/img_a47d4cc659d62742.jpg",
       "link": "https://mp.weixin.qq.com/s/aOPTYjEiuPV4tSsHwuqo3g",
       "id": 1785915239220
     },
     {
       "date": "2024年02月22日",
       "title": "商会资讯|四川省闽南商会参加“2024海内外闽商新春招商推介会”",
-      "img": "/images/img_e8e3c98df332251d.jpg",
+      "img": "images/img_e8e3c98df332251d.jpg",
       "link": "https://mp.weixin.qq.com/s/G5efEMSTyEAtTlHLohOTsA",
       "id": 1785915279628
     },
     {
       "date": "2024年02月23日",
       "title": "元宵佳节|我为泉州挂花灯祝朋友们元宵节快乐！",
-      "img": "/images/img_d2209ea99ef3fde2.jpg",
+      "img": "images/img_d2209ea99ef3fde2.jpg",
       "link": "https://mp.weixin.qq.com/s/Pv5zhUnmexHaJkoqbnfXZg",
       "id": 1785915322969
     },
     {
       "date": "2024年03月08日",
       "title": "https://mp.weixin.qq.com/s/c6BJEyiY1Y5dORZ5WAutBw",
-      "img": "/images/img_5eca01800243a7fb.jpg",
+      "img": "images/img_5eca01800243a7fb.jpg",
       "link": "https://mp.weixin.qq.com/s/c6BJEyiY1Y5dORZ5WAutBw",
       "id": 1785915417609
     },
     {
       "date": "2024年03月13日",
       "title": "商会动态|“龙抬头，好兆头”，四川省闽南商会开展“二月二开春活动”",
-      "img": "/images/img_44b51b645ee3d819.jpg",
+      "img": "images/img_44b51b645ee3d819.jpg",
       "link": "https://mp.weixin.qq.com/s/rg3YsginwTNeFfzsmNcFug",
       "id": 1785915482509
     },
     {
       "date": "2024年03月28日",
       "title": "请查收！四川省闽南商会《会员企业产品名录》",
-      "img": "/images/img_6a07375504b2f729.jpg",
+      "img": "images/img_6a07375504b2f729.jpg",
       "link": "https://mp.weixin.qq.com/s/i-l8olwS2P0Aj_FGMHtvmw",
       "id": 1785915543868
     },
     {
       "date": "2024年03月29日",
       "title": "商会资讯|四川省第九次归侨侨眷代表大会胜利闭幕，商会会长洪辉煌等四名代表参加会议！",
-      "img": "/images/img_ae56bbe0f1b0b23e.jpg",
+      "img": "images/img_ae56bbe0f1b0b23e.jpg",
       "link": "https://mp.weixin.qq.com/s/7VIV1uZzeoC_whCP2Vv7Jw",
       "id": 1785915648886
     },
     {
       "date": "2024年04月03日",
       "title": "企业走访|秘书处走访理事单位--四川佰御商贸有限公司、四川德易美工贸有限公司",
-      "img": "/images/img_faf65358f40aea59.jpg",
+      "img": "images/img_faf65358f40aea59.jpg",
       "link": "https://mp.weixin.qq.com/s/2Ta0PphPNji4pl6oggLyaA",
       "id": 1785915710677
     },
     {
       "date": "2024年04月16日",
       "title": "商会资讯|四川省闽南商会会长洪辉煌带队参观走访四川潮人海外联谊会会长企业--四川鑫电电缆有限公司",
-      "img": "/images/img_c0be9a25d401f175.jpg",
+      "img": "images/img_c0be9a25d401f175.jpg",
       "link": "https://mp.weixin.qq.com/s/YsWQr4zliK0V9I6JhMPlqw",
       "id": 1785915822867
     },
     {
       "date": "2024年04月17日",
       "title": "商会资讯|泉州市人民政府副市长姚飞一行莅临四川省闽南商会进行调研活动",
-      "img": "/images/img_75c0fb2feb15205d.jpg",
+      "img": "images/img_75c0fb2feb15205d.jpg",
       "link": "https://mp.weixin.qq.com/s/W9auB2MQF8iMr2ASQs6DhA",
       "id": 1785915863020
     },
     {
       "date": "2024年04月24日",
       "title": "商会动态|泉州市丰泽区区委常委、统战部部长黄泽鹏一行莅临四川省闽南商会关心指导",
-      "img": "/images/img_a1bc69feeb609a87.jpg",
+      "img": "images/img_a1bc69feeb609a87.jpg",
       "link": "https://mp.weixin.qq.com/s/oruUH7uHiNUcGWyKhW7pRg",
       "id": 1785915908540
     },
     {
       "date": "2024年04月26日",
       "title": "商会动态|著名菲侨企业家菲律宾洪培力率团到访四川省闽南商会",
-      "img": "/images/img_dac8124c6df45c19.jpg",
+      "img": "images/img_dac8124c6df45c19.jpg",
       "link": "https://mp.weixin.qq.com/s/O6Q-8cZ2h28nKGVlG6NxIw",
       "id": 1785916044841
     },
     {
       "date": "2024年04月30日",
       "title": "商会资讯|四川省闽南商业联合会与泉州市川渝商会缔结友好商会",
-      "img": "/images/img_17a259856f868d71.jpg",
+      "img": "images/img_17a259856f868d71.jpg",
       "link": "https://mp.weixin.qq.com/s/9OgdIXDfhgksIsj0wKmq_w",
       "id": 1785916101860
     },
     {
       "date": "2024年05月01日",
       "title": "五一 · 劳动节--致敬每一位平凡而伟大的劳动者",
-      "img": "/images/img_a869fb5755381fa7.jpg",
+      "img": "images/img_a869fb5755381fa7.jpg",
       "link": "https://mp.weixin.qq.com/s/rPRsD5pCNgDWjyJwE9UCwA",
       "id": 1785916145104
     },
     {
       "date": "2024年05月06日",
       "title": "商会资讯|会长洪辉煌向晋江市英林心公益慈善基金会捐赠善款200万元",
-      "img": "/images/img_d68eba5f692f1548.jpg",
+      "img": "images/img_d68eba5f692f1548.jpg",
       "link": "https://mp.weixin.qq.com/s/Qe-bynUSBoHGcGx6jIBEVA",
       "id": 1785916206250
     },
     {
       "date": "2024年05月15日",
       "title": "商会动态|泉州市政协考察调研团莅临四川省闽南商会开展调研活动",
-      "img": "/images/img_24fbe49669a458a7.jpg",
+      "img": "images/img_24fbe49669a458a7.jpg",
       "link": "https://mp.weixin.qq.com/s/5cbKYGq2pB0foAbSoktvlg",
       "id": 1785916277915
     },
     {
       "date": "2024年05月19日",
       "title": "商会动态|成都市商务局外贸处处长吴晓星一行莅临四川省闽南商会交流座谈",
-      "img": "/images/img_35a6b822c50ab006.jpg",
+      "img": "images/img_35a6b822c50ab006.jpg",
       "link": "https://mp.weixin.qq.com/s/yf-4wc119enyFUERjE2SIA",
       "id": 1785916292561
     },
     {
       "date": "2024年05月27日",
       "title": "四川省闽南商会党支部书记柳孙尧参加“四川省直统战系统单位党支部书记党纪学习教育培训班”",
-      "img": "/images/img_b79cd5b334de0e4d.jpg",
+      "img": "images/img_b79cd5b334de0e4d.jpg",
       "link": "https://mp.weixin.qq.com/s/AGBS6Eb4hB1OXKayLWVFjg",
       "id": 1785916653927
     },
     {
       "date": "2024年06月09日",
       "title": "商会动态|四川省闽南商会举办“4、5、6月轮值会暨端午节主题活动”",
-      "img": "/images/img_0070bf7014d57755.jpg",
+      "img": "images/img_0070bf7014d57755.jpg",
       "link": "https://mp.weixin.qq.com/s/htCoeRGlIFBgOGJNY9iZdg",
       "id": 1785917033219
     },
     {
       "date": "2024年06月12日",
       "title": "商会动态|四川省闽南商会召开第八届理事会第六次全体会议暨第八届监事会第六次会议",
-      "img": "/images/img_475b1deb6148c4c0.jpg",
+      "img": "images/img_475b1deb6148c4c0.jpg",
       "link": "https://mp.weixin.qq.com/s/DifAY9xYPY-sKO73cc-kQg",
       "id": 1785917171394
     },
     {
       "date": "2024年06月21日",
       "title": "商会动态|四川省闽南商会走进富士康科技集团参观学习",
-      "img": "/images/img_a04f3f6e3697afc8.jpg",
+      "img": "images/img_a04f3f6e3697afc8.jpg",
       "link": "https://mp.weixin.qq.com/s/EGMHSFB0KtIhZ4KfMfKsFw",
       "id": 1785917312049
     },
     {
       "date": "2024年06月28日",
       "title": "走访|四川省闽南商会秘书处走访理事单位--史岱文森专攻提分培训学校",
-      "img": "/images/img_6d679b7bf7923e00.jpg",
+      "img": "images/img_6d679b7bf7923e00.jpg",
       "link": "https://mp.weixin.qq.com/s/UFDtiwO1AIxeLXyPy7VAfg",
       "id": 1785918073418
     },
     {
       "date": "2024年07月01日",
       "title": "不忘初心  牢记使命！热烈庆祝中国共产党成立103周年",
-      "img": "/images/img_fab002e07d5668db.jpg",
+      "img": "images/img_fab002e07d5668db.jpg",
       "link": "https://mp.weixin.qq.com/s/GJ0Vq2qmNGeTQFpOj_nA4g",
       "id": 1785918120989
     },
     {
       "date": "2024年07月15日",
       "title": "商会动态|四川省闽南商会“2024企业家掼蛋邀请赛”顺利举办",
-      "img": "/images/img_087d318c394be5d3.jpg",
+      "img": "images/img_087d318c394be5d3.jpg",
       "link": "https://mp.weixin.qq.com/s/aDc8AttwXXER02Tt7Bm65A",
       "id": 1785918373925
     },
     {
       "date": "2024年07月27日",
       "title": "商会动态|四川省闽南商会走进正大集团眉山养殖基地参观交流",
-      "img": "/images/img_5a7359613d730ad9.jpg",
+      "img": "images/img_5a7359613d730ad9.jpg",
       "link": "https://mp.weixin.qq.com/s/QXLokQmLEQOsd2TTxmEAhA",
       "id": 1785918445015
     },
     {
       "date": "2024年08月20日",
       "title": "商会动态|2024年泉州市“家燕归巢”行动（成都）主题交流座谈会在四川闽南商会隆重举行",
-      "img": "/images/img_c8ec32c586dab5c8.jpg",
+      "img": "images/img_c8ec32c586dab5c8.jpg",
       "link": "https://mp.weixin.qq.com/s/XtXfiEKSsIlqeYgWOlZAfg",
       "id": 1785918478484
     },
     {
       "date": "2024年08月27日",
       "title": "商会动态|四川省闽南商会会长洪辉煌带队走进优秀企业参观学习",
-      "img": "/images/img_c9c21035b91858a7.jpg",
+      "img": "images/img_c9c21035b91858a7.jpg",
       "link": "https://mp.weixin.qq.com/s/nCW2eOy04X1VDWFN_GS0TQ",
       "id": 1785918729242
     },
     {
       "date": "2024年08月28日",
       "title": "商会动态|四川省闽南商会举办“7、8 月轮值主题日活动暨闽客潮商会掼牌联谊活动”",
-      "img": "/images/img_778bcc3d4acac9b0.jpg",
+      "img": "images/img_778bcc3d4acac9b0.jpg",
       "link": "https://mp.weixin.qq.com/s/pAkT9gM0VbHpCF3126mREg",
       "id": 1785918777194
     },
     {
       "date": "2024年09月17日",
       "title": "四川省闽南商会祝大家中秋节快乐！阖家幸福安康！",
-      "img": "/images/img_3cbca020259c3529.jpg",
+      "img": "images/img_3cbca020259c3529.jpg",
       "link": "https://mp.weixin.qq.com/s/bId4f01cHRC7jlxmGXwjtA",
       "id": 1785918883674
     },
     {
       "date": "2024年09月27日",
       "title": "【商会动态】四川省闽南商会成立28周年庆典活动成功举办",
-      "img": "/images/img_2edaa2788773b31d.jpg",
+      "img": "images/img_2edaa2788773b31d.jpg",
       "link": "https://mp.weixin.qq.com/s/cnyDjmYaxa1c6ROHQuwrWw",
       "id": 1785918908188
     },
     {
       "date": "2024年09月30日",
       "title": "盛世华诞  喜迎国庆|祝伟大的祖国母亲75岁生日快乐！四川省闽南商会祝大家节日快乐！",
-      "img": "/images/img_8e048a7825cad5f9.jpg",
+      "img": "images/img_8e048a7825cad5f9.jpg",
       "link": "https://mp.weixin.qq.com/s/nO6uTNnYIQm9zGfy3RvnVA",
       "id": 1785918966130
     },
     {
       "date": "2024年10月17日",
       "title": "商会动态|澳门福建三明联谊总会赴四川考察交流团到访四川省闽南商会交流座谈",
-      "img": "/images/img_2560b3c3d02ac2d1.jpg",
+      "img": "images/img_2560b3c3d02ac2d1.jpg",
       "link": "https://mp.weixin.qq.com/s/7GPlvoiLDbDQXr5jmB1fVg",
       "id": 1785919001807
     },
     {
       "date": "2024年10月30日",
       "title": "商会资讯| 厦门市委常委、统战部部长王雪敏一行莅临四川省闽南商会调研指导",
-      "img": "/images/img_58e549e04f1e0775.jpg",
+      "img": "images/img_58e549e04f1e0775.jpg",
       "link": "https://mp.weixin.qq.com/s/BshbxzSbVXROZvJ6SXPI1Q",
       "id": 1785919052403
     },
     {
       "date": "2024年11月04日",
       "title": "商会资讯|会长洪辉煌应邀参加厦门总商会成立120周年庆典活动",
-      "img": "/images/img_dd0defff6e223dd1.jpg",
+      "img": "images/img_dd0defff6e223dd1.jpg",
       "link": "https://mp.weixin.qq.com/s/z1c63R9bdss-7W1djAkFmQ",
       "id": 1785919285159
     },
     {
       "date": "2024年11月28日",
       "title": "商会动态|四川省闽南商会走进成都中建材光电材料有限公司参观学习",
-      "img": "/images/img_134c01d5d11800c4.jpg",
+      "img": "images/img_134c01d5d11800c4.jpg",
       "link": "https://mp.weixin.qq.com/s/Qw8GBUHDfSkQ3aIl0CH1nQ",
       "id": 1785919360957
     },
     {
       "date": "2024年11月29日",
       "title": "商会动态| “弘扬嘉庚精神 传承闽商文化”--四川省闽南商会纪念陈嘉庚先生诞辰 150 周年座谈会圆满举办",
-      "img": "/images/img_eae446fb5acb3610.jpg",
+      "img": "images/img_eae446fb5acb3610.jpg",
       "link": "https://mp.weixin.qq.com/s/gDvellCkByGc8QFUZySEGA",
       "id": 1785919400199
     },
     {
       "date": "2024年12月27日",
       "title": "商会动态|四川省闽南商会组织会员走进成都携恩科技有限公司学习交流",
-      "img": "/images/img_30f3e7a973ff3c22.jpg",
+      "img": "images/img_30f3e7a973ff3c22.jpg",
       "link": "https://mp.weixin.qq.com/s/_4nKw7dLca3SdaHwEFb-aw",
       "id": 1785919465225
     },
     {
       "date": "2024年12月31日",
       "title": "商会动态|四川省闽南商会召开第八届第四次会员代表大会暨第八届理（监）事会第七次全体会议、“2025迎新年·庆元旦”年会成功举办",
-      "img": "/images/img_69a00ad07f8c731d.jpg",
+      "img": "images/img_69a00ad07f8c731d.jpg",
       "link": "https://mp.weixin.qq.com/s/FyHdFXaXWVxvBoIvWnXXvg",
       "id": 1785919498532
     },
     {
       "date": "2025年01月01日",
       "title": "四川省闽南商会祝大家新年快乐！",
-      "img": "/images/img_2c0668f2688a41f4.jpg",
+      "img": "images/img_2c0668f2688a41f4.jpg",
       "link": "https://mp.weixin.qq.com/s/Y8wKSAcbFb1CiCnlS3lsdQ",
       "id": 1785919532995
     },
     {
       "date": "2025年01月06日",
       "title": "商会资讯|洪辉煌会长受邀出席泉州市政协十三届四次会议",
-      "img": "/images/img_a61099cf1e943a18.jpg",
+      "img": "images/img_a61099cf1e943a18.jpg",
       "link": "https://mp.weixin.qq.com/s/hBS09NFo6RV2ZmlhTCKMyg",
       "id": 1785920368708
     },
     {
       "date": "2025年01月09日",
       "title": "商会资讯|洪辉煌会长应邀参加“泉州市政协港澳委员、异地商会委员、特邀嘉宾座谈会”，为泉州发展“建言献策”",
-      "img": "/images/img_5caa2ad86b7aa8e5.jpg",
+      "img": "images/img_5caa2ad86b7aa8e5.jpg",
       "link": "https://mp.weixin.qq.com/s/OxGa-q7jamhMyNjyJR_J8w",
       "id": 1785920401737
     },
     {
       "date": "2025年01月20日",
       "title": "商会动态|四川省闽南商会召开“2025秘书处新年工作会议”",
-      "img": "/images/img_6dc038f6b0c62700.jpg",
+      "img": "images/img_6dc038f6b0c62700.jpg",
       "link": "https://mp.weixin.qq.com/s/pXiYt6x-BpiNTmfPyC8x0A",
       "id": 1785920452344
     },
     {
       "date": "2025年01月26日",
       "title": "灵蛇献瑞  共庆新春|四川省闽南商会祝您新春快乐！阖家幸福安康！",
-      "img": "/images/img_c6c0f82dc139e91e.jpg",
+      "img": "images/img_c6c0f82dc139e91e.jpg",
       "link": "https://mp.weixin.qq.com/s/gHAGRCdOWeLVBXZVRdyg8Q",
       "id": 1785920486887
     },
     {
       "date": "2025年02月11日",
       "title": "商会资讯|四川省闽南商会会长洪辉煌应邀参加泉州市工商联（总商会）十五届四次执委会并作交流发言",
-      "img": "/images/img_f91e41a08d9dc2fb.jpg",
+      "img": "images/img_f91e41a08d9dc2fb.jpg",
       "link": "https://mp.weixin.qq.com/s/xDNO9RiZlaIRAx3NTdHGYg",
       "id": 1785920564194
     },
     {
       "date": "2025年02月12日",
       "title": "元宵佳节喜团圆！四川省闽南商会祝您元宵节快乐！",
-      "img": "/images/img_ae2446e8a3b90b89.jpg",
+      "img": "images/img_ae2446e8a3b90b89.jpg",
       "link": "https://mp.weixin.qq.com/s/nEtoyEKmDJmbNjxZKF7eBg",
       "id": 1785920603871
     },
     {
       "date": "2025年03月07日",
       "title": "商会动态| “静享女性力量”--四川省闽南商会开展“三八国际妇女节”主题活动",
-      "img": "/images/img_decf9dcd5c60133c.jpg",
+      "img": "images/img_decf9dcd5c60133c.jpg",
       "link": "https://mp.weixin.qq.com/s/FsD71M9t5F5GMAhmKOdn4w",
       "id": 1785920640709
     },
     {
       "date": "2025年03月19日",
       "title": "商会动态|共话发展 传承文化——四川省闽南商会3月轮值交流会走进副会长单位（中泰幕墙装饰有限公司）",
-      "img": "/images/img_3e3c2e37fbacff48.jpg",
+      "img": "images/img_3e3c2e37fbacff48.jpg",
       "link": "https://mp.weixin.qq.com/s/32MdQnnQq8yS0sAs9BiVFQ",
       "id": 1785920681797
     },
     {
       "date": "2025年03月21日",
       "title": "商会喜讯|四川省闽南商会荣膺“2024年度优秀泉属异地商会”",
-      "img": "/images/img_a7aff851da9a3b3d.jpg",
+      "img": "images/img_a7aff851da9a3b3d.jpg",
       "link": "https://mp.weixin.qq.com/s/NomzloG9V9-zyqaJkX89Rg",
       "id": 1785920713775
     },
     {
       "date": "2025年03月24日",
       "title": "商会动态|宴享春意  策启新程--四川省闽南商会2025开春盛宴暨政策解读讲座活动成功举办",
-      "img": "/images/img_b3d0e7251271788b.jpg",
+      "img": "images/img_b3d0e7251271788b.jpg",
       "link": "https://mp.weixin.qq.com/s/MLwOSv5UGwKZRF68KpNtwA",
       "id": 1785920752166
     },
     {
       "date": "2025年03月26日",
       "title": "商会动态|石狮市委常委、统战部部长邱永丰一行莅临四川省闽南商会指导座谈",
-      "img": "/images/img_71fa72c5b8939525.jpg",
+      "img": "images/img_71fa72c5b8939525.jpg",
       "link": "https://mp.weixin.qq.com/s/3a9EnELHMmojEJCKVEYmRw",
       "id": 1785920779011
     },
     {
       "date": "2025年03月27日",
       "title": "商会动态|\"乡村考察探新机  齐心助力促振兴\"四川省闽南商会组织会员单位赴彭州市葛仙山镇官仓村考察",
-      "img": "/images/img_b4d5eb827683b426.jpg",
+      "img": "images/img_b4d5eb827683b426.jpg",
       "link": "https://mp.weixin.qq.com/s/gAtlwzCAgYctj_yXeq8N1g",
       "id": 1785920815627
     },
     {
       "date": "2025年04月11日",
       "title": "商会动态|四川省闽南商会组织走访食品行业会员单位  开展4月轮值交流活动",
-      "img": "/images/img_ad3b86072be4aa71.jpg",
+      "img": "images/img_ad3b86072be4aa71.jpg",
       "link": "https://mp.weixin.qq.com/s/v-sUbzMUV1fLBk0ADapozg",
       "id": 1785920855582
     },
     {
       "date": "2025年05月01日",
       "title": "\"五一\"劳动节,致敬劳动者|四川省闽南商会祝您节日快乐！",
-      "img": "/images/img_f9399541205f61d7.jpg",
+      "img": "images/img_f9399541205f61d7.jpg",
       "link": "https://mp.weixin.qq.com/s/GO3-1A2TQfXozaA28MY8Vg",
       "id": 1785920882901
     },
     {
       "date": "2025年05月16日",
       "title": "商会动态|“走访探心声·聚力共发展”--四川省闽南商会秘书处走访理事单位",
-      "img": "/images/img_d32299e2fb904a74.jpg",
+      "img": "images/img_d32299e2fb904a74.jpg",
       "link": "https://mp.weixin.qq.com/s/JMr9aibZc5X-alansLJIhg",
       "id": 1785920946596
     },
     {
       "date": "2025年05月29日",
       "title": "商会动态|四川省闽南商会走进国汽智端（成都）科技有限公司，解锁科技赋能新路径",
-      "img": "/images/img_362a9b78b57bf9d9.jpg",
+      "img": "images/img_362a9b78b57bf9d9.jpg",
       "link": "https://mp.weixin.qq.com/s/rHeXUemLkcefKRWI_--oVw",
       "id": 1785920978018
     },
     {
       "date": "2025年05月30日",
       "title": "传统节日|四川省闽南商会祝您端午安康！",
-      "img": "/images/img_c7b3e00d2854a02c.jpg",
+      "img": "images/img_c7b3e00d2854a02c.jpg",
       "link": "https://mp.weixin.qq.com/s/FI7sDNY5edK0hdhMdeHRIw",
       "id": 1785921011029
     },
     {
       "date": "2025年06月03日",
       "title": "商会动态|四川省闽南商会“商盟童行·共度端午”主题活动圆满落幕",
-      "img": "/images/img_21de3a0c07387105.jpg",
+      "img": "images/img_21de3a0c07387105.jpg",
       "link": "https://mp.weixin.qq.com/s/HfIgPudCEx873a55jDxg7A",
       "id": 1785921082390
     },
     {
       "date": "2025年06月20日",
       "title": "商会动态|四川省闽南商会“创业者早茶沙龙”首场活动圆满举行",
-      "img": "/images/img_8754fd65628005db.jpg",
+      "img": "images/img_8754fd65628005db.jpg",
       "link": "https://mp.weixin.qq.com/s/U-gDvcii_NWLnEU5WJG3cQ",
       "id": 1785921116984
     },
     {
       "date": "2025年06月23日",
       "title": "商会动态|四川省闽南商会开展6月轮值走访活动",
-      "img": "/images/img_c36772b54f8cee87.jpg",
+      "img": "images/img_c36772b54f8cee87.jpg",
       "link": "https://mp.weixin.qq.com/s/mJlg4-Pxcz9PsIdJSL8RJA",
       "id": 1785921164131
     },
     {
       "date": "2025年06月27日",
       "title": "商会动态|辽宁省锦州市招商考察团赴川交流莅临四川省闽南商会",
-      "img": "/images/img_6388288c19dcefd5.jpg",
+      "img": "images/img_6388288c19dcefd5.jpg",
       "link": "https://mp.weixin.qq.com/s/bGG3rHzJAkKGxBpASRFLHQ",
       "id": 1785921199629
     },
     {
       "date": "2025年06月29日",
       "title": "商会资讯|轮值会长吴安源率队参加“闽彭连心 创享新程”2025闽商彭州行活动",
-      "img": "/images/img_4769c6fe94b1765a.jpg",
+      "img": "images/img_4769c6fe94b1765a.jpg",
       "link": "https://mp.weixin.qq.com/s/tJY4-PWxes-QKM6hYJkSoQ",
       "id": 1785921250305
     },
     {
       "date": "2025年07月02日",
       "title": "庆“七一”忆初心，强党性启新程——四川省闽南商业联合会党支部开展专题座谈会",
-      "img": "/images/img_2066cc5f87870068.jpg",
+      "img": "images/img_2066cc5f87870068.jpg",
       "link": "https://mp.weixin.qq.com/s/PmMy9_eHn3ii-jc1Cv8dEw",
       "id": 1785921287033
     },
     {
       "date": "2025年07月10日",
       "title": "会资讯|会长洪辉煌应邀参加上海泉州商会第二届理监事会就职典礼暨2025年全国异地泉籍商会经验交流会",
-      "img": "/images/img_41c731f27052dbfa.jpg",
+      "img": "images/img_41c731f27052dbfa.jpg",
       "link": "https://mp.weixin.qq.com/s/_VK2Hmw90sD_HbcOF-DkdA",
       "id": 1785921319264
     },
     {
       "date": "2025年07月18日",
       "title": "商会动态|四川省闽南商会走访成都海舱鲜商贸：共探海参商机，共话养生新篇",
-      "img": "/images/img_4a600ccbba42d961.jpg",
+      "img": "images/img_4a600ccbba42d961.jpg",
       "link": "https://mp.weixin.qq.com/s/A34T0qsGMNUwrvssy0gFqw",
       "id": 1785921355792
     },
     {
       "date": "2025年07月28日",
       "title": "商会动态|共谋发展蓝图，同叙桑梓情深--四川省闽南商会第八届理事会第八次全体会议顺利召开",
-      "img": "/images/img_cc159d78334cd932.jpg",
+      "img": "images/img_cc159d78334cd932.jpg",
       "link": "https://mp.weixin.qq.com/s/c2KgKkPH5gHxbqBGWF2jbA",
       "id": 1785921417356
     },
     {
       "date": "2025年07月29日",
       "title": "商会动态|石狮市政府招商考察团莅临四川省闽南商会交流座谈：共谋海洋生物医药与低空经济新机遇",
-      "img": "/images/img_eed489b0b35f1679.jpg",
+      "img": "images/img_eed489b0b35f1679.jpg",
       "link": "https://mp.weixin.qq.com/s/x_K0rM2riWSBb9gZXJX8Vg",
       "id": 1785921452255
     },
     {
       "date": "2025年07月30日",
       "title": "商会资讯|回归创业：走遍天涯  根在泉州--洪辉煌",
-      "img": "/images/img_7a01794448d4020f.jpg",
+      "img": "images/img_7a01794448d4020f.jpg",
       "link": "https://mp.weixin.qq.com/s/Pi3pu_cKQSO5dE53SCITxg",
       "id": 1785921493971
     },
     {
       "date": "2025年08月14日",
       "title": "商会动态|追寻红色记忆，锤炼党性修养——四川省闽南商会党支部结束湖南红色教育基地主题学习",
-      "img": "/images/img_dd23d78e3ac7c288.jpg",
+      "img": "images/img_dd23d78e3ac7c288.jpg",
       "link": "https://mp.weixin.qq.com/s/VhXj8VJ5pZj1AHHU_r2dXw",
       "id": 1785921537634
     },
     {
       "date": "2025年08月15日",
       "title": "商会动态|党建引领聚合力·闽商情暖越西——四川省闽南商会公益助学行暨文化传承之旅圆满落幕",
-      "img": "/images/img_a5d74524a9305e56.jpg",
+      "img": "images/img_a5d74524a9305e56.jpg",
       "link": "https://mp.weixin.qq.com/s/D2XDIuB9oHrlEGQU5X9rzg",
       "id": 1785921579778
     },
     {
       "date": "2025年08月20日",
       "title": "商会资讯|四川省闽南商会会员企业应邀参加“‘金税四期’强监管下民营企业税务合规策略”交流沙龙",
-      "img": "/images/img_d89a0468754e1198.jpg",
+      "img": "images/img_d89a0468754e1198.jpg",
       "link": "https://mp.weixin.qq.com/s/H3rlj4mJyGd8NArLG6sIpw",
       "id": 1785921616093
     },
     {
       "date": "2025年08月25日",
       "title": "商会动态|厦门工商联考察团莅临四川省闽南商会座谈交流",
-      "img": "/images/img_8fd4d54146a91a39.jpg",
+      "img": "images/img_8fd4d54146a91a39.jpg",
       "link": "https://mp.weixin.qq.com/s/IR_Ofzw3OglSvuUrYmJORQ",
       "id": 1785921668290
     },
     {
       "date": "2025年09月03日",
       "title": "商会资讯|四川省闽南商会企业家代表随厦门考察团赴西藏开展“民营企业进边疆”行动",
-      "img": "/images/img_37019a07b2a05b31.jpg",
+      "img": "images/img_37019a07b2a05b31.jpg",
       "link": "https://mp.weixin.qq.com/s/p3mbnTiRQd2BZ549RJgKCw",
       "id": 1785921697966
     },
     {
       "date": "2025年09月17日",
       "title": "商会动态|泉州市政协考察团赴四川省闽南商会开展交流座谈  共话川闽合作新机遇",
-      "img": "/images/img_34199b6e66132697.jpg",
+      "img": "images/img_34199b6e66132697.jpg",
       "link": "https://mp.weixin.qq.com/s/2RKorc1lAHry-rn7i-fwdg",
       "id": 1785921726977
     },
     {
       "date": "2025年09月24日",
       "title": "商会资讯|四川省闽南商会应邀参加杭州泉州商会换届盛典，并参与“2025年全国异地泉籍商会秘书长培训交流会”",
-      "img": "/images/img_476ce70504b58834.jpg",
+      "img": "images/img_476ce70504b58834.jpg",
       "link": "https://mp.weixin.qq.com/s/SVegeAIwtzWaUcC4wVRRqw",
       "id": 1785921788755
     },
     {
       "date": "2025年09月26日",
       "title": "商会动态|\"闽商庆国兴·月圆话乡情\"——四川省闽南商会成立29周年庆典圆满举行",
-      "img": "/images/img_219ff1ac19ab7b3e.jpg",
+      "img": "images/img_219ff1ac19ab7b3e.jpg",
       "link": "https://mp.weixin.qq.com/s/qXVFzwfWuXC3PO5APDkwgQ",
       "id": 1785921816645
     },
     {
       "date": "2025年09月30日",
       "title": "节日祝福|国庆中秋齐欢庆，盛世华诞月更圆--四川省闽南商会祝您节日快乐！祝愿祖国繁荣昌盛！",
-      "img": "/images/img_7a01794448d4020f.jpg",
+      "img": "images/img_7a01794448d4020f.jpg",
       "link": "https://mp.weixin.qq.com/s/lyHnlAjvj3r5uAhS9KDe3g",
       "id": 1785921858050
     },
     {
       "date": "2025年10月14日",
       "title": "商会动态|共话教育新篇 晋江市教育工作者赴成都学习交流团莅临四川省闽南商会座谈交流",
-      "img": "/images/img_cc4469acffa12e55.jpg",
+      "img": "images/img_cc4469acffa12e55.jpg",
       "link": "https://mp.weixin.qq.com/s/hmqM1L8TA0IZOoIA6NUQgA",
       "id": 1785921902411
     },
     {
       "date": "2025年10月15日",
       "title": "商会资讯|四川省闽南商会应邀参加匈牙利投资贸易促进会代表团与四川省侨联、四川省侨商联合会座谈会",
-      "img": "/images/img_d8f6ce000e060c03.jpg",
+      "img": "images/img_d8f6ce000e060c03.jpg",
       "link": "https://mp.weixin.qq.com/s/yVGl7uFkhTtJMYVDpDx-FQ",
       "id": 1785921940426
     },
     {
       "date": "2025年11月05日",
       "title": "商会资讯|四川省闽南商会代表团赴澳出席第十八届世界华商大会：共筑华商命运共同体，共绘全球化新蓝图",
-      "img": "/images/img_1f3375a8bf34c342.jpg",
+      "img": "images/img_1f3375a8bf34c342.jpg",
       "link": "https://mp.weixin.qq.com/s/OL388u3U5s618MLQNO-48A",
       "id": 1785921973669
     },
     {
       "date": "2025年11月06日",
       "title": "商会资讯|四川省闽南商会代表团赴渝，共襄全球渝商盛会",
-      "img": "/images/img_dabc20d99ccb995d.jpg",
+      "img": "images/img_dabc20d99ccb995d.jpg",
       "link": "https://mp.weixin.qq.com/s/G2dzLJed3mDdA-er4dn1sg",
       "id": 1785922019637
     },
     {
       "date": "2025年11月13日",
       "title": "商会动态|“交流互鉴，携手共进”四川省闽南商会走进四川卡行通物贸集团学习交流",
-      "img": "/images/img_cb0009815f140f13.jpg",
+      "img": "images/img_cb0009815f140f13.jpg",
       "link": "https://mp.weixin.qq.com/s/8RP6EbEZcX-2rUbP1s-Khw",
       "id": 1785922053164
     },
     {
       "date": "2025年11月18日",
       "title": "商会资讯|山海结缘，巴蜀聚力！四川省闽南商会受邀见证福建农林大学四川校友会成立盛典",
-      "img": "/images/img_eb6ed631e6583f91.jpg",
+      "img": "images/img_eb6ed631e6583f91.jpg",
       "link": "https://mp.weixin.qq.com/s/8-oY0Py4lARCAMg4XgPGhA",
       "id": 1785922095783
     },
     {
       "date": "2025年11月21日",
       "title": "商会动态|厦门市同安区人大常委会党组成员、副主任李永谓率队一行莅临四川省闽南商会考察指导",
-      "img": "/images/img_fd9c8c67d1e5e4b7.jpg",
+      "img": "images/img_fd9c8c67d1e5e4b7.jpg",
       "link": "https://mp.weixin.qq.com/s/Qo-suK8x-ISS3f61M2XfPg",
       "id": 1785922129168
     },
     {
       "date": "2025年12月01日",
       "title": "商会资讯|四川省闽南商会骨干参加海外川籍社团国情研修活动",
-      "img": "/images/img_0100e1673d0df7df.jpg",
+      "img": "images/img_0100e1673d0df7df.jpg",
       "link": "https://mp.weixin.qq.com/s/cracIsOxaSqdq9zInFkzww",
       "id": 1785922162893
     },
     {
       "date": "2025年12月20日",
       "title": "商会资讯|四川省闽南商会应邀参加“2025四川南向开放（泉州）国际合作暨‘侨助千企万品出海’对接会”",
-      "img": "/images/img_b8ee239c663e1ff7.jpg",
+      "img": "images/img_b8ee239c663e1ff7.jpg",
       "link": "https://mp.weixin.qq.com/s/HoHmagDPR8haA5cpfUyxrw",
       "id": 1785922193797
     },
     {
       "date": "2025年12月21日",
       "title": "商会资讯|四川省侨联主席杨东率队莅临四川省闽南商会会长洪辉煌企业（富贵辉煌科技集团）调研指导",
-      "img": "/images/img_a87e74430ac76b82.jpg",
+      "img": "images/img_a87e74430ac76b82.jpg",
       "link": "https://mp.weixin.qq.com/s/6h1Rb1U1lTnmRC4pQxljiA",
       "id": 1785922223382
     },
     {
       "date": "2026年01月01日",
       "title": "节日祝福|四川省闽南商会洪辉煌会长 2026 新年贺词",
-      "img": "/images/img_09972febafcfc618.jpg",
+      "img": "images/img_09972febafcfc618.jpg",
       "link": "https://mp.weixin.qq.com/s/OM7srwbI6NQu3hA3qNC-Pg",
       "id": 1785922275583
     },
     {
       "date": "2026年01月16日",
       "title": "商会资讯|诗韵墨香映蓉城 闽商雅士展风华——洪君默荣誉会长《诗书画印衔远庐》新书发布会圆满举行",
-      "img": "/images/img_0e64b7cb8e985cd2.jpg",
+      "img": "images/img_0e64b7cb8e985cd2.jpg",
       "link": "https://mp.weixin.qq.com/s/Tu6AxeH4YcEIVsMY2jaVJg",
       "id": 1785922319045
     },
     {
       "date": "2026年01月27日",
       "title": "商会动态|政企同心聚合力，闽商奋进谱新篇——四川省侨办调研组莅临四川省闽南商会企业调研指导",
-      "img": "/images/img_363e65f9f220d953.jpg",
+      "img": "images/img_363e65f9f220d953.jpg",
       "link": "https://mp.weixin.qq.com/s/jP2xsnyAl1KwtZY6swA--Q",
       "id": 1785922369018
     },
     {
       "date": "2026年01月30日",
       "title": "商会动态|四川省闽南商会第八届第五次会员代表大会暨2026年新春团拜会圆满举行",
-      "img": "/images/img_08f6914212eb1d89.jpg",
+      "img": "images/img_08f6914212eb1d89.jpg",
       "link": "https://mp.weixin.qq.com/s/YOwHw5seEpgYVPDmTZYlxg",
       "id": 1785922417507
     },
     {
       "date": "2026年02月06日",
       "title": "商会动态|四川省委统战部领导莅临四川省闽南商会调研指导   共绘党建引领高质量发展新蓝图",
-      "img": "/images/img_e2a5eb4b993b144d.jpg",
+      "img": "images/img_e2a5eb4b993b144d.jpg",
       "link": "https://mp.weixin.qq.com/s/xe28_CJ5KCtJC3rGowTRtQ",
       "id": 1785922448085
     },
     {
       "date": "2026年02月07日",
       "title": "商会资讯|青春归巢叙乡情 刺桐新章共书写——四川省闽南商会青年代表返乡参与全国泉籍青年探泉州暨青年文旅推荐官聘任活动",
-      "img": "/images/img_091e7ac7634c0056.jpg",
+      "img": "images/img_091e7ac7634c0056.jpg",
       "link": "https://mp.weixin.qq.com/s/SIL7oR1msVnG_DUbgkUfuQ",
       "id": 1785922517446
     },
     {
       "date": "2026年02月15日",
       "title": "新春祝福|四川省闽南商会恭祝大家新春快乐！",
-      "img": "/images/img_58b2c4ec84cb557b.jpg",
+      "img": "images/img_58b2c4ec84cb557b.jpg",
       "link": "https://mp.weixin.qq.com/s/p51Chp5UFWPZRVZt22YOxg",
       "id": 1785922556642
     },
     {
       "date": "2026年02月27日",
       "title": "商会资讯|四川省闽南商会高级顾问洪清宜、会长洪辉煌应邀出席“2026年泉州市民营经济发展大会”",
-      "img": "/images/img_2be7f015063fb08e.jpg",
+      "img": "images/img_2be7f015063fb08e.jpg",
       "link": "https://mp.weixin.qq.com/s/Vd-BdqEKobC6ToTmO9f3QQ",
       "id": 1785922712175
     },
     {
       "date": "2026年03月02日",
       "title": "商会资讯|洪辉煌会长出席“2026年泉属商会新春恳谈会”  共襄新春盛举，携手全国泉商共绘家乡发展新蓝图",
-      "img": "/images/img_df6bfc4ea71d8319.jpg",
+      "img": "images/img_df6bfc4ea71d8319.jpg",
       "link": "https://mp.weixin.qq.com/s/magf00NodDvoj3vbCjA33A",
       "id": 1785922757252
     },
     {
       "date": "2026年03月03日",
       "title": "节日祝福|四川省闽南商会祝大家元宵喜乐，万事圆满！",
-      "img": "/images/img_159f796a4a5498b0.jpg",
+      "img": "images/img_159f796a4a5498b0.jpg",
       "link": "https://mp.weixin.qq.com/s/nVvA3tMqtysZxTsEzX6ivg",
       "id": 1785922789398
     },
     {
       "date": "2026年03月08日",
       "title": "商会动态|四川省闽南商会献礼“三八”节，致敬“她力量”！",
-      "img": "/images/img_8d940476598d9fb4.jpg",
+      "img": "images/img_8d940476598d9fb4.jpg",
       "link": "https://mp.weixin.qq.com/s/2hEyk76x2okx_bZ--ifTOw",
       "id": 1785922851254
     },
     {
       "date": "2026年03月28日",
       "title": "商会资讯|情系资阳，共筑新篇——四川省闽南商会会长洪辉煌应邀参加“2026 年港澳台侨人士资阳行”活动",
-      "img": "/images/img_001efb16269b23b1.jpg",
+      "img": "images/img_001efb16269b23b1.jpg",
       "link": "https://mp.weixin.qq.com/s/1je6NnqzaWQY5Acrb6QHfw",
       "id": 1785922893888
     },
     {
       "date": "2026年03月30日",
       "title": "商会动态|四川省闽南商会第八届理事会第十八次常务理事会会议暨“春日序章·共筑新篇”主题活动圆满举行",
-      "img": "/images/img_c2128bfa6fd41086.jpg",
+      "img": "images/img_c2128bfa6fd41086.jpg",
       "link": "https://mp.weixin.qq.com/s/zjDoOpf5VGZ1KOvAWjx8BQ",
       "id": 1785922932470
     },
     {
       "date": "2026年04月30日",
       "title": "五一劳动节|以劳为美，以勤筑梦，致敬劳动者！",
-      "img": "/images/img_78ae92da2d039ae2.jpg",
+      "img": "images/img_78ae92da2d039ae2.jpg",
       "link": "https://mp.weixin.qq.com/s/-b82ABjAYj0rVcfU7l_MNg",
       "id": 1785922969943
     },
     {
       "date": "2026年06月10日",
       "title": "商会资讯|深学晋江经验，勇担泉商使命！会长洪辉煌、党支部书记柳孙尧应邀参加泉州市委党校异地泉籍商会“晋江经验”专题培训班",
-      "img": "/images/img_44807dc5e65068c6.jpg",
+      "img": "images/img_44807dc5e65068c6.jpg",
       "link": "https://mp.weixin.qq.com/s/hmhamGMwuVWwbvGWo4-NpA",
       "id": 1785923007765
     },
     {
       "date": "2026年06月15日",
       "title": "商会动态|树立正确政绩观 凝聚奋进新力量——四川省闽南商会党支部组织召开\"树立和践行正确政绩观\"专题学习座谈会",
-      "img": "/images/img_498c09f59c89562d.jpg",
+      "img": "images/img_498c09f59c89562d.jpg",
       "link": "https://mp.weixin.qq.com/s/OBLhy5i1FAUzIpnl7pJmig",
       "id": 1785923037324
     },
     {
       "date": "2026年06月15日",
       "title": "商会动态 | 泉州非遗美食音乐节・四川省闽南商会2026 年端午轮值交流活动圆满结束",
-      "img": "/images/img_5ad43f4b0f1a4bf6.jpg",
+      "img": "images/img_5ad43f4b0f1a4bf6.jpg",
       "link": "https://mp.weixin.qq.com/s/Z4lV_c655wxREf-ChDGulw",
       "id": 1785923072445
     },
     {
       "date": "2026年06月15日",
       "title": "商会动态|凝心聚力启新程，砥砺深耕续华章--四川省闽南商会第八届理事会第十次全体会议暨监事会第十次会议圆满召开",
-      "img": "/images/img_c8874b689260d488.jpg",
+      "img": "images/img_c8874b689260d488.jpg",
       "link": "https://mp.weixin.qq.com/s/1J_fPh8NDEJ8324HGRnLYw",
       "id": 1785923101078
     },
     {
       "date": "2026年06月19日",
       "title": "节日祝福|一年一端午，一岁一安康    四川省闽南商会祝大家平安顺遂、“粽”享美好！",
-      "img": "/images/img_8079fbd8ae38b93a.jpg",
+      "img": "images/img_8079fbd8ae38b93a.jpg",
       "link": "https://mp.weixin.qq.com/s/nyVxIL9yXx0eD5cxMbJmhg",
       "id": 1785923133285
     },
     {
       "date": "2026年07月01日",
       "title": "商会动态|赓续百年红色血脉 党建引领商会前行--商会党支部召开庆祝中国共产党成立105 周年座谈会",
-      "img": "/images/img_562e47422ef97f7b.jpg",
+      "img": "images/img_562e47422ef97f7b.jpg",
       "link": "https://mp.weixin.qq.com/s/jgnpXWe6j1p88KSPtMo7Sw",
       "id": 1785923222738
     },
     {
       "date": "2026年07月03日",
       "title": "商会动态|精准考评赋能 聚力筑巢引才--泉州市异地“人才之家”考评组莅临四川省闽南商会开展实地考评工作",
-      "img": "/images/img_33bfcc9cee8e5dc5.jpg",
+      "img": "images/img_33bfcc9cee8e5dc5.jpg",
       "link": "https://mp.weixin.qq.com/s/8uw6Z8TBJ5ZzGFXO91q5Zg",
       "id": 1785923273172
     }
@@ -3845,13 +3845,13 @@ window.__CMS_DATA__ = {
     "icp": "【待补充ICP备案号】",
     "copyright": "Copyright © 四川省闽南商会 All Rights Reserved",
     "headerLogo": "",
-    "qrcode": "/images/img_93519e003e86edb7.jpg"
+    "qrcode": "images/img_93519e003e86edb7.jpg"
   },
   "members": [
     {
       "name": "洪辉煌",
       "title": "会长",
-      "img": "/images/img_320916cd02ec9f86.jpg",
+      "img": "images/img_320916cd02ec9f86.jpg",
       "link": "#",
       "companyTitle": "富贵辉煌科技集团董事长\n香港HK国际集团董事长 \n福建省高科技商会执行会长 \n福建省服饰行业协会副会长 \n泉州市工商联执行委员",
       "intro": "香港HK 国际集团服饰有限公司始创于2009年8月，总部位于有着东方 明珠美誉的中国 · 香港，是“HK·SAMBRA”     商标【注册地：中国香港； 商标权证号：8524131】全球唯一合法的使用权人，也是一家集服装设计开 发、生产制造、市场营销于一体的品牌零售型服饰企业，HK品牌男装的运 营中心位于中国广东省广州市，销售网络遍及广东、广西、海南、湖南、湖 北、安徽、四川、云南、贵州、江西、福建等省区。\n凭借10多年办厂叠加的专业功底，17年为国内著名品牌贴牌代工的观 察培育，18年国内著名品牌全国市场运营成功的实操阅历，以及多年多元投 资的深厚积淀，集团创始人洪辉煌先生始终秉持“责任、诚信、利他、创 新”的经营理念，筑牢“振兴民族经济、弘扬中华文化”的创业初心，经过 30多年的顽强打拼，香港HK国际集团如今已发展成为一家以实业经营为基 核、以塑品创牌为目标、以线上线下融合为佐翼，以融创投资横贯全局的多 元化、科技化、金融化、集团化企业。经营范围覆盖服装服饰、食品饮料、 酒业、文创、电商、房地产、科技、投资等领域。\n企业远景\n打造令全世界骄傲的国际时尚高性价比民族品牌!\n缔造全球时尚科技价值链融创合作平台!\n企业使命\n给全世界消费者提供国际时尚高性价比商品!\n成就更多合作伙伴，成就更多员工，引领所有事业参与者由富贵走向 辉煌!\n"
@@ -3859,7 +3859,7 @@ window.__CMS_DATA__ = {
     {
       "name": "洪振原",
       "title": "执行会长",
-      "img": "/images/img_e3383355af3a471c.jpg",
+      "img": "images/img_e3383355af3a471c.jpg",
       "link": "#",
       "companyTitle": "冠城集团执行董事\n",
       "intro": "冠城集团于1992年从香港进入内地投资发展，系首批参与西部大开发的侨资企业。现已发 展成集教育产业、地产开发、物业管理、金融投资、生态农业为一体的多元化集团企业。\n集团秉持“诚信为本、惠及社会”的企业宗旨，坚持“用专注成就价值、用专业铸造品质” 的经营理念，奉行“人品优先、能力为重、团队为王、创变共赢”的人才理念，以“聚势赋能、  创变未来”的核心价值观来凝聚全体冠城人，形成强大的创造力与生命力。\n集团历经27载商海拼搏，始终在探索中砥砺前行，产业发展多元化，经营效益节节攀升， 享有较高的社会知名度。地产开发面积达百万平方米，总部物业冠城广场是成都最早的地标性甲 级写字楼之一。先后荣获“优秀外商投资企业侨界企业先进单位”“贡献突出民营企业年度纳税 大户”“首届成都市最具竞争力物业管理企业”“首届金芙蓉最具影响力企业”等多项荣誉，连 续三届被国侨办评为“全国百家明星侨资企业”。\n集团于2003年投资兴办教育，先后创办了成都七中实验学校、成都启文幼儿园、眉山冠城七 中实验学校、核桃书院、德阳城市轨道交通职业学院和成都蓝港外国语小学，形成了以K12教育 为中心，辐射高等教育、教育培训等完善的教育体系，铸就了享誉巴蜀的“冠城教育”品牌，包 括成熟的办学体系及教育模式、完善的管理运行机制、优秀的教育管理及名师团队，具有优质教 育的再生能力。\n冠城集团在教育产业优势发展的基础上，以创新驱动为核心，以品质取胜为生命，倾力构筑  人才高地，强势打造核心竞争力，不断优化布局与整合资源，培育发展新动能，构筑“教育+” 价值链，发展教育综合体，打造教育生态圈，形成以文化教育为先导，多支柱、复合型，具有核  心优势的集团化企业。"
@@ -3867,169 +3867,169 @@ window.__CMS_DATA__ = {
     {
       "name": "洪加作",
       "title": "常务副会长",
-      "img": "/images/img_d64a8a5b99efc3db.jpg",
+      "img": "images/img_d64a8a5b99efc3db.jpg",
       "link": "#"
     },
     {
       "name": "洪俊雄",
       "title": "常务副会长",
-      "img": "/images/img_d2325b0d66ac1477.jpg",
+      "img": "images/img_d2325b0d66ac1477.jpg",
       "link": "#"
     },
     {
       "name": "李金杯",
       "title": "常务副会长",
-      "img": "/images/img_2afeb6b9a6fc147e.jpg",
+      "img": "images/img_2afeb6b9a6fc147e.jpg",
       "link": "#"
     },
     {
       "name": "杨帆",
       "title": "常务副会长",
-      "img": "/images/img_bbf9d74b83b7ae92.jpg",
+      "img": "images/img_bbf9d74b83b7ae92.jpg",
       "link": "#"
     },
     {
       "name": "林明照",
       "title": "副会长",
-      "img": "/images/img_a0860ac81fef6881.jpg",
+      "img": "images/img_a0860ac81fef6881.jpg",
       "link": "#"
     },
     {
       "name": "吴镇勇",
       "title": "副会长",
-      "img": "/images/img_69bc1f07a1e29e27.jpg",
+      "img": "images/img_69bc1f07a1e29e27.jpg",
       "link": "#"
     },
     {
       "name": "苏天津",
       "title": "副会长",
-      "img": "/images/img_c444dab0c50ba268.jpg",
+      "img": "images/img_c444dab0c50ba268.jpg",
       "link": "#"
     },
     {
       "name": "高国顺",
       "title": "副会长",
-      "img": "/images/img_9d883d22714927cd.jpg",
+      "img": "images/img_9d883d22714927cd.jpg",
       "link": "#"
     },
     {
       "name": "杨家福",
       "title": "副会长",
-      "img": "/images/img_0792f4680bd99859.jpg",
+      "img": "images/img_0792f4680bd99859.jpg",
       "link": "#"
     },
     {
       "name": "黄德胜",
       "title": "副会长",
-      "img": "/images/img_e2efb572647d1a75.jpg",
+      "img": "images/img_e2efb572647d1a75.jpg",
       "link": "#"
     },
     {
       "name": "洪马建",
       "title": "副会长",
-      "img": "/images/img_ea415db972d021dc.jpg",
+      "img": "images/img_ea415db972d021dc.jpg",
       "link": "#"
     },
     {
       "name": "洪维协",
       "title": "副会长",
-      "img": "/images/img_f2321ec71973c536.jpg",
+      "img": "images/img_f2321ec71973c536.jpg",
       "link": "#"
     },
     {
       "name": "梁晓强",
       "title": "副会长",
-      "img": "/images/img_db4bf1a183aeef9a.jpg",
+      "img": "images/img_db4bf1a183aeef9a.jpg",
       "link": "#"
     },
     {
       "name": "许连接",
       "title": "副会长",
-      "img": "/images/img_dbe3afbe3beb2341.jpg",
+      "img": "images/img_dbe3afbe3beb2341.jpg",
       "link": "#"
     },
     {
       "name": "陈德恩",
       "title": "秘书长",
-      "img": "/images/img_ec7645a60418b3a0.jpg",
+      "img": "images/img_ec7645a60418b3a0.jpg",
       "link": "#"
     },
     {
       "name": "张舒馨",
       "title": "执行秘书长",
-      "img": "/images/img_e6b4f30220c22e44.jpg",
+      "img": "images/img_e6b4f30220c22e44.jpg",
       "link": "#"
     },
     {
       "name": "周宏伟",
       "title": "副秘书长",
-      "img": "/images/img_8c96fb42a95b2dc6.jpg",
+      "img": "images/img_8c96fb42a95b2dc6.jpg",
       "link": "#"
     },
     {
       "name": "肖延波",
       "title": "副秘书长",
-      "img": "/images/img_474e5c72dead884d.jpg",
+      "img": "images/img_474e5c72dead884d.jpg",
       "link": "#"
     },
     {
       "name": "沈育莲",
       "title": "副秘书长",
-      "img": "/images/img_85b37ce5d3fecf89.jpg",
+      "img": "images/img_85b37ce5d3fecf89.jpg",
       "link": "#"
     },
     {
       "name": "洪连套",
       "title": "副秘书长兼办公室主任",
-      "img": "/images/img_c7c97b5e5e596639.jpg",
+      "img": "images/img_c7c97b5e5e596639.jpg",
       "link": "#"
     },
     {
       "name": "柳孙尧",
       "title": "党支部书记",
-      "img": "/images/img_93d7fcb279adad31.jpg",
+      "img": "images/img_93d7fcb279adad31.jpg",
       "link": "#"
     },
     {
       "name": "李清选",
       "title": "监事长",
-      "img": "/images/img_74f5d86f5a580454.jpg",
+      "img": "images/img_74f5d86f5a580454.jpg",
       "link": "#"
     },
     {
       "name": "许劲松",
       "title": "副监事长",
-      "img": "/images/img_7b930ce331b23c6e.jpg",
+      "img": "images/img_7b930ce331b23c6e.jpg",
       "link": "#"
     },
     {
       "name": "陈清湘",
       "title": "副监事长",
-      "img": "/images/img_14f7bb059d984837.jpg",
+      "img": "images/img_14f7bb059d984837.jpg",
       "link": "#"
     },
     {
       "name": "吴志贤",
       "title": "副监事长",
-      "img": "/images/img_509429ee1060de71.jpg",
+      "img": "images/img_509429ee1060de71.jpg",
       "link": "#"
     },
     {
       "name": "王经博",
       "title": "副监事长",
-      "img": "/images/img_958dc590641f48a3.jpg",
+      "img": "images/img_958dc590641f48a3.jpg",
       "link": "#"
     },
     {
       "name": "柯孙厚",
       "title": "副监事长",
-      "img": "/images/img_be124da9390c68a7.jpg",
+      "img": "images/img_be124da9390c68a7.jpg",
       "link": "#"
     },
     {
       "name": "邱玲搓",
       "title": "副监事长",
-      "img": "/images/img_e700a8c52998c3c2.jpg",
+      "img": "images/img_e700a8c52998c3c2.jpg",
       "link": "#"
     }
   ]
