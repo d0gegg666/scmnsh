@@ -243,7 +243,7 @@ var allNewsForBanner=(data.news||[]).concat(data.biznews||[]);
 var toNum=function(dt){if(!dt)return 0;var s=dt.replace(/[年月]/g,'-').replace(/[日]/g,'');var p=s.split('-');return parseInt(p[0])*10000+parseInt(p[1])*100+parseInt(p[2]);};
 allNewsForBanner.sort(function(a,b){return toNum(b.date)-toNum(a.date);});
 var bannerSlides=[];
-var newsWithImg=allNewsForBanner.filter(function(n){return n.img&&(n.img.startsWith('data:')||n.img.startsWith('http'));});
+var newsWithImg=allNewsForBanner.filter(function(n){return n.img&&(n.img.startsWith('data:')||n.img.startsWith('http')||n.img.startsWith('/'));});
 if(newsWithImg.length>0){
 bannerSlides=newsWithImg.slice(0,3).map(function(n){return{img:n.img,title:n.title||'',subtitle:n.date||'',link:n.link||'news-detail.html?id='+n.id};});
 }else if(data.banner&&data.banner.length>0){
